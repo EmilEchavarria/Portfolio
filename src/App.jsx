@@ -13,19 +13,25 @@ export default App
 // src/App.jsx
 
 */
-import { RetroGrid } from "./components/ui/retro-grid"; // Asegúrate de importar RetroGrid
-import { Home } from './pages/home/home'
-import Header from "./components/layout/header/Header";
+import { RetroGrid } from './components/ui/retro-grid'; 
+import { Home } from './pages/home/home';
 
 function App() {
   return (
-    <div className="relative min-h-screen">
-      <RetroGrid className="retro-grid-background" /> 
-      <Home />
-      <Header/>
-      {/* Otros componentes */}
+    <div className="relative h-screen overflow-hidden">
+      {/* Fondo Retro */}
+      <RetroGrid className="absolute inset-0 z-0 retro-grid-background" />
+
+      {/* Contenido de Home sobre el fondo */}
+      <div className="absolute inset-0 z-10 flex flex-col">
+        {/* Dock como header fijo */}
+        <div className="fixed top-0 left-0 w-full z-20">
+          <Home />
+        </div>
+      </div>
     </div>
   );
 }
+
 
 export default App;

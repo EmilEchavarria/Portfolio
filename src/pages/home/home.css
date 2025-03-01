@@ -1,0 +1,72 @@
+main h1 {
+    max-width: 540px;
+    font-family: 'Roboto', sans-serif;
+    color:white;
+    text-align:center;
+    font-size:  50px;
+    overflow: hidden;
+    margin-left: auto; /* Margen izquierdo automático */
+    margin-right: auto; /* Margen derecho automático */
+    border-right: .15em solid rgb(255, 255, 255);
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+main h2
+
+{
+color:rgb(167, 165, 165);
+text-align:center;
+font-size:  25px;
+}
+
+
+main p
+
+{
+color:white;
+text-align:center;
+font-size:  18px;
+}
+
+
+#porfile {
+    width: 270px; /* Ajusta el tamaño deseado */
+    height: 270px; /* El alto debe ser igual al ancho para que sea un círculo perfecto */
+    object-fit: cover; /* Asegura que la imagen mantenga sus proporciones sin deformarse */
+    border-radius: 50%; /* Hace la imagen circular */
+    display: block; /* Hace que la imagen se comporte como un bloque */
+    margin-left: auto; /* Margen izquierdo automático */
+    margin-right: auto; /* Margen derecho automático */
+    margin-top: 100px; /* Incrementa el margen superior para mover la imagen más abajo */
+    margin-bottom: 50px; /* Incrementa el margen inferior para mover la imagen más abajo */
+}
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: rgb(240, 141, 12); }
+}
+
+main #description , main #description h2, main #description p {
+    font-family: 'Roboto', sans-serif;
+
+    text-align: center;
+    max-width: 1200px;
+    margin-left: auto; /* Margen izquierdo automático */
+    margin-right: auto; /* Margen derecho automático */
+    margin-bottom: 10px; /* Incrementa el margen inferior para mover la imagen más abajo */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
