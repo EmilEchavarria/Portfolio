@@ -18,14 +18,14 @@ import { Home } from './pages/home/home';
 
 function App() {
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className=" h-screen overflow-hidden">
       {/* Fondo Retro */}
       <RetroGrid className="absolute inset-0 z-0 retro-grid-background" />
 
       {/* Contenido de Home sobre el fondo */}
       <div className="absolute inset-0 z-10 flex flex-col">
         {/* Dock como header fijo */}
-        <div className="fixed top-0 left-0 w-full z-20">
+        <div className=" top-0 left-0 w-full z-20">
           <Home />
         </div>
       </div>
