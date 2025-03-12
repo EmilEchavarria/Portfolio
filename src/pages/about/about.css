@@ -1,0 +1,54 @@
+/* About.css */
+
+/* Contenedor principal */
+.about-container {
+    min-height: 100vh;
+    color: white; /* Texto blanco */
+  }
+  
+  /* Foto de perfil */
+  #profile-photo {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 128px;
+    height: 128px;
+  }
+  
+  /* Fondo de sección de Stack Tecnológico */
+  #tech-stack-section {
+    background-color: #2d3748; /* Fondo gris oscuro */
+  }
+  
+  /* Estilo para las listas */
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    font-size: 1.125rem;
+  }
+  
+  /* Estilos de secciones */
+  #education-section,
+  #certificates-section {
+  }
+  
+  #education-list,
+  #certificates-list {
+    text-align: center;
+  }
+  
+  /* Título principal de las secciones */
+  h1 {
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: #e2e8f0; /* Gris claro */
+  }
+  
+  /* Títulos secundarios */
+  h2 {
+    font-size: 1.25rem;
+    color: #a0aec0; /* Gris más claro */
+  }
+  

@@ -1,0 +1,17 @@
+/* Asegúrate de que no haya colores de fondo en los campos */
+
+  /* Formulario personalizado */
+  form input, form textarea {
+    transition: background-color 0.3s ease, border 0.3s ease;
+  }
+  
+  form input:focus, form textarea:focus {
+    background-color: transparent; /* Sin fondo al hacer focus */
+    border: 2px solid #63b3ed; /* Borde azul claro en foco */
+  }
+  
+  /* Estilos adicionales si se requiere */
+  button:hover {
+    background-color: #3182ce; /* Azul más claro al pasar el mouse sobre el botón */
+  }
+  

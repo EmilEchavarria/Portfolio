@@ -1,17 +1,17 @@
 "use client";
 import { cva } from "class-variance-authority";
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
-import React, { useRef } from "react";
-import PropTypes from 'prop-types';
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import React, { useRef, useState } from "react";
+import PropTypes from "prop-types";
 
 import { cn } from "@/lib/utils";
 
-const DEFAULT_SIZE = 172;
-const DEFAULT_MAGNIFICATION = 215;
-const DEFAULT_DISTANCE = 150;
+const DEFAULT_SIZE = 80;
+const DEFAULT_MAGNIFICATION = 96;
+const DEFAULT_DISTANCE = 100;
 
 const dockVariants = cva(
-  "text-white border-white supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 mx-auto mt-8 flex h-[58px] w-max items-center justify-center gap-2 rounded-2xl border p-2 backdrop-blur-md"
+  "fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-800/80 backdrop-blur-md text-white border border-gray-600 rounded-2xl p-2 flex gap-2 items-center"
 );
 
 const Dock = React.forwardRef(
@@ -22,7 +22,7 @@ const Dock = React.forwardRef(
       iconSize = DEFAULT_SIZE,
       iconMagnification = DEFAULT_MAGNIFICATION,
       iconDistance = DEFAULT_DISTANCE,
-      direction = "middle",
+      height = "50px",  // Puedes establecer el valor de altura aquí
       ...props
     },
     ref
@@ -50,11 +50,8 @@ const Dock = React.forwardRef(
         onMouseMove={(e) => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}
         {...props}
-        className={cn(dockVariants({ className }), {
-          "items-start": direction === "top",
-          "items-center": direction === "middle",
-          "items-end": direction === "bottom",
-        })}
+        className={cn(dockVariants({ className }))}
+        style={{ height: height }} // Aquí puedes cambiar la altura
       >
         {renderChildren()}
       </motion.div>
@@ -70,7 +67,6 @@ Dock.propTypes = {
   iconSize: PropTypes.number,
   iconMagnification: PropTypes.number,
   iconDistance: PropTypes.number,
-  direction: PropTypes.oneOf(["top", "middle", "bottom"]),
 };
 
 const DockIcon = ({
@@ -78,12 +74,13 @@ const DockIcon = ({
   magnification = DEFAULT_MAGNIFICATION,
   distance = DEFAULT_DISTANCE,
   mouseX,
+  label,
   className,
   children,
   ...props
 }) => {
   const ref = useRef(null);
-  const padding = Math.max(6, size * 0.2);
+  const [hovered, setHovered] = useState(false);
   const defaultMouseX = useMotionValue(Infinity);
 
   const distanceCalc = useTransform(mouseX ?? defaultMouseX, (val) => {
@@ -92,25 +89,31 @@ const DockIcon = ({
   });
 
   const sizeTransform = useTransform(distanceCalc, [-distance, 0, distance], [size, magnification, size]);
-
-  const scaleSize = useSpring(sizeTransform, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
+  const scaleSize = useSpring(sizeTransform, { mass: 0.1, stiffness: 150, damping: 12 });
 
   return (
-    <motion.div
-      ref={ref}
-      style={{ width: scaleSize, height: scaleSize, padding }}
-      className={cn(
-        "flex aspect-square cursor-pointer items-center justify-center rounded-full",
-        className
+    <div className="relative flex flex-col items-center">
+      {hovered && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          className="absolute bottom-full mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded-md shadow-lg"
+        >
+          {label}
+        </motion.div>
       )}
-      {...props}
-    >
-      {children}
-    </motion.div>
+      <motion.div
+        ref={ref}
+        style={{ width: scaleSize, height: scaleSize }}
+        className={cn("flex cursor-pointer items-center justify-center rounded-full", className)}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        {...props}
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 };
 
@@ -121,8 +124,9 @@ DockIcon.propTypes = {
   magnification: PropTypes.number,
   distance: PropTypes.number,
   mouseX: PropTypes.object,
+  label: PropTypes.string.isRequired,
   className: PropTypes.string,
   children: PropTypes.node,
 };
 
-export  { Dock, DockIcon, dockVariants };
+export { Dock, DockIcon, dockVariants };

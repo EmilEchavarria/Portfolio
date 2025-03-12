@@ -37,17 +37,17 @@ export function RetroGrid({
 }
 
 export default {RetroGrid}; */
-
 import PropTypes from 'prop-types'; // Importa PropTypes
 import { cn } from "@/lib/utils";
 import "./retro-grid.css";
+
 export function RetroGrid({
   className,
-  angle = 65,
-  cellSize = 60,
-  opacity = 0.5,
-  lightLineColor = "gray",
-  darkLineColor = "gray",
+  angle = 70,           // Parámetro predeterminado aquí
+  cellSize = 60,        // Parámetro predeterminado aquí
+  opacity = 0.5,        // Parámetro predeterminado aquí
+  lightLineColor = "white", // Parámetro predeterminado aquí
+  darkLineColor = "gray",  // Parámetro predeterminado aquí
   ...props
 }) {
   const gridStyles = {
@@ -85,14 +85,6 @@ RetroGrid.propTypes = {
   opacity: PropTypes.number,
   lightLineColor: PropTypes.string,
   darkLineColor: PropTypes.string,
-};
-
-RetroGrid.defaultProps = {
-  angle: 70,
-  cellSize: 60,
-  opacity: 0.5,
-  lightLineColor: "white",
-  darkLineColor: "gray",
 };
 
 export default RetroGrid;
