@@ -1,4 +1,4 @@
-import "./About.css";
+import "./about.css";
 
 import Header from "../../components/layout/header/header";
 import photo from "../../assets/images/description/photo.png";

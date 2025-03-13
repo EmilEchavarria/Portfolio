@@ -1,4 +1,4 @@
-import "./Contact.css"; // Asegúrate de que este archivo CSS esté correctamente configurado
+import "./contact.css"; // Asegúrate de que este archivo CSS esté correctamente configurado
 import Header from '../../components/layout/header/header';
 
 export function Contact() {

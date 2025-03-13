@@ -1,4 +1,4 @@
-import "./Projects.css"; // Asegúrate de que este archivo CSS esté correctamente configurado
+import "./projects.css"; // Asegúrate de que este archivo CSS esté correctamente configurado
 import Header from '../../components/layout/header/header';
 import { IconCloud } from "../../components/ui/icon-cloud";  // Ajusta la ruta según la estructura de tu proyecto
 

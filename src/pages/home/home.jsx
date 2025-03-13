@@ -1,5 +1,5 @@
 import Header from '../../components/layout/header/header';
-import "./Home.css"; // Asegúrate de que este archivo CSS esté correctamente configurado
+import "./home.css"; // Asegúrate de que este archivo CSS esté correctamente configurado
 import photo from "../../assets/images/description/photo.png";
 import github from "../../assets/images/home/github.png";
 import linkedin from "../../assets/images/home/linkedin.png";
