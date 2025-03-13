@@ -1,6 +1,6 @@
 import "./certificates.css"; // Asegúrate de que este archivo CSS esté correctamente configurado
 import Header from '../../components/layout/header/header';
-import { Marquee } from "../../components/ui/marquee"; // Asegúrate de que la ruta sea correcta
+import { Marquee } from "../../components/ui/Marquee"; // Asegúrate de que la ruta sea correcta
 import photo from "../../assets/images/description/photo.png";
 
 export function Certificates() {
