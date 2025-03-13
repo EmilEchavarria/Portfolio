@@ -1,4 +1,5 @@
 import { Dock, DockIcon } from "../../ui/dock"; // Ajusta la ruta de importación
+import { Link } from "react-router-dom"; // Importa Link de react-router-dom
 import "./header.css";
 
 // IMAGES
@@ -12,46 +13,46 @@ import contact from "../../../assets/images/Header/contact.png";
 const Header = () => {
   return (
     <header className="header">
-      <Dock className="dock-container">
-        {/* Iconos con nombres flotantes */}
-        <DockIcon className="dock-icon" label={<span className="dock-icon-label">Home</span>}>
-          <a href="/home" className="icon-container">
-            <img src={IconHome} alt="Home" className="icon" />
-          </a>
-        </DockIcon>
+    <Dock className="dock-container">
+      {/* Iconos con nombres flotantes */}
+      <DockIcon className="dock-icon" label="Home">
+        <Link to="/home" className="icon-container">
+          <img src={IconHome} alt="Home" className="icon" />
+        </Link>
+      </DockIcon>
 
-        <DockIcon className="dock-icon" label={<span className="dock-icon-label">About</span>}>
-          <a href="/about" className="icon-container">
-            <img src={user} alt="About Me" className="icon" />
-          </a>
-        </DockIcon>
+      <DockIcon className="dock-icon" label="About">
+        <Link to="/about" className="icon-container">
+          <img src={user} alt="About Me" className="icon" />
+        </Link>
+      </DockIcon>
 
-        <DockIcon className="dock-icon" label={<span className="dock-icon-label">Projects</span>}>
-          <a href="/projects" className="icon-container">
-            <img src={portfolio} alt="Projects" className="icon" />
-          </a>
-        </DockIcon>
+      <DockIcon className="dock-icon" label="Projects">
+        <Link to="/projects" className="icon-container">
+          <img src={portfolio} alt="Projects" className="icon" />
+        </Link>
+      </DockIcon>
 
-        <DockIcon className="dock-icon" label={<span className="dock-icon-label">Skills</span>}>
-          <a href="/skills" className="icon-container">
-            <img src={skills} alt="Skills" className="icon" />
-          </a>
-        </DockIcon>
+      <DockIcon className="dock-icon" label="Skills">
+        <Link to="/skills" className="icon-container">
+          <img src={skills} alt="Skills" className="icon" />
+        </Link>
+      </DockIcon>
 
-        <DockIcon className="dock-icon" label={<span className="dock-icon-label">Certificates</span>}>
-          <a href="/certificates" className="icon-container">
-            <img src={certificate} alt="Certificates" className="icon" />
-          </a>
-        </DockIcon>
+      <DockIcon className="dock-icon" label="Certificates">
+        <Link to="/certificates" className="icon-container">
+          <img src={certificate} alt="Certificates" className="icon" />
+        </Link>
+      </DockIcon>
 
-        <DockIcon className="dock-icon" label={<span className="dock-icon-label">Contact</span>}>
-  <a href="/contact" className="icon-container">
-    <img src={contact} alt="Contact" className="icon" />
-  </a>
-</DockIcon>
+      <DockIcon className="dock-icon" label="Contact">
+        <Link to="/contact" className="icon-container">
+          <img src={contact} alt="Contact" className="icon" />
+        </Link>
+      </DockIcon>
 
-      </Dock>
-    </header>
+    </Dock>
+  </header>
   );
 };
 

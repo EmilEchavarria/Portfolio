@@ -16,3 +16,41 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+
+/* Personalizar el scroll solo para navegadores Webkit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 8px; /* Grosor del scroll */
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a; /* Fondo oscuro para la pista */
+  border-radius: 4px;
+}
+
+/* Scroll animado */
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: linear-gradient(180deg, rgb(15, 143, 212), rgb(45, 17, 204));
+  background-size: 100% 200%;
+  animation: gradientScroll 1s linear infinite;
+}
+
+/* Acelera el efecto al hacer hover */
+::-webkit-scrollbar-thumb:hover {
+  animation: gradientScroll 1.5s linear infinite;
+}
+
+/* Animación del degradado en movimiento (de arriba hacia abajo) */
+@keyframes gradientScroll {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}

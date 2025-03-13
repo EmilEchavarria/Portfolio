@@ -1,54 +1,165 @@
-/* About.css */
-
 /* Contenedor principal */
+Main {
+  font-family: 'Inter', sans-serif;
+
+}
+
 .about-container {
-    min-height: 100vh;
-    color: white; /* Texto blanco */
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Alineación del About más centrada */
+/* Centrar el título */
+#about-header {
+  text-align: center;
+  padding-top: 100px; /* Reducido */
+  margin-bottom: 10px; /* Espaciado menor */
+}
+
+#about-header h1 {
+  font-size: 70px;
+  font-family: 'Inter', sans-serif;
+
+}
+
+
+/* Sección de descripción: Imagen a la derecha y texto a la izquierda */
+#description-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  margin-top: 20px; /* Espaciado menor */
+  margin-bottom: 100px; /* Eliminar exceso de espacio */
+  gap: 90px; /* Espaciado entre imagen y texto */
+  max-width: 800px ; /* Limitar el ancho */
+}
+
+  #description-container {
+    flex-direction: row;
+    text-align: left;
+    max-width: 80%;
+  }
+  .text-container {
+    width: 50%;
+  }
+
+  .text-container p {
+    font-size: 18px; /* O 20px si prefieres aún más grande */
+    padding-top:10px;
+
   }
   
-  /* Foto de perfil */
-  #profile-photo {
-    object-fit: cover;
-    border-radius: 50%;
-    width: 128px;
-    height: 128px;
+  .image-container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
   }
-  
-  /* Fondo de sección de Stack Tecnológico */
-  #tech-stack-section {
-    background-color: #2d3748; /* Fondo gris oscuro */
+
+
+/* Foto de perfil */
+#profile-photo {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 350px;
+  height: 350px;
+}
+
+/* Fondo de sección de Stack Tecnológico */
+#tech-stack-section, #certificates-section {
+  margin-top:100px;
+}
+
+/* Estilo para listas */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  font-size: 1.125rem;
+}
+
+/* Alineación de texto en secciones */
+#education-list, #certificates-list {
+  text-align: center;
+}
+
+/* Títulos principales */
+h1 {
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+/* Títulos secundarios */
+h2 {
+  font-size: 1.25rem;
+  color: #a0aec0;
+}
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  /* Estilo para las listas */
-  ul {
-    list-style-type: none;
-    padding: 0;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  ul li {
-    font-size: 1.125rem;
-  }
-  
-  /* Estilos de secciones */
-  #education-section,
-  #certificates-section {
-  }
-  
-  #education-list,
-  #certificates-list {
-    text-align: center;
-  }
-  
-  /* Título principal de las secciones */
-  h1 {
-    font-size: 2.25rem;
-    font-weight: 600;
-    color: #e2e8f0; /* Gris claro */
-  }
-  
-  /* Títulos secundarios */
-  h2 {
-    font-size: 1.25rem;
-    color: #a0aec0; /* Gris más claro */
-  }
-  
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.delay-200 {
+  animation-delay: 0.5s;
+}
+
+.delay-400 {
+  animation-delay: 1s;
+}
+
+
+.gradient-text {
+  background: linear-gradient(90deg, rgb(18, 167, 248), rgb(56, 25, 228)); /* Degradado de color */
+  -webkit-background-clip: text; /* Aplica el degradado solo al texto en navegadores que necesitan el prefijo */
+  background-clip: text; /* Propiedad estándar para compatibilidad */
+  color: transparent; /* Hace el color del texto transparente para que se vea el degradado */
+  background-size: 200% 100%; /* Aumenta el tamaño del fondo para poder moverlo */
+  animation: gradientMove 3s linear infinite; /* Animación de movimiento continuo */
+}
+
+#marquee-container {
+  width: 100%;
+  overflow: hidden; /* Oculta el contenido que se desborda */
+  position: relative; /* Esto garantiza que el marquee se quede en su lugar */
+  z-index: -1; /* Esto coloca el marquee debajo de otros elementos */
+}
+
+.custom-marquee {
+  display: flex;
+  gap: 20px; /* Ajusta el espacio entre los proyectos */
+  animation: marquee-animation var(--duration) linear infinite;
+}
+
+.card {
+  min-width: 200px; /* Define un tamaño mínimo para las tarjetas */
+  max-height:350px;
+  max-width: 400px; /* Evita que las tarjetas sean demasiado grandes */
+  flex-shrink: 0; /* Evita que las tarjetas se encojan */
+}
+
+
+.card-content 
+{
+  font-family: 'Inter', sans-serif;
+font-size: 1.125rem;
+font-weight: 300;
+  color: rgb(213, 249, 253);
+}
+

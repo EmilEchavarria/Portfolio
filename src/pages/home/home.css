@@ -3,13 +3,13 @@ main {
   flex-direction: column;
   align-items: center;  /* Centra los elementos horizontalmente */
   justify-content: center; /* Centra los elementos verticalmente */
-  min-height: 75vh;  /* Asegura que el main ocupe toda la altura de la pantalla */
+  min-height: 100vh;  /* Asegura que el main ocupe toda la altura de la pantalla */
   text-align: center; /* Centra el texto */
 }
 
 
 #description h1 {
-  max-width: 500px;
+  max-width: 520px;
   font-family: 'Inter', sans-serif;
   color: white;
   text-align: left;
@@ -23,11 +23,13 @@ main {
 
 .gradient-text {
   background: linear-gradient(90deg, rgb(18, 167, 248), rgb(56, 25, 228)); /* Degradado de color */
-  -webkit-background-clip: text; /* Aplica el degradado solo al texto */
+  -webkit-background-clip: text; /* Aplica el degradado solo al texto en navegadores que necesitan el prefijo */
+  background-clip: text; /* Propiedad estándar para compatibilidad */
   color: transparent; /* Hace el color del texto transparente para que se vea el degradado */
   background-size: 200% 100%; /* Aumenta el tamaño del fondo para poder moverlo */
   animation: gradientMove 3s linear infinite; /* Animación de movimiento continuo */
 }
+
 
 /* Animación del degradado */
 @keyframes gradientMove {
@@ -170,3 +172,5 @@ main p {
   transform: scale(1.3); /* Agranda el icono al pasar el mouse */
   filter: brightness(1.2); /* Aumenta el brillo en el hover */
 }
+
+

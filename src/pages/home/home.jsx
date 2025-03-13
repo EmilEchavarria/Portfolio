@@ -4,6 +4,8 @@ import photo from "../../assets/images/description/photo.png";
 import github from "../../assets/images/home/github.png";
 import linkedin from "../../assets/images/home/linkedin.png";
 import instagram from "../../assets/images/home/instagram.png";
+import curriculum from "../../assets/images/home/curriculum.png";
+
 
 export function Home() {
   return (
@@ -33,6 +35,9 @@ export function Home() {
             </a>
             <a href="https://www.instagram.com/emilechavarria.c/" target="_blank" rel="noopener noreferrer">
               <img src={instagram} alt="Instagram Profile" className="instagram-icon" />
+            </a>
+            <a href="https://www.instagram.com/emilechavarria.c/" target="_blank" rel="noopener noreferrer">
+              <img src={curriculum} alt="Instagram Profile" className="cv-icon" />
             </a>
           </div>
         </div>
