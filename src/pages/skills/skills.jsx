@@ -1,4 +1,4 @@
-import "./Skills.css"; // Asegúrate de que este archivo CSS esté correctamente configurado
+import "./skills.css"; // Asegúrate de que este archivo CSS esté correctamente configurado
 import Header from '../../components/layout/header/Header';
 
 export function Skills() {
