@@ -1,6 +1,6 @@
 import "./About.css";
 
-import Header from "../../components/layout/header/Header";
+import Header from "../../components/layout/header/header";
 import photo from "../../assets/images/description/photo.png";
 import { IconCloud } from "../../components/ui/icon-cloud";
 import { Marquee } from "../../components/ui/Marquee"; // Asegúrate de que la ruta sea correcta
