@@ -3,12 +3,12 @@ import { Link } from "react-router-dom"; // Importa Link de react-router-dom
 import "./header.css";
 
 // IMAGES
-import IconHome from "../../../assets/images/Header/IconHome.png";
-import user from "../../../assets/images/Header/user.png";
-import portfolio from "../../../assets/images/Header/portfolio.png";
-import skills from "../../../assets/images/Header/skills.png";
-import certificate from "../../../assets/images/Header/certificate.png";
-import contact from "../../../assets/images/Header/contact.png";
+import IconHome from "../../../assets/images/header/IconHome.png";
+import user from "../../../assets/images/header/user.png";
+import portfolio from "../../../assets/images/header/portfolio.png";
+import skills from "../../../assets/images/header/skills.png";
+import certificate from "../../../assets/images/header/certificate.png";
+import contact from "../../../assets/images/header/contact.png";
 
 const Header = () => {
   return (

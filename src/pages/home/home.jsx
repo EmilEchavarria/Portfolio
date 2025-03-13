@@ -10,7 +10,7 @@ import curriculum from "../../assets/images/home/curriculum.png";
 export function Home() {
   return (
     <main>
-      <Header />
+      <Header/>
 
       <section id="description-container">
         <div id="img-container">
