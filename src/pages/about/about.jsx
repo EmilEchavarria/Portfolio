@@ -158,32 +158,46 @@ export function About() {
         </div>
       </section>
 
-     {/* Sección de Educación */}
-<section id="education-section" className="py-12 px-4 text-center">
+      <section id="education-section" className="py-12 px-4 text-center">
   <h1 className="text-3xl font-semibold text-white">My Education</h1>
-  <h2 className="text-xl text-gray-400">Academic Background</h2>
-  <div id="education-list" className="mt-6">
-    <ul className="list-none space-y-3 text-lg text-gray-300">
-      <li>
-        <strong>Bachelors Degree in Software Engineering</strong>
-        <p>
-          ITLA (Instituto Tecnológico de Las Américas) | Expected
-          Graduation: 2026
-        </p>
-      </li>
-      <li>
-        <strong>English Language Course</strong>
-        <p>
-          UASD (Universidad Autónoma de Santo Domingo) | Completed in 2024
-        </p>
-      </li>
-    </ul>
-  </div>
+  <h2 className="text-xl text-white">Academic Background</h2>
+  <ol className="relative border-s border-gray-400 dark:border-gray-700">  
+
+  <li className="mb-10 ms-4 mt-20">
+    <div className="absolute w-3 h-3 bg-white rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900"></div>
+    <time className="mb-1 text-sm font-normal leading-none text-white">Graduation: 2026</time>
+    <h3 className="text-lg font-semibold text-white">Software Development Technologist, ITLA (Instituto Tecnológico de las Américas)</h3>
+    <p className="mb-4 text-base font-normal text-white">
+        Comprehensive training in all stages of software development, with a strong practical approach to technical tasks. Proficient in applying modern knowledge, techniques, skills, and tools of the discipline for technological engineering activities. ([itla.edu.do](https://itla.edu.do/tecnologia-en-desarrollo-de-software/?utm_source=chatgpt.com))
+    </p>
+</li>
+
+<li className="mb-10 ms-4">
+    <div className="absolute w-3 h-3 bg-white rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900"></div>
+    <time className="mb-1 text-sm font-normal leading-none text-white">Completion: 2026</time>
+    <h3 className="text-lg font-semibold text-white">Meta Front-End Developer Professional Certificate</h3>
+    <p className="text-base font-normal text-white">
+        Comprehensive training in front-end development, covering HTML, CSS, JavaScript, React.js, and responsive design. Developed practical skills through hands-on projects, culminating in a capstone project that showcases proficiency in building dynamic and responsive web applications.
+    </p>
+</li>
+
+<li className="ms-4">
+    <div className="absolute w-3 h-3 bg-white rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900"></div>
+    <time className="mb-1 text-sm font-normal leading-none text-white">2022 - 2024</time>
+    <h3 className="text-lg font-semibold text-white">Extracurricular English Course at UASD ( Universidad Autónoma de Santo Domingo)</h3>
+    <p className="text-base font-normal text-white">
+        An extracurricular English course offered by the Universidad Autónoma de Santo Domingo (UASD), designed to improve English language skills, including listening comprehension, reading, writing, and speaking. The course lasts for 2 years, structured in progressive levels, with the goal of providing an advanced command of the language for application in various professional and academic contexts.
+    </p>
+</li>
+
+  </ol>
 </section>
 
 
+
+
     {/* Sección de Certificados */}
-<section id="certificates-section" className="py-12 px-4 text-center">
+    <section id="certificates-section" className="py-12 px-4 text-center">
   <h1 className="text-3xl font-semibold text-white">My Certificates</h1>
   <h2 className="text-xl text-gray-400">
     Certifications that Highlight My Skills
@@ -213,6 +227,7 @@ export function About() {
     </ul>
   </div>
 </section>
+
 
 
     {/* marquee */}

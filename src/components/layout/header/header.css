@@ -1,13 +1,45 @@
-.dock-icon-label {
-    font-size: 20px;
-  }
-  .icon {
-    width: 28px;
-    height: 28px;
-    transition: filter 0.3s ease;
-  }
+.dock-label {
+  font-size: 18px; /* Tamaño de la fuente */
+  font-weight: 200; /* Negrita */
+  color: #ffffff; /* Color de texto */
+  padding: 8px 12px; /* Relleno alrededor del texto */
+  border-radius: 5px; /* Bordes redondeados */
   
-  .icon:hover {
-    filter: brightness(0) saturate(100%) invert(41%) sepia(64%) saturate(1100%) hue-rotate(195deg) brightness(110%) contrast(110%);
-  }
-  
+  /* Efecto de desenfoque */
+  background-color: rgba(32, 32, 32, 0.5); /* Fondo ligeramente oscuro para mejor visibilidad */
+  backdrop-filter: blur(8px); /* Aplica el desenfoque al contenido detrás del elemento */
+}
+
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;  /* Incrementamos el tamaño del contenedor */
+  height: 68px; /* Incrementamos el tamaño del contenedor */
+  border-radius: 50%;  /* Para que siga siendo redondeado */
+  transition: transform 0.3s ease, filter 0.3s ease;  /* Añadimos transición para el cambio de filtro y transformación */
+  cursor: pointer;  /* Asegura que se vea como un área clickeable */
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  transition: filter 0.3s ease, transform 0.3s ease;  /* Transición para el cambio del filtro y el tamaño */
+}
+
+.icon-container:hover {
+  transform: scale(1.25);  /* Este efecto agranda el contenedor */
+  filter: brightness(0) saturate(100%) invert(41%) sepia(64%) saturate(1100%) hue-rotate(195deg) brightness(110%) contrast(110%); /* Efecto de filtro aplicado al contenedor */
+}
+
+.icon-container:hover .icon {
+  color: #ffffff;  /* Cambiamos el color del icono a blanco para un buen contraste con el fondo */
+  filter: brightness(0) saturate(150%) contrast(120%);  /* Hacemos el icono más brillante y saturado */
+  transform: scale(1.3);  /* El icono se agranda un 30% */
+}
+
+.dock-container
+{
+  z-index: 1;  /* Asegura que el dock esté por encima de otros elementos */
+}

@@ -138,7 +138,7 @@ h2 {
   width: 100%;
   overflow: hidden; /* Oculta el contenido que se desborda */
   position: relative; /* Esto garantiza que el marquee se quede en su lugar */
-  z-index: -1; /* Esto coloca el marquee debajo de otros elementos */
+  z-index: -100; /* Esto coloca el marquee debajo de otros elementos */
 }
 
 .custom-marquee {

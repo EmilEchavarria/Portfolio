@@ -7,8 +7,8 @@ import PropTypes from "prop-types";
 import { cn } from "@/lib/utils";
 
 const DEFAULT_SIZE = 80;
-const DEFAULT_MAGNIFICATION = 96;
-const DEFAULT_DISTANCE = 100;
+const DEFAULT_MAGNIFICATION = 60;
+const DEFAULT_DISTANCE = 20;
 
 const dockVariants = cva(
   "fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-800/80 backdrop-blur-md text-white border border-gray-600 rounded-2xl p-2 flex gap-2 items-center"
@@ -88,20 +88,22 @@ const DockIcon = ({
     return val - bounds.x - bounds.width / 2;
   });
 
-  const sizeTransform = useTransform(distanceCalc, [-distance, 0, distance], [size, magnification, size]);
+  const sizeTransform = useTransform(distanceCalc, [-distance, 0, distance], [magnification, size, magnification]);  // Invertimos el orden para acercar el icono
   const scaleSize = useSpring(sizeTransform, { mass: 0.1, stiffness: 150, damping: 12 });
-
+  
   return (
     <div className="relative flex flex-col items-center">
       {hovered && (
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 10 }}
-          className="absolute bottom-full mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded-md shadow-lg"
-        >
-          {label}
-        </motion.div>
+   <motion.div
+   initial={{ opacity: 0, y: 10 }}
+   animate={{ opacity: 1, y: 0 }}
+   exit={{ opacity: 0, y: 10 }}
+   className="absolute bottom-full mb-2 px-2 py-1 bg-gray-1000 text-white text-xs rounded-md shadow-lg dock-label"
+ >
+   {label}
+ </motion.div>
+ 
+   
       )}
       <motion.div
         ref={ref}

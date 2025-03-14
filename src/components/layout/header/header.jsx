@@ -33,6 +33,7 @@ const Header = () => {
         </Link>
       </DockIcon>
 
+
       <DockIcon className="dock-icon" label="Skills">
         <Link to="/skills" className="icon-container">
           <img src={skills} alt="Skills" className="icon" />
