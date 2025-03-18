@@ -1,7 +1,6 @@
 /* Contenedor principal */
-Main {
+main {
   font-family: 'Inter', sans-serif;
-
 }
 
 .about-container {
@@ -13,53 +12,44 @@ Main {
 }
 
 /* Alineación del About más centrada */
-/* Centrar el título */
 #about-header {
   text-align: center;
-  padding-top: 100px; /* Reducido */
-  margin-bottom: 10px; /* Espaciado menor */
+  padding-top: 100px;
+  margin-bottom: 10px;
 }
 
 #about-header h1 {
   font-size: 70px;
   font-family: 'Inter', sans-serif;
-
 }
-
 
 /* Sección de descripción: Imagen a la derecha y texto a la izquierda */
 #description-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   text-align: left;
-  margin-top: 20px; /* Espaciado menor */
-  margin-bottom: 100px; /* Eliminar exceso de espacio */
-  gap: 90px; /* Espaciado entre imagen y texto */
-  max-width: 800px ; /* Limitar el ancho */
+  margin-top: 20px;
+  margin-bottom: 100px;
+  gap: 90px;
+  width: 80%;
+  max-width: 1430px; /* Ancho fijo */
 }
 
-  #description-container {
-    flex-direction: row;
-    text-align: left;
-    max-width: 80%;
-  }
-  .text-container {
-    width: 50%;
-  }
+.text-container {
+  width: 50%;
+}
 
-  .text-container p {
-    font-size: 18px; /* O 20px si prefieres aún más grande */
-    padding-top:10px;
+.text-container p {
+  font-size: 18px;
+  padding-top: 10px;
+}
 
-  }
-  
-  .image-container {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-  }
-
+.image-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
 
 /* Foto de perfil */
 #profile-photo {
@@ -70,8 +60,15 @@ Main {
 }
 
 /* Fondo de sección de Stack Tecnológico */
-#tech-stack-section, #certificates-section {
-  margin-top:100px;
+#tech-stack-section {
+  margin-top: 100px;
+  width: 80%;
+  max-width: 1200px;
+}
+
+.icon-cloud {
+  gap: 22rem;
+  margin-left: 75px;
 }
 
 /* Estilo para listas */
@@ -87,6 +84,9 @@ ul li {
 /* Alineación de texto en secciones */
 #education-list, #certificates-list {
   text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Títulos principales */
@@ -101,6 +101,8 @@ h2 {
   font-size: 1.25rem;
   color: #a0aec0;
 }
+
+/* Animaciones */
 @keyframes slideUp {
   0% {
     opacity: 0;
@@ -124,42 +126,12 @@ h2 {
   animation-delay: 1s;
 }
 
-
+/* Texto con gradiente */
 .gradient-text {
-  background: linear-gradient(90deg, rgb(18, 167, 248), rgb(56, 25, 228)); /* Degradado de color */
-  -webkit-background-clip: text; /* Aplica el degradado solo al texto en navegadores que necesitan el prefijo */
-  background-clip: text; /* Propiedad estándar para compatibilidad */
-  color: transparent; /* Hace el color del texto transparente para que se vea el degradado */
-  background-size: 200% 100%; /* Aumenta el tamaño del fondo para poder moverlo */
-  animation: gradientMove 3s linear infinite; /* Animación de movimiento continuo */
+  background: linear-gradient(90deg, rgb(18, 167, 248), rgb(56, 25, 228));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% 100%;
+  animation: gradientMove 3s linear infinite;
 }
-
-#marquee-container {
-  width: 100%;
-  overflow: hidden; /* Oculta el contenido que se desborda */
-  position: relative; /* Esto garantiza que el marquee se quede en su lugar */
-  z-index: -100; /* Esto coloca el marquee debajo de otros elementos */
-}
-
-.custom-marquee {
-  display: flex;
-  gap: 20px; /* Ajusta el espacio entre los proyectos */
-  animation: marquee-animation var(--duration) linear infinite;
-}
-
-.card {
-  min-width: 200px; /* Define un tamaño mínimo para las tarjetas */
-  max-height:350px;
-  max-width: 400px; /* Evita que las tarjetas sean demasiado grandes */
-  flex-shrink: 0; /* Evita que las tarjetas se encojan */
-}
-
-
-.card-content 
-{
-  font-family: 'Inter', sans-serif;
-font-size: 1.125rem;
-font-weight: 300;
-  color: rgb(213, 249, 253);
-}
-

@@ -7,7 +7,7 @@ export function Contact() {
       <Header />
       
       <section className="max-w-3xl mx-auto py-12 px-6">
-        <h1 className="text-4xl font-bold text-center mb-6">Contact Me</h1>
+        <h1 className="gradient-text">Contact Me</h1>
         <p className="text-center text-lg mb-8">Feel free to reach out to me using the form below</p>
 
         <form 

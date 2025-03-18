@@ -6,8 +6,7 @@ import "./header.css";
 import IconHome from "../../../assets/images/header/IconHome.png";
 import user from "../../../assets/images/header/user.png";
 import portfolio from "../../../assets/images/header/portfolio.png";
-import skills from "../../../assets/images/header/skills.png";
-import certificate from "../../../assets/images/header/certificate.png";
+import education from "../../../assets/images/header/skills.png";
 import contact from "../../../assets/images/header/contact.png";
 
 const Header = () => {
@@ -34,17 +33,13 @@ const Header = () => {
       </DockIcon>
 
 
-      <DockIcon className="dock-icon" label="Skills">
-        <Link to="/skills" className="icon-container">
-          <img src={skills} alt="Skills" className="icon" />
+      <DockIcon className="dock-icon" label="education">
+        <Link to="/education" className="icon-container">
+          <img src={education} alt="Skills" className="icon" />
         </Link>
       </DockIcon>
 
-      <DockIcon className="dock-icon" label="Certificates">
-        <Link to="/certificates" className="icon-container">
-          <img src={certificate} alt="Certificates" className="icon" />
-        </Link>
-      </DockIcon>
+    
 
       <DockIcon className="dock-icon" label="Contact">
         <Link to="/contact" className="icon-container">

@@ -1,0 +1,107 @@
+/* Estilos para la sección de educación */
+#education-section {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: white;
+}
+
+#education-section ol {
+    position: relative;
+    border-left: 2px solid #ffffff;
+    padding-left: 1rem;
+    margin: auto;
+    max-width: 1200px;
+}
+
+#education-section li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+
+#education-section h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#education-section p {
+    font-size: 1rem;
+    color: #b0b0b0;
+}
+
+/* Estilos para la sección de certificados */
+#certificates-section {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: white;
+}
+
+#certificates-section h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+#certificates-section h2 {
+    font-size: 1.25rem;
+    color: #b0b0b0;
+    margin-bottom: 2rem;
+}
+
+#certificates-list ul {
+    list-style: none;
+    padding: 0;
+    max-width: 1200px;
+    margin: auto;
+}
+
+#certificates-list li {
+    background-color: #0f3460;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#certificates-list strong {
+    font-size: 1.1rem;
+}
+
+#certificates-list p {
+    font-size: 1rem;
+    color: #b0b0b0;
+}
+
+
+
+/* Marquee Container */
+#marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: -100;
+  }
+  
+  .custom-marquee {
+    display: flex;
+    gap: 20px;
+    animation: marquee-animation var(--duration) linear infinite;
+  }
+  
+  /* Ajuste de tarjetas para tamaño uniforme */
+  .card {
+    width: 300px;
+    max-width: 300px;
+    min-width: 300px;
+    max-height: 350px;
+    flex-shrink: 0;
+  }
+  
+  .card-content {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 300;
+    color: rgb(213, 249, 253);
+  }
