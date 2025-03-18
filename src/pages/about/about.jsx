@@ -3,7 +3,6 @@ import "./about.css";
 import Header from "../../components/layout/header/header";
 import photo from "../../assets/images/description/photo.png";
 //import { IconCloud } from "../../components/ui/icon-cloud";
-import { Marquee } from "../../components/ui/marquee"; // Asegúrate de que la ruta sea correcta
 
 //ICON CLOUD IMAGES
 
@@ -24,12 +23,6 @@ import vsc from "../../assets/images/about/vsc.png";
 
 
 
-//CERTIFICATES IMAGES
-import intofront from "../../assets/images/certificates/intofront.png";
-import angularitla from "../../assets/images/certificates/angularitla.png";
-import cssdepth from "../../assets/images/certificates/cssdepth.png";
-import javascript from "../../assets/images/certificates/intofront.png";
-import versioncontrol from "../../assets/images/certificates/versioncontrol.png";
 
 
 export function About() {
