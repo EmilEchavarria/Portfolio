@@ -28,7 +28,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               
               {/* Redirección para rutas no encontradas */}
-              <Route path="*" element={<Navigate to="/" replace />} />
+              <Route path="*" element={<Navigate to="/home" replace />} />
             </Routes>
           </div>
         </div>
