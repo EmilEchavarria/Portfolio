@@ -82,6 +82,8 @@
     overflow: hidden;
     position: relative;
     z-index: -100;
+    margin-top: 50px;
+
   }
   
   .custom-marquee {
@@ -105,3 +107,12 @@
     font-weight: 300;
     color: rgb(213, 249, 253);
   }
+
+
+#button-container
+{
+    padding-top: 20px;
+    
+
+
+}
