@@ -1,7 +1,7 @@
 "use client";
 import { cva } from "class-variance-authority";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import { cn } from "@/lib/utils";
@@ -22,12 +22,31 @@ const Dock = React.forwardRef(
       iconSize = DEFAULT_SIZE,
       iconMagnification = DEFAULT_MAGNIFICATION,
       iconDistance = DEFAULT_DISTANCE,
-      height = "50px",  // Puedes establecer el valor de altura aquí
+      height = "50px", // Altura por defecto del Dock
       ...props
     },
     ref
   ) => {
     const mouseX = useMotionValue(Infinity);
+    const [dynamicHeight, setDynamicHeight] = useState(height); // Estado para la altura dinámica
+
+    // Ajustar la altura dinámicamente según el ancho de la pantalla
+    useEffect(() => {
+      const updateHeight = () => {
+        if (window.innerWidth <= 320) {
+          setDynamicHeight("40px"); // Altura menor para pantallas muy pequeñas
+        } else if (window.innerWidth <= 480) {
+          setDynamicHeight("40px"); // Altura intermedia para pantallas pequeñas
+        } else {
+          setDynamicHeight(height); // Altura por defecto para pantallas más grandes
+        }
+      };
+
+      updateHeight(); // Establece la altura inicial
+      window.addEventListener("resize", updateHeight); // Escucha cambios en el tamaño de la pantalla
+
+      return () => window.removeEventListener("resize", updateHeight); // Limpia el listener
+    }, [height]);
 
     const renderChildren = () => {
       return React.Children.map(children, (child) => {
@@ -51,7 +70,7 @@ const Dock = React.forwardRef(
         onMouseLeave={() => mouseX.set(Infinity)}
         {...props}
         className={cn(dockVariants({ className }))}
-        style={{ height: height }} // Aquí puedes cambiar la altura
+        style={{ height: dynamicHeight }} // Usa la altura dinámica
       >
         {renderChildren()}
       </motion.div>
@@ -67,6 +86,7 @@ Dock.propTypes = {
   iconSize: PropTypes.number,
   iconMagnification: PropTypes.number,
   iconDistance: PropTypes.number,
+  height: PropTypes.string, // Añade PropTypes para la altura
 };
 
 const DockIcon = ({
@@ -82,28 +102,45 @@ const DockIcon = ({
   const ref = useRef(null);
   const [hovered, setHovered] = useState(false);
   const defaultMouseX = useMotionValue(Infinity);
+  const [dynamicMagnification, setDynamicMagnification] = useState(magnification);
+
+  // Ajustar el tamaño dinámicamente según el ancho de la pantalla
+  useEffect(() => {
+    const updateMagnification = () => {
+      if (window.innerWidth <= 320) {
+        setDynamicMagnification(45); // Tamaño menor para pantallas pequeñas
+      } else if (window.innerWidth <= 480) {
+        setDynamicMagnification(50); // Tamaño intermedio
+      } else {
+        setDynamicMagnification(DEFAULT_MAGNIFICATION); // Valor por defecto
+      }
+    };
+
+    updateMagnification();
+    window.addEventListener("resize", updateMagnification);
+
+    return () => window.removeEventListener("resize", updateMagnification);
+  }, []);
 
   const distanceCalc = useTransform(mouseX ?? defaultMouseX, (val) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
     return val - bounds.x - bounds.width / 2;
   });
 
-  const sizeTransform = useTransform(distanceCalc, [-distance, 0, distance], [magnification, size, magnification]);  // Invertimos el orden para acercar el icono
+  const sizeTransform = useTransform(distanceCalc, [-distance, 0, distance], [dynamicMagnification, size, dynamicMagnification]);
   const scaleSize = useSpring(sizeTransform, { mass: 0.1, stiffness: 150, damping: 12 });
-  
+
   return (
     <div className="relative flex flex-col items-center">
       {hovered && (
-   <motion.div
-   initial={{ opacity: 0, y: 10 }}
-   animate={{ opacity: 1, y: 0 }}
-   exit={{ opacity: 0, y: 10 }}
-   className="absolute bottom-full mb-2 px-2 py-1 bg-gray-1000 text-white text-xs rounded-md shadow-lg dock-label"
- >
-   {label}
- </motion.div>
- 
-   
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          className="absolute bottom-full mb-2 px-2 py-1 bg-gray-1000 text-white text-xs rounded-md shadow-lg dock-label"
+        >
+          {label}
+        </motion.div>
       )}
       <motion.div
         ref={ref}

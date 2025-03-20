@@ -43,3 +43,8 @@
 {
   z-index: 1;  /* Asegura que el dock esté por encima de otros elementos */
 }
+
+
+@media (max-width: 320px) {
+
+}
