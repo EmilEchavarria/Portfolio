@@ -1,16 +1,43 @@
-
-
-
+/* Estilos generales */
 main {
   display: flex;
   flex-direction: column;
-  align-items: center;  /* Centra los elementos horizontalmente */
+  align-items: center; /* Centra los elementos horizontalmente */
   justify-content: center; /* Centra los elementos verticalmente */
-  min-height: 100vh;  /* Asegura que el main ocupe toda la altura de la pantalla */
+  min-height: 100vh; /* Asegura que el main ocupe toda la altura de la pantalla */
   text-align: center; /* Centra el texto */
+  padding: 20px; /* Añade un poco de espacio alrededor del contenido */
 }
 
+/* Contenedor de la descripción */
+#description-container {
+ /*  display: flex;
+  align-items: center; Alinea verticalmente la imagen y el texto 
+  justify-content: center; /* Centra los elementos en el eje horizontal 
+  gap: 100px; /* Espacio entre la imagen y el contenido de texto 
+  margin-top: 9vw; 
+  */
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 100px;
+  gap: 90px;
+  width: 80%;
+  max-width: 1430px; /* Ancho fijo */
+}
 
+/* Contenedor de la imagen */
+#img-container img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Estilos del texto */
 #description h1 {
   max-width: 520px;
   font-family: 'Inter', sans-serif;
@@ -19,9 +46,9 @@ main {
   font-size: 3.5vw;
   overflow: hidden;
   margin-right: auto; /* Margen derecho automático */
-  border-right: .15em solid rgb(255, 255, 255);
+  border-right: 0.15em solid rgb(255, 255, 255);
   white-space: nowrap;
-  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
 .gradient-text {
@@ -32,7 +59,6 @@ main {
   background-size: 200% 100%; /* Aumenta el tamaño del fondo para poder moverlo */
   animation: gradientMove 3s linear infinite; /* Animación de movimiento continuo */
 }
-
 
 /* Animación del degradado */
 @keyframes gradientMove {
@@ -69,21 +95,28 @@ main p {
   margin-top: 50px;
 }
 
-#description-container {
+/* Iconos sociales */
+.social-icons {
   display: flex;
-  align-items: center; /* Alinea verticalmente la imagen y el texto */
-  justify-content: center; /* Centra los elementos en el eje horizontal */
-  gap: 100px; /* Espacio entre la imagen y el contenido de texto */
-  margin-top: 9vw;
+  justify-content: flex-start; /* Alinea los iconos a la izquierda */
+  align-items: center; /* Centra los iconos verticalmente */
+  gap: 25px; /* Espacio entre los iconos */
+  margin-top: 50px;
 }
 
-#img-container img {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 50%;
+.social-icons img {
+  width: 35px; /* Tamaño del icono */
+  height: 35px; /* Tamaño del icono */
+  transition: transform 0.3s, filter 0.3s; /* Efecto de transición al pasar el mouse */
 }
 
+/* Efecto hover para los iconos */
+.social-icons img:hover {
+  transform: scale(1.3); /* Agranda el icono al pasar el mouse */
+  filter: brightness(1.2); /* Aumenta el brillo en el hover */
+}
+
+/* Animaciones */
 @keyframes typing {
   from {
     width: 0;
@@ -110,65 +143,147 @@ main p {
   }
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  width: 450px; /* Ajusta el ancho de las tarjetas */
-  height: 300;
-  border-radius: 15px;
-  overflow: hidden;
-  color: red;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  /* Borde azul suave */
-  border: 1px solid #334155; /* Azul cielo */
-  /* Espaciado en la parte inferior */
+/* Estilos responsivos */
+@media (max-width: 1024px) {
+   #description-container {
+    flex-direction: column; /* Coloca los elementos en una sola columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    text-align:start; /* Asegura que los textos estén centrados */
+    gap: 20px; /* Reduce el espacio entre elementos */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    margin-top: 20px; /* Ajusta el margen superior */
+  }
+
+  #description h1 {
+    font-size: 4vw; /* Ajusta el tamaño del título */
+    text-align: center; /* Centra el texto */
+    margin-right: 0; /* Elimina el margen derecho */
+  }
+
+  #description h2 {
+    text-align: center;
+    max-width: 90%;
+  }
+
+  main p {
+    font-size: 1.3vw; /* Ajusta el tamaño del texto */
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center; /* Centra los iconos sociales */
+  }
 }
 
+@media (max-width: 768px) {
+  main {
+    padding: 20px; /* Añade espacio alrededor del contenido */
+  }
 
-.professional-button {
-  background-color: #007bff; /* Color azul suave */
-  color: white; /* Texto blanco */
-  padding: 12px 24px; /* Relleno más grande */
-  font-size: 1.1rem; /* Tamaño de fuente adecuado */
-  border-radius: 50px; /* Bordes redondeados */
-  border: 2px solid #007bff; /* Borde del mismo color que el fondo */
-  cursor: pointer; /* El cursor cambia a mano */
-  transition: all 0.3s ease; /* Efecto suave de transición */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
+  #description h1 {
+    font-size: 5vw; /* Aumenta el tamaño del título */
+  }
+
+  #description h2 {
+    font-size: 24px;
+    max-width: 80%;
+  }
+
+  main p {
+    font-size: 1.5vw;
+    max-width: 90%;
+    text-align:start; /* Asegura que los textos estén centrados */
+
+  }
+
+  .social-icons img {
+    width: 30px;
+    height: 30px;
+  }
 }
 
-.professional-button:hover {
-  background-color: #0056b3; /* Color más oscuro al pasar el cursor */
-  border-color: #0056b3; /* Cambio en el borde */
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el cursor */
+@media (max-width: 480px) {
+  #description {
+    display: flex;
+    flex-direction: column; /* Hace que los elementos sean uno debajo del otro */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Asegura que se centren también verticalmente */
+    text-align: center; /* Centra el texto dentro de los elementos */
+    gap: 10px; /* Ajusta el espacio entre h1 y h2 */
+  }
+
+  #description h1 {
+    font-size: 6vw; /* Ajusta el tamaño del título */
+    margin: 0; /* Elimina márgenes adicionales */
+  }
+
+  #description h2 {
+    font-size: 20px; /* Tamaño del h2 */
+    margin: 0; /* Elimina márgenes adicionales */
+  }
+
+  main p {
+    font-size: 16px;
+    text-align: center;
+    text-align:start; /* Asegura que los textos estén centrados */
+
+  }
+
+  #description-container {
+    gap: 30px; /* Reduce el espacio entre elementos */
+  }
+
+  #img-container img {
+    width: 200px; /* Reduce el tamaño de la imagen */
+    height: 200px;
+  }
+
+  .social-icons img {
+    width: 35px;
+    height: 35px;
+  }
 }
 
-.professional-button:focus {
-  outline: none; /* Eliminar el contorno cuando el botón está enfocado */
+@media (max-width: 320px) {
+  #description-container {
+    flex-direction: column; /* Coloca los elementos en una sola columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    text-align:start; /* Asegura que los textos estén centrados */
+    gap: 20px; /* Reduce el espacio entre elementos */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    margin-top: 20px; /* Ajusta el margen superior */
+  }
+
+  #img-container {
+    order: 1; /* Coloca la imagen en la primera posición */
+  }
+
+  #description {
+    order: 2; /* Coloca el texto debajo de la imagen */
+  }
+
+  #description h1 {
+    font-size: 8vw; /* Ajusta el tamaño del título */
+    max-width: 90%; /* Limita el ancho del título */
+  }
+
+  #description h2 {
+    font-size: 18px;
+  }
+
+  main p {
+    font-size: 14px;
+    text-align:start; /* Asegura que los textos estén centrados */
+
+    
+  }
+
+  .social-icons {
+    justify-content: center; /* Centra los iconos en pantallas pequeñas */
+  }
+
+  .social-icons img {
+    width: 30px;
+    height: 30px;
+  }
 }
-
-#btn-projects {
-  margin-bottom: 100px; /* Ajusta el valor según lo que necesites */
-}
-
-.social-icons {
-  display: flex;
-  justify-content: flex-start; /* Alinea los iconos a la izquierda */
-  align-items: center; /* Centra los iconos verticalmente */
-  gap: 25px; /* Ajusta este valor para reducir la distancia entre los iconos */
-}
-
-.social-icons img {
-  width: 35px; /* Tamaño del icono */
-  height: 35px; /* Tamaño del icono */
-  transition: transform 0.3s, filter 0.3s; /* Añadimos transición para el hover */
-  margin-top: 50px;
-}
-
-/* Hover efecto */
-.social-icons img:hover {
-  transform: scale(1.3); /* Agranda el icono al pasar el mouse */
-  filter: brightness(1.2); /* Aumenta el brillo en el hover */
-}
-
-

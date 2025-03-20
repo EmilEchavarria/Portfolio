@@ -37,7 +37,7 @@ export function About() {
 
       {/* Descripción personal */}
       <section
-        id="description-container"
+        id="about-description-container"
         className="flex flex-col md:flex-row items-center md:items-center justify-center py-12 px-4"
       >
         <div className="text-container md:w-1/2 text-left">

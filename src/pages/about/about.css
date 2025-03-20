@@ -24,7 +24,7 @@ main {
 }
 
 /* Sección de descripción: Imagen a la derecha y texto a la izquierda */
-#description-container {
+#about-description-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -35,6 +35,7 @@ main {
   width: 80%;
   max-width: 1430px; /* Ancho fijo */
 }
+
 
 .text-container {
   width: 50%;
