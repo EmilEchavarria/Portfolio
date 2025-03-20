@@ -243,8 +243,8 @@ main p {
   }
 
   #img-container img {
-    width: 150px; /* Reduce el tamaño de la imagen */
-    height: 150px;
+    width: 15px; /* Reduce el tamaño de la imagen */
+    height: 50px;
   }
 
   .social-icons {
