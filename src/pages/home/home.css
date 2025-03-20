@@ -209,11 +209,11 @@ main p {
     align-items: center; /* Centra los elementos horizontalmente */
     justify-content: center; /* Asegura que se centren también verticalmente */
     text-align: center; /* Centra el texto dentro de los elementos */
-    gap: 5px; /* Ajusta el espacio entre h1 y h2 */
+    gap: 10px; /* Ajusta el espacio entre h1 y h2 */
   }
 
   #description h1 {
-    font-size: 8vw; /* Ajusta el tamaño del título */
+    font-size: 18vw; /* Ajusta el tamaño del título */
     margin: 0; /* Elimina márgenes adicionales */
   }
 
@@ -263,7 +263,7 @@ main p {
   }
 
   #description h1 {
-    font-size: 110vw; /* Ajusta el tamaño del título */
+    font-size: 10vw; /* Ajusta el tamaño del título */
     max-width: 90%; /* Limita el ancho del título */
   }
 
