@@ -227,17 +227,21 @@ main p {
     align-items: center; /* Centra los elementos horizontalmente */
     justify-content: center; /* Asegura que se centren también verticalmente */
     text-align: center; /* Centra el texto dentro de los elementos */
-    gap: 5px; /* Ajusta el espacio entre h1 y h2 */
   }
 
+  
+
   #description h1 {
-    font-size: 24px; /* Tamaño fijo para móviles */
+    font-size: 35px; /* Tamaño fijo para móviles */
     margin: 0; /* Elimina márgenes adicionales */
+    max-width: 265px;
+
   }
 
   #description h2 {
     font-size: 22px; /* Tamaño del h2 */
     margin: 0; /* Elimina márgenes adicionales */
+    padding-bottom:25px;
   }
 
   main p {
@@ -255,14 +259,14 @@ main p {
   }
 
   #img-container img {
-    width: 150px; /* Tamaño más pequeño para móviles */
-    height: 150px;
+    width: 190px; /* Tamaño más pequeño para móviles */
+    height: 190px;
   }
 
   .social-icons {
     display: flex;
     justify-content: center; /* Centra los iconos */
-    gap: 15px; /* Reduce el espacio entre los iconos */
+    gap: 20px; /* Reduce el espacio entre los iconos */
     margin-top: 20px; /* Ajusta el margen superior */
   }
 
