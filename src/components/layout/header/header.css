@@ -44,3 +44,16 @@
   z-index: 1;  /* Asegura que el dock esté por encima de otros elementos */
 }
 
+@media (max-width: 768px) {
+  /* Desactivamos los efectos hover en dispositivos con pantallas pequeñas */
+  .icon-container:hover {
+    transform: none;
+    filter: none;
+  }
+
+  .icon-container:hover .icon {
+    color: initial;
+    filter: none;
+    transform:none;
+}
+}
