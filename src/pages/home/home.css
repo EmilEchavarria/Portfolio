@@ -187,37 +187,71 @@ main p {
 
 @media (max-width: 768px) {
   main {
-    padding: 20px; /* Añade espacio alrededor del contenido */
+    min-height: 100vh; /* Asegura que el main ocupe toda la altura de la pantalla */
+    overflow: hidden; /* Evita el scroll */
+    padding: 20px; /* Añade un poco de espacio alrededor del contenido */
+    box-sizing: border-box; /* Incluye el padding en el cálculo del tamaño */
+    padding: 30px; /* Menos padding en móviles */
+
   }
 
+  #description {
+    display: flex;
+    flex-direction: column; /* Hace que los elementos sean uno debajo del otro */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Asegura que se centren también verticalmente */
+    text-align: center; /* Centra el texto dentro de los elementos */
+  }
+
+  
+
   #description h1 {
-    font-size: 5vw; /* Aumenta el tamaño del título */
+    font-size: 45px; /* Tamaño fijo para móviles */
+    margin: 0; /* Elimina márgenes adicionales */
+    max-width: 340px;
+
   }
 
   #description h2 {
-    font-size: 24px;
-    max-width: 80%;
+    font-size: 22px; /* Tamaño del h2 */
+    margin: 0; /* Elimina márgenes adicionales */
+    padding-bottom:25px;
   }
 
   main p {
-    font-size: 1.5vw;
-    max-width: 90%;
-    text-align:start; /* Asegura que los textos estén centrados */
+    font-size: 16px;
+    text-align: center; /* Centra el texto */
+    margin: 10px 0; /* Añade un margen pequeño arriba y abajo */
+  }
 
+  #description-container {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en una columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    gap: 30px; /* Reduce el espacio entre elementos */
+    margin-top: 20px; /* Ajusta el margen superior */
+  }
+
+  #img-container img {
+    width: 220px; /* Tamaño más pequeño para móviles */
+    height: 220px;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center; /* Centra los iconos */
+    gap: 20px; /* Reduce el espacio entre los iconos */
+    margin-top: 20px; /* Ajusta el margen superior */
   }
 
   .social-icons img {
-    width: 30px;
-    height: 30px;
+    width: 35px; /* Reduce el tamaño de los iconos */
+    height: 35px;
   }
-
-  .social-icons img:hover {
-    transform: none;
-    filter:none;
 }
 
 
-}
+
 @media (max-width: 480px) {
   main {
     min-height: 100vh; /* Asegura que el main ocupe toda la altura de la pantalla */
@@ -311,7 +345,7 @@ main p {
   
   main p {
     font-size: 14px;
-    text-align:start; /* Asegura que los textos estén centrados */
+    text-align:center; /* Asegura que los textos estén centrados */
 
     
   }
