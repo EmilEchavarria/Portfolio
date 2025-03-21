@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import Header from '../../components/layout/header/header';
 import './home.css'; // Asegúrate de que este archivo CSS esté correctamente configurado
-import photo from '../../assets/images/description/photo.png';
+import photo from '../../assets/images/description/photo.avif';
 import github from '../../assets/images/home/github.png';
 import linkedin from '../../assets/images/home/linkedin.png';
 import instagram from '../../assets/images/home/instagram.png';
