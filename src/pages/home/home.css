@@ -211,10 +211,7 @@ main p {
     height: 30px;
   }
 
-  .social-icons img:hover {
-    transform: none;
-    filter: none;
-  }
+
 }
 @media (max-width: 480px) {
   main {
