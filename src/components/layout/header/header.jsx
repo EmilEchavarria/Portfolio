@@ -6,7 +6,7 @@ import "./header.css";
 import IconHome from "../../../assets/images/header/IconHome.png";
 import user from "../../../assets/images/header/user.png";
 import portfolio from "../../../assets/images/header/portfolio.png";
-import education from "../../../assets/images/header/skills.png";
+import education from "../../../assets/images/header/education.png";
 import contact from "../../../assets/images/header/contact.png";
 
 const Header = () => {
