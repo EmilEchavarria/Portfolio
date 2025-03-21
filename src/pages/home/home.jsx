@@ -1,26 +1,27 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import Header from '../../components/layout/header/header';
-import "./home.css"; 
-import photo from "../../assets/images/description/photo.png";
-import github from "../../assets/images/home/github.png";
-import linkedin from "../../assets/images/home/linkedin.png";
-import instagram from "../../assets/images/home/instagram.png";
-import curriculum from "../../assets/images/home/curriculum.png";
+import './home.css'; // Asegúrate de que este archivo CSS esté correctamente configurado
+import photo from '../../assets/images/description/photo.png';
+import github from '../../assets/images/home/github.png';
+import linkedin from '../../assets/images/home/linkedin.png';
+import instagram from '../../assets/images/home/instagram.png';
+import curriculum from '../../assets/images/home/curriculum.png';
 
 export function Home() {
   useEffect(() => {
-    // Añadir la clase 'home' al body
-    document.body.classList.add('home');
+    // Seleccionamos el contenedor del componente Home y le agregamos la clase
+    const homeContainer = document.getElementById('home-container');
+    homeContainer.classList.add('home-style');
 
-    // Limpiar la clase 'home' cuando el componente se desmonte
+    // Limpiamos la clase cuando el componente se desmonte o actualice
     return () => {
-      document.body.classList.remove('home');
+      homeContainer.classList.remove('home-style');
     };
-  }, []);  // El array vacío asegura que esto solo se ejecute cuando el componente se monte y desmonte
+  }, []);
 
   return (
-    <main>
-      <Header/>
+    <main id="home-container">
+      <Header />
 
       <section id="description-container">
         <div id="img-container">
@@ -35,7 +36,7 @@ export function Home() {
           <p>
             👨🏻‍💻 Junior software developer who enjoys creating intuitive UX/UI and building efficient back-end solutions with .NET Framework. 🚀
           </p>
-            
+
           <div className="social-icons">
             <a href="https://github.com/EmilEchavarria" target="_blank" rel="noopener noreferrer">
               <img src={github} alt="GitHub Profile" className="github-icon" />
@@ -52,7 +53,6 @@ export function Home() {
           </div>
         </div>
       </section>
-
     </main>
   );
 }
