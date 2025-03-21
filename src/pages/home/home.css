@@ -7,6 +7,8 @@ main {
   min-height: 100vh; /* Asegura que el main ocupe toda la altura de la pantalla */
   text-align: center; /* Centra el texto */
   padding: 20px; /* Añade un poco de espacio alrededor del contenido */
+  box-sizing: border-box; /* Incluye el padding en el cálculo del tamaño */
+  overflow: hidden; /* Evita el scroll */
 }
 
 /* Contenedor de la descripción */
@@ -28,6 +30,7 @@ main {
   width: 80%;
   max-width: 100%; /* Asegura que no exceda el ancho del viewport */
 }
+
 
 /* Contenedor de la imagen */
 #img-container img {
@@ -207,6 +210,8 @@ main p {
     overflow: hidden; /* Evita el scroll */
     padding: 20px; /* Añade un poco de espacio alrededor del contenido */
     box-sizing: border-box; /* Incluye el padding en el cálculo del tamaño */
+    padding: 10px; /* Menos padding en móviles */
+
   }
 
   #description {
@@ -219,7 +224,7 @@ main p {
   }
 
   #description h1 {
-    font-size: 8vw; /* Ajusta el tamaño del título */
+    font-size: 24px; /* Tamaño fijo para móviles */
     margin: 0; /* Elimina márgenes adicionales */
   }
 
@@ -243,7 +248,7 @@ main p {
   }
 
   #img-container img {
-    width: 150px; /* Reduce el tamaño de la imagen */
+    width: 150px; /* Tamaño más pequeño para móviles */
     height: 150px;
   }
 
