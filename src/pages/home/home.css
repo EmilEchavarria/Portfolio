@@ -271,8 +271,8 @@ main p {
   }
 
   .social-icons img {
-    width: 30px; /* Reduce el tamaño de los iconos */
-    height: 30px;
+    width: 35px; /* Reduce el tamaño de los iconos */
+    height: 35px;
   }
 }
 @media (max-width: 320px) {
