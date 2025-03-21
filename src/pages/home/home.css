@@ -1,7 +1,4 @@
 /* Estilos generales */
-html, body {
-  overflow: hidden; /* Evita el desplazamiento */
-}
 
 
 main {
@@ -211,7 +208,6 @@ main p {
 }
 @media (max-width: 480px) {
   main {
-    min-height: 100vh; /* Asegura que el main ocupe toda la altura de la pantalla */
     overflow: hidden; /* Evita el scroll */
     padding: 20px; /* Añade un poco de espacio alrededor del contenido */
     box-sizing: border-box; /* Incluye el padding en el cálculo del tamaño */
