@@ -36,7 +36,7 @@ const Dock = React.forwardRef(
         if (window.innerWidth <= 320) {
           setDynamicHeight("40px"); // Altura menor para pantallas muy pequeñas
         } else if (window.innerWidth <= 480) {
-          setDynamicHeight("40px"); // Altura intermedia para pantallas pequeñas
+          setDynamicHeight("45px"); // Altura intermedia para pantallas pequeñas
         } else {
           setDynamicHeight(height); // Altura por defecto para pantallas más grandes
         }
