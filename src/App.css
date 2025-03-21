@@ -39,7 +39,11 @@
 }
 /* index.css */
 /* Asegúrate de que el fondo ocupe toda la pantalla */
-
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Asegúrate de que el cuerpo y html ocupen toda la pantalla */
+}
 
 .retro-grid-background {
   position: fixed; /* Cambié a 'fixed' para que no se mueva al hacer scroll */
