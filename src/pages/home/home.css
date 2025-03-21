@@ -13,12 +13,6 @@ main {
   overflow: hidden; /* Evita el scroll */
 }
 
-#header {
-  overflow: hidden;
-  position: relative; /* Si tienes position: absolute, cámbialo a relative */
-
-}
-
 /* Contenedor de la descripción */
 #description-container {
  /*  display: flex;
@@ -27,7 +21,7 @@ main {
   gap: 100px; /* Espacio entre la imagen y el contenido de texto 
   margin-top: 9vw; 
   */
-  overflow: hidden; /* Para asegurarte de que no se desborden elementos dentro del contenedor */
+  
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -214,6 +208,7 @@ main p {
 }
 @media (max-width: 480px) {
   main {
+    min-height: 100vh; /* Asegura que el main ocupe toda la altura de la pantalla */
     overflow: hidden; /* Evita el scroll */
     padding: 20px; /* Añade un poco de espacio alrededor del contenido */
     box-sizing: border-box; /* Incluye el padding en el cálculo del tamaño */
@@ -222,8 +217,6 @@ main p {
   }
 
   #description {
-    overflow: hidden; /* Para asegurarte de que no se desborden elementos dentro del contenedor */
-
     display: flex;
     flex-direction: column; /* Hace que los elementos sean uno debajo del otro */
     align-items: center; /* Centra los elementos horizontalmente */
