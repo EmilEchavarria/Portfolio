@@ -6,10 +6,9 @@ import linkedin from "../../assets/images/home/linkedin.png";
 import instagram from "../../assets/images/home/instagram.png";
 import curriculum from "../../assets/images/home/curriculum.png";
 
-
 export function Home() {
   return (
-    <main>
+    <main className="home-main">
       <Header/>
 
       <section id="description-container">
@@ -23,7 +22,7 @@ export function Home() {
           </h1>
           <h2>Software Developer</h2>
           <p>
-          👨🏻‍💻 Junior software developer who enjoys creating intuitive UX/UI and building efficient back-end solutions with .NET Framework. 🚀
+            👨🏻‍💻 Junior software developer who enjoys creating intuitive UX/UI and building efficient back-end solutions with .NET Framework. 🚀
           </p>
             
           <div className="social-icons">
@@ -42,7 +41,6 @@ export function Home() {
           </div>
         </div>
       </section>
-
     </main>
   );
 }

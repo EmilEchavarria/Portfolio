@@ -1,4 +1,9 @@
 /* Estilos generales */
+.home-main {
+  overflow: hidden; /* Esto evita el scroll solo en el componente Home */
+}
+
+/* Otros estilos de tu componente Home */
 
 
 main {
