@@ -26,7 +26,7 @@ main {
   margin-bottom: 100px;
   gap: 90px;
   width: 80%;
-  max-width: 1430px; /* Ancho fijo */
+  max-width: 100%; /* Asegura que no exceda el ancho del viewport */
 }
 
 /* Contenedor de la imagen */
