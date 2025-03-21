@@ -45,6 +45,16 @@
 }
 
 
-@media (max-width: 320px) {
+@media (max-width: 768px) {
+  /* Desactivamos los efectos hover en dispositivos con pantallas pequeñas */
+  .icon-container:hover {
+    transform: none;
+    filter: none;
+  }
 
+  .icon-container:hover .icon {
+    color: initial;
+    filter: none;
+    transform: none;
+  }
 }
