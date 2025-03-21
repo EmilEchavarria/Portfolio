@@ -259,8 +259,8 @@ main p {
   }
 
   #img-container img {
-    width: 90px; /* Tamaño más pequeño para móviles */
-    height: 90px;
+    width: 190px; /* Tamaño más pequeño para móviles */
+    height: 190px;
   }
 
   .social-icons {

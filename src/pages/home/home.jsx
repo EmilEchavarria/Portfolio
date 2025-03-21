@@ -1,4 +1,4 @@
-import  { useEffect } from 'react';
+import { useEffect } from 'react';
 import Header from '../../components/layout/header/header';
 import './home.css'; // Asegúrate de que este archivo CSS esté correctamente configurado
 import photo from '../../assets/images/description/photo.png';
@@ -12,10 +12,14 @@ export function Home() {
     // Seleccionamos el contenedor del componente Home y le agregamos la clase
     const homeContainer = document.getElementById('home-container');
     homeContainer.classList.add('home-style');
+    
+    // Evitar el scroll al agregar la clase al body
+    document.body.style.overflow = 'hidden';
 
-    // Limpiamos la clase cuando el componente se desmonte o actualice
+    // Limpiar la clase y permitir el scroll cuando el componente se desmonte o actualice
     return () => {
       homeContainer.classList.remove('home-style');
+      document.body.style.overflow = 'auto';  // Restablecer el scroll al desmontar el componente
     };
   }, []);
 
