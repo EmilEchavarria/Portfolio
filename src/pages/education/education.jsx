@@ -8,12 +8,15 @@ import angularitla from "../../assets/images/certificates/angularitla.png";
 import cssdepth from "../../assets/images/certificates/cssdepth.png";
 import javascript from "../../assets/images/certificates/intofront.png";
 import versioncontrol from "../../assets/images/certificates/versioncontrol.png";
+import reactmeta from "../../assets/images/certificates/reactmeta.png";
+import csharpbasicitla from "../../assets/images/certificates/csharpbasicitla.png";
+
 
 
 export function Education() {
     return (
       <main>
-      <Header />
+      <Header/>
       <section id="about-header" className="text-center my-8">
         <h1 className="gradient-text">Education</h1>
         <h2 className="text-xl text-white">Academic Background</h2>
@@ -94,6 +97,20 @@ export function Education() {
       </h3>
       <p className="text-gray-400">Completed in 2024</p>
     </div>
+
+    <div className="bg-gray-700 p-6 rounded-lg shadow-lg">
+      <h3 className="text-2xl text-white font-medium mb-2">
+        Backend Development with C# .Net - ITLA
+      </h3>
+      <p className="text-gray-400">Completed in 2025</p>
+    </div>
+
+     <div className="bg-gray-700 p-6 rounded-lg shadow-lg">
+      <h3 className="text-2xl text-white font-medium mb-2">
+        Front-End Development with React - Meta
+      </h3>
+      <p className="text-gray-400">Completed in 2025</p>
+    </div>
   </div>
 </section>
 
@@ -153,7 +170,22 @@ export function Education() {
         <h3>Front-End Development with Angular</h3>
       </div>
     </div>
+
+     <div className="card">
+      <img src={reactmeta} alt="React Meta" className="card-img" />
+      <div className="card-content">
+        <h3>Front-End Development with React</h3>
+      </div>
+    </div>
+
+     <div className="card">
+      <img src={csharpbasicitla} alt="C# Basic ITLA" className="card-img" />
+      <div className="card-content">
+        <h3>Backend Development with C# .Net</h3>
+      </div>
+    </div>
   </Marquee>
+  
 </section>
 
 
@@ -168,7 +200,7 @@ export function Education() {
 </section>
 
 
-    </main>    );
+    </main>);
   }
   
   export default Education;

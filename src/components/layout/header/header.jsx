@@ -35,7 +35,7 @@ const Header = () => {
 
       <DockIcon className="dock-icon" label="education">
         <Link to="/education" className="icon-container">
-          <img src={education} alt="Skills" className="icon" />
+          <img src={education} alt="Education" className="icon" />
         </Link>
       </DockIcon>
 

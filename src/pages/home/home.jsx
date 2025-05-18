@@ -29,7 +29,7 @@ export function Home() {
 
       <section id="description-container">
         <div id="img-container">
-          <img src={photo} alt="Home" />
+          <img src={photo} alt="Emil Echavarria" />
         </div>
 
         <div id="description">
@@ -52,7 +52,7 @@ export function Home() {
               <img src={instagram} alt="Instagram Profile" className="instagram-icon" />
             </a>
             <a href="https://www.instagram.com/emilechavarria.c/" target="_blank" rel="noopener noreferrer">
-              <img src={curriculum} alt="Instagram Profile" className="cv-icon" />
+              <img src={curriculum} alt="Resume" className="cv-icon" />
             </a>
           </div>
         </div>

@@ -3,11 +3,12 @@
   grid-template-columns: repeat(3, 1fr); /* 4 columnas */
   gap: 20px;
   padding: 20px;
-  max-width: 1200px;
+  max-width: 1300px;
   padding-bottom:150px;
-  z-index: -100 !important;
-  
+  z-index: 1 !important;
 }
+
+
 
 .project-card {
   position: relative; /* Permite posicionar elementos hijos dentro */
@@ -22,8 +23,17 @@
 .project-card p {
   text-align: center;
   color: rgba(255, 255, 255, 0.747);
+  padding:15px;
+  margin-top:-10px;
+  font-size: 17px
 }
 
+.project-card h2 {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 22px;
+  font-weight:600
+}
 
 .meteors-wrapper {
   position: absolute;
@@ -88,5 +98,5 @@
 }
 
 .project-demo-button:hover {
-  background: #1e7e34;
+  background: #135021;
 }
