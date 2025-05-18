@@ -1,17 +1,28 @@
 /* Asegúrate de que no haya colores de fondo en los campos */
 .form-container{
-      width:800px !important;
+      width:80vh;
 }
+
+.form-container p{
+  font-size: 2.2vh;
+  font-weight: 400;
+}
+
 .label
 {
   font-size:18px;
   font-weight: 200;
-  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .gradient-text{
 font-size: 8vh;
 }
   /* Formulario personalizado */
+
+  textarea
+  {
+    height:200px;
+  }
   form input, form textarea {
     transition: background-color 0.3s ease, border 0.3s ease;
   }
