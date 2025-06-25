@@ -10,6 +10,9 @@ import portfolio from "../../assets/images/projects/portfolio.png";
 import portfoliobasic from "../../assets/images/projects/portfoliobasic.png";
 import stockify from "../../assets/images/projects/stockify.png";
 import electronic from "../../assets/images/projects/electronic.png";
+import enrollmentsystem from "../../assets/images/projects/enrollmentsystem.png";
+import professionalcv from "../../assets/images/projects/professionalcv.png";
+
 
 
 
@@ -32,24 +35,46 @@ const projects = [
     demoUrl: "https://j-tag-events.vercel.app/",
 
   },
-  {
-    id: 3,
-    title: "Portfolio",
-    description:"Portafolio personal moderno creado con React y Tailwind CSS. Muestra proyectos, habilidades y trayectoria como desarrollador front-end.",
-    image: portfolio,
-    demoUrl: "https://emilechavarria.vercel.app/",
 
-  },
-  {
-    id: 4,
+   {
+    id: 3,
     title: "Stockify",
     description:"Aplicación de escritorio en C# y Windows Forms para gestión de inventario, ventas y facturación. Usa MySQL y genera reportes en PDF.",
     image: stockify,
     demoUrl: "https://github.com/EmilEchavarria/Stockify",
 
   },
+
+  {
+    id: 4,
+    title: "Enrollment System",
+    description:"Sistema de inscripción web en HTML, CSS y JavaScript. Permite registrar datos personales, seleccionar materias con horarios y generar un resumen exportable en PDF. Incluye sección de ayuda interactiva.",
+    image: enrollmentsystem,
+    demoUrl: "https://student-enrollment-system-six.vercel.app",
+
+  },
+  
+
   {
     id: 5,
+    title: "Portfolio",
+    description:"Portafolio personal moderno creado con React y Tailwind CSS. Muestra proyectos, habilidades y trayectoria como desarrollador front-end.",
+    image: portfolio,
+    demoUrl: "https://emilechavarria.vercel.app/",
+
+  },
+ 
+   {
+    id: 6,
+    title: "Professionalcv",
+    description:"Generador de CV interactivo en HTML, CSS y JavaScript. El usuario ingresa sus datos y obtiene un currículum dinámico renderizado en la misma página.",
+    image: professionalcv,
+    demoUrl: "https://student-enrollment-system-six.vercel.app",
+
+  },
+
+  {
+    id: 7,
     title: "Basic Portfolio",
     description:"Primera versión de mi portafolio creada con HTML, CSS y JavaScript. Muestra mis primeros proyectos y habilidades iniciales.",
     image: portfoliobasic,
@@ -57,7 +82,7 @@ const projects = [
 
   },
   {
-    id: 6,
+    id: 8,
     title: "Electronic Organizer",
     description:"Aplicación de escritorio en C# para gestionar contactos. Realiza operaciones CRUD en una base de datos local con interfaz sencilla.",
     image: electronic,

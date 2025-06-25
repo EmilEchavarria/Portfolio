@@ -22,6 +22,8 @@ import vs from "../../assets/images/about/vs.png";
 import vsc from "../../assets/images/about/vsc.png";
 import powerbi from "../../assets/images/about/powerbi.png";
 import docker from "../../assets/images/about/docker.png";
+import nodejs from "../../assets/images/about/nodejs.png";
+
 
 
 
@@ -106,7 +108,7 @@ export function About() {
       <div className="mt-12">
         <h3 className="text-2xl text-white mb-4">Backend</h3>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6">
-          {[{ img: csharp, name: ".NET Framework" }, { img: mysql, name: "MySQL" }, { img: sqlserver, name: "SQL Server" } ].map((tech, index) => (
+          {[{ img: csharp, name: ".NET Framework" }, { img: mysql, name: "MySQL" }, { img: sqlserver, name: "SQL Server" },{ img: nodejs, name: "Node JS" } ].map((tech, index) => (
             <div key={index} className="bg-gray-800 p-6 rounded-xl shadow-lg flex items-center space-x-4 hover:scale-105 transition-transform">
               <img src={tech.img} alt={tech.name} className="w-10 h-10" />
               <span className="text-white text-lg font-medium">{tech.name}</span>
