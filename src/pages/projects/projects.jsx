@@ -12,6 +12,8 @@ import stockify from "../../assets/images/projects/stockify.png";
 import electronic from "../../assets/images/projects/electronic.png";
 import enrollmentsystem from "../../assets/images/projects/enrollmentsystem.png";
 import professionalcv from "../../assets/images/projects/professionalcv.png";
+import agrogestor from "../../assets/images/projects/agrogestor.png";
+
 
 
 
@@ -19,8 +21,17 @@ import professionalcv from "../../assets/images/projects/professionalcv.png";
 
 
 const projects = [
+
   {
     id: 1,
+    title: "AgroGestor",
+    description: "Agrogestor is a digital platform that helps manage and optimize agricultural processes through real-time control of crops, resources, and data.",
+    image: agrogestor,
+    demoUrl: "https://agrogestor.vercel.app", // ejemplo
+
+  },
+  {
+    id: 2,
     title: "Auto Gleam",
     description: "Aplicación web tipo SPA desarrollada en Angular para gestión de servicios de lavado de autos. Incluye autenticación por roles, citas, reportes y diseño centrado en la experiencia del usuario.",
     image: autogleam,
@@ -28,7 +39,7 @@ const projects = [
 
   },
   {
-    id: 2,
+    id: 3,
     title: "J Tag Events",
     description:"Sitio web desarrollado con HTML, CSS y JavaScript para una empresa de eventos. Incluye catálogo de servicios, secciones informativas y diseño responsive.",
     image: jtag,
@@ -37,7 +48,7 @@ const projects = [
   },
 
    {
-    id: 3,
+    id: 4,
     title: "Stockify",
     description:"Aplicación de escritorio en C# y Windows Forms para gestión de inventario, ventas y facturación. Usa MySQL y genera reportes en PDF.",
     image: stockify,
@@ -46,7 +57,7 @@ const projects = [
   },
 
   {
-    id: 4,
+    id: 5,
     title: "Enrollment System",
     description:"Sistema de inscripción web en HTML, CSS y JavaScript. Permite registrar datos personales, seleccionar materias con horarios y generar un resumen exportable en PDF. Incluye sección de ayuda interactiva.",
     image: enrollmentsystem,
@@ -56,7 +67,7 @@ const projects = [
   
 
   {
-    id: 5,
+    id: 6,
     title: "Portfolio",
     description:"Portafolio personal moderno creado con React y Tailwind CSS. Muestra proyectos, habilidades y trayectoria como desarrollador front-end.",
     image: portfolio,
@@ -65,7 +76,7 @@ const projects = [
   },
  
    {
-    id: 6,
+    id: 7,
     title: "Professionalcv",
     description:"Generador de CV interactivo en HTML, CSS y JavaScript. El usuario ingresa sus datos y obtiene un currículum dinámico renderizado en la misma página.",
     image: professionalcv,
@@ -74,7 +85,7 @@ const projects = [
   },
 
   {
-    id: 7,
+    id: 8,
     title: "Basic Portfolio",
     description:"Primera versión de mi portafolio creada con HTML, CSS y JavaScript. Muestra mis primeros proyectos y habilidades iniciales.",
     image: portfoliobasic,
@@ -82,7 +93,7 @@ const projects = [
 
   },
   {
-    id: 8,
+    id: 9,
     title: "Electronic Organizer",
     description:"Aplicación de escritorio en C# para gestionar contactos. Realiza operaciones CRUD en una base de datos local con interfaz sencilla.",
     image: electronic,
