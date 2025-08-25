@@ -57,7 +57,7 @@ export function Education() {
 </section>
 
 
-<section id="certificates-section" className="py-12 w-full bg-gray-800">
+<section id="certificates-section" className="py-12 w-full bg-gray-900">
   <div className="text-center mb-8">
     <h1 className="text-4xl font-semibold text-white">
       Professional Certifications
@@ -111,7 +111,15 @@ export function Education() {
       </h3>
       <p className="text-gray-400">Completed in 2025</p>
     </div>
+
+         <div className="bg-gray-700 p-6 rounded-lg shadow-lg">
+      <h3 className="text-2xl text-white font-medium mb-2">
+        UX/UI ITLA
+      </h3>
+      <p className="text-gray-400">Completed in 2025</p>
+    </div>
   </div>
+ 
 </section>
 
 

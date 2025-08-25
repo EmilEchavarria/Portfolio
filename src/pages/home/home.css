@@ -1,151 +1,147 @@
-/* Estilos generales 
-body.home {
-  overflow: hidden;
+
+/* Reset y estilos base */
+* {
+  box-sizing: border-box;
 }
-*/
-/* Otros estilos de tu componente Home */
 
-
+/* Estilos principales */
 main {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centra los elementos horizontalmente */
-  justify-content: center; /* Centra los elementos verticalmente */
-  min-height: 100vh; /* Asegura que el main ocupe toda la altura de la pantalla */
-  text-align: center; /* Centra el texto */
-  padding: 20px; /* Añade un poco de espacio alrededor del contenido */
-  box-sizing: border-box; /* Incluye el padding en el cálculo del tamaño */
-  overflow: hidden; /* Evita el scroll */
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+  overflow: hidden;
+  width: 100%;
 }
 
-/* Contenedor de la descripción */
+/* Contenedor principal de descripción */
 #description-container {
- /*  display: flex;
-  align-items: center; Alinea verticalmente la imagen y el texto 
-  justify-content: center; /* Centra los elementos en el eje horizontal 
-  gap: 100px; /* Espacio entre la imagen y el contenido de texto 
-  margin-top: 9vw; 
-  */
-  
-
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   text-align: left;
-  margin-top: 20px;
-  margin-bottom: 100px;
-  gap: 90px;
-  width: 80%;
-  max-width: 100%; /* Asegura que no exceda el ancho del viewport */
+  margin-top: clamp(20px, 5vh, 60px);
+  margin-bottom: clamp(50px, 10vh, 100px);
+  gap: clamp(30px, 8vw, 90px);
+  width: 100%;
+  max-width: 1500px;
+  padding: 0 20px;
+}
+#home-name {
+   max-width: 600px;
+  width: 100%;
+}
+#description {
+  flex: 1;
+  max-width: 1300px;
+  width: 100%;
 }
 
+/* Contenedor de imagen */
+#img-container {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-/* Contenedor de la imagen */
 #img-container img {
-  width: 45vh;
-  height: 35vh;
+  width: clamp(180px, 35vh, 400px);
+  height: clamp(180px, 35vh, 400px);
   object-fit: cover;
   border-radius: 50%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 /* Estilos del texto */
 #description h1 {
-  max-width: 520px;
   font-family: 'Inter', sans-serif;
   color: white;
   text-align: left;
-  font-size: 3.5vw ;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.2;
   overflow: hidden;
-  margin-right: auto; /* Margen derecho automático */
+  margin: 0 0 15px 0;
   border-right: 0.15em solid rgb(255, 255, 255);
   white-space: nowrap;
   animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  max-width: 100%;
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, rgb(18, 167, 248), rgb(56, 25, 228)); /* Degradado de color */
-  -webkit-background-clip: text; /* Aplica el degradado solo al texto en navegadores que necesitan el prefijo */
-  background-clip: text; /* Propiedad estándar para compatibilidad */
-  color: transparent; /* Hace el color del texto transparente para que se vea el degradado */
-  background-size: 200% 100%; /* Aumenta el tamaño del fondo para poder moverlo */
-  animation: gradientMove 3s linear infinite; /* Animación de movimiento continuo */
+  background: linear-gradient(90deg, rgb(18, 167, 248), rgb(56, 25, 228));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% 100%;
+  animation: gradientMove 3s linear infinite;
 }
 
 /* Animación del degradado */
 @keyframes gradientMove {
-  0% {
-    background-position: 100% 0;
-  }
-  50% {
-    background-position: 0 100%;
-  }
-  100% {
-    background-position: 100% 0;
-  }
+  0% { background-position: 100% 0; }
+  50% { background-position: 0 100%; }
+  100% { background-position: 100% 0; }
 }
 
 #description h2 {
   font-family: 'Inter', sans-serif;
   color: rgb(167, 165, 165);
-  font-size: 30px;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   text-align: left;
-  max-width: 400px;
+  margin: 0 0 20px 0;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 3.5s;
 }
 
 main p {
   color: rgb(223, 221, 221);
   font-family: 'Inter', sans-serif;
   text-align: left;
-  font-size: 1.1vw;
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
+  margin: 20px 0 30px 0;
   max-width: 100%;
-  min-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
 }
 
 /* Iconos sociales */
 .social-icons {
   display: flex;
-  justify-content: flex-start; /* Alinea los iconos a la izquierda */
-  align-items: center; /* Centra los iconos verticalmente */
-  gap: 25px; /* Espacio entre los iconos */
-  margin-top: 50px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: clamp(15px, 3vw, 25px);
+  margin-top: 30px;
+  flex-wrap: wrap;
 }
 
 .social-icons img {
-  width: 45px; /* Tamaño del icono */
-  height: 45px; /* Tamaño del icono */
-  transition: transform 0.3s, filter 0.3s; /* Efecto de transición al pasar el mouse */
+  width: clamp(35px, 5vw, 45px);
+  height: clamp(35px, 5vw, 45px);
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
 }
 
-/* Efecto hover para los iconos */
 .social-icons img:hover {
-  transform: scale(1.2); /* Agranda el icono al pasar el mouse */
-  filter: brightness(1.2); /* Aumenta el brillo en el hover */
+  transform: scale(1.2);
+  filter: brightness(1.2);
 }
 
 /* Animaciones */
 @keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+  from { width: 0; }
+  to { width: 100%; }
 }
 
 @keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: rgb(240, 141, 12);
-  }
+  from, to { border-color: transparent; }
+  50% { border-color: rgb(240, 141, 12); }
 }
 
 @keyframes fadeInUp {
@@ -155,224 +151,210 @@ main p {
   }
 }
 
-/* Estilos responsivos */
+/* Media Queries para mejor responsive */
+
+/* Tablets grandes y laptops pequeñas */
 @media (max-width: 1024px) {
-   #description-container {
-    flex-direction: column; /* Coloca los elementos en una sola columna */
-    align-items: center; /* Centra los elementos horizontalmente */
-    text-align:start; /* Asegura que los textos estén centrados */
-    gap: 20px; /* Reduce el espacio entre elementos */
-    width: 100%; /* Asegura que ocupe todo el ancho */
-    margin-top: 20px; /* Ajusta el margen superior */
+  #description-container {
+    gap: clamp(20px, 5vw, 60px);
+    margin-top: clamp(10px, 3vh, 40px);
   }
-
+  
   #description h1 {
-    font-size: 4vw; /* Ajusta el tamaño del título */
-    text-align: center; /* Centra el texto */
-    margin-right: 0; /* Elimina el margen derecho */
-  }
-
-  #description h2 {
-    text-align: center;
-    max-width: 90%;
-  }
-
-  main p {
-    font-size: 1.3vw; /* Ajusta el tamaño del texto */
-    text-align: center;
-  }
-
-  .social-icons {
-    justify-content: center; /* Centra los iconos sociales */
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
   }
 }
 
+/* Tablets */
 @media (max-width: 768px) {
   main {
-    min-height: 100vh; /* Asegura que el main ocupe toda la altura de la pantalla */
-    overflow: hidden; /* Evita el scroll */
-    padding: 20px; /* Añade un poco de espacio alrededor del contenido */
-    box-sizing: border-box; /* Incluye el padding en el cálculo del tamaño */
-    padding: 30px; /* Menos padding en móviles */
-
-  }
-
-  #description {
-    display: flex;
-    flex-direction: column; /* Hace que los elementos sean uno debajo del otro */
-    align-items: center; /* Centra los elementos horizontalmente */
-    justify-content: center; /* Asegura que se centren también verticalmente */
-    text-align: center; /* Centra el texto dentro de los elementos */
-  }
-
-  
-
-  #description h1 {
-    font-size: 45px; /* Tamaño fijo para móviles */
-    margin: 0; /* Elimina márgenes adicionales */
-    max-width: 340px;
-
-  }
-
-  #description h2 {
-    font-size: 22px; /* Tamaño del h2 */
-    margin: 0; /* Elimina márgenes adicionales */
-    padding-bottom:25px;
-  }
-
-  main p {
-    font-size: 16px;
-    text-align: center; /* Centra el texto */
-    margin: 10px 0; /* Añade un margen pequeño arriba y abajo */
+    padding: 15px;
+    justify-content: flex-start;
+    padding-top: 80px;
   }
 
   #description-container {
-    display: flex;
-    flex-direction: column; /* Coloca los elementos en una columna */
-    align-items: center; /* Centra los elementos horizontalmente */
-    gap: 30px; /* Reduce el espacio entre elementos */
-    margin-top: 20px; /* Ajusta el margen superior */
-  }
-
-  #img-container img {
-    width: 220px; /* Tamaño más pequeño para móviles */
-    height: 220px;
-  }
-
-  .social-icons {
-    display: flex;
-    justify-content: center; /* Centra los iconos */
-    gap: 20px; /* Reduce el espacio entre los iconos */
-    margin-top: 20px; /* Ajusta el margen superior */
-  }
-
-  .social-icons img {
-    width: 35px; /* Reduce el tamaño de los iconos */
-    height: 35px;
-  }
-}
-
-
-
-@media (max-width: 480px) {
-  main {
-    min-height: 100vh; /* Asegura que el main ocupe toda la altura de la pantalla */
-    overflow: hidden; /* Evita el scroll */
-    padding: 20px; /* Añade un poco de espacio alrededor del contenido */
-    box-sizing: border-box; /* Incluye el padding en el cálculo del tamaño */
-    padding: 10px; /* Menos padding en móviles */
-
-  }
-
-  #description {
-    display: flex;
-    flex-direction: column; /* Hace que los elementos sean uno debajo del otro */
-    align-items: center; /* Centra los elementos horizontalmente */
-    justify-content: center; /* Asegura que se centren también verticalmente */
-    text-align: center; /* Centra el texto dentro de los elementos */
-  }
-
-  
-
-  #description h1 {
-    font-size: 35px; /* Tamaño fijo para móviles */
-    margin: 0; /* Elimina márgenes adicionales */
-    max-width: 265px;
-
-  }
-
-  #description h2 {
-    font-size: 22px; /* Tamaño del h2 */
-    margin: 0; /* Elimina márgenes adicionales */
-    padding-bottom:25px;
-  }
-
-  main p {
-    font-size: 16px;
-    text-align: center; /* Centra el texto */
-    margin: 10px 0; /* Añade un margen pequeño arriba y abajo */
-  }
-
-  #description-container {
-    display: flex;
-    flex-direction: column; /* Coloca los elementos en una columna */
-    align-items: center; /* Centra los elementos horizontalmente */
-    gap: 30px; /* Reduce el espacio entre elementos */
-    margin-top: 20px; /* Ajusta el margen superior */
-  }
-
-  #img-container img {
-    width: 190px; /* Tamaño más pequeño para móviles */
-    height: 190px;
-  }
-
-  .social-icons {
-    display: flex;
-    justify-content: center; /* Centra los iconos */
-    gap: 20px; /* Reduce el espacio entre los iconos */
-    margin-top: 20px; /* Ajusta el margen superior */
-  }
-
-  .social-icons img {
-    width: 35px; /* Reduce el tamaño de los iconos */
-    height: 35px;
-  }
-}
-@media (max-width: 320px) {
-  #description-container {
-    display: flex;            /* Asegúrate que tenga display flex */
-    flex-direction: column;   /* Coloca los elementos en columna */
-    align-items: center;      /* Centra horizontalmente */
-    text-align: center;       /* Centrar texto */
-    gap: 20px;                /* Espacio entre elementos */
-    width: 100%;              /* Ocupa todo el ancho */
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
     margin-top: 20px;
-    padding: 0 10px;          /* Pequeño padding para que no pegue a los bordes */
+    margin-bottom: 50px;
+  }
+
+  #description {
+    order: 2;
   }
 
   #img-container {
-    order: 1;                 /* Imagen primero */
-    width: auto;             /* Tamaño fijo para imagen */
-    height: auto;
+    order: 1;
   }
 
-  #description {
-    order: 2;                 /* Texto después */
-    width: 100%;
-  }
-
-  .gradient-text{
-        font-size: 1vw;           /* Tamaño relativo al viewport */
-
-  }
   #description h1 {
-    font-size: 8vw;           /* Tamaño relativo al viewport */
-    max-width: 100%;
-    margin: 0;
+    text-align: center;
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin: 0 0 10px 0;
+  }
+
+  #description h2 {
+    text-align: center;
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    margin: 0 0 15px 0;
+  }
+
+  main p {
+    text-align: center;
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    margin: 15px 0 20px 0;
+  }
+
+  .social-icons {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  #img-container img {
+    width: clamp(200px, 30vw, 280px);
+    height: clamp(200px, 30vw, 280px);
+  }
+}
+
+/* Móviles grandes */
+@media (max-width: 480px) {
+  main {
+    padding: 10px;
+    padding-top: 70px;
+    min-height: 100vh;
+  }
+
+  #description-container {
+    gap: 25px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+
+  #description h1 {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    white-space: normal;
+    border-right: none;
+    animation: fadeInUp 1s ease-out forwards;
+  }
+
+  #description h2 {
+    font-size: clamp(1.1rem, 5vw, 1.4rem);
+    margin: 5px 0 10px 0;
+  }
+
+  main p {
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+    line-height: 1.5;
+    margin: 10px 0 15px 0;
+  }
+
+  .social-icons {
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .social-icons img {
+    width: clamp(30px, 8vw, 40px);
+    height: clamp(30px, 8vw, 40px);
+  }
+
+  #img-container img {
+    width: clamp(160px, 40vw, 220px);
+    height: clamp(160px, 40vw, 220px);
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 360px) {
+  main {
+    padding: 8px;
+    padding-top: 60px;
+  }
+
+  #description-container {
+    gap: 20px;
+    padding: 0 5px;
+  }
+
+  #description h1 {
+    font-size: clamp(1.5rem, 9vw, 2rem);
     line-height: 1.1;
   }
 
   #description h2 {
-    font-size: 22px;
-    margin: 5px 0 10px 0;
+    font-size: clamp(1rem, 6vw, 1.2rem);
   }
 
-  #description p {
-    font-size: 16px;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 5px;
-  }
-
-  .social-icons {
-    display: flex;
-    justify-content: center;  /* Centra iconos */
-    gap: 15px;                /* Espacio entre iconos */
-    width: 100%;
+  main p {
+    font-size: clamp(0.8rem, 4vw, 0.95rem);
   }
 
   .social-icons img {
-    width: 30px;
-    height: 30px;
+    width: clamp(28px, 9vw, 35px);
+    height: clamp(28px, 9vw, 35px);
+  }
+
+  #img-container img {
+    width: clamp(140px, 45vw, 180px);
+    height: clamp(140px, 45vw, 180px);
+  }
+}
+
+/* Para pantallas muy anchas */
+@media (min-width: 1400px) {
+  #description-container {
+    max-width: 1200px;
+    gap: 100px;
+  }
+  
+  #description h1 {
+    font-size: 4rem;
+  }
+  
+  #description h2 {
+    font-size: 2rem;
+  }
+  
+  main p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Orientación landscape en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+  main {
+    padding-top: 40px;
+  }
+  
+  #description-container {
+    flex-direction: row;
+    gap: 40px;
+    margin-top: 10px;
+  }
+  
+  #description {
+    order: 1;
+  }
+  
+  #img-container {
+    order: 2;
+  }
+  
+  #description h1,
+  #description h2,
+  main p {
+    text-align: left;
+  }
+  
+  .social-icons {
+    justify-content: flex-start;
+  }
+  
+  #img-container img {
+    width: clamp(120px, 25vh, 200px);
+    height: clamp(120px, 25vh, 200px);
   }
 }

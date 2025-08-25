@@ -95,7 +95,11 @@ export function About() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6">
           {[{ img: js, name: "JavaScript" }, { img: ts, name: "TypeScript" }, { img: react, name: "React" },
             { img: angular, name: "Angular" }, { img: html, name: "HTML" }, { img: css, name: "CSS" },
-            { img: figma, name: "Figma" }].map((tech, index) => (
+            { img: figma, name: "Figma" },
+            { img: figma, name: "Next JS" },
+            { img: figma, name: "Astro" }
+          
+          ].map((tech, index) => (
             <div key={index} className="bg-gray-800 p-6 rounded-xl shadow-lg flex items-center space-x-4 hover:scale-105 transition-transform">
               <img src={tech.img} alt={tech.name} className="w-10 h-10" />
               <span className="text-white text-lg font-medium">{tech.name}</span>
@@ -108,14 +112,15 @@ export function About() {
       <div className="mt-12">
         <h3 className="text-2xl text-white mb-4">Backend</h3>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6">
-          {[{ img: csharp, name: ".NET Framework" }, { img: mysql, name: "MySQL" }, { img: sqlserver, name: "SQL Server" },{ img: nodejs, name: "Node JS" } ].map((tech, index) => (
+          {[
+            { img: csharp, name: ".NET Framework" }, { img: mysql, name: "MySQL" }, { img: sqlserver, name: "SQL Server" },{ img: nodejs, name: "Node JS" }, {img: nodejs, name: "Express JS"} ].map((tech, index) => (
             <div key={index} className="bg-gray-800 p-6 rounded-xl shadow-lg flex items-center space-x-4 hover:scale-105 transition-transform">
               <img src={tech.img} alt={tech.name} className="w-10 h-10" />
               <span className="text-white text-lg font-medium">{tech.name}</span>
             </div>
           ))}
         </div>
-      </div>
+      </div>w 
       
    {/* Developer Tools */}
 <div className="mt-12">
@@ -127,7 +132,9 @@ export function About() {
       { img: vs, name: "Visual Studio" },
       { img: vsc, name: "VS Code" },
       { img: docker, name: "Docker" },
-      { img: powerbi, name: "Power BI" }
+      { img: powerbi, name: "Power BI" },
+        { img: docker, name: "Railway" },
+      { img: docker, name: "Vercel" }
     ].map((tech, index) => (
       <div 
         key={index} 
