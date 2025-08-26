@@ -23,9 +23,9 @@ import figma from "../../assets/images/about/figma.png";
 import sqlserver from "../../assets/images/about/sqlserver.png";
 import vs from "../../assets/images/about/vs.png";
 import vsc from "../../assets/images/about/vsc.png";
-import powerbi from "../../assets/images/about/powerbi.png";
 import docker from "../../assets/images/about/docker.png";
 import nodejs from "../../assets/images/about/nodejs.png";
+// import powerbi from "../../assets/images/about/powerbi.png";
 
 // Tech stack data organized by category
 const techStackData = {
@@ -52,8 +52,6 @@ const techStackData = {
     { img: github, name: "GitHub" },
     { img: vs, name: "Visual Studio" },
     { img: vsc, name: "VS Code" },
-    { img: docker, name: "Docker" },
-    { img: powerbi, name: "Power BI" },
     { img: docker, name: "Railway" },
     { img: docker, name: "Vercel" }
   ]
@@ -245,16 +243,16 @@ export function About() {
       {/* Título principal con parallax */}
       <section 
         id="about-header" 
-        className="text-center py-8 px-4 sm:py-12 lg:py-16 relative"
+        className="text-center py-6 px-4 sm:py-8 lg:py-10 relative mb-2"
         style={{
           transform: `translateY(${scrollY * 0.3}px)`,
         }}
       >
-        <h1 className="gradient-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in">
+        <h1 className="gradient-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 animate-fade-in">
           About Me
         </h1>
         <p 
-          className="text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto opacity-0 animate-fade-in-up"
+          className="text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto opacity-0 animate-fade-in-up mb-0"
           style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}
         >
           Passionate developer creating digital experiences
@@ -264,7 +262,7 @@ export function About() {
       {/* Descripción personal */}
       <section
         id="about-description-container"
-        className="container mx-auto px-4 pb-16 max-w-7xl"
+        className="container mx-auto px-4 pb-16 max-w-7xl mt-4"
       >
         <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-8 lg:gap-16">
           {/* Contenido de texto */}
@@ -282,7 +280,7 @@ export function About() {
               </h2>
             </div>
 
-            <div className="space-y-6 text-base sm:text-lg leading-relaxed">
+            <div className="space-y-6 text-base sm:text-lg leading-relaxed mw">
               <p className="text-gray-300">
                 💻 I&apos;m <span className="text-blue-500 font-medium">Emil Echavarria</span>, 19
                 years old, and a{" "}

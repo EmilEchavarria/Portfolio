@@ -65,7 +65,7 @@ export function Contact() {
   };
 
   return (
-    <main className="min-h-screen text-white">
+    <main className="min-h-screen text-white ">
       <Header />
       
         <section className="w-full min-h-screen flex items-center justify-center mb-12 px-4 sm:px-6">
