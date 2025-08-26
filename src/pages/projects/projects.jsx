@@ -383,77 +383,80 @@ const ImageGallery = ({ images, title }) => {
     setIsFullscreen(false);
   };
 
-  return (
-    <>
-      <div className="grid grid-cols-2 gap-4">
-        {images.map((image, index) => (
-          <div key={index} className="aspect-video rounded-lg overflow-hidden bg-gray-700 cursor-pointer hover:opacity-80 transition-opacity">
-            <img 
-              src={image} 
-              alt={`${title} screenshot ${index + 1}`}
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              onClick={() => openFullscreen(index)}
-            />
-          </div>
-        ))}
-      </div>
-
-      {/* Fullscreen Modal */}
-      {isFullscreen && (
-        <div className="fixed inset-0 z-[100] bg-black bg-opacity-90 flex items-center justify-center">
-          <div className="relative max-w-5xl max-h-[90vh] w-full h-full flex items-center justify-center p-4">
-            {/* Close Button */}
+return (
+  <>
+    <div className="grid grid-cols-2 gap-4">
+      {images.map((image, index) => (
+        <div key={index} className="aspect-video rounded-lg overflow-hidden bg-gray-700 cursor-pointer hover:opacity-80 transition-opacity">
+          <img 
+            src={image} 
+            alt={`${title} screenshot ${index + 1}`}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            onClick={() => openFullscreen(index)}
+          />
+        </div>
+      ))}
+    </div>
+    
+    {/* Fullscreen Modal */}
+    {isFullscreen && (
+      <div className="fixed inset-0 z-[100] bg-black bg-opacity-90 flex items-center justify-center">
+        <div className="relative max-w-7xl max-h-[95vh] w-full h-full flex flex-col items-center justify-center p-1 sm:p-2">
+          
+          {/* Close Button - Always above image, never overlapping */}
+          <button
+            onClick={closeFullscreen}
+            className="absolute top-0 right-2 sm:top-2 sm:right-4 z-20 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center sm:transition-all sm:duration-200 sm:hover:scale-125 mb-2"
+          >
+            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          
+          {/* Previous Button - No mobile hover */}
+          {images.length > 1 && (
             <button
-              onClick={closeFullscreen}
-              className="absolute top-4 right-4 text-white hover:text-gray-300 z-10 bg-black bg-opacity-50 rounded-full p-2"
+              onClick={prevImage}
+              className="absolute left-2 top-1/2 -translate-y-1/2 sm:left-4 z-20 text-white bg-black/70 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-lg sm:transition-all sm:duration-200 sm:hover:text-gray-300 sm:hover:bg-black/90 sm:hover:scale-110"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
               </svg>
             </button>
-
-            {/* Previous Button */}
-            {images.length > 1 && (
-              <button
-                onClick={prevImage}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 bg-black bg-opacity-50 rounded-full p-3"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-            )}
-
-            {/* Image */}
+          )}
+          
+          {/* Image Container - Positioned below close button */}
+          <div className="relative flex items-center justify-center max-w-full max-h-full px-2 sm:px-8 mt-2 sm:mt-4">
             <img 
               src={images[currentImage]} 
               alt={`${title} screenshot ${currentImage + 1}`}
-              className="max-w-full max-h-full object-contain rounded-lg"
+              className="max-w-full max-h-[85vh] sm:max-h-[80vh] w-auto h-auto object-contain rounded-lg shadow-2xl"
             />
-
-            {/* Next Button */}
-            {images.length > 1 && (
-              <button
-                onClick={nextImage}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 bg-black bg-opacity-50 rounded-full p-3"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            )}
-
-            {/* Image Counter */}
-            {images.length > 1 && (
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded-full">
-                {currentImage + 1} / {images.length}
-              </div>
-            )}
           </div>
+          
+          {/* Next Button - No mobile hover */}
+          {images.length > 1 && (
+            <button
+              onClick={nextImage}
+              className="absolute right-2 top-1/2 -translate-y-1/2 sm:right-4 z-20 text-white bg-black/70 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-lg sm:transition-all sm:duration-200 sm:hover:text-gray-300 sm:hover:bg-black/90 sm:hover:scale-110"
+            >
+              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          )}
+          
+          {/* Image Counter - Adjusted for larger image */}
+          {images.length > 1 && (
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 sm:bottom-4 z-20 bg-black/80 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium backdrop-blur-sm border border-white/20 shadow-lg">
+              {currentImage + 1} de {images.length}
+            </div>
+          )}
         </div>
-      )}
-    </>
-  );
+      </div>
+    )}
+  </>
+);
 };
 
 // PropTypes para ImageGallery
@@ -511,64 +514,64 @@ const ProjectModal = ({ project, isOpen, onClose, projects, onNavigate }) => {
         onClick={onClose}
       />
       
-  {/* Modal */}
-<div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl max-w-6xl w-full max-h-[99vh] sm:max-h-[97vh] overflow-hidden border border-gray-600 shadow-2xl shadow-blue-500/20">
+    {/* Modal */}
+<div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl max-w-6xl w-full max-h-[97vh] sm:max-h-[97vh] overflow-hidden border border-gray-600 shadow-2xl shadow-blue-500/20">
   {/* Header */}
-  <div className="sticky top-0 z-50 bg-gradient-to-r from-gray-900 to-gray-800 backdrop-blur-xl border-b border-gray-700/50 shadow-sm overflow-hidden">
-    <div className="px-3 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 mx-auto max-w-7xl">
-      <div className="grid items-center gap-2 sm:gap-4 mb-2 sm:mb-3" style={{gridTemplateColumns: 'minmax(0, 1fr) auto auto'}}>
-        {/* Title - Left */}
-        <div className="flex justify-start min-w-0">
-          <h2 className="text-sm sm:text-xl lg:text-2xl font-semibold text-white truncate">
-            {project.title}
-          </h2>
-        </div>
-
-        {/* Category - Center on desktop, right on mobile */}
-        <div className="flex justify-center flex-shrink-0 sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2">
-          <span className="inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 bg-gray-700/50 text-gray-200 text-xs sm:text-sm font-medium rounded-full border border-gray-600/30 whitespace-nowrap">
-            {project.category}
-          </span>
-        </div>
-
-        {/* Close Button - Right */}
-        <div className="flex justify-end flex-shrink-0">
-          <svg 
-            onClick={onClose}
-            className="w-5 h-5 sm:w-7 sm:h-7 text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer"
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </div>
+<div className="sticky top-0 z-50 bg-gradient-to-r from-gray-900 to-gray-800 backdrop-blur-xl border-b border-gray-700/50 shadow-sm overflow-hidden">
+  <div className="px-3 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 mx-auto max-w-7xl">
+    <div className="grid items-center gap-2 sm:gap-4 mb-2 sm:mb-3" style={{gridTemplateColumns: 'minmax(0, 1fr) auto auto'}}>
+      {/* Title - Left */}
+      <div className="flex justify-start min-w-0">
+        <h2 className="text-sm sm:text-xl lg:text-2xl font-semibold text-white truncate">
+          {project.title}
+        </h2>
       </div>
 
-      {/* Tab Navigation */}
-      <div className="flex gap-1 sm:gap-2 overflow-hidden">
-        {[
-          { id: 'overview', label: 'Overview' },
-          { id: 'demo', label: 'Demo' },
-          { id: 'technical', label: 'Technical' }
-        ].map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`relative px-2 py-1 sm:px-4 sm:py-1.5 text-xs sm:text-base font-medium rounded-md transition-all duration-200 whitespace-nowrap ${
-              activeTab === tab.id
-                ? 'bg-gray-700 text-white border-gray-600'
-                : 'text-gray-400 hover:text-white hover:bg-gray-700/30 border-transparent hover:border-gray-600/30'
-            } border`}
-          >
-            {tab.label}
-            {activeTab === tab.id && (
-              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500"></div>
-            )}
-          </button>
-        ))}
+      {/* Category - Center on desktop, right on mobile */}
+      <div className="flex justify-center flex-shrink-0 sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2">
+        <span className="inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 bg-gray-700/50 text-gray-200 text-xs sm:text-sm font-medium rounded-full border border-gray-600/30 whitespace-nowrap">
+          {project.category}
+        </span>
+      </div>
+
+      {/* Close Button - Right */}
+      <div className="flex justify-end flex-shrink-0">
+        <svg 
+          onClick={onClose}
+          className="w-5 h-5 sm:w-7 sm:h-7 text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer"
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        </svg>
       </div>
     </div>
+
+    {/* Tab Navigation - Botones del mismo ancho */}
+    <div className="flex gap-1 sm:gap-2 overflow-hidden">
+      {[
+        { id: 'overview', label: 'Overview' },
+        { id: 'demo', label: 'Demo' },
+        { id: 'technical', label: 'Technical' }
+      ].map((tab) => (
+        <button
+          key={tab.id}
+          onClick={() => setActiveTab(tab.id)}
+          className={`relative flex-1 px-3 py-1 sm:px-6 sm:py-2 text-xs sm:text-base font-medium rounded-md transition-all duration-200 whitespace-nowrap text-center ${
+            activeTab === tab.id
+              ? 'bg-gray-700 text-white border-gray-600'
+              : 'text-gray-400 hover:text-white hover:bg-gray-700/30 border-transparent hover:border-gray-600/30'
+          } border`}
+        >
+          {tab.label}
+          {activeTab === tab.id && (
+            <div className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500"></div>
+          )}
+        </button>
+      ))}
+    </div>
+  </div>
 
     {/* Progress Bar */}
     <div className="h-0.5 bg-gray-800 overflow-hidden">
@@ -583,13 +586,13 @@ const ProjectModal = ({ project, isOpen, onClose, projects, onNavigate }) => {
   </div>
 
   {/* Content */}
-  <div className="overflow-y-auto max-h-[calc(99vh-200px)] sm:max-h-[calc(97vh-200px)] scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-transparent">
+  <div className="overflow-y-auto max-h-[calc(100vh-180px)] sm:max-h-[calc(95vh-200px)] scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-transparent">
     <div className="p-3 sm:p-4 lg:p-6">
       {/* Overview Tab */}
       {activeTab === 'overview' && (
         <div className="space-y-4 sm:space-y-6 lg:space-y-8">
           {/* Project Image */}
-          <div className="w-full h-48 sm:h-56 md:h-64 lg:h-72 rounded-xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-2xl">
+          <div className="w-full h-48 sm:h-56 md:h-64 lg:h-80 rounded-xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-2xl">
             <img 
               src={project.image} 
               alt={project.title}
@@ -631,156 +634,255 @@ const ProjectModal = ({ project, isOpen, onClose, projects, onNavigate }) => {
           </div>
         </div>
       )}
-
-      {/* Demo Tab */}
-      {activeTab === 'demo' && (
-        <div className="space-y-4 sm:space-y-6 lg:space-y-8">
-          {/* Video Demo */}
-          <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Demo del Proyecto</h3>
-            <div className="aspect-video rounded-lg overflow-hidden bg-slate-800 shadow-2xl">
-              <iframe
-                width="100%"
-                height="100%"
-                src={project.videoUrl}
-                title={`${project.title} Demo`}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              ></iframe>
-            </div>
-          </div>
-
-          {/* Screenshots Gallery */}
-          <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Capturas de Pantalla</h3>
-            <ImageGallery images={project.screenshots} title={project.title} />
-          </div>
-
-          {/* Live Demo Button */}
-          <div className="text-center">
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-4 sm:px-6 py-3 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 hover:from-blue-700 hover:via-purple-700 hover:to-cyan-700 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30 transform hover:scale-105 text-sm sm:text-base"
-            >
-              <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-              Ver Demo en Vivo
-            </a>
-          </div>
+{/* Demo Tab */}
+{activeTab === 'demo' && typeof activeTab === 'string' && (
+  <div className="space-y-6 sm:space-y-8 lg:space-y-10">
+    {/* Video Demo */}
+    <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90 backdrop-blur-xl rounded-2xl p-1 border border-slate-700/50 shadow-2xl overflow-hidden">
+      {/* Decorative gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-transparent to-cyan-600/5 pointer-events-none"></div>
+      
+      <div className="relative bg-slate-900/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8">
+        <div className="flex items-center gap-3 mb-4 sm:mb-6">
+          <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-cyan-500 rounded-full"></div>
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+            Demo del Proyecto
+          </h3>
         </div>
-      )}
+        
+        <div className="aspect-video rounded-xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-2xl ring-1 ring-slate-700/50 hover:ring-blue-500/30 transition-all duration-500">
+          <iframe
+            width="100%"
+            height="100%"
+            src={project.videoUrl}
+            title={`${project.title} Demo`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
+          ></iframe>
+        </div>
+      </div>
+    </div>
 
-      {/* Technical Tab */}
+    {/* Screenshots Gallery */}
+    <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90 backdrop-blur-xl rounded-2xl p-1 border border-slate-700/50 shadow-2xl overflow-hidden">
+      {/* Decorative gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 via-transparent to-pink-600/5 pointer-events-none"></div>
+      
+      <div className="relative bg-slate-900/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8">
+        <div className="flex items-center gap-3 mb-4 sm:mb-6">
+          <div className="w-2 h-8 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full"></div>
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+            Capturas de Pantalla
+          </h3>
+        </div>
+        
+        <div className="rounded-xl overflow-hidden">
+          <ImageGallery images={project.screenshots} title={project.title} />
+        </div>
+      </div>
+    </div>
+
+    {/* Live Demo Button */}
+    <div className="text-center">
+      <div className="inline-block relative">
+        {/* Glow effect */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl blur-xl opacity-20 scale-110"></div>
+        
+        <a
+          href={project.demoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative inline-flex items-center px-8 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 hover:from-blue-500 hover:via-blue-600 hover:to-cyan-500 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30 transform hover:scale-105 hover:-translate-y-1 text-base sm:text-lg border border-blue-500/30 backdrop-blur-sm"
+        >
+          <svg className="w-6 h-6 sm:w-7 sm:h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+          <span className="relative">Ver Demo en Vivo</span>
+          
+          {/* Shimmer effect */}
+          <div className="absolute inset-0 -top-px overflow-hidden rounded-xl">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 -translate-x-full group-hover:animate-shimmer"></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+)}
+{/* Technical Tab */}
       {activeTab === 'technical' && (
-        <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+        <div className="space-y-6 sm:space-y-8 lg:space-y-10">
           {/* Technologies */}
-          <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Stack Tecnológico</h3>
-            <div className="flex flex-wrap gap-2 sm:gap-3">
-              {project.technologies.map((tech, index) => (
-                <span 
-                  key={index}
-                  className="px-3 py-2 bg-gradient-to-r from-slate-700/80 to-slate-800/80 backdrop-blur-sm text-slate-300 rounded-lg text-xs sm:text-sm font-medium border border-slate-600/50 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20 hover:text-white transition-all duration-300 transform hover:scale-105"
-                >
-                  {tech}
-                </span>
-              ))}
+          <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90 backdrop-blur-xl rounded-2xl p-1 border border-slate-700/50 shadow-2xl overflow-hidden">
+            {/* Decorative gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/5 via-transparent to-teal-600/5 pointer-events-none"></div>
+            
+            <div className="relative bg-slate-900/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8">
+              <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                <div className="w-2 h-8 bg-gradient-to-b from-emerald-500 to-teal-500 rounded-full"></div>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+                  Stack Tecnológico
+                </h3>
+              </div>
+              
+              <div className="flex flex-wrap gap-3 sm:gap-4">
+                {project.technologies.map((tech, index) => (
+                  <div 
+                    key={index}
+                    className="group relative overflow-hidden"
+                  >
+                    {/* Tech badge glow */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/20 to-teal-600/20 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    <span className="relative inline-block px-4 py-2.5 bg-gradient-to-r from-slate-800/90 to-slate-700/90 backdrop-blur-sm text-slate-200 rounded-xl text-sm sm:text-base font-semibold border border-slate-600/60 hover:border-emerald-400/60 hover:text-white transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-emerald-500/10">
+                      {tech}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Architecture */}
-          <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Arquitectura del Proyecto</h3>
-            <div className="space-y-3 sm:space-y-4">
-              {project.architecture.layers.map((layer, index) => (
-                <div key={index} className="p-4 sm:p-5 bg-slate-700/40 rounded-lg border border-slate-600/40 hover:border-slate-500/60 hover:bg-slate-700/60 transition-all duration-300">
-                  <div className="flex flex-col lg:flex-row lg:items-start gap-3 sm:gap-4">
-                    <div className="flex-1">
-                      <h4 className="text-base sm:text-lg font-semibold text-blue-400 mb-2">{layer.name}</h4>
-                      <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-3">{layer.description}</p>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                      {layer.technologies.map((tech, techIndex) => (
-                        <span 
-                          key={techIndex}
-                          className="px-2 py-1 bg-blue-600/30 text-blue-300 text-xs rounded border border-blue-500/40 hover:bg-blue-600/40 hover:text-blue-200 transition-all duration-300"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+          <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90 backdrop-blur-xl rounded-2xl p-1 border border-slate-700/50 shadow-2xl overflow-hidden">
+            {/* Decorative gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-transparent to-cyan-600/5 pointer-events-none"></div>
+            
+            <div className="relative bg-slate-900/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8">
+              <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-cyan-500 rounded-full"></div>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+                  Arquitectura del Proyecto
+                </h3>
+              </div>
+              
+              <div className="space-y-4 sm:space-y-6">
+                {project.architecture.layers.map((layer, index) => (
+                  <div 
+                    key={index} 
+                    className="group relative bg-gradient-to-r from-slate-800/60 via-slate-700/50 to-slate-800/60 backdrop-blur-sm rounded-xl p-5 sm:p-6 border border-slate-600/50 hover:border-blue-500/40 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/5 overflow-hidden"
+                  >
+                    {/* Layer card glow effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:from-blue-600/5 group-hover:via-blue-600/3 group-hover:to-blue-600/5 transition-all duration-300"></div>
+                    
+                    <div className="relative flex flex-col lg:flex-row lg:items-start gap-4 sm:gap-6">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="w-1.5 h-6 bg-gradient-to-b from-blue-400 to-cyan-400 rounded-full"></div>
+                          <h4 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                            {layer.name}
+                          </h4>
+                        </div>
+                        <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                          {layer.description}
+                        </p>
+                      </div>
+                      
+                      <div className="flex flex-wrap gap-2 sm:gap-3 lg:max-w-xs">
+                        {layer.technologies.map((tech, techIndex) => (
+                          <span 
+                            key={techIndex}
+                            className="inline-block px-3 py-1.5 bg-gradient-to-r from-blue-600/30 to-cyan-600/30 backdrop-blur-sm text-blue-200 text-xs sm:text-sm font-medium rounded-lg border border-blue-500/40 hover:border-blue-400/60 hover:bg-gradient-to-r hover:from-blue-600/40 hover:to-cyan-600/40 hover:text-blue-100 transition-all duration-300 transform hover:scale-105"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
           {/* GitHub Link */}
           <div className="text-center">
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-4 sm:px-6 py-3 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 hover:from-slate-700 hover:via-slate-600 hover:to-slate-700 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-slate-500/30 border border-slate-600/60 hover:border-slate-500 transform hover:scale-105 text-sm sm:text-base"
-            >
-              <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-              Ver Código Fuente
-            </a>
+            <div className="inline-block relative">
+              {/* GitHub button glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-600 to-slate-500 rounded-xl blur-xl opacity-20 scale-110"></div>
+              
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative inline-flex items-center px-8 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 hover:from-slate-700 hover:via-slate-600 hover:to-slate-700 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-slate-500/30 border border-slate-600/60 hover:border-slate-500/80 transform hover:scale-105 hover:-translate-y-1 text-base sm:text-lg backdrop-blur-sm group overflow-hidden"
+              >
+                {/* Button shimmer effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 mr-3 transition-transform duration-300 group-hover:rotate-12" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                
+                <span className="relative">Ver Código Fuente</span>
+              </a>
+            </div>
           </div>
         </div>
       )}
     </div>
   </div>
 
-  {/* Navigation Bar */}
-  <div className="sticky bottom-0 bg-gradient-to-r from-gray-900/95 via-gray-800/95 to-gray-900/95 backdrop-blur-sm border-t border-gray-600 px-3 py-2 sm:px-4 sm:py-1.5 lg:py-4">
-    <div className="flex justify-between items-center mx-auto max-w-7xl">
-      {/* Previous Button */}
-      <button
-        onClick={() => navigateProject('prev')}
-        className="flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-200 px-3 py-2 sm:px-4 sm:py-3 min-w-[80px] sm:min-w-[120px] rounded-lg"
-      >
-        <div className="flex items-center gap-1 sm:gap-2">
-          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
-          </svg>
-          <span className="text-xs sm:text-base font-medium">Previous</span>
-        </div>
-      </button>
+ <div className="sticky bottom-0 bg-gradient-to-r from-slate-950/98 via-slate-900/98 to-slate-950/98 backdrop-blur-2xl border-t border-slate-700/60 shadow-2xl shadow-black/20">
+  <div className="relative overflow-hidden">
+    {/* Decorative gradient line */}
+    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+    
+    <div className="px-4 py-4 sm:px-6 sm:py-5 lg:py-6">
+      <div className="flex justify-between items-center mx-auto max-w-7xl">
+        
+        {/* Previous Button */}
+        <button
+          onClick={() => navigateProject('prev')}
+          className="group relative flex items-center justify-center text-slate-400 hover:text-white transition-all duration-300 px-4 py-3 sm:px-6 sm:py-4 min-w-[70px] sm:min-w-[140px] rounded-xl bg-slate-800/50 hover:bg-slate-700/60 border border-slate-700/50 hover:border-blue-500/40 backdrop-blur-sm overflow-hidden"
+        >
+          {/* Button glow effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:from-blue-600/10 group-hover:via-blue-600/5 group-hover:to-blue-600/10 transition-all duration-300"></div>
+          
+          <div className="relative flex items-center gap-2 sm:gap-3">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:-translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            <span className="hidden sm:inline text-sm sm:text-base font-semibold">Previous</span>
+          </div>
+        </button>
 
-      {/* Center Dots */}
-      <div className="flex gap-1 sm:gap-2 mx-8 sm:mx-12">
-        {projects.map((_, index) => (
-          <div
-            key={index}
-            className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-colors duration-300 ${
-              index === currentIndex ? 'bg-blue-500' : 'bg-gray-600'
-            }`}
-          />
-        ))}
+        {/* Center Dots Indicator */}
+        <div className="flex items-center gap-2 sm:gap-3 mx-4 sm:mx-8 px-4 py-2 bg-slate-800/40 backdrop-blur-sm rounded-full border border-slate-700/40">
+          {projects.map((_, index) => (
+            <div
+              key={index}
+              className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-colors duration-300 ${
+                index === currentIndex ? 'bg-blue-500' : 'bg-slate-600'
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Next Button */}
+        <button
+          onClick={() => navigateProject('next')}
+          className="group relative flex items-center justify-center text-slate-400 hover:text-white transition-all duration-300 px-4 py-3 sm:px-6 sm:py-4 min-w-[70px] sm:min-w-[140px] rounded-xl bg-slate-800/50 hover:bg-slate-700/60 border border-slate-700/50 hover:border-blue-500/40 backdrop-blur-sm overflow-hidden"
+        >
+          {/* Button glow effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:from-blue-600/10 group-hover:via-blue-600/5 group-hover:to-blue-600/10 transition-all duration-300"></div>
+          
+          <div className="relative flex items-center gap-2 sm:gap-3">
+            <span className="hidden sm:inline text-sm sm:text-base font-semibold">Next</span>
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </button>
+
       </div>
-
-      {/* Next Button */}
-      <button
-        onClick={() => navigateProject('next')}
-        className="flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-200 px-3 py-2 sm:px-4 sm:py-3 min-w-[80px] sm:min-w-[120px] rounded-lg"
-      >
-        <div className="flex items-center gap-1 sm:gap-2">
-          <span className="text-xs sm:text-base font-medium">Next</span>
-          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-          </svg>
-        </div>
-      </button>
     </div>
+
+    {/* Bottom decorative element */}
+    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gradient-to-r from-transparent via-slate-600 to-transparent rounded-full"></div>
   </div>
+</div>
 </div>
     </div>
   );

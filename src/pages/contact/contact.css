@@ -102,24 +102,9 @@ form .grid > div:nth-child(4) {
 }
 
 /* Estilos del botón */
-button {
-  font-size: clamp(0.875rem, 1rem, 1.125rem);
-  padding: 0.75rem 1.5rem;
-  min-height: 44px;
-  width: 100%;
-  transition: all 0.3s ease;
-  animation: fadeInUp 0.6s ease-out 0.8s both;
-}
 
-button:hover {
-  background-color: #3182ce;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
 
-button:active {
-  transform: translateY(0);
-}
+
 
 /* === RESPONSIVE DESIGN === */
 
@@ -155,11 +140,6 @@ button:active {
     height: 150px;
   }
   
-  button {
-    padding: 0.875rem 1rem;
-    font-size: 0.9rem;
-    border-radius: 0.375rem;
-  }
   
   /* Grid de una columna en móviles pequeños */
   .grid.md\\:grid-cols-2 {
@@ -196,11 +176,7 @@ button:active {
     height: 180px;
   }
   
-  button {
-    padding: 0.875rem 2rem;
-    max-width: 300px;
-    margin: 0 auto;
-  }
+ 
 }
 
 /* Tablets (768px - 1023px) */
@@ -222,10 +198,7 @@ button:active {
     height: 200px;
   }
   
-  button {
-    max-width: 250px;
-    margin: 0 auto;
-  }
+ 
 }
 
 /* Desktop pequeño (1024px - 1279px) */
@@ -243,10 +216,7 @@ button:active {
     font-size: 1.2rem;
   }
   
-  button {
-    max-width: 200px;
-    margin: 0 auto;
-  }
+
 }
 
 /* Desktop grande (1280px+) */
@@ -264,10 +234,7 @@ button:active {
     font-size: 1.25rem;
   }
   
-  button {
-    max-width: 200px;
-    margin: 0 auto;
-  }
+ 
 }
 
 /* Orientación landscape en móviles */
@@ -302,13 +269,9 @@ button:active {
   }
   
   form input, 
-  form textarea, 
-  button {
+  form textarea
+   {
     transition: none;
-  }
-  
-  button:hover {
-    transform: none;
   }
 }
 
@@ -354,10 +317,7 @@ button:active {
 
 /* Mejorar la experiencia táctil en móviles */
 @media (hover: none) and (pointer: coarse) {
-  button {
-    min-height: 48px;
-  }
-  
+
   form input, 
   form textarea {
     min-height: 44px;
