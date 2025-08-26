@@ -22,7 +22,7 @@ const projects = [
     description: "AgroGestor es una plataforma digital completa diseñada para revolucionar la gestión agrícola moderna. Esta aplicación web permite a los agricultores y empresas del sector agroindustrial optimizar sus procesos productivos mediante el control en tiempo real de cultivos, recursos y datos críticos. La plataforma integra tecnologías IoT para el monitoreo continuo de condiciones ambientales, niveles de humedad del suelo, temperatura y otros parámetros vitales. Con un dashboard intuitivo y herramientas de análisis predictivo, AgroGestor facilita la toma de decisiones informadas, mejora la eficiencia de los recursos y maximiza los rendimientos de los cultivos. El sistema también incluye funcionalidades avanzadas como la gestión automatizada de riego, alertas personalizables y reportes detallados que permiten un seguimiento exhaustivo de todas las operaciones agrícolas.",
     shortDescription: "Agrogestor is a digital platform that helps manage and optimize agricultural processes through real-time control of crops, resources, and data.",
     image: agrogestor,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder URL
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     demoUrl: "https://agrogestor.vercel.app",
     technologies: ["React", "Node.js", "MongoDB", "Express", "Socket.io"],
     features: [
@@ -34,7 +34,32 @@ const projects = [
     ],
     challenges: "Integración de sensores IoT para monitoreo agrícola en tiempo real y optimización de la gestión de recursos.",
     githubUrl: "https://github.com/tu-usuario/agrogestor",
-    category: "Web Application"
+    category: "Web Application",
+    screenshots: [agrogestor, autogleam, jtag, portfolio],
+    architecture: {
+      layers: [
+        {
+          name: "Frontend - React & Dashboard",
+          description: "Dashboard interactivo construido con React, gráficos en tiempo real usando Chart.js y componentes reutilizables para visualización de datos agrícolas.",
+          technologies: ["React", "Chart.js", "Material-UI"]
+        },
+        {
+          name: "Backend - API REST",
+          description: "API RESTful con Node.js y Express para manejar datos de sensores IoT, procesamiento de alertas y generación de reportes automáticos.",
+          technologies: ["Node.js", "Express", "JWT"]
+        },
+        {
+          name: "Base de Datos - MongoDB",
+          description: "Base de datos NoSQL optimizada para almacenar datos de sensores en tiempo real con índices temporales y agregaciones eficientes.",
+          technologies: ["MongoDB", "Mongoose", "Redis"]
+        },
+        {
+          name: "IoT Integration",
+          description: "Sistema de comunicación con sensores agrícolas usando Socket.io para datos en tiempo real y protocolos MQTT para dispositivos IoT.",
+          technologies: ["Socket.io", "MQTT", "Arduino"]
+        }
+      ]
+    }
   },
   {
     id: 2,
@@ -42,7 +67,7 @@ const projects = [
     description: "Auto Gleam es una aplicación web tipo SPA (Single Page Application) desarrollada en Angular que transforma completamente la experiencia de gestión de servicios de lavado de autos. Esta plataforma moderna ofrece un sistema integral que combina tecnología avanzada con diseño centrado en el usuario para proporcionar una solución completa tanto para clientes como para administradores. La aplicación cuenta con un robusto sistema de autenticación basado en roles que garantiza la seguridad y personalización de la experiencia según el tipo de usuario. Los clientes pueden programar citas de manera intuitiva, seleccionar servicios específicos y realizar seguimiento en tiempo real del estado de sus vehículos. Los administradores tienen acceso a un dashboard completo con métricas detalladas, gestión de empleados, control de inventario y herramientas de análisis de rendimiento. El sistema también incluye funcionalidades avanzadas como notificaciones push, integración con sistemas de pago, generación automática de facturas y reportes personalizables que facilitan la toma de decisiones estratégicas.",
     shortDescription: "Aplicación web tipo SPA desarrollada en Angular para gestión de servicios de lavado de autos. Incluye autenticación por roles, citas, reportes y diseño centrado en la experiencia del usuario.",
     image: autogleam,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder URL
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     demoUrl: "https://autogleam.vercel.app",
     technologies: ["Angular", "TypeScript", "Firebase", "Material Design", "RxJS"],
     features: [
@@ -54,7 +79,27 @@ const projects = [
     ],
     challenges: "Implementación de sistema de reservas en tiempo real con sincronización automática y manejo de estados complejos.",
     githubUrl: "https://github.com/tu-usuario/autogleam",
-    category: "SPA Application"
+    category: "SPA Application",
+    screenshots: [autogleam, jtag, stockify, enrollmentsystem],
+    architecture: {
+      layers: [
+        {
+          name: "Frontend - Angular SPA",
+          description: "Aplicación de una sola página con componentes modulares, routing avanzado y manejo reactivo de estados usando RxJS.",
+          technologies: ["Angular", "TypeScript", "RxJS"]
+        },
+        {
+          name: "Autenticación - Firebase Auth",
+          description: "Sistema de autenticación robusto con roles de usuario, recuperación de contraseñas y autenticación social integrada.",
+          technologies: ["Firebase Auth", "JWT", "Guards"]
+        },
+        {
+          name: "Base de Datos - Firestore",
+          description: "Base de datos en tiempo real con sincronización automática, consultas optimizadas y reglas de seguridad granulares.",
+          technologies: ["Firestore", "Firebase Rules", "Indexes"]
+        }
+      ]
+    }
   },
   {
     id: 3,
@@ -62,7 +107,7 @@ const projects = [
     description: "J Tag Events es un sitio web corporativo elegante y funcional desarrollado específicamente para una empresa líder en organización de eventos. Este proyecto representa una solución web completa construida con tecnologías fundamentales como HTML5, CSS3 y JavaScript vanilla, demostrando que es posible crear experiencias digitales impactantes sin depender de frameworks complejos. El sitio web presenta un catálogo interactivo y visualmente atractivo de todos los servicios ofrecidos por la empresa, desde eventos corporativos hasta celebraciones privadas. Cada sección del sitio ha sido cuidadosamente diseñada para destacar la profesionalidad y creatividad de la empresa, incluyendo una galería dinámica que muestra eventos realizados con efectos de transición suaves y un sistema de filtrado por categorías. La plataforma también incorpora un formulario de contacto completamente funcional con validación en tiempo real, sistema de cotizaciones automáticas y integración con redes sociales. El diseño responsive garantiza una experiencia óptima en todos los dispositivos, mientras que las animaciones y efectos visuales cuidadosamente implementados crean una navegación fluida y engaging.",
     shortDescription: "Sitio web desarrollado con HTML, CSS y JavaScript para una empresa de eventos. Incluye catálogo de servicios, secciones informativas y diseño responsive.",
     image: jtag,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder URL
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     demoUrl: "https://j-tag-events.vercel.app/",
     technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "AOS"],
     features: [
@@ -74,7 +119,27 @@ const projects = [
     ],
     challenges: "Crear una experiencia visual impactante usando solo tecnologías vanilla con animaciones fluidas.",
     githubUrl: "https://github.com/tu-usuario/jtag-events",
-    category: "Website"
+    category: "Website",
+    screenshots: [jtag, portfolio, autogleam, professionalcv],
+    architecture: {
+      layers: [
+        {
+          name: "Frontend - HTML5 & CSS3",
+          description: "Estructura semántica con HTML5 y estilos avanzados usando CSS3, incluyendo flexbox, grid y animaciones CSS puras.",
+          technologies: ["HTML5", "CSS3", "Flexbox", "Grid"]
+        },
+        {
+          name: "Interactividad - JavaScript Vanilla",
+          description: "Funcionalidades dinámicas implementadas con JavaScript puro, incluyendo validación de formularios y efectos de scroll.",
+          technologies: ["JavaScript", "DOM API", "Events"]
+        },
+        {
+          name: "UI Framework - Bootstrap",
+          description: "Sistema de componentes responsive con Bootstrap para garantizar compatibilidad cross-browser y diseño móvil-first.",
+          technologies: ["Bootstrap", "Responsive Design", "Mobile-First"]
+        }
+      ]
+    }
   },
   {
     id: 4,
@@ -82,7 +147,7 @@ const projects = [
     description: "Stockify es una potente aplicación de escritorio desarrollada en C# con Windows Forms que revoluciona la gestión empresarial a través de un sistema integral de inventario, ventas y facturación. Esta solución empresarial robusta ha sido diseñada para satisfacer las necesidades de pequeñas y medianas empresas que requieren un control preciso y eficiente de sus operaciones comerciales. La aplicación utiliza MySQL como motor de base de datos, garantizando la integridad y seguridad de los datos empresariales críticos. Stockify ofrece un módulo completo de gestión de inventario que permite el seguimiento en tiempo real de productos, control de stock mínimo con alertas automáticas, gestión de proveedores y categorización avanzada de productos. El sistema de ventas integrado facilita la creación rápida de facturas, aplicación de descuentos, cálculo automático de impuestos y generación de reportes de ventas detallados. Una de las características más destacadas es su capacidad para generar reportes profesionales en PDF utilizando Crystal Reports, proporcionando análisis detallados de rendimiento empresarial, estados financieros y reportes de inventario que facilitan la toma de decisiones estratégicas.",
     shortDescription: "Aplicación de escritorio en C# y Windows Forms para gestión de inventario, ventas y facturación. Usa MySQL y genera reportes en PDF.",
     image: stockify,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder URL
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     demoUrl: "https://github.com/EmilEchavarria/Stockify",
     technologies: ["C#", "Windows Forms", "MySQL", "Entity Framework", "Crystal Reports"],
     features: [
@@ -94,7 +159,32 @@ const projects = [
     ],
     challenges: "Optimización de consultas de base de datos para manejar grandes volúmenes de productos y transacciones.",
     githubUrl: "https://github.com/EmilEchavarria/Stockify",
-    category: "Desktop Application"
+    category: "Desktop Application",
+    screenshots: [stockify, electronic, portfoliobasic, agrogestor],
+    architecture: {
+      layers: [
+        {
+          name: "Presentación - Windows Forms",
+          description: "Interfaz de usuario nativa con Windows Forms, controles personalizados y manejo de eventos para una experiencia desktop fluida.",
+          technologies: ["Windows Forms", "C# UI", "Custom Controls"]
+        },
+        {
+          name: "Lógica de Negocio - C# Classes",
+          description: "Capa de lógica empresarial con clases C# para manejo de inventario, cálculos de ventas y validaciones de negocio.",
+          technologies: ["C#", "Business Logic", "Data Validation"]
+        },
+        {
+          name: "Acceso a Datos - Entity Framework",
+          description: "Mapeo objeto-relacional con Entity Framework para operaciones CRUD optimizadas y manejo de transacciones.",
+          technologies: ["Entity Framework", "LINQ", "Code First"]
+        },
+        {
+          name: "Base de Datos - MySQL",
+          description: "Base de datos relacional con MySQL, procedimientos almacenados y índices optimizados para consultas empresariales.",
+          technologies: ["MySQL", "Stored Procedures", "Indexes"]
+        }
+      ]
+    }
   },
   {
     id: 5,
@@ -102,7 +192,7 @@ const projects = [
     description: "El Sistema de Inscripción Estudiantil es una aplicación web innovadora desarrollada con tecnologías front-end fundamentales que digitaliza y optimiza completamente el proceso de matrícula académica. Este sistema inteligente permite a los estudiantes gestionar su inscripción de manera autónoma y eficiente, eliminando las largas filas y procesos burocráticos tradicionales. La plataforma cuenta con un formulario de registro exhaustivo que captura todos los datos personales y académicos necesarios, implementando validaciones en tiempo real para garantizar la integridad de la información. Una de sus características más destacadas es el sistema inteligente de selección de materias que incluye verificación automática de prerrequisitos, detección de conflictos de horarios y sugerencias de horarios alternativos. El sistema utiliza algoritmos sofisticados para validar la disponibilidad de cupos y prevenir solapamientos de horarios, proporcionando retroalimentación inmediata al estudiante. Al finalizar el proceso de inscripción, la aplicación genera automáticamente un resumen completo en formato PDF que incluye toda la información del estudiante, las materias seleccionadas, horarios detallados y costos asociados. La interfaz incluye también un sistema de ayuda interactivo con tutoriales paso a paso y preguntas frecuentes.",
     shortDescription: "Sistema de inscripción web en HTML, CSS y JavaScript. Permite registrar datos personales, seleccionar materias con horarios y generar un resumen exportable en PDF. Incluye sección de ayuda interactiva.",
     image: enrollmentsystem,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder URL
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     demoUrl: "https://student-enrollment-system-six.vercel.app",
     technologies: ["HTML5", "CSS3", "JavaScript", "jsPDF", "LocalStorage"],
     features: [
@@ -114,7 +204,32 @@ const projects = [
     ],
     challenges: "Implementar lógica compleja de validación de horarios y conflictos usando solo JavaScript vanilla.",
     githubUrl: "https://github.com/tu-usuario/enrollment-system",
-    category: "Web Application"
+    category: "Web Application",
+    screenshots: [enrollmentsystem, professionalcv, jtag, stockify],
+    architecture: {
+      layers: [
+        {
+          name: "Frontend - HTML5 Semántico",
+          description: "Estructura de formularios multi-paso con HTML5 semántico, validación nativa y accessibility features integradas.",
+          technologies: ["HTML5", "Semantic HTML", "Form Validation"]
+        },
+        {
+          name: "Lógica de Validación - JavaScript",
+          description: "Algoritmos de validación de horarios, detección de conflictos y cálculo de prerrequisitos implementados en JavaScript puro.",
+          technologies: ["JavaScript", "Algorithms", "DOM Manipulation"]
+        },
+        {
+          name: "Generación de PDF - jsPDF",
+          description: "Sistema de generación de documentos PDF con jsPDF, incluyendo formateo automático y diseño profesional de reportes.",
+          technologies: ["jsPDF", "PDF Generation", "Document Design"]
+        },
+        {
+          name: "Almacenamiento - LocalStorage",
+          description: "Persistencia de datos del formulario usando LocalStorage para mantener el progreso del usuario entre sesiones.",
+          technologies: ["LocalStorage", "Data Persistence", "Session Management"]
+        }
+      ]
+    }
   },
   {
     id: 6,
@@ -122,7 +237,7 @@ const projects = [
     description: "Mi portafolio personal representa la culminación de mis habilidades como desarrollador front-end, construido con las tecnologías más modernas y las mejores prácticas de la industria. Este proyecto va más allá de ser simplemente una vitrina de trabajos; es una experiencia digital inmersiva que refleja mi evolución profesional y pasión por crear interfaces excepcionales. Desarrollado con React y estilizado con Tailwind CSS, el portafolio implementa un sistema de componentes reutilizables y un diseño completamente responsive que se adapta perfectamente a cualquier dispositivo. La integración de Framer Motion permite animaciones sofisticadas y transiciones fluidas que guían al usuario a través de una narrativa visual cohesiva. El sitio presenta secciones cuidadosamente diseñadas que incluyen mi trayectoria profesional, habilidades técnicas con niveles de competencia, proyectos destacados con estudios de caso detallados y testimonios de clientes y colaboradores. Cada proyecto se presenta con capturas de pantalla interactivas, explicaciones técnicas detalladas y enlaces directos tanto a demos en vivo como a repositorios de código. El portafolio también incluye un blog técnico donde comparto conocimientos, tutoriales y reflexiones sobre las últimas tendencias en desarrollo web.",
     shortDescription: "Portafolio personal moderno creado con React y Tailwind CSS. Muestra proyectos, habilidades y trayectoria como desarrollador front-end.",
     image: portfolio,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder URL
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     demoUrl: "https://emilechavarria.vercel.app/",
     technologies: ["React", "Tailwind CSS", "Framer Motion", "Vite", "Vercel"],
     features: [
@@ -134,7 +249,32 @@ const projects = [
     ],
     challenges: "Crear una experiencia visual única con animaciones complejas mientras mantengo la performance óptima.",
     githubUrl: "https://github.com/tu-usuario/portfolio",
-    category: "Portfolio"
+    category: "Portfolio",
+    screenshots: [portfolio, agrogestor, autogleam, enrollmentsystem],
+    architecture: {
+      layers: [
+        {
+          name: "Frontend - React & Hooks",
+          description: "Aplicación React moderna con hooks personalizados, componentes funcionales y manejo eficiente del estado global.",
+          technologies: ["React", "React Hooks", "JSX"]
+        },
+        {
+          name: "Estilos - Tailwind CSS",
+          description: "Sistema de diseño utility-first con Tailwind CSS, responsive design y dark mode implementado con CSS custom properties.",
+          technologies: ["Tailwind CSS", "Responsive Design", "Dark Mode"]
+        },
+        {
+          name: "Animaciones - Framer Motion",
+          description: "Animaciones declarativas y transiciones de página usando Framer Motion con optimizaciones de performance.",
+          technologies: ["Framer Motion", "CSS Animations", "Performance"]
+        },
+        {
+          name: "Deployment - Vercel",
+          description: "Despliegue continuo con Vercel, optimización automática de assets y configuración de dominio personalizado.",
+          technologies: ["Vercel", "CI/CD", "Edge Functions"]
+        }
+      ]
+    }
   },
   {
     id: 7,
@@ -142,7 +282,7 @@ const projects = [
     description: "El Generador de CV Profesional es una herramienta web innovadora que democratiza la creación de currículums de alta calidad, eliminando las barreras técnicas y de diseño que tradicionalmente limitaban a los usuarios. Esta aplicación sofisticada, desarrollada completamente con tecnologías web fundamentales, permite a cualquier persona crear currículums visualmente impactantes y profesionalmente estructurados sin necesidad de conocimientos de diseño gráfico. La plataforma ofrece una biblioteca diversa de plantillas profesionales, cada una cuidadosamente diseñada para diferentes industrias y niveles de experiencia, desde recién graduados hasta ejecutivos senior. El sistema inteligente de generación de contenido guía a los usuarios a través de un proceso paso a paso, proporcionando sugerencias contextuales, ejemplos de contenido y mejores prácticas para cada sección del currículum. La función de previsualización en tiempo real permite a los usuarios ver instantáneamente cómo se verá su currículum mientras ingresan la información, facilitando ajustes y mejoras continuas. Una vez completado, el sistema utiliza tecnologías avanzadas de renderizado para generar archivos PDF de calidad editorial que mantienen el formato perfecto en cualquier dispositivo o plataforma de impresión.",
     shortDescription: "Generador de CV interactivo en HTML, CSS y JavaScript. El usuario ingresa sus datos y obtiene un currículum dinámico renderizado en la misma página.",
     image: professionalcv,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder URL
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     demoUrl: "https://student-enrollment-system-six.vercel.app",
     technologies: ["HTML5", "CSS3", "JavaScript", "jsPDF", "Canvas API"],
     features: [
@@ -154,48 +294,28 @@ const projects = [
     ],
     challenges: "Crear un sistema de plantillas flexible que genere PDFs de calidad profesional.",
     githubUrl: "https://github.com/tu-usuario/professional-cv",
-    category: "Web Tool"
-  },
-  {
-    id: 8,
-    title: "Basic Portfolio",
-    description: "Mi primer portafolio representa un hito fundamental en mi journey como desarrollador, marcando el momento en que decidí transformar mi pasión por la tecnología en una carrera profesional. Este proyecto, aunque aparentemente simple en comparación con mis trabajos más recientes, encapsula la esencia del aprendizaje autodidacta y la determinación de dominar las bases del desarrollo web. Construido meticulosamente con HTML5, CSS3 y JavaScript vanilla, este portafolio demuestra un entendimiento sólido de los fundamentos web sin depender de frameworks o librerías externas. Cada línea de código fue escrita con la intención de aprender y comprender profundamente cómo funcionan las tecnologías web en su forma más pura. El diseño, aunque minimalista, refleja principios sólidos de UX/UI, con una navegación intuitiva, jerarquía visual clara y un layout responsive que funciona perfectamente en dispositivos móviles y desktop. La paleta de colores profesional y la tipografía cuidadosamente seleccionada crean una impresión duradera, mientras que las transiciones CSS suaves añaden un toque de sofisticación. Este proyecto no solo muestra mis primeros trabajos, sino que también documenta mi evolución como desarrollador, sirviendo como un recordatorio tangible de donde comenzó todo y la base sólida sobre la cual construí mi expertise actual.",
-    shortDescription: "Primera versión de mi portafolio creada con HTML, CSS y JavaScript. Muestra mis primeros proyectos y habilidades iniciales.",
-    image: portfoliobasic,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder URL
-    demoUrl: "https://github.com/EmilEchavarria/Portfolio-Homework-1",
-    technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "jQuery"],
-    features: [
-      "Diseño limpio y profesional",
-      "Sección de proyectos básicos",
-      "Información personal y habilidades",
-      "Formulario de contacto simple",
-      "Compatibilidad con navegadores antiguos"
-    ],
-    challenges: "Mi primer proyecto web completo, enfocado en aprender las bases del desarrollo front-end.",
-    githubUrl: "https://github.com/EmilEchavarria/Portfolio-Homework-1",
-    category: "Portfolio"
-  },
-  {
-    id: 9,
-    title: "Electronic Organizer",
-    description: "Electronic Organizer es mi introducción al mundo del desarrollo de aplicaciones de escritorio y gestión de bases de datos, representando un paso crucial en mi formación como desarrollador full-stack. Esta aplicación de escritorio, desarrollada en C# con Windows Forms, surge de la necesidad de digitalizar y organizar la información de contactos de manera más eficiente que los métodos tradicionales. El proyecto demuestra una comprensión sólida de los principios fundamentales de desarrollo de software, incluyendo arquitectura de aplicaciones, diseño de bases de datos relacionales y implementación de operaciones CRUD (Create, Read, Update, Delete). La aplicación utiliza SQLite como motor de base de datos local, garantizando portabilidad y facilidad de instalación sin comprometer la funcionalidad. La interfaz de usuario, aunque funcional y directa, está diseñada siguiendo principios de usabilidad, con controles intuitivos y flujos de trabajo lógicos que facilitan la gestión de grandes volúmenes de contactos. El sistema incluye funcionalidades avanzadas como búsqueda y filtrado por múltiples criterios, importación y exportación de datos en diferentes formatos, y un sistema de backup automático que protege la información crítica. Este proyecto no solo demuestra competencias técnicas específicas, sino también la capacidad de identificar problemas reales y desarrollar soluciones prácticas y eficientes.",
-    shortDescription: "Aplicación de escritorio en C# para gestionar contactos. Realiza operaciones CRUD en una base de datos local con interfaz sencilla.",
-    image: electronic,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder URL
-    demoUrl: "https://github.com/EmilEchavarria/Electronic-Organizer?tab=readme-ov-file",
-    technologies: ["C#", "Windows Forms", "SQLite", ".NET Framework", "LINQ"],
-    features: [
-      "Gestión completa de contactos",
-      "Búsqueda y filtrado avanzado",
-      "Importación y exportación de datos",
-      "Interfaz intuitiva y rápida",
-      "Base de datos local segura"
-    ],
-    challenges: "Primer proyecto con base de datos, enfocado en aprender operaciones CRUD y diseño de interfaces.",
-    githubUrl: "https://github.com/EmilEchavarria/Electronic-Organizer",
-    category: "Desktop Application"
-  },
+    category: "Web Tool",
+    screenshots: [professionalcv, stockify, portfolio, jtag],
+    architecture: {
+      layers: [
+        {
+          name: "Template Engine - JavaScript",
+          description: "Motor de plantillas dinámico que renderiza CVs en tiempo real usando JavaScript y manipulación del DOM.",
+          technologies: ["JavaScript", "Template Literals", "DOM API"]
+        },
+        {
+          name: "PDF Generation - jsPDF & Canvas",
+          description: "Generación de PDFs vectoriales usando jsPDF combinado con Canvas API para renderizado preciso de elementos visuales.",
+          technologies: ["jsPDF", "Canvas API", "Vector Graphics"]
+        },
+        {
+          name: "Layout System - CSS Grid",
+          description: "Sistema de layout flexible con CSS Grid y Flexbox para crear diseños profesionales responsive y print-ready.",
+          technologies: ["CSS Grid", "Flexbox", "Print Styles"]
+        }
+      ]
+    }
+  }
 ];
 
 // Hook personalizado para detectar elementos en viewport
@@ -241,6 +361,105 @@ const useIntersectionObserver = (options = {}) => {
   return { visibleElements, setElementRef };
 };
 
+// Componente para la galería de imágenes
+const ImageGallery = ({ images, title }) => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const openFullscreen = (index) => {
+    setCurrentImage(index);
+    setIsFullscreen(true);
+  };
+
+  const closeFullscreen = () => {
+    setIsFullscreen(false);
+  };
+
+  return (
+    <>
+      <div className="grid grid-cols-2 gap-4">
+        {images.map((image, index) => (
+          <div key={index} className="aspect-video rounded-lg overflow-hidden bg-gray-700 cursor-pointer hover:opacity-80 transition-opacity">
+            <img 
+              src={image} 
+              alt={`${title} screenshot ${index + 1}`}
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              onClick={() => openFullscreen(index)}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Fullscreen Modal */}
+      {isFullscreen && (
+        <div className="fixed inset-0 z-[100] bg-black bg-opacity-90 flex items-center justify-center">
+          <div className="relative max-w-5xl max-h-[90vh] w-full h-full flex items-center justify-center p-4">
+            {/* Close Button */}
+            <button
+              onClick={closeFullscreen}
+              className="absolute top-4 right-4 text-white hover:text-gray-300 z-10 bg-black bg-opacity-50 rounded-full p-2"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Previous Button */}
+            {images.length > 1 && (
+              <button
+                onClick={prevImage}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 bg-black bg-opacity-50 rounded-full p-3"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+            )}
+
+            {/* Image */}
+            <img 
+              src={images[currentImage]} 
+              alt={`${title} screenshot ${currentImage + 1}`}
+              className="max-w-full max-h-full object-contain rounded-lg"
+            />
+
+            {/* Next Button */}
+            {images.length > 1 && (
+              <button
+                onClick={nextImage}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 bg-black bg-opacity-50 rounded-full p-3"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            )}
+
+            {/* Image Counter */}
+            {images.length > 1 && (
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded-full">
+                {currentImage + 1} / {images.length}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+// PropTypes para ImageGallery
+ImageGallery.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  title: PropTypes.string.isRequired
+};
 // Componente Modal mejorado
 const ProjectModal = ({ project, isOpen, onClose, projects, onNavigate }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -284,269 +503,279 @@ const ProjectModal = ({ project, isOpen, onClose, projects, onNavigate }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Backdrop with enhanced blur */}
+      {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-gradient-to-br from-black/90 via-gray-900/90 to-black/90 backdrop-blur-lg"
         onClick={onClose}
       />
       
-      {/* Modal with improved styling */}
-      <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-3xl max-w-6xl w-full max-h-[95vh] overflow-hidden border border-gray-600 shadow-2xl shadow-blue-500/20">
-        
-        {/* Enhanced Header */}
-        <div className="sticky top-0 bg-gradient-to-r from-gray-900/95 via-gray-800/95 to-gray-900/95 backdrop-blur-sm border-b border-gray-600 p-6">
-          <div className="flex justify-between items-start">
-            <div className="flex-1">
-              <div className="flex items-center gap-4 mb-3">
-                <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                  {project.title}
-                </h2>
-                <div className="h-8 w-px bg-gradient-to-b from-blue-400 to-transparent"></div>
-                <span className="px-4 py-2 bg-gradient-to-r from-blue-600/30 to-cyan-600/30 text-blue-300 text-sm rounded-full border border-blue-500/30">
-                  {project.category}
-                </span>
-              </div>
-              
-              {/* Tab Navigation */}
-              <div className="flex gap-1 mt-4">
-                {[
-                  { id: 'overview', label: 'Overview', icon: '📋' },
-                  { id: 'demo', label: 'Demo', icon: '🎬' },
-                  { id: 'technical', label: 'Technical', icon: '⚙️' }
-                ].map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 ${
-                      activeTab === tab.id
-                        ? 'bg-blue-600/20 text-blue-300 border border-blue-500/30'
-                        : 'text-gray-400 hover:text-gray-300 hover:bg-gray-800/50'
-                    }`}
-                  >
-                    <span className="text-sm">{tab.icon}</span>
-                    {tab.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-            
-            <button
-              onClick={onClose}
-              className="text-gray-400 hover:text-white transition-all duration-300 p-3 rounded-xl hover:bg-red-500/10 hover:border-red-500/30 border border-transparent"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+      {/* Modal */}
+      <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl max-w-6xl w-full max-h-[95vh] overflow-hidden border border-gray-600 shadow-2xl shadow-blue-500/20">
+       {/* Header */}
+<div className="sticky top-0 z-50 bg-gradient-to-r from-slate-900/98 via-slate-800/98 to-slate-900/98 backdrop-blur-xl border-b border-slate-600/40 shadow-lg">
+  <div className="p-3 sm:p-4 lg:p-6">
+    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4 lg:gap-6">
+      
+      {/* Left Section - Title and Category */}
+      <div className="flex-1 min-w-0">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3 sm:mb-4">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent truncate">
+            {project.title}
+          </h2>
+          
+          {/* Divider - Hidden on small screens */}
+          <div className="hidden sm:block h-6 w-px bg-gradient-to-b from-blue-400/60 to-transparent flex-shrink-0"></div>
+          
+          {/* Category Badge */}
+          <div className="flex-shrink-0">
+            <span className="inline-flex items-center px-3 py-1.5 bg-gradient-to-r from-blue-600/30 to-cyan-600/30 text-blue-300 text-xs sm:text-sm font-medium rounded-full border border-blue-500/40 backdrop-blur-sm">
+              <div className="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></div>
+              {project.category}
+            </span>
           </div>
         </div>
 
-        {/* Content with scroll */}
-        <div className="overflow-y-auto max-h-[calc(95vh-200px)] scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent">
-          <div className="p-6">
-            
-            {/* Overview Tab */}
-            {activeTab === 'overview' && (
-              <div className="space-y-8">
-                {/* Project Image */}
-                <div className="w-full h-64 md:h-80 rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
+        {/* Tab Navigation */}
+        <div className="flex flex-wrap gap-1 sm:gap-2">
+          {[
+            { id: 'overview', label: 'Overview', icon: '👁️' },
+            { id: 'demo', label: 'Demo', icon: '🎬' },
+            { id: 'technical', label: 'Technical', icon: '⚙️' }
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`group relative px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg font-medium transition-all duration-300 text-xs sm:text-sm lg:text-base ${
+                activeTab === tab.id
+                  ? 'bg-gradient-to-r from-blue-600/30 to-cyan-600/30 text-white border border-blue-400/50 shadow-lg shadow-blue-500/20'
+                  : 'text-slate-400 hover:text-white hover:bg-slate-700/50 border border-transparent hover:border-slate-600/50'
+              }`}
+            >
+              <span className="flex items-center gap-1.5 sm:gap-2">
+                <span className="text-xs sm:text-sm">{tab.icon}</span>
+                <span className="hidden sm:inline">{tab.label}</span>
+                <span className="sm:hidden">{tab.label.slice(0, 4)}</span>
+              </span>
+              
+              {/* Active indicator */}
+              {activeTab === tab.id && (
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full"></div>
+              )}
+            </button>
+          ))}
+        </div>
+      </div>
 
-                {/* Enhanced Description */}
-                <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl p-6 border border-gray-700/50">
-                  <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-                    <span className="text-blue-400">📖</span>
-                    Descripción Detallada
-                  </h3>
-                  <p className="text-gray-300 leading-relaxed text-lg">{project.description}</p>
-                </div>
+      {/* Right Section - Close Button */}
+      <div className="flex justify-end lg:justify-start">
+        <button
+          onClick={onClose}
+          className="group relative p-2 sm:p-2.5 text-slate-400 hover:text-white transition-all duration-300 rounded-lg hover:bg-red-500/10 hover:border-red-400/30 border border-transparent backdrop-blur-sm"
+        >
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+          
+          {/* Tooltip */}
+          <div className="absolute right-0 top-full mt-2 px-2 py-1 bg-slate-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+            Cerrar
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  {/* Progress Bar - Shows current tab */}
+  <div className="h-0.5 bg-slate-700/50">
+    <div 
+      className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 transition-all duration-500 ease-out"
+      style={{
+        width: `${(((['overview', 'demo', 'technical'].indexOf(activeTab)) + 1) / 3) * 100}%`
+      }}
+    ></div>
+  </div>
+</div>
 
-                {/* Features Grid */}
-                <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl p-6 border border-gray-700/50">
-                  <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                    <span className="text-green-400">✨</span>
-                    Características Principales
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {project.features.map((feature, index) => (
-                      <div key={index} className="flex items-start p-4 bg-gray-700/30 rounded-xl border border-gray-600/30 hover:border-blue-500/30 transition-all duration-300">
-                        <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mr-4 mt-1">
-                          <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                        </div>
-                        <span className="text-gray-300 font-medium">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+      {/* Content */}
+<div className="overflow-y-auto max-h-[calc(95vh-200px)] scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-transparent">
+  <div className="p-3 sm:p-4 lg:p-6">
+    
+    {/* Overview Tab */}
+    {activeTab === 'overview' && (
+      <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+        {/* Project Image */}
+        <div className="w-full h-48 sm:h-56 md:h-64 lg:h-72 rounded-xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-2xl">
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+          />
+        </div>
 
-                {/* Challenges */}
-                <div className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 rounded-2xl p-6 border border-amber-500/30">
-                  <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-                    <span className="text-amber-400">🎯</span>
-                    Desafíos Técnicos
-                  </h3>
-                  <p className="text-gray-300 leading-relaxed text-lg bg-gradient-to-r from-gray-800/50 to-gray-700/50 p-6 rounded-xl border-l-4 border-amber-500">
-                    {project.challenges}
-                  </p>
+        {/* Description */}
+        <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Descripción Detallada</h3>
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base">{project.description}</p>
+        </div>
+
+        {/* Features */}
+        <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Características Principales</h3>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 sm:gap-3">
+            {project.features.map((feature, index) => (
+              <div key={index} className="flex items-start p-3 sm:p-4 bg-slate-700/40 rounded-lg border border-slate-600/40 hover:border-blue-400/50 hover:bg-slate-700/60 transition-all duration-300 group">
+                <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300">
+                  <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
                 </div>
+                <span className="text-slate-300 font-medium text-xs sm:text-sm group-hover:text-white transition-colors duration-300">{feature}</span>
               </div>
-            )}
+            ))}
+          </div>
+        </div>
 
-            {/* Demo Tab */}
-            {activeTab === 'demo' && (
-              <div className="space-y-8">
-                {/* Video Demo */}
-                <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl p-6 border border-gray-700/50">
-                  <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                    <span className="text-red-400">🎬</span>
-                    Demo del Proyecto
-                  </h3>
-                  <div className="aspect-video rounded-xl overflow-hidden bg-gray-800 shadow-2xl">
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src={project.videoUrl}
-                      title={`${project.title} Demo`}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-full"
-                    ></iframe>
+        {/* Challenges */}
+        <div className="bg-gradient-to-br from-amber-900/30 to-orange-900/30 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-amber-500/40 shadow-xl">
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Desafíos Técnicos</h3>
+          <div className="bg-gradient-to-r from-slate-800/60 to-slate-700/60 backdrop-blur-sm p-4 sm:p-5 rounded-lg border-l-4 border-amber-400">
+            <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
+              {project.challenges}
+            </p>
+          </div>
+        </div>
+      </div>
+    )}
+
+    {/* Demo Tab */}
+    {activeTab === 'demo' && (
+      <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+        {/* Video Demo */}
+        <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Demo del Proyecto</h3>
+          <div className="aspect-video rounded-lg overflow-hidden bg-slate-800 shadow-2xl">
+            <iframe
+              width="100%"
+              height="100%"
+              src={project.videoUrl}
+              title={`${project.title} Demo`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            ></iframe>
+          </div>
+        </div>
+
+        {/* Screenshots Gallery */}
+        <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Capturas de Pantalla</h3>
+          <ImageGallery images={project.screenshots} title={project.title} />
+        </div>
+
+        {/* Live Demo Button */}
+        <div className="text-center">
+          <a
+            href={project.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-4 sm:px-6 py-3 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 hover:from-blue-700 hover:via-purple-700 hover:to-cyan-700 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30 transform hover:scale-105 text-sm sm:text-base"
+          >
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+            Ver Demo en Vivo
+          </a>
+        </div>
+      </div>
+    )}
+
+    {/* Technical Tab */}
+    {activeTab === 'technical' && (
+      <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+        {/* Technologies */}
+        <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Stack Tecnológico</h3>
+          <div className="flex flex-wrap gap-2 sm:gap-3">
+            {project.technologies.map((tech, index) => (
+              <span 
+                key={index}
+                className="px-3 py-2 bg-gradient-to-r from-slate-700/80 to-slate-800/80 backdrop-blur-sm text-slate-300 rounded-lg text-xs sm:text-sm font-medium border border-slate-600/50 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20 hover:text-white transition-all duration-300 transform hover:scale-105"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Architecture */}
+        <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Arquitectura del Proyecto</h3>
+          <div className="space-y-3 sm:space-y-4">
+            {project.architecture.layers.map((layer, index) => (
+              <div key={index} className="p-4 sm:p-5 bg-slate-700/40 rounded-lg border border-slate-600/40 hover:border-slate-500/60 hover:bg-slate-700/60 transition-all duration-300">
+                <div className="flex flex-col lg:flex-row lg:items-start gap-3 sm:gap-4">
+                  <div className="flex-1">
+                    <h4 className="text-base sm:text-lg font-semibold text-blue-400 mb-2">{layer.name}</h4>
+                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-3">{layer.description}</p>
                   </div>
-                </div>
-
-                {/* Project Screenshots */}
-                <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl p-6 border border-gray-700/50">
-                  <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                    <span className="text-purple-400">📸</span>
-                    Capturas de Pantalla
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="aspect-video rounded-xl overflow-hidden bg-gray-700">
-                      <img 
-                        src={project.image} 
-                        alt={`${project.title} screenshot 1`}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="aspect-video rounded-xl overflow-hidden bg-gray-700">
-                      <img 
-                        src={project.image} 
-                        alt={`${project.title} screenshot 2`}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 grayscale hover:grayscale-0"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Live Demo Button */}
-                <div className="text-center">
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 hover:from-blue-700 hover:via-purple-700 hover:to-cyan-700 text-white font-bold text-lg rounded-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/50 transform hover:scale-105 hover:-translate-y-1"
-                  >
-                    <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                    Ver Demo en Vivo
-                  </a>
-                </div>
-              </div>
-            )}
-
-            {/* Technical Tab */}
-            {activeTab === 'technical' && (
-              <div className="space-y-8">
-                {/* Technologies */}
-                <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl p-6 border border-gray-700/50">
-                  <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                    <span className="text-cyan-400">🛠️</span>
-                    Stack Tecnológico
-                  </h3>
-                  <div className="flex flex-wrap gap-3">
-                    {project.technologies.map((tech, index) => (
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                    {layer.technologies.map((tech, techIndex) => (
                       <span 
-                        key={index}
-                        className="px-4 py-3 bg-gradient-to-r from-gray-700 to-gray-800 text-gray-300 rounded-xl text-lg font-medium border border-gray-600 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 transform hover:scale-105"
+                        key={techIndex}
+                        className="px-2 py-1 bg-blue-600/30 text-blue-300 text-xs rounded border border-blue-500/40 hover:bg-blue-600/40 hover:text-blue-200 transition-all duration-300"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
                 </div>
-
-                {/* Architecture */}
-                <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl p-6 border border-gray-700/50">
-                  <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                    <span className="text-green-400">🏗️</span>
-                    Arquitectura del Proyecto
-                  </h3>
-                  <div className="space-y-4">
-                    <div className="p-4 bg-gray-700/30 rounded-xl">
-                      <h4 className="text-lg font-semibold text-blue-300 mb-2">Frontend</h4>
-                      <p className="text-gray-300">Interfaz de usuario responsiva con componentes reutilizables y manejo eficiente del estado.</p>
-                    </div>
-                    <div className="p-4 bg-gray-700/30 rounded-xl">
-                      <h4 className="text-lg font-semibold text-green-300 mb-2">Backend</h4>
-                      <p className="text-gray-300">API RESTful con autenticación, validación de datos y gestión de base de datos optimizada.</p>
-                    </div>
-                    <div className="p-4 bg-gray-700/30 rounded-xl">
-                      <h4 className="text-lg font-semibold text-purple-300 mb-2">Base de Datos</h4>
-                      <p className="text-gray-300">Diseño de esquema normalizado con índices optimizados para consultas eficientes.</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* GitHub Link */}
-                <div className="text-center">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 hover:from-gray-700 hover:via-gray-600 hover:to-gray-700 text-white font-bold text-lg rounded-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-gray-500/50 border border-gray-600 hover:border-gray-500 transform hover:scale-105"
-                  >
-                    <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                    Ver Código Fuente
-                  </a>
-                </div>
               </div>
-            )}
+            ))}
           </div>
         </div>
 
-        {/* Enhanced Footer Navigation */}
-        <div className="sticky bottom-0 bg-gradient-to-r from-gray-900/95 via-gray-800/95 to-gray-900/95 backdrop-blur-sm border-t border-gray-600 p-6">
+        {/* GitHub Link */}
+        <div className="text-center">
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-4 sm:px-6 py-3 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 hover:from-slate-700 hover:via-slate-600 hover:to-slate-700 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-slate-500/30 border border-slate-600/60 hover:border-slate-500 transform hover:scale-105 text-sm sm:text-base"
+          >
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            Ver Código Fuente
+          </a>
+        </div>
+      </div>
+    )}
+  </div>
+</div>
+
+        {/* Footer Navigation */}
+        <div className="sticky bottom-0 bg-gradient-to-r from-gray-900/95 via-gray-800/95 to-gray-900/95 backdrop-blur-sm border-t border-gray-600 p-4">
           <div className="flex justify-between items-center">
             <button
               onClick={() => navigateProject('prev')}
-              className="flex items-center px-6 py-3 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 text-gray-300 hover:text-white transition-all duration-300 rounded-xl border border-gray-600 hover:border-gray-500 transform hover:scale-105"
+              className="flex items-center px-4 py-2 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 text-gray-300 hover:text-white transition-all duration-300 rounded-lg border border-gray-600 hover:border-gray-500 transform hover:scale-105"
             >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
               Anterior
             </button>
 
-            <div className="flex items-center gap-4">
-              <span className="text-gray-400 text-lg">
+            <div className="flex items-center gap-3">
+              <span className="text-gray-400">
                 <span className="text-blue-400 font-bold">{currentIndex + 1}</span> de {projects.length}
               </span>
-              <div className="flex gap-2">
+              <div className="flex gap-1">
                 {projects.map((_, index) => (
                   <div
                     key={index}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
                       index === currentIndex 
                         ? 'bg-blue-500 scale-125' 
                         : 'bg-gray-600 hover:bg-gray-500'
@@ -558,10 +787,10 @@ const ProjectModal = ({ project, isOpen, onClose, projects, onNavigate }) => {
 
             <button
               onClick={() => navigateProject('next')}
-              className="flex items-center px-6 py-3 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 text-gray-300 hover:text-white transition-all duration-300 rounded-xl border border-gray-600 hover:border-gray-500 transform hover:scale-105"
+              className="flex items-center px-4 py-2 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 text-gray-300 hover:text-white transition-all duration-300 rounded-lg border border-gray-600 hover:border-gray-500 transform hover:scale-105"
             >
               Siguiente
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
@@ -586,7 +815,15 @@ ProjectModal.propTypes = {
     category: PropTypes.string.isRequired,
     technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
     features: PropTypes.arrayOf(PropTypes.string).isRequired,
-    challenges: PropTypes.string.isRequired
+    challenges: PropTypes.string.isRequired,
+    screenshots: PropTypes.arrayOf(PropTypes.string).isRequired,
+    architecture: PropTypes.shape({
+      layers: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        technologies: PropTypes.arrayOf(PropTypes.string).isRequired
+      })).isRequired
+    }).isRequired
   }),
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
@@ -630,11 +867,9 @@ export function Projects() {
   const getAnimationClasses = (projectId, index) => {
     const isVisible = visibleElements.has(projectId.toString());
     const baseClasses = "transition-all duration-700 ease-out";
-    
     if (isVisible) {
       return `${baseClasses} opacity-100 translate-y-0 translate-x-0 scale-100`;
     }
-    
     const animationType = index % 4;
     switch (animationType) {
       case 0:
