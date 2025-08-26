@@ -512,85 +512,70 @@ const ProjectModal = ({ project, isOpen, onClose, projects, onNavigate }) => {
       {/* Modal */}
       <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl max-w-6xl w-full max-h-[95vh] overflow-hidden border border-gray-600 shadow-2xl shadow-blue-500/20">
        {/* Header */}
-<div className="sticky top-0 z-50 bg-gradient-to-r from-slate-900/98 via-slate-800/98 to-slate-900/98 backdrop-blur-xl border-b border-slate-600/40 shadow-lg">
-  <div className="p-3 sm:p-4 lg:p-6">
-    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4 lg:gap-6">
-      
-      {/* Left Section - Title and Category */}
-      <div className="flex-1 min-w-0">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3 sm:mb-4">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent truncate">
-            {project.title}
-          </h2>
-          
-          {/* Divider - Hidden on small screens */}
-          <div className="hidden sm:block h-6 w-px bg-gradient-to-b from-blue-400/60 to-transparent flex-shrink-0"></div>
-          
-          {/* Category Badge */}
-          <div className="flex-shrink-0">
-            <span className="inline-flex items-center px-3 py-1.5 bg-gradient-to-r from-blue-600/30 to-cyan-600/30 text-blue-300 text-xs sm:text-sm font-medium rounded-full border border-blue-500/40 backdrop-blur-sm">
-              <div className="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></div>
-              {project.category}
-            </span>
-          </div>
-        </div>
-
-        {/* Tab Navigation */}
-        <div className="flex flex-wrap gap-1 sm:gap-2">
-          {[
-            { id: 'overview', label: 'Overview', icon: '👁️' },
-            { id: 'demo', label: 'Demo', icon: '🎬' },
-            { id: 'technical', label: 'Technical', icon: '⚙️' }
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`group relative px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg font-medium transition-all duration-300 text-xs sm:text-sm lg:text-base ${
-                activeTab === tab.id
-                  ? 'bg-gradient-to-r from-blue-600/30 to-cyan-600/30 text-white border border-blue-400/50 shadow-lg shadow-blue-500/20'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-700/50 border border-transparent hover:border-slate-600/50'
-              }`}
-            >
-              <span className="flex items-center gap-1.5 sm:gap-2">
-                <span className="text-xs sm:text-sm">{tab.icon}</span>
-                <span className="hidden sm:inline">{tab.label}</span>
-                <span className="sm:hidden">{tab.label.slice(0, 4)}</span>
-              </span>
-              
-              {/* Active indicator */}
-              {activeTab === tab.id && (
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full"></div>
-              )}
-            </button>
-          ))}
-        </div>
+{/* Header */}
+<div className="sticky top-0 z-50 bg-gradient-to-r from-gray-900 to-gray-800 backdrop-blur-xl border-b border-gray-700/50 shadow-sm overflow-hidden">
+  <div className="px-3 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 mx-auto max-w-7xl">
+    <div className="grid items-center gap-2 sm:gap-4 mb-2 sm:mb-3" style={{gridTemplateColumns: 'minmax(0, 1fr) auto auto'}}>
+      {/* Title - Left */}
+      <div className="flex justify-start min-w-0">
+        <h2 className="text-sm sm:text-xl lg:text-2xl font-semibold text-white truncate">
+          {project.title}
+        </h2>
       </div>
 
-      {/* Right Section - Close Button */}
-      <div className="flex justify-end lg:justify-start">
-        <button
+      {/* Category - Center on desktop, right on mobile */}
+      <div className="flex justify-center flex-shrink-0 sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2">
+        <span className="inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 bg-gray-700/50 text-gray-200 text-xs sm:text-sm font-medium rounded-full border border-gray-600/30 whitespace-nowrap">
+          {project.category}
+        </span>
+      </div>
+
+      {/* Close Button - Right */}
+      <div className="flex justify-end flex-shrink-0">
+        <svg 
           onClick={onClose}
-          className="group relative p-2 sm:p-2.5 text-slate-400 hover:text-white transition-all duration-300 rounded-lg hover:bg-red-500/10 hover:border-red-400/30 border border-transparent backdrop-blur-sm"
+          className="w-5 h-5 sm:w-7 sm:h-7 text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer"
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
         >
-          <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-          
-          {/* Tooltip */}
-          <div className="absolute right-0 top-full mt-2 px-2 py-1 bg-slate-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
-            Cerrar
-          </div>
-        </button>
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        </svg>
       </div>
     </div>
+
+    {/* Tab Navigation */}
+    <div className="flex gap-1 sm:gap-2 overflow-hidden">
+      {[
+        { id: 'overview', label: 'Overview' },
+        { id: 'demo', label: 'Demo' },
+        { id: 'technical', label: 'Technical' }
+      ].map((tab) => (
+        <button
+          key={tab.id}
+          onClick={() => setActiveTab(tab.id)}
+          className={`relative px-2 py-1 sm:px-4 sm:py-1.5 text-xs sm:text-base font-medium rounded-md transition-all duration-200 whitespace-nowrap ${
+            activeTab === tab.id
+              ? 'bg-gray-700 text-white border-gray-600'
+              : 'text-gray-400 hover:text-white hover:bg-gray-700/30 border-transparent hover:border-gray-600/30'
+          } border`}
+        >
+          {tab.label}
+          {activeTab === tab.id && (
+            <div className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500"></div>
+          )}
+        </button>
+      ))}
+    </div>
   </div>
-  
-  {/* Progress Bar - Shows current tab */}
-  <div className="h-0.5 bg-slate-700/50">
+
+  {/* Progress Bar */}
+  <div className="h-0.5 bg-gray-800 overflow-hidden">
     <div 
-      className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 transition-all duration-500 ease-out"
+      className="h-full bg-blue-500 transition-all duration-300 ease-out will-change-transform"
       style={{
-        width: `${(((['overview', 'demo', 'technical'].indexOf(activeTab)) + 1) / 3) * 100}%`
+        width: `${((['overview', 'demo', 'technical'].indexOf(activeTab) + 1) / 3) * 100}%`,
+        transform: 'translateZ(0)'
       }}
     ></div>
   </div>
