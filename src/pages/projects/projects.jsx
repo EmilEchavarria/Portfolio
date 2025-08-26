@@ -455,11 +455,13 @@ const ImageGallery = ({ images, title }) => {
     </>
   );
 };
+
 // PropTypes para ImageGallery
 ImageGallery.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string).isRequired,
   title: PropTypes.string.isRequired
 };
+
 // Componente Modal mejorado
 const ProjectModal = ({ project, isOpen, onClose, projects, onNavigate }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -509,279 +511,277 @@ const ProjectModal = ({ project, isOpen, onClose, projects, onNavigate }) => {
         onClick={onClose}
       />
       
-      {/* Modal */}
-      <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl max-w-6xl w-full max-h-[95vh] overflow-hidden border border-gray-600 shadow-2xl shadow-blue-500/20">
-       {/* Header */}
-{/* Header */}
-<div className="sticky top-0 z-50 bg-gradient-to-r from-gray-900 to-gray-800 backdrop-blur-xl border-b border-gray-700/50 shadow-sm overflow-hidden">
-  <div className="px-3 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 mx-auto max-w-7xl">
-    <div className="grid items-center gap-2 sm:gap-4 mb-2 sm:mb-3" style={{gridTemplateColumns: 'minmax(0, 1fr) auto auto'}}>
-      {/* Title - Left */}
-      <div className="flex justify-start min-w-0">
-        <h2 className="text-sm sm:text-xl lg:text-2xl font-semibold text-white truncate">
-          {project.title}
-        </h2>
+  {/* Modal */}
+<div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl max-w-6xl w-full max-h-[99vh] sm:max-h-[97vh] overflow-hidden border border-gray-600 shadow-2xl shadow-blue-500/20">
+  {/* Header */}
+  <div className="sticky top-0 z-50 bg-gradient-to-r from-gray-900 to-gray-800 backdrop-blur-xl border-b border-gray-700/50 shadow-sm overflow-hidden">
+    <div className="px-3 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 mx-auto max-w-7xl">
+      <div className="grid items-center gap-2 sm:gap-4 mb-2 sm:mb-3" style={{gridTemplateColumns: 'minmax(0, 1fr) auto auto'}}>
+        {/* Title - Left */}
+        <div className="flex justify-start min-w-0">
+          <h2 className="text-sm sm:text-xl lg:text-2xl font-semibold text-white truncate">
+            {project.title}
+          </h2>
+        </div>
+
+        {/* Category - Center on desktop, right on mobile */}
+        <div className="flex justify-center flex-shrink-0 sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2">
+          <span className="inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 bg-gray-700/50 text-gray-200 text-xs sm:text-sm font-medium rounded-full border border-gray-600/30 whitespace-nowrap">
+            {project.category}
+          </span>
+        </div>
+
+        {/* Close Button - Right */}
+        <div className="flex justify-end flex-shrink-0">
+          <svg 
+            onClick={onClose}
+            className="w-5 h-5 sm:w-7 sm:h-7 text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer"
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </div>
       </div>
 
-      {/* Category - Center on desktop, right on mobile */}
-      <div className="flex justify-center flex-shrink-0 sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2">
-        <span className="inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 bg-gray-700/50 text-gray-200 text-xs sm:text-sm font-medium rounded-full border border-gray-600/30 whitespace-nowrap">
-          {project.category}
-        </span>
-      </div>
-
-      {/* Close Button - Right */}
-      <div className="flex justify-end flex-shrink-0">
-        <svg 
-          onClick={onClose}
-          className="w-5 h-5 sm:w-7 sm:h-7 text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer"
-          fill="none" 
-          stroke="currentColor" 
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-        </svg>
+      {/* Tab Navigation */}
+      <div className="flex gap-1 sm:gap-2 overflow-hidden">
+        {[
+          { id: 'overview', label: 'Overview' },
+          { id: 'demo', label: 'Demo' },
+          { id: 'technical', label: 'Technical' }
+        ].map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`relative px-2 py-1 sm:px-4 sm:py-1.5 text-xs sm:text-base font-medium rounded-md transition-all duration-200 whitespace-nowrap ${
+              activeTab === tab.id
+                ? 'bg-gray-700 text-white border-gray-600'
+                : 'text-gray-400 hover:text-white hover:bg-gray-700/30 border-transparent hover:border-gray-600/30'
+            } border`}
+          >
+            {tab.label}
+            {activeTab === tab.id && (
+              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500"></div>
+            )}
+          </button>
+        ))}
       </div>
     </div>
 
-    {/* Tab Navigation */}
-    <div className="flex gap-1 sm:gap-2 overflow-hidden">
-      {[
-        { id: 'overview', label: 'Overview' },
-        { id: 'demo', label: 'Demo' },
-        { id: 'technical', label: 'Technical' }
-      ].map((tab) => (
-        <button
-          key={tab.id}
-          onClick={() => setActiveTab(tab.id)}
-          className={`relative px-2 py-1 sm:px-4 sm:py-1.5 text-xs sm:text-base font-medium rounded-md transition-all duration-200 whitespace-nowrap ${
-            activeTab === tab.id
-              ? 'bg-gray-700 text-white border-gray-600'
-              : 'text-gray-400 hover:text-white hover:bg-gray-700/30 border-transparent hover:border-gray-600/30'
-          } border`}
-        >
-          {tab.label}
-          {activeTab === tab.id && (
-            <div className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500"></div>
-          )}
-        </button>
-      ))}
+    {/* Progress Bar */}
+    <div className="h-0.5 bg-gray-800 overflow-hidden">
+      <div 
+        className="h-full bg-blue-500 transition-all duration-300 ease-out will-change-transform"
+        style={{
+          width: `${((['overview', 'demo', 'technical'].indexOf(activeTab) + 1) / 3) * 100}%`,
+          transform: 'translateZ(0)'
+        }}
+      ></div>
     </div>
   </div>
 
-  {/* Progress Bar */}
-  <div className="h-0.5 bg-gray-800 overflow-hidden">
-    <div 
-      className="h-full bg-blue-500 transition-all duration-300 ease-out will-change-transform"
-      style={{
-        width: `${((['overview', 'demo', 'technical'].indexOf(activeTab) + 1) / 3) * 100}%`,
-        transform: 'translateZ(0)'
-      }}
-    ></div>
-  </div>
-</div>
-
-      {/* Content */}
-<div className="overflow-y-auto max-h-[calc(95vh-200px)] scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-transparent">
-  <div className="p-3 sm:p-4 lg:p-6">
-    
-    {/* Overview Tab */}
-    {activeTab === 'overview' && (
-      <div className="space-y-4 sm:space-y-6 lg:space-y-8">
-        {/* Project Image */}
-        <div className="w-full h-48 sm:h-56 md:h-64 lg:h-72 rounded-xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-2xl">
-          <img 
-            src={project.image} 
-            alt={project.title}
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-          />
-        </div>
-
-        {/* Description */}
-        <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
-          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Descripción Detallada</h3>
-          <p className="text-slate-300 leading-relaxed text-sm sm:text-base">{project.description}</p>
-        </div>
-
-        {/* Features */}
-        <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
-          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Características Principales</h3>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 sm:gap-3">
-            {project.features.map((feature, index) => (
-              <div key={index} className="flex items-start p-3 sm:p-4 bg-slate-700/40 rounded-lg border border-slate-600/40 hover:border-blue-400/50 hover:bg-slate-700/60 transition-all duration-300 group">
-                <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <span className="text-slate-300 font-medium text-xs sm:text-sm group-hover:text-white transition-colors duration-300">{feature}</span>
-              </div>
-            ))}
+  {/* Content */}
+  <div className="overflow-y-auto max-h-[calc(99vh-200px)] sm:max-h-[calc(97vh-200px)] scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-transparent">
+    <div className="p-3 sm:p-4 lg:p-6">
+      {/* Overview Tab */}
+      {activeTab === 'overview' && (
+        <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+          {/* Project Image */}
+          <div className="w-full h-48 sm:h-56 md:h-64 lg:h-72 rounded-xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-2xl">
+            <img 
+              src={project.image} 
+              alt={project.title}
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
           </div>
-        </div>
 
-        {/* Challenges */}
-        <div className="bg-gradient-to-br from-amber-900/30 to-orange-900/30 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-amber-500/40 shadow-xl">
-          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Desafíos Técnicos</h3>
-          <div className="bg-gradient-to-r from-slate-800/60 to-slate-700/60 backdrop-blur-sm p-4 sm:p-5 rounded-lg border-l-4 border-amber-400">
-            <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
-              {project.challenges}
-            </p>
+          {/* Description */}
+          <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Descripción Detallada</h3>
+            <p className="text-slate-300 leading-relaxed text-sm sm:text-base">{project.description}</p>
           </div>
-        </div>
-      </div>
-    )}
 
-    {/* Demo Tab */}
-    {activeTab === 'demo' && (
-      <div className="space-y-4 sm:space-y-6 lg:space-y-8">
-        {/* Video Demo */}
-        <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
-          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Demo del Proyecto</h3>
-          <div className="aspect-video rounded-lg overflow-hidden bg-slate-800 shadow-2xl">
-            <iframe
-              width="100%"
-              height="100%"
-              src={project.videoUrl}
-              title={`${project.title} Demo`}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full"
-            ></iframe>
-          </div>
-        </div>
-
-        {/* Screenshots Gallery */}
-        <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
-          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Capturas de Pantalla</h3>
-          <ImageGallery images={project.screenshots} title={project.title} />
-        </div>
-
-        {/* Live Demo Button */}
-        <div className="text-center">
-          <a
-            href={project.demoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-4 sm:px-6 py-3 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 hover:from-blue-700 hover:via-purple-700 hover:to-cyan-700 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30 transform hover:scale-105 text-sm sm:text-base"
-          >
-            <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-            Ver Demo en Vivo
-          </a>
-        </div>
-      </div>
-    )}
-
-    {/* Technical Tab */}
-    {activeTab === 'technical' && (
-      <div className="space-y-4 sm:space-y-6 lg:space-y-8">
-        {/* Technologies */}
-        <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
-          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Stack Tecnológico</h3>
-          <div className="flex flex-wrap gap-2 sm:gap-3">
-            {project.technologies.map((tech, index) => (
-              <span 
-                key={index}
-                className="px-3 py-2 bg-gradient-to-r from-slate-700/80 to-slate-800/80 backdrop-blur-sm text-slate-300 rounded-lg text-xs sm:text-sm font-medium border border-slate-600/50 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20 hover:text-white transition-all duration-300 transform hover:scale-105"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Architecture */}
-        <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
-          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Arquitectura del Proyecto</h3>
-          <div className="space-y-3 sm:space-y-4">
-            {project.architecture.layers.map((layer, index) => (
-              <div key={index} className="p-4 sm:p-5 bg-slate-700/40 rounded-lg border border-slate-600/40 hover:border-slate-500/60 hover:bg-slate-700/60 transition-all duration-300">
-                <div className="flex flex-col lg:flex-row lg:items-start gap-3 sm:gap-4">
-                  <div className="flex-1">
-                    <h4 className="text-base sm:text-lg font-semibold text-blue-400 mb-2">{layer.name}</h4>
-                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-3">{layer.description}</p>
+          {/* Features */}
+          <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Características Principales</h3>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 sm:gap-3">
+              {project.features.map((feature, index) => (
+                <div key={index} className="flex items-start p-3 sm:p-4 bg-slate-700/40 rounded-lg border border-slate-600/40 hover:border-blue-400/50 hover:bg-slate-700/60 transition-all duration-300 group">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
                   </div>
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                    {layer.technologies.map((tech, techIndex) => (
-                      <span 
-                        key={techIndex}
-                        className="px-2 py-1 bg-blue-600/30 text-blue-300 text-xs rounded border border-blue-500/40 hover:bg-blue-600/40 hover:text-blue-200 transition-all duration-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                  <span className="text-slate-300 font-medium text-xs sm:text-sm group-hover:text-white transition-colors duration-300">{feature}</span>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* GitHub Link */}
-        <div className="text-center">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-4 sm:px-6 py-3 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 hover:from-slate-700 hover:via-slate-600 hover:to-slate-700 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-slate-500/30 border border-slate-600/60 hover:border-slate-500 transform hover:scale-105 text-sm sm:text-base"
-          >
-            <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-            Ver Código Fuente
-          </a>
-        </div>
-      </div>
-    )}
-  </div>
-</div>
-
-        {/* Footer Navigation */}
-        <div className="sticky bottom-0 bg-gradient-to-r from-gray-900/95 via-gray-800/95 to-gray-900/95 backdrop-blur-sm border-t border-gray-600 p-4">
-          <div className="flex justify-between items-center">
-            <button
-              onClick={() => navigateProject('prev')}
-              className="flex items-center px-4 py-2 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 text-gray-300 hover:text-white transition-all duration-300 rounded-lg border border-gray-600 hover:border-gray-500 transform hover:scale-105"
-            >
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Anterior
-            </button>
-
-            <div className="flex items-center gap-3">
-              <span className="text-gray-400">
-                <span className="text-blue-400 font-bold">{currentIndex + 1}</span> de {projects.length}
-              </span>
-              <div className="flex gap-1">
-                {projects.map((_, index) => (
-                  <div
-                    key={index}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === currentIndex 
-                        ? 'bg-blue-500 scale-125' 
-                        : 'bg-gray-600 hover:bg-gray-500'
-                    }`}
-                  />
-                ))}
-              </div>
+              ))}
             </div>
+          </div>
 
-            <button
-              onClick={() => navigateProject('next')}
-              className="flex items-center px-4 py-2 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 text-gray-300 hover:text-white transition-all duration-300 rounded-lg border border-gray-600 hover:border-gray-500 transform hover:scale-105"
-            >
-              Siguiente
-              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
+          {/* Challenges */}
+          <div className="bg-gradient-to-br from-amber-900/30 to-orange-900/30 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-amber-500/40 shadow-xl">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Desafíos Técnicos</h3>
+            <div className="bg-gradient-to-r from-slate-800/60 to-slate-700/60 backdrop-blur-sm p-4 sm:p-5 rounded-lg border-l-4 border-amber-400">
+              <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
+                {project.challenges}
+              </p>
+            </div>
           </div>
         </div>
+      )}
+
+      {/* Demo Tab */}
+      {activeTab === 'demo' && (
+        <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+          {/* Video Demo */}
+          <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Demo del Proyecto</h3>
+            <div className="aspect-video rounded-lg overflow-hidden bg-slate-800 shadow-2xl">
+              <iframe
+                width="100%"
+                height="100%"
+                src={project.videoUrl}
+                title={`${project.title} Demo`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </div>
+          </div>
+
+          {/* Screenshots Gallery */}
+          <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Capturas de Pantalla</h3>
+            <ImageGallery images={project.screenshots} title={project.title} />
+          </div>
+
+          {/* Live Demo Button */}
+          <div className="text-center">
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-4 sm:px-6 py-3 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 hover:from-blue-700 hover:via-purple-700 hover:to-cyan-700 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30 transform hover:scale-105 text-sm sm:text-base"
+            >
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+              Ver Demo en Vivo
+            </a>
+          </div>
+        </div>
+      )}
+
+      {/* Technical Tab */}
+      {activeTab === 'technical' && (
+        <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+          {/* Technologies */}
+          <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Stack Tecnológico</h3>
+            <div className="flex flex-wrap gap-2 sm:gap-3">
+              {project.technologies.map((tech, index) => (
+                <span 
+                  key={index}
+                  className="px-3 py-2 bg-gradient-to-r from-slate-700/80 to-slate-800/80 backdrop-blur-sm text-slate-300 rounded-lg text-xs sm:text-sm font-medium border border-slate-600/50 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20 hover:text-white transition-all duration-300 transform hover:scale-105"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Architecture */}
+          <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Arquitectura del Proyecto</h3>
+            <div className="space-y-3 sm:space-y-4">
+              {project.architecture.layers.map((layer, index) => (
+                <div key={index} className="p-4 sm:p-5 bg-slate-700/40 rounded-lg border border-slate-600/40 hover:border-slate-500/60 hover:bg-slate-700/60 transition-all duration-300">
+                  <div className="flex flex-col lg:flex-row lg:items-start gap-3 sm:gap-4">
+                    <div className="flex-1">
+                      <h4 className="text-base sm:text-lg font-semibold text-blue-400 mb-2">{layer.name}</h4>
+                      <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-3">{layer.description}</p>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                      {layer.technologies.map((tech, techIndex) => (
+                        <span 
+                          key={techIndex}
+                          className="px-2 py-1 bg-blue-600/30 text-blue-300 text-xs rounded border border-blue-500/40 hover:bg-blue-600/40 hover:text-blue-200 transition-all duration-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* GitHub Link */}
+          <div className="text-center">
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-4 sm:px-6 py-3 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 hover:from-slate-700 hover:via-slate-600 hover:to-slate-700 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-slate-500/30 border border-slate-600/60 hover:border-slate-500 transform hover:scale-105 text-sm sm:text-base"
+            >
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              Ver Código Fuente
+            </a>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+
+  {/* Navigation Bar */}
+  <div className="sticky bottom-0 bg-gradient-to-r from-gray-900/95 via-gray-800/95 to-gray-900/95 backdrop-blur-sm border-t border-gray-600 px-3 py-2 sm:px-4 sm:py-1.5 lg:py-4">
+    <div className="flex justify-between items-center mx-auto max-w-7xl">
+      {/* Previous Button */}
+      <button
+        onClick={() => navigateProject('prev')}
+        className="flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-200 px-3 py-2 sm:px-4 sm:py-3 min-w-[80px] sm:min-w-[120px] rounded-lg"
+      >
+        <div className="flex items-center gap-1 sm:gap-2">
+          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+          </svg>
+          <span className="text-xs sm:text-base font-medium">Previous</span>
+        </div>
+      </button>
+
+      {/* Center Dots */}
+      <div className="flex gap-1 sm:gap-2 mx-8 sm:mx-12">
+        {projects.map((_, index) => (
+          <div
+            key={index}
+            className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-colors duration-300 ${
+              index === currentIndex ? 'bg-blue-500' : 'bg-gray-600'
+            }`}
+          />
+        ))}
       </div>
+
+      {/* Next Button */}
+      <button
+        onClick={() => navigateProject('next')}
+        className="flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-200 px-3 py-2 sm:px-4 sm:py-3 min-w-[80px] sm:min-w-[120px] rounded-lg"
+      >
+        <div className="flex items-center gap-1 sm:gap-2">
+          <span className="text-xs sm:text-base font-medium">Next</span>
+          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
     </div>
   );
 };
@@ -870,7 +870,8 @@ export function Projects() {
 
   return (
     <main className="min-h-screen overflow-x-hidden">
-      <Header />
+      {/* Conditionally render Header based on isModalOpen */}
+      {!isModalOpen && <Header />}
       
       {/* Header Section con parallax */}
       <section 
@@ -1015,7 +1016,7 @@ export function Projects() {
           width: 8px;
         }
 
-        .scrollbar-thumb-gray-600::-webkit-scrollbar-thumb {
+        .scrollbar-thumb-grayradar-600::-webkit-scrollbar-thumb {
           background-color: #4b5563;
           border-radius: 4px;
         }
