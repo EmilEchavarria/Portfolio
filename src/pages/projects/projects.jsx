@@ -14,6 +14,9 @@ import enrollmentsystem from "../../assets/images/projects/enrollmentsystem.png"
 import professionalcv from "../../assets/images/projects/professionalcv.png";
 import agrogestor from "../../assets/images/projects/agrogestor.png";
 
+// J TAG EVENTS IMAGES 
+//import aboutjtagevents from "../../assets/images/projects/jtagevents/about.png";
+
 const projects = [
   {
     id: 1,
@@ -246,7 +249,7 @@ const projects = [
     description: "J Tag Events es un sitio web corporativo elegante y funcional desarrollado específicamente para una empresa líder en organización de eventos. Este proyecto representa una solución web completa construida con tecnologías fundamentales como HTML5, CSS3 y JavaScript vanilla, demostrando que es posible crear experiencias digitales impactantes sin depender de frameworks complejos. El sitio web presenta un catálogo interactivo y visualmente atractivo de todos los servicios ofrecidos por la empresa, desde eventos corporativos hasta celebraciones privadas. Cada sección del sitio ha sido cuidadosamente diseñada para destacar la profesionalidad y creatividad de la empresa, incluyendo una galería dinámica que muestra eventos realizados con efectos de transición suaves y un sistema de filtrado por categorías. La plataforma también incorpora un formulario de contacto completamente funcional con validación en tiempo real, sistema de cotizaciones automáticas y integración con redes sociales. El diseño responsive garantiza una experiencia óptima en todos los dispositivos, mientras que las animaciones y efectos visuales cuidadosamente implementados crean una navegación fluida y engaging.",
     shortDescription: "Sitio web desarrollado con HTML, CSS y JavaScript para una empresa de eventos. Incluye catálogo de servicios, secciones informativas y diseño responsive.",
     image: jtag,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    videoUrl: "https://www.youtube.com/embed/b60qi57gUHU",
     demoUrl: "https://j-tag-events.vercel.app/",
     technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "AOS"],
     features: [

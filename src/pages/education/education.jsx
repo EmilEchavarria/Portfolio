@@ -253,14 +253,96 @@ export function Education() {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {[
-                { title: "Introduction to Front-End Development", provider: "Meta", year: "2024", icon: "🌐", color: "from-blue-500 to-cyan-500" },
-                { title: "CSS in Depth", provider: "Meta", year: "2024", icon: "🎨", color: "from-purple-500 to-pink-500" },
-                { title: "Programming with JavaScript", provider: "Meta", year: "2024", icon: "⚡", color: "from-yellow-500 to-orange-500" },
-                { title: "Version Control with Git", provider: "Meta", year: "2024", icon: "🔧", color: "from-green-500 to-teal-500" },
-                { title: "Front-End Development with Angular", provider: "ITLA", year: "2024", icon: "🅰️", color: "from-red-500 to-pink-500" },
-                { title: "Backend Development with C# .Net", provider: "ITLA", year: "2025", icon: "⚙️", color: "from-indigo-500 to-purple-500" },
-                { title: "Front-End Development with React", provider: "Meta", year: "2025", icon: "⚛️", color: "from-cyan-500 to-blue-500" },
-                { title: "UX/UI Design", provider: "ITLA", year: "2025", icon: "🎯", color: "from-pink-500 to-rose-500" }
+                { 
+                  title: "Introduction to Front-End Development", 
+                  provider: "Meta", 
+                  year: "2024", 
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c-5 0-9-4-9-9s4-9 9-9" />
+                    </svg>
+                  ), 
+                  color: "from-blue-500 to-cyan-500" 
+                },
+                { 
+                  title: "CSS in Depth", 
+                  provider: "Meta", 
+                  year: "2024", 
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v6l6-2V5z" />
+                    </svg>
+                  ), 
+                  color: "from-purple-500 to-pink-500" 
+                },
+                { 
+                  title: "Programming with JavaScript", 
+                  provider: "Meta", 
+                  year: "2024", 
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  ), 
+                  color: "from-yellow-500 to-orange-500" 
+                },
+                { 
+                  title: "Version Control with Git", 
+                  provider: "Meta", 
+                  year: "2024", 
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  ), 
+                  color: "from-green-500 to-teal-500" 
+                },
+                { 
+                  title: "Front-End Development with Angular", 
+                  provider: "ITLA", 
+                  year: "2024", 
+                  icon: (
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2L2 7l10 15 10-15-10-5zM12 4.26L19.72 7 12 19.74 4.28 7 12 4.26z"/>
+                      <path d="m12 2 10 5-10 15L2 7 12 2zm0 2.26L4.28 7 12 19.74 19.72 7 12 4.26z"/>
+                    </svg>
+                  ), 
+                  color: "from-red-500 to-pink-500" 
+                },
+                { 
+                  title: "Backend Development with C# .Net", 
+                  provider: "ITLA", 
+                  year: "2025", 
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                    </svg>
+                  ), 
+                  color: "from-indigo-500 to-purple-500" 
+                },
+                { 
+                  title: "Front-End Development with React", 
+                  provider: "Meta", 
+                  year: "2025", 
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  ), 
+                  color: "from-cyan-500 to-blue-500" 
+                },
+                { 
+                  title: "UX/UI Design", 
+                  provider: "ITLA", 
+                  year: "2025", 
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                    </svg>
+                  ), 
+                  color: "from-pink-500 to-rose-500" 
+                }
               ].map((cert, index) => (
                 <div 
                   key={index}
@@ -274,7 +356,7 @@ export function Education() {
                   <div className="relative z-10">
                     {/* Icon and Provider */}
                     <div className="flex items-center justify-between mb-4">
-                      <div className={`w-12 h-12 bg-gradient-to-br ${cert.color} rounded-xl flex items-center justify-center text-2xl shadow-lg`}>
+                      <div className={`w-12 h-12 bg-gradient-to-br ${cert.color} rounded-xl flex items-center justify-center shadow-lg text-white`}>
                         {cert.icon}
                       </div>
                       <span className="text-xs font-medium text-gray-500 bg-gray-800 px-2 py-1 rounded-full">
