@@ -7,6 +7,9 @@ import Education from './pages/education/education';
 import Certificates from './pages/certificates/certificates'; 
 import Contact from './pages/contact/contact'; 
 
+// Importa SpeedInsights
+import { SpeedInsights } from "@vercel/speed-insights/react";
+
 function App() {
   return (
     <Router>
@@ -26,6 +29,9 @@ function App() {
             </Routes>
           </div>
         </div>
+
+        {/* Componente Speed Insights */}
+        <SpeedInsights />
       </div>
     </Router>
   );
