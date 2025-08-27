@@ -61,6 +61,17 @@
   /* margin-bottom: 2rem;*/
   animation: fadeInUp 0.8s ease-out;
 }
+/* Texto con gradiente */
+.gradient-text {
+  background: linear-gradient(90deg, rgb(18, 167, 248), rgb(56, 25, 228));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% 100%;
+  animation: gradientMove 3s linear infinite;
+}
+
+
 
 /* Estilos del formulario */
 form input, form textarea {

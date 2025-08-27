@@ -7,7 +7,6 @@ import { Meteors } from "../../components/ui/meteors";
 
 import jtag from "../../assets/images/projects/jtag.png";
 import autogleam from "../../assets/images/projects/autogleam.png";
-import portfolio from "../../assets/images/projects/portfolio.png";
 import portfoliobasic from "../../assets/images/projects/portfoliobasic.png";
 import stockify from "../../assets/images/projects/stockify.png";
 import electronic from "../../assets/images/projects/electronic.png";
@@ -18,30 +17,75 @@ import agrogestor from "../../assets/images/projects/agrogestor.png";
 const projects = [
   {
     id: 1,
+    title: "DashBite",
+    description: "DashBite es una plataforma fullstack diseñada para optimizar pedidos en línea y la gestión de operaciones para clientes, negocios, repartidores y administradores. Integra módulos completos que incluyen inicio de sesión y registro, gestión de perfiles, catálogos de productos, pedidos, direcciones, favoritos y paneles administrativos con reportes detallados. La plataforma está diseñada para mejorar la eficiencia del flujo de trabajo, ofreciendo una experiencia de usuario fluida y accesible, con un enfoque en la optimización de procesos operativos.",
+    shortDescription: "Plataforma fullstack para pedidos en línea y gestión, integrando módulos para clientes, negocios, repartidores y administradores.",
+    image: portfoliobasic,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    demoUrl: "https://dashbite.vercel.app",
+    technologies: ["Express.js", "Handlebars", "JavaScript", "Tailwind CSS", "MySQL", "Railway"],
+    features: [
+      "Gestión integral de pedidos en línea",
+      "Paneles administrativos con reportes en tiempo real",
+      "Sistema de autenticación y gestión de perfiles",
+      "Catálogos interactivos y favoritos personalizados",
+      "Interfaz optimizada para múltiples tipos de usuarios"
+    ],
+    challenges: "Implementación de un sistema escalable para manejar múltiples tipos de usuarios y sincronización en tiempo real de pedidos.",
+    githubUrl: "https://github.com/tu-usuario/dashbite",
+    category: "Web Application",
+    screenshots: [portfoliobasic, agrogestor, stockify, autogleam],
+    architecture: {
+      layers: [
+        {
+          name: "Frontend - Handlebars & Tailwind CSS",
+          description: "Interfaz dinámica renderizada con Handlebars y estilizada con Tailwind CSS para un diseño responsive y moderno.",
+          technologies: ["Handlebars", "Tailwind CSS", "JavaScript"]
+        },
+        {
+          name: "Backend - Express.js",
+          description: "API RESTful con Express.js para la gestión de pedidos, usuarios y reportes, con rutas optimizadas y autenticación segura.",
+          technologies: ["Express.js", "Node.js", "JWT"]
+        },
+        {
+          name: "Base de Datos - MySQL",
+          description: "Base de datos relacional con esquemas optimizados para consultas rápidas y manejo de grandes volúmenes de datos.",
+          technologies: ["MySQL", "Sequelize", "Indexes"]
+        },
+        {
+          name: "Despliegue - Railway",
+          description: "Infraestructura de despliegue continuo con Railway, optimización automática y escalabilidad para alto tráfico.",
+          technologies: ["Railway", "CI/CD", "Docker"]
+        }
+      ]
+    }
+  },
+  {
+    id: 2,
     title: "AgroGestor",
-    description: "AgroGestor es una plataforma digital completa diseñada para revolucionar la gestión agrícola moderna. Esta aplicación web permite a los agricultores y empresas del sector agroindustrial optimizar sus procesos productivos mediante el control en tiempo real de cultivos, recursos y datos críticos. La plataforma integra tecnologías IoT para el monitoreo continuo de condiciones ambientales, niveles de humedad del suelo, temperatura y otros parámetros vitales. Con un dashboard intuitivo y herramientas de análisis predictivo, AgroGestor facilita la toma de decisiones informadas, mejora la eficiencia de los recursos y maximiza los rendimientos de los cultivos. El sistema también incluye funcionalidades avanzadas como la gestión automatizada de riego, alertas personalizables y reportes detallados que permiten un seguimiento exhaustivo de todas las operaciones agrícolas.",
-    shortDescription: "Agrogestor is a digital platform that helps manage and optimize agricultural processes through real-time control of crops, resources, and data.",
+    description: "AgroGestor es una plataforma digital completa diseñada para revolucionar la gestión agrícola moderna. Esta aplicación web permite a los agricultores y empresas del sector agroindustrial optimizar sus procesos productivos mediante el control en tiempo real de cultivos, recursos y datos críticos. La plataforma integra tecnologías IoT para el monitoreo continuo de condiciones ambientales, niveles de humedad del suelo, temperatura y otros parámetros vitales. Con un dashboard intuitivo y herramientas de análisis predictivo, AgroGestor facilita la toma de decisiones informadas, mejora la eficiencia de los recursos y maximiza los rendimientos de los cultivos. Ofrece planes de membresía escalables y notificaciones en tiempo real, con un enfoque en seguridad, accesibilidad y una experiencia de usuario intuitiva.",
+    shortDescription: "Aplicación fullstack para la gestión agrícola con un panel central que automatiza tareas, ventas y reportes.",
     image: agrogestor,
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     demoUrl: "https://agrogestor.vercel.app",
-    technologies: ["React", "Node.js", "MongoDB", "Express", "Socket.io"],
+    technologies: ["Express.js", "Next.js", "Tailwind CSS", "MySQL", "Railway", "React", "Node.js", "MongoDB", "Socket.io"],
     features: [
       "Dashboard interactivo en tiempo real",
       "Gestión integral de cultivos",
-      "Monitoreo de recursos agrícolas",
-      "Reportes y análisis de datos",
-      "Sistema de alertas automáticas"
+      "Monitoreo de recursos agrícolas con IoT",
+      "Reportes y análisis de datos automatizados",
+      "Sistema de alertas automáticas y notificaciones en tiempo real"
     ],
     challenges: "Integración de sensores IoT para monitoreo agrícola en tiempo real y optimización de la gestión de recursos.",
     githubUrl: "https://github.com/tu-usuario/agrogestor",
     category: "Web Application",
-    screenshots: [agrogestor, autogleam, jtag, portfolio],
+    screenshots: [agrogestor, autogleam, jtag, enrollmentsystem],
     architecture: {
       layers: [
         {
-          name: "Frontend - React & Dashboard",
-          description: "Dashboard interactivo construido con React, gráficos en tiempo real usando Chart.js y componentes reutilizables para visualización de datos agrícolas.",
-          technologies: ["React", "Chart.js", "Material-UI"]
+          name: "Frontend - React & Next.js",
+          description: "Dashboard interactivo construido con React y Next.js, gráficos en tiempo real usando Chart.js y componentes reutilizables para visualización de datos agrícolas.",
+          technologies: ["React", "Next.js", "Chart.js", "Tailwind CSS"]
         },
         {
           name: "Backend - API REST",
@@ -49,20 +93,70 @@ const projects = [
           technologies: ["Node.js", "Express", "JWT"]
         },
         {
-          name: "Base de Datos - MongoDB",
-          description: "Base de datos NoSQL optimizada para almacenar datos de sensores en tiempo real con índices temporales y agregaciones eficientes.",
-          technologies: ["MongoDB", "Mongoose", "Redis"]
+          name: "Base de Datos - MongoDB & MySQL",
+          description: "MongoDB para datos de sensores en tiempo real con índices temporales y MySQL for datos relacionales optimizados.",
+          technologies: ["MongoDB", "Mongoose", "MySQL", "Sequelize"]
         },
         {
           name: "IoT Integration",
           description: "Sistema de comunicación con sensores agrícolas usando Socket.io para datos en tiempo real y protocolos MQTT para dispositivos IoT.",
           technologies: ["Socket.io", "MQTT", "Arduino"]
+        },
+        {
+          name: "Despliegue - Railway",
+          description: "Despliegue continuo con Railway, optimización automática y escalabilidad para alto tráfico.",
+          technologies: ["Railway", "CI/CD", "Docker"]
         }
       ]
     }
   },
   {
-    id: 2,
+    id: 3,
+    title: "Stockify",
+    description: "Stockify es una potente aplicación de escritorio desarrollada en C# con Windows Forms que revoluciona la gestión empresarial a través de un sistema integral de inventario, ventas y facturación. Esta solución empresarial robusta ha sido diseñada para satisfacer las necesidades de pequeñas y medianas empresas que requieren un control preciso y eficiente de sus operaciones comerciales. La aplicación utiliza MySQL como motor de base de datos, garantizando la integridad y seguridad de los datos empresariales críticos. Stockify ofrece un módulo completo de gestión de inventario que permite el seguimiento en tiempo real de productos, control de stock mínimo con alertas automáticas, gestión de proveedores y categorización avanzada de productos. El sistema de ventas integrado facilita la creación rápida de facturas, aplicación de descuentos, cálculo automático de impuestos y generación de reportes de ventas detallados en PDF.",
+    shortDescription: "Aplicación de escritorio en C# y Windows Forms para gestión de inventario, ventas y facturación. Usa MySQL y genera reportes en PDF.",
+    image: stockify,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    demoUrl: "https://github.com/EmilEchavarria/Stockify",
+    technologies: ["C#", ".NET Framework", "Windows Forms", "MySQL", "Entity Framework", "Crystal Reports"],
+    features: [
+      "Gestión completa de inventario",
+      "Sistema de ventas y facturación",
+      "Reportes detallados en PDF",
+      "Control de usuarios y permisos",
+      "Backup automático de datos"
+    ],
+    challenges: "Optimización de consultas de base de datos para manejar grandes volúmenes de productos y transacciones.",
+    githubUrl: "https://github.com/EmilEchavarria/Stockify",
+    category: "Desktop Application",
+    screenshots: [stockify, electronic, portfoliobasic, agrogestor],
+    architecture: {
+      layers: [
+        {
+          name: "Presentación - Windows Forms",
+          description: "Interfaz de usuario nativa con Windows Forms, controles personalizados y manejo de eventos para una experiencia desktop fluida.",
+          technologies: ["Windows Forms", "C# UI", "Custom Controls"]
+        },
+        {
+          name: "Lógica de Negocio - C# Classes",
+          description: "Capa de lógica empresarial con clases C# para manejo de inventario, cálculos de ventas y validaciones de negocio.",
+          technologies: ["C#", "Business Logic", "Data Validation"]
+        },
+        {
+          name: "Acceso a Datos - Entity Framework",
+          description: "Mapeo objeto-relacional con Entity Framework para operaciones CRUD optimizadas y manejo de transacciones.",
+          technologies: ["Entity Framework", "LINQ", "Code First"]
+        },
+        {
+          name: "Base de Datos - MySQL",
+          description: "Base de datos relacional con MySQL, procedimientos almacenados y índices optimizados para consultas empresariales.",
+          technologies: ["MySQL", "Stored Procedures", "Indexes"]
+        }
+      ]
+    }
+  },
+  {
+    id: 4,
     title: "Auto Gleam",
     description: "Auto Gleam es una aplicación web tipo SPA (Single Page Application) desarrollada en Angular que transforma completamente la experiencia de gestión de servicios de lavado de autos. Esta plataforma moderna ofrece un sistema integral que combina tecnología avanzada con diseño centrado en el usuario para proporcionar una solución completa tanto para clientes como para administradores. La aplicación cuenta con un robusto sistema de autenticación basado en roles que garantiza la seguridad y personalización de la experiencia según el tipo de usuario. Los clientes pueden programar citas de manera intuitiva, seleccionar servicios específicos y realizar seguimiento en tiempo real del estado de sus vehículos. Los administradores tienen acceso a un dashboard completo con métricas detalladas, gestión de empleados, control de inventario y herramientas de análisis de rendimiento. El sistema también incluye funcionalidades avanzadas como notificaciones push, integración con sistemas de pago, generación automática de facturas y reportes personalizables que facilitan la toma de decisiones estratégicas.",
     shortDescription: "Aplicación web tipo SPA desarrollada en Angular para gestión de servicios de lavado de autos. Incluye autenticación por roles, citas, reportes y diseño centrado en la experiencia del usuario.",
@@ -97,91 +191,6 @@ const projects = [
           name: "Base de Datos - Firestore",
           description: "Base de datos en tiempo real con sincronización automática, consultas optimizadas y reglas de seguridad granulares.",
           technologies: ["Firestore", "Firebase Rules", "Indexes"]
-        }
-      ]
-    }
-  },
-  {
-    id: 3,
-    title: "J Tag Events",
-    description: "J Tag Events es un sitio web corporativo elegante y funcional desarrollado específicamente para una empresa líder en organización de eventos. Este proyecto representa una solución web completa construida con tecnologías fundamentales como HTML5, CSS3 y JavaScript vanilla, demostrando que es posible crear experiencias digitales impactantes sin depender de frameworks complejos. El sitio web presenta un catálogo interactivo y visualmente atractivo de todos los servicios ofrecidos por la empresa, desde eventos corporativos hasta celebraciones privadas. Cada sección del sitio ha sido cuidadosamente diseñada para destacar la profesionalidad y creatividad de la empresa, incluyendo una galería dinámica que muestra eventos realizados con efectos de transición suaves y un sistema de filtrado por categorías. La plataforma también incorpora un formulario de contacto completamente funcional con validación en tiempo real, sistema de cotizaciones automáticas y integración con redes sociales. El diseño responsive garantiza una experiencia óptima en todos los dispositivos, mientras que las animaciones y efectos visuales cuidadosamente implementados crean una navegación fluida y engaging.",
-    shortDescription: "Sitio web desarrollado con HTML, CSS y JavaScript para una empresa de eventos. Incluye catálogo de servicios, secciones informativas y diseño responsive.",
-    image: jtag,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    demoUrl: "https://j-tag-events.vercel.app/",
-    technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "AOS"],
-    features: [
-      "Catálogo interactivo de servicios",
-      "Galería de eventos realizados",
-      "Formulario de contacto funcional",
-      "Diseño responsive optimizado",
-      "Animaciones y efectos visuales"
-    ],
-    challenges: "Crear una experiencia visual impactante usando solo tecnologías vanilla con animaciones fluidas.",
-    githubUrl: "https://github.com/tu-usuario/jtag-events",
-    category: "Website",
-    screenshots: [jtag, portfolio, autogleam, professionalcv],
-    architecture: {
-      layers: [
-        {
-          name: "Frontend - HTML5 & CSS3",
-          description: "Estructura semántica con HTML5 y estilos avanzados usando CSS3, incluyendo flexbox, grid y animaciones CSS puras.",
-          technologies: ["HTML5", "CSS3", "Flexbox", "Grid"]
-        },
-        {
-          name: "Interactividad - JavaScript Vanilla",
-          description: "Funcionalidades dinámicas implementadas con JavaScript puro, incluyendo validación de formularios y efectos de scroll.",
-          technologies: ["JavaScript", "DOM API", "Events"]
-        },
-        {
-          name: "UI Framework - Bootstrap",
-          description: "Sistema de componentes responsive con Bootstrap para garantizar compatibilidad cross-browser y diseño móvil-first.",
-          technologies: ["Bootstrap", "Responsive Design", "Mobile-First"]
-        }
-      ]
-    }
-  },
-  {
-    id: 4,
-    title: "Stockify",
-    description: "Stockify es una potente aplicación de escritorio desarrollada en C# con Windows Forms que revoluciona la gestión empresarial a través de un sistema integral de inventario, ventas y facturación. Esta solución empresarial robusta ha sido diseñada para satisfacer las necesidades de pequeñas y medianas empresas que requieren un control preciso y eficiente de sus operaciones comerciales. La aplicación utiliza MySQL como motor de base de datos, garantizando la integridad y seguridad de los datos empresariales críticos. Stockify ofrece un módulo completo de gestión de inventario que permite el seguimiento en tiempo real de productos, control de stock mínimo con alertas automáticas, gestión de proveedores y categorización avanzada de productos. El sistema de ventas integrado facilita la creación rápida de facturas, aplicación de descuentos, cálculo automático de impuestos y generación de reportes de ventas detallados. Una de las características más destacadas es su capacidad para generar reportes profesionales en PDF utilizando Crystal Reports, proporcionando análisis detallados de rendimiento empresarial, estados financieros y reportes de inventario que facilitan la toma de decisiones estratégicas.",
-    shortDescription: "Aplicación de escritorio en C# y Windows Forms para gestión de inventario, ventas y facturación. Usa MySQL y genera reportes en PDF.",
-    image: stockify,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    demoUrl: "https://github.com/EmilEchavarria/Stockify",
-    technologies: ["C#", "Windows Forms", "MySQL", "Entity Framework", "Crystal Reports"],
-    features: [
-      "Gestión completa de inventario",
-      "Sistema de ventas y facturación",
-      "Reportes detallados en PDF",
-      "Control de usuarios y permisos",
-      "Backup automático de datos"
-    ],
-    challenges: "Optimización de consultas de base de datos para manejar grandes volúmenes de productos y transacciones.",
-    githubUrl: "https://github.com/EmilEchavarria/Stockify",
-    category: "Desktop Application",
-    screenshots: [stockify, electronic, portfoliobasic, agrogestor],
-    architecture: {
-      layers: [
-        {
-          name: "Presentación - Windows Forms",
-          description: "Interfaz de usuario nativa con Windows Forms, controles personalizados y manejo de eventos para una experiencia desktop fluida.",
-          technologies: ["Windows Forms", "C# UI", "Custom Controls"]
-        },
-        {
-          name: "Lógica de Negocio - C# Classes",
-          description: "Capa de lógica empresarial con clases C# para manejo de inventario, cálculos de ventas y validaciones de negocio.",
-          technologies: ["C#", "Business Logic", "Data Validation"]
-        },
-        {
-          name: "Acceso a Datos - Entity Framework",
-          description: "Mapeo objeto-relacional con Entity Framework para operaciones CRUD optimizadas y manejo de transacciones.",
-          technologies: ["Entity Framework", "LINQ", "Code First"]
-        },
-        {
-          name: "Base de Datos - MySQL",
-          description: "Base de datos relacional con MySQL, procedimientos almacenados y índices optimizados para consultas empresariales.",
-          technologies: ["MySQL", "Stored Procedures", "Indexes"]
         }
       ]
     }
@@ -233,45 +242,40 @@ const projects = [
   },
   {
     id: 6,
-    title: "Portfolio",
-    description: "Mi portafolio personal representa la culminación de mis habilidades como desarrollador front-end, construido con las tecnologías más modernas y las mejores prácticas de la industria. Este proyecto va más allá de ser simplemente una vitrina de trabajos; es una experiencia digital inmersiva que refleja mi evolución profesional y pasión por crear interfaces excepcionales. Desarrollado con React y estilizado con Tailwind CSS, el portafolio implementa un sistema de componentes reutilizables y un diseño completamente responsive que se adapta perfectamente a cualquier dispositivo. La integración de Framer Motion permite animaciones sofisticadas y transiciones fluidas que guían al usuario a través de una narrativa visual cohesiva. El sitio presenta secciones cuidadosamente diseñadas que incluyen mi trayectoria profesional, habilidades técnicas con niveles de competencia, proyectos destacados con estudios de caso detallados y testimonios de clientes y colaboradores. Cada proyecto se presenta con capturas de pantalla interactivas, explicaciones técnicas detalladas y enlaces directos tanto a demos en vivo como a repositorios de código. El portafolio también incluye un blog técnico donde comparto conocimientos, tutoriales y reflexiones sobre las últimas tendencias en desarrollo web.",
-    shortDescription: "Portafolio personal moderno creado con React y Tailwind CSS. Muestra proyectos, habilidades y trayectoria como desarrollador front-end.",
-    image: portfolio,
+    title: "J Tag Events",
+    description: "J Tag Events es un sitio web corporativo elegante y funcional desarrollado específicamente para una empresa líder en organización de eventos. Este proyecto representa una solución web completa construida con tecnologías fundamentales como HTML5, CSS3 y JavaScript vanilla, demostrando que es posible crear experiencias digitales impactantes sin depender de frameworks complejos. El sitio web presenta un catálogo interactivo y visualmente atractivo de todos los servicios ofrecidos por la empresa, desde eventos corporativos hasta celebraciones privadas. Cada sección del sitio ha sido cuidadosamente diseñada para destacar la profesionalidad y creatividad de la empresa, incluyendo una galería dinámica que muestra eventos realizados con efectos de transición suaves y un sistema de filtrado por categorías. La plataforma también incorpora un formulario de contacto completamente funcional con validación en tiempo real, sistema de cotizaciones automáticas y integración con redes sociales. El diseño responsive garantiza una experiencia óptima en todos los dispositivos, mientras que las animaciones y efectos visuales cuidadosamente implementados crean una navegación fluida y engaging.",
+    shortDescription: "Sitio web desarrollado con HTML, CSS y JavaScript para una empresa de eventos. Incluye catálogo de servicios, secciones informativas y diseño responsive.",
+    image: jtag,
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    demoUrl: "https://emilechavarria.vercel.app/",
-    technologies: ["React", "Tailwind CSS", "Framer Motion", "Vite", "Vercel"],
+    demoUrl: "https://j-tag-events.vercel.app/",
+    technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "AOS"],
     features: [
-      "Diseño moderno y responsive",
-      "Animaciones suaves y atractivas",
-      "Sección de proyectos interactiva",
+      "Catálogo interactivo de servicios",
+      "Galería de eventos realizados",
       "Formulario de contacto funcional",
-      "Optimizado para SEO"
+      "Diseño responsive optimizado",
+      "Animaciones y efectos visuales"
     ],
-    challenges: "Crear una experiencia visual única con animaciones complejas mientras mantengo la performance óptima.",
-    githubUrl: "https://github.com/tu-usuario/portfolio",
-    category: "Portfolio",
-    screenshots: [portfolio, agrogestor, autogleam, enrollmentsystem],
+    challenges: "Crear una experiencia visual impactante usando solo tecnologías vanilla con animaciones fluidas.",
+    githubUrl: "https://github.com/tu-usuario/jtag-events",
+    category: "Website",
+    screenshots: [jtag, enrollmentsystem, autogleam, professionalcv],
     architecture: {
       layers: [
         {
-          name: "Frontend - React & Hooks",
-          description: "Aplicación React moderna con hooks personalizados, componentes funcionales y manejo eficiente del estado global.",
-          technologies: ["React", "React Hooks", "JSX"]
+          name: "Frontend - HTML5 & CSS3",
+          description: "Estructura semántica con HTML5 y estilos avanzados usando CSS3, incluyendo flexbox, grid y animaciones CSS puras.",
+          technologies: ["HTML5", "CSS3", "Flexbox", "Grid"]
         },
         {
-          name: "Estilos - Tailwind CSS",
-          description: "Sistema de diseño utility-first con Tailwind CSS, responsive design y dark mode implementado con CSS custom properties.",
-          technologies: ["Tailwind CSS", "Responsive Design", "Dark Mode"]
+          name: "Interactividad - JavaScript Vanilla",
+          description: "Funcionalidades dinámicas implementadas con JavaScript puro, incluyendo validación de formularios y efectos de scroll.",
+          technologies: ["JavaScript", "DOM API", "Events"]
         },
         {
-          name: "Animaciones - Framer Motion",
-          description: "Animaciones declarativas y transiciones de página usando Framer Motion con optimizaciones de performance.",
-          technologies: ["Framer Motion", "CSS Animations", "Performance"]
-        },
-        {
-          name: "Deployment - Vercel",
-          description: "Despliegue continuo con Vercel, optimización automática de assets y configuración de dominio personalizado.",
-          technologies: ["Vercel", "CI/CD", "Edge Functions"]
+          name: "UI Framework - Bootstrap",
+          description: "Sistema de componentes responsive con Bootstrap para garantizar compatibilidad cross-browser y diseño móvil-first.",
+          technologies: ["Bootstrap", "Responsive Design", "Mobile-First"]
         }
       ]
     }
@@ -295,7 +299,7 @@ const projects = [
     challenges: "Crear un sistema de plantillas flexible que genere PDFs de calidad profesional.",
     githubUrl: "https://github.com/tu-usuario/professional-cv",
     category: "Web Tool",
-    screenshots: [professionalcv, stockify, portfolio, jtag],
+    screenshots: [professionalcv, stockify, jtag, enrollmentsystem],
     architecture: {
       layers: [
         {

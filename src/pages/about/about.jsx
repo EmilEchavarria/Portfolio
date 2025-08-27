@@ -19,7 +19,6 @@ import vs from "../../assets/images/about/vs.png";
 import vsc from "../../assets/images/about/vsc.png";
 import docker from "../../assets/images/about/docker.png";
 import nodejs from "../../assets/images/about/nodejs.png";
-
 // Tech stack data organized by category
 const techStackData = {
   frontend: [
@@ -50,7 +49,7 @@ const techStackData = {
   ]
 };
 
-// Hook personalizado para detectar elementos en viewport
+// Custom hook for detecting elements in viewport
 const useIntersectionObserver = (options = {}) => {
   const [visibleElements, setVisibleElements] = useState(new Set());
   const elementsRef = useRef(new Map());
@@ -93,7 +92,7 @@ const useIntersectionObserver = (options = {}) => {
   return { visibleElements, setElementRef };
 };
 
-// Componente para contadores animados
+// Component for animated counters
 const AnimatedCounter = ({ end, duration = 2000, isVisible }) => {
   const [count, setCount] = useState(0);
   
@@ -126,14 +125,14 @@ const AnimatedCounter = ({ end, duration = 2000, isVisible }) => {
   return <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-500">{count}</span>;
 };
 
-// PropTypes para AnimatedCounter
+// PropTypes for AnimatedCounter
 AnimatedCounter.propTypes = {
   end: PropTypes.number.isRequired,
   duration: PropTypes.number,
   isVisible: PropTypes.bool.isRequired
 };
 
-// Componente para las tarjetas de tecnología
+// Component for tech cards
 const TechCard = ({ tech, index, isVisible, delay = 0 }) => {
   const getAnimationClasses = () => {
     const baseClasses = "group relative p-4 sm:p-6 rounded-2xl border border-gray-800 hover:border-blue-500 transition-all duration-700 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25 hover:-translate-y-2";
@@ -142,7 +141,7 @@ const TechCard = ({ tech, index, isVisible, delay = 0 }) => {
       return `${baseClasses} opacity-100 translate-y-0 translate-x-0 scale-100`;
     }
     
-    // Diferentes tipos de entrada según el índice
+    // Different entry animations based on index
     const animationType = index % 4;
     switch (animationType) {
       case 0:
@@ -184,7 +183,7 @@ const TechCard = ({ tech, index, isVisible, delay = 0 }) => {
   );
 };
 
-// PropTypes para el componente TechCard
+// PropTypes for TechCard component
 TechCard.propTypes = {
   tech: PropTypes.shape({
     img: PropTypes.string.isRequired,
@@ -198,7 +197,7 @@ TechCard.propTypes = {
 export function About() {
   const { visibleElements, setElementRef } = useIntersectionObserver();
 
-  // Función para obtener las clases de animación de elementos principales
+  // Function to get animation classes for main elements
   const getMainAnimationClasses = (elementId, animationType = 'fade-up') => {
     const isVisible = visibleElements.has(elementId);
     const baseClasses = "transition-all duration-1000 ease-out";
@@ -225,143 +224,299 @@ export function About() {
     <main className="min-h-screen text-white overflow-x-hidden">
       <Header />
 
-      {/* Título principal sin parallax */}
+      {/* Main title section without parallax */}
       <section 
         id="about-header" 
         className="text-center py-6 sm:py-8 md:py-10 px-4 relative mb-2"
       >
         <h1 className="gradient-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 animate-fade-in">
-          About Me
+          Sobre Mí
         </h1>
         <p 
           className="text-gray-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto opacity-0 animate-[fade-in-up_1.2s_ease-out_0.3s_forwards]"
         >
-          Passionate developer creating digital experiences
+          Desarrollador apasionado creando experiencias digitales
         </p>
       </section>
 
- {/* Descripción personal */}
-<section
-  id="about-description-container"
-  className="container mx-auto px-4 sm:px-6 pb-12 sm:pb-16 max-w-6xl mt-[-0.5rem]"
->
-  <div className="flex flex-col items-center lg:flex-row justify-center gap-6 lg:gap-12">
-    {/* Contenido de texto */}
-    <div 
-      ref={(el) => setElementRef('text-content', el)}
-      data-id="text-content"
-      className={`flex-1 max-w-2xl ${getMainAnimationClasses('text-content', 'fade-right')}`}
-    >
-      <div className="text-center lg:text-left mb-6">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
-          Emil Echavarria
-        </h1>
-        <h2 className="text-lg sm:text-xl lg:text-2xl text-blue-400 font-medium">
-          Software Developer
-        </h2>
-      </div>
-
-      <div className="space-y-4 text-sm sm:text-base md:text-lg leading-relaxed">
-        <p className="text-gray-300">
-          💻 I&apos;m <span className="text-blue-500 font-medium">Emil Echavarria</span>, 19
-          years old, and a{" "}
-          <span className="text-blue-500 font-medium">junior software developer</span>.
-          While my focus spans various areas of programming, my true passion
-          lies in front-end development, where I enjoy creating interactive
-          and visually engaging experiences.
-        </p>
-        
-        <p className="text-gray-300">
-          <span className="text-blue-500 font-medium">
-            I love exploring new technologies
-          </span>{" "}
-          and constantly learning, which allows me to enhance my skills and
-          approach projects with a more holistic perspective on the software
-          development process.
-        </p>
-        
-        <p className="text-gray-300">
-          I&apos;m always looking for{" "}
-          <span className="text-blue-500 font-medium">new challenges</span> that allow me
-          to grow professionally, collaborate on projects that have a positive
-          impact on technology, and stay at the forefront of trends shaping
-          the future of development. 🚀
-        </p>
-      </div>
-
-      {/* Estadísticas con contadores animados */}
-      <div 
-        ref={(el) => setElementRef('stats', el)}
-        data-id="stats"
-        className={`mt-8 sm:mt-12 ${getMainAnimationClasses('stats', 'fade-up')}`}
+      {/* Personal description section */}
+      <section
+        id="about-description-container"
+        className="container mx-auto px-4 sm:px-6 pb-12 sm:pb-16 max-w-7xl mt-[-0.5rem]"
       >
-        <div className="flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-8">
-          <div className="text-center">
-            <AnimatedCounter 
-              end={19} 
-              duration={1500} 
-              isVisible={visibleElements.has('stats')} 
-            />
-            <p className="text-xs sm:text-sm text-gray-400 mt-1 uppercase tracking-wide">Years Old</p>
-          </div>
-          <div className="text-center">
-            <div className="flex items-center justify-center">
-              <AnimatedCounter 
-                end={15} 
-                duration={2000} 
-                isVisible={visibleElements.has('stats')} 
-              />
-              <span className="text-xl sm:text-2xl font-bold text-blue-500 ml-1">+</span>
+        <div className="flex flex-col items-center lg:flex-row justify-center gap-6 lg:gap-12">
+          {/* Text content */}
+          <div 
+            ref={(el) => setElementRef('text-content', el)}
+            data-id="text-content"
+            className={`flex-1 max-w-2xl ${getMainAnimationClasses('text-content', 'fade-right')}`}
+          >
+            <div className="text-center lg:text-left mb-6">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
+                Emil Echavarría
+              </h1>
+              <h2 className="text-lg sm:text-xl lg:text-2xl text-blue-400 font-medium">
+                Desarrollador de Software
+              </h2>
             </div>
-            <p className="text-xs sm:text-sm text-gray-400 mt-1 uppercase tracking-wide">Technologies</p>
-          </div>
-          <div className="text-center">
-            <div className="flex items-center justify-center">
-              <AnimatedCounter 
-                end={10} 
-                duration={1800} 
-                isVisible={visibleElements.has('stats')} 
-              />
-              <span className="text-xl sm:text-2xl font-bold text-blue-500 ml-1">+</span>
+
+            <div className="space-y-4 text-sm sm:text-base md:text-lg leading-relaxed">
+              <p className="text-gray-300">
+                💻 Soy <span className="text-blue-500 font-medium">Emil Echavarría</span>, tengo 19
+                años y soy un{" "}
+                <span className="text-blue-500 font-medium">desarrollador de software junior</span>.
+                Aunque mi enfoque abarca varias áreas de la programación, mi verdadera pasión
+                está en el desarrollo front-end, donde disfruto creando experiencias
+                interactivas y visualmente atractivas.
+              </p>
+              
+              <p className="text-gray-300">
+                <span className="text-blue-500 font-medium">
+                  Me encanta explorar nuevas tecnologías
+                </span>{" "}
+                y aprender constantemente, lo que me permite mejorar mis habilidades y
+                abordar los proyectos con una perspectiva más integral sobre el proceso
+                de desarrollo de software.
+              </p>
+              
+              <p className="text-gray-300">
+                Siempre estoy buscando{" "}
+                <span className="text-blue-500 font-medium">nuevos desafíos</span> que me permitan
+                crecer profesionalmente, colaborar en proyectos que tengan un impacto positivo
+                en la tecnología y mantenerme a la vanguardia de las tendencias que están
+                dando forma al futuro del desarrollo. 🚀
+              </p>
             </div>
-            <p className="text-xs sm:text-sm text-gray-400 mt-1 uppercase tracking-wide">Projects</p>
+
+            {/* Stats with animated counters */}
+            <div 
+              ref={(el) => setElementRef('stats', el)}
+              data-id="stats"
+              className={`mt-8 sm:mt-12 ${getMainAnimationClasses('stats', 'fade-up')}`}
+            >
+              <div className="flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-8">
+                <div className="text-center">
+                  <AnimatedCounter 
+                    end={19} 
+                    duration={1500} 
+                    isVisible={visibleElements.has('stats')} 
+                  />
+                  <p className="text-xs sm:text-sm text-gray-400 mt-1 uppercase tracking-wide">Años</p>
+                </div>
+                <div className="text-center">
+                  <div className="flex items-center justify-center">
+                    <AnimatedCounter 
+                      end={15} 
+                      duration={2000} 
+                      isVisible={visibleElements.has('stats')} 
+                    />
+                    <span className="text-xl sm:text-2xl font-bold text-blue-500 ml-1">+</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-gray-400 mt-1 uppercase tracking-wide">Tecnologías</p>
+                </div>
+                <div className="text-center">
+                  <div className="flex items-center justify-center">
+                    <AnimatedCounter 
+                      end={10} 
+                      duration={1800} 
+                      isVisible={visibleElements.has('stats')} 
+                    />
+                    <span className="text-xl sm:text-2xl font-bold text-blue-500 ml-1">+</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-gray-400 mt-1 uppercase tracking-wide">Proyectos</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Profile image */}
+          <div 
+            ref={(el) => setElementRef('profile-image', el)}
+            data-id="profile-image"
+            className={`flex-shrink-0 order-first lg:order-last mx-auto ${getMainAnimationClasses('profile-image', 'fade-left')}`}
+          >
+            <div className="relative group">
+              <img
+                src={photo}
+                alt="Emil Echavarría"
+                id="profile-photo"
+                className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 object-cover rounded-full border-2 border-gray-600 transition-all duration-300 group-hover:border-blue-400"
+              />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-t from-blue-800/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+{/* Experience section - Vertical Timeline Design */}
+<section id="experience-section" className="py-12 sm:py-16 px-4 sm:px-6">
+  <div className="container mx-auto max-w-6xl">
+    {/* Section header */}
+    <div 
+      ref={(el) => setElementRef('experience-header', el)}
+      data-id="experience-header"
+      className={`text-center mb-12 sm:mb-16 ${getMainAnimationClasses('experience-header', 'scale')}`}
+    >
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8">
+        Mi Experiencia
+      </h2>
+    </div>
+
+    {/* Timeline container */}
+    <div 
+      ref={(el) => setElementRef('experience-card', el)}
+      data-id="experience-card"
+      className={`relative ${getMainAnimationClasses('experience-card', 'fade-up')}`}
+    >
+      {/* Main vertical timeline line */}
+      <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-300 transform -translate-x-1/2"></div>
+      
+      {/* Timeline item */}
+      <div className="relative flex items-center justify-center mb-12">
+        
+        {/* Timeline dot */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full border-4 border-blue-500 shadow-lg shadow-blue-500/50 flex items-center justify-center z-10 group hover:scale-110 transition-transform duration-300">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+            <span className="text-white font-bold text-sm sm:text-base">💼</span>
+          </div>
+        </div>
+
+        {/* Content layout */}
+        <div className="flex items-start w-full max-w-5xl">
+          
+          {/* Left side - Job details */}
+          <div className="flex-1 pr-8 sm:pr-12 text-right">
+            <div className="bg-gray-800/30 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:-translate-x-2">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3">
+                Desarrollador Web Freelance
+              </h3>
+              <p className="text-blue-400 font-semibold mb-2 text-base sm:text-lg">
+                Wix Studio - Contrato Fijo
+              </p>
+              <p className="text-gray-400 text-sm mb-4 flex items-center justify-end gap-2">
+                <span className="text-blue-400">📍</span>
+                Distrito Nacional, República Dominicana
+              </p>
+              
+              {/* Job responsibilities */}
+              <div className="space-y-3 mb-4">
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  <span className="font-medium text-blue-200">• Gestión y actualización continua</span> de sitios web, 
+                  optimizando contenido y experiencia de usuario para maximizar el engagement.
+                </p>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  <span className="font-medium text-blue-200">• Cumplimiento mensual de entregas</span> con estándares 
+                  de calidad y organización eficiente de recursos digitales.
+                </p>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  <span className="font-medium text-blue-200">• Desarrollo de mejoras</span> en funcionalidad 
+                  y rendimiento de múltiples plataformas web.
+                </p>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  <span className="font-medium text-blue-200">• Colaboración directa</span> con equipos 
+                  para implementar soluciones creativas y efectivas.
+                </p>
+              </div>
+
+              {/* Skills */}
+              <div className="flex flex-wrap gap-2 justify-end">
+                {['Wix Studio', 'Web Development', 'UX/UI', 'Content Management'].map((skill, index) => (
+                  <span 
+                    key={index}
+                    className="text-xs px-3 py-1 text-blue-300 bg-blue-500/20 border border-blue-500/30 rounded-full hover:bg-blue-500/30 transition-colors duration-300"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Right side - Date */}
+          <div className="flex-1 pl-8 sm:pl-12 text-left flex items-center">
+            <div className="bg-gradient-to-r from-blue-500/10 to-transparent p-4 rounded-lg">
+              <span className="text-white font-bold text-xl sm:text-2xl bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent block mb-1">
+                2025-Present
+              </span>
+              <span className="text-gray-400 text-sm">
+                Actualidad
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Future timeline extension */}
+      <div className="relative flex items-center justify-center">
+        <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gray-700/30 rounded-full border-2 border-gray-600/50 flex items-center justify-center z-10 opacity-50">
+          <span className="text-gray-500 text-xl">+</span>
+        </div>
+        
+        <div className="flex items-center w-full max-w-5xl">
+          <div className="flex-1 pr-8 sm:pr-12 text-right">
+            <div className="opacity-30">
+              <p className="text-gray-500 text-sm">Próximas experiencias...</p>
+            </div>
+          </div>
+          
+          <div className="flex-1 pl-8 sm:pl-12 text-left">
+            <div className="opacity-30">
+              <span className="text-gray-500 text-sm">Futuro</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile version */}
+      <div className="block lg:hidden mt-8">
+        <div className="bg-gray-800/30 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+              <span className="text-white font-bold">💼</span>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white">Desarrollador Web Freelance</h3>
+              <p className="text-blue-400 font-semibold text-sm">2025 - Presente</p>
+            </div>
+          </div>
+          
+          <p className="text-blue-400 font-semibold mb-2">Wix Studio - Contrato Fijo</p>
+          <p className="text-gray-400 text-sm mb-4">📍 Distrito Nacional, República Dominicana</p>
+          
+          <div className="space-y-2 mb-4">
+            <p className="text-gray-300 text-sm">• Gestión y actualización continua de sitios web</p>
+            <p className="text-gray-300 text-sm">• Cumplimiento mensual de entregas con calidad</p>
+            <p className="text-gray-300 text-sm">• Desarrollo de mejoras en funcionalidad</p>
+            <p className="text-gray-300 text-sm">• Colaboración directa con equipos</p>
+          </div>
+          
+          <div className="flex flex-wrap gap-2">
+            {['Wix Studio', 'Web Development', 'UX/UI', 'Content Management'].map((skill, index) => (
+              <span key={index} className="text-xs px-2 py-1 text-blue-300 bg-blue-500/20 border border-blue-500/30 rounded-full">
+                {skill}
+              </span>
+            ))}
           </div>
         </div>
       </div>
     </div>
-
-    {/* Imagen de perfil */}
-    <div 
-      ref={(el) => setElementRef('profile-image', el)}
-      data-id="profile-image"
-      className={`flex-shrink-0 order-first lg:order-last mx-auto ${getMainAnimationClasses('profile-image', 'fade-left')}`}
-    >
-      <div className="relative group">
-        <img
-          src={photo}
-          alt="Emil Echavarria"
-          id="profile-photo"
-          className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 object-cover rounded-full border-2 border-gray-600 transition-all duration-300 group-hover:border-blue-400"
-        />
-        <div className="absolute inset-0 rounded-full bg-gradient-to-t from-blue-800/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-      </div>
-    </div>
   </div>
 </section>
-      {/* Sección de Stack tecnológico */}
+      
+      {/* Tech stack section */}
       <section id="tech-stack-section" className="py-12 sm:py-16 px-4 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          {/* Header de la sección */}
+          {/* Section header */}
           <div 
             ref={(el) => setElementRef('tech-header', el)}
             data-id="tech-header"
             className={`text-center mb-10 sm:mb-16 ${getMainAnimationClasses('tech-header', 'scale')}`}
           >
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              MY TECH STACK
+              Mi Stack Tecnológico
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-xl sm:max-w-2xl mx-auto">
-              Technologies I work with
+              Tecnologías con las que trabajo
             </p>
           </div>
 
@@ -431,7 +586,7 @@ export function About() {
               className={`mb-6 sm:mb-8 ${getMainAnimationClasses('tools-title', 'fade-up')}`}
             >
               <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center lg:text-left">
-                Developer Tools
+                Herramientas de Desarrollo
               </h3>
             </div>
             
@@ -454,7 +609,7 @@ export function About() {
         </div>
       </section>
 
-      {/* Estilos CSS adicionales */}
+      {/* Additional CSS styles */}
       <style>{`
         @keyframes fade-in {
           from {
