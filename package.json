@@ -13,6 +13,7 @@
     "@radix-ui/react-slot": "^1.1.1",
     "@react-spring/web": "^10.0.1",
     "@tailwindcss/vite": "^4.0.3",
+    "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "@vitejs/plugin-react": "^4.3.4",
     "@vitejs/plugin-vue": "^5.2.1",

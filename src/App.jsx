@@ -7,8 +7,9 @@ import Education from './pages/education/education';
 import Certificates from './pages/certificates/certificates'; 
 import Contact from './pages/contact/contact'; 
 
-// Importa SpeedInsights
+// Importa SpeedInsights y Analytics
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
 
         {/* Componente Speed Insights */}
         <SpeedInsights />
+
+        {/* Componente Analytics para contar visitantes */}
+        <Analytics />
       </div>
     </Router>
   );
