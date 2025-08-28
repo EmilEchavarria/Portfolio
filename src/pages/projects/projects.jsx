@@ -16,6 +16,19 @@ import agrogestor from "../../assets/images/projects/agrogestor.png";
 
 // DASHBITE IMAGES 
 import dashbite from "../../assets/images/projects/dashbite/dashbite.png";
+import profiledb from "../../assets/images/projects/dashbite/profile.png";
+import productlistdb from "../../assets/images/projects/dashbite/productlist.png";
+import productlistbdb from "../../assets/images/projects/dashbite/productlistb.png";
+import pedidosdb from "../../assets/images/projects/dashbite/pedidos.png";
+import orderdb from "../../assets/images/projects/dashbite/order.png";
+import logindb from "../../assets/images/projects/dashbite/login.png";
+import homedb from "../../assets/images/projects/dashbite/home.png";
+import favoritesdb from "../../assets/images/projects/dashbite/favorites.png";
+import commercedb from "../../assets/images/projects/dashbite/commerce.png";
+import cartdb from "../../assets/images/projects/dashbite/cart.png";
+import addressesdb from "../../assets/images/projects/dashbite/addresses.png";
+
+
 
 // J TAG EVENTS IMAGES 
 import aboutjtagevents from "../../assets/images/projects/jtagevents/about.png";
@@ -34,7 +47,7 @@ const projects = [
     shortDescription: "Plataforma fullstack para pedidos en línea y gestión, integrando módulos para clientes, negocios, repartidores y administradores.",
     image: dashbite,
     videoUrl: "https://www.youtube.com/embed/FPDnm7rTNsI",
-    demoUrl: "https://dashbite.vercel.app",
+    demoUrl: "https://dashbite.up.railway.app/auth/login",
     technologies: ["Express.js", "Handlebars", "JavaScript", "Tailwind CSS", "MySQL", "Railway"],
     features: [
       "Gestión integral de pedidos en línea",
@@ -44,9 +57,9 @@ const projects = [
       "Interfaz optimizada para múltiples tipos de usuarios"
     ],
     challenges: "Implementación de un sistema escalable para manejar múltiples tipos de usuarios y sincronización en tiempo real de pedidos.",
-    githubUrl: "https://github.com/tu-usuario/dashbite",
+    githubUrl: "https://github.com/EmilEchavarria/DashBite",
     category: "Web Application",
-    screenshots: [dashbite, agrogestor, stockify, autogleam,dashbite],
+    screenshots: [logindb,homedb,profiledb,favoritesdb,productlistdb,productlistbdb,cartdb,pedidosdb,orderdb,addressesdb,commercedb,dashbite,],
     architecture: {
       layers: [
         {

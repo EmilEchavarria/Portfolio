@@ -116,7 +116,9 @@ export function Home() {
  
           <h2>Desarrollador de Software</h2>
           <p>
-👨‍💻 Soy Desarrollador Full Stack Junior con experiencia en proyectos académicos, personales y freelance, creando soluciones completas desde UX/UI y frontend hasta backend y bases de datos. Destaco por mi proactividad y aprendizaje continuo. 🚀
+          👨‍💻 Soy Desarrollador Full Stack Junior con experiencia en proyectos académicos, personales y freelance, c
+          reando soluciones completas desde UX/UI y frontend hasta backend y bases de datos. 
+          Destaco por mi proactividad y aprendizaje continuo. 🚀
           </p>
           
           <div className="social-icons">
@@ -145,7 +147,7 @@ export function Home() {
               <InstagramIcon />
             </a>
             <a 
-              href="../../assets/images/home/curriculum.png" 
+              href="https://drive.google.com/file/d/1PpY9Z5nwEbdY3ZHszZQEnXIa3OF75xTS/view?usp=drive_link"  
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Descarga el currículum de Emil"
