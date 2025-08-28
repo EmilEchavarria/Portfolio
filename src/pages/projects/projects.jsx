@@ -14,8 +14,17 @@ import enrollmentsystem from "../../assets/images/projects/enrollmentsystem.png"
 import professionalcv from "../../assets/images/projects/professionalcv.png";
 import agrogestor from "../../assets/images/projects/agrogestor.png";
 
+// DASHBITE IMAGES 
+import dashbite from "../../assets/images/projects/dashbite/dashbite.png";
+
 // J TAG EVENTS IMAGES 
-//import aboutjtagevents from "../../assets/images/projects/jtagevents/about.png";
+import aboutjtagevents from "../../assets/images/projects/jtagevents/about.png";
+import carcjtagevents from "../../assets/images/projects/jtagevents/caracteristicas.png";
+import catajtagevents from "../../assets/images/projects/jtagevents/catalogo.png";
+import espjtagevents from "../../assets/images/projects/jtagevents/especialidad.png";
+import galjtagevents from "../../assets/images/projects/jtagevents/gallery.png";
+import pantajtagevents from "../../assets/images/projects/jtagevents/pantallas.png";
+import productjtagevents from "../../assets/images/projects/jtagevents/productos.png";
 
 const projects = [
   {
@@ -23,8 +32,8 @@ const projects = [
     title: "DashBite",
     description: "DashBite es una plataforma fullstack diseñada para optimizar pedidos en línea y la gestión de operaciones para clientes, negocios, repartidores y administradores. Integra módulos completos que incluyen inicio de sesión y registro, gestión de perfiles, catálogos de productos, pedidos, direcciones, favoritos y paneles administrativos con reportes detallados. La plataforma está diseñada para mejorar la eficiencia del flujo de trabajo, ofreciendo una experiencia de usuario fluida y accesible, con un enfoque en la optimización de procesos operativos.",
     shortDescription: "Plataforma fullstack para pedidos en línea y gestión, integrando módulos para clientes, negocios, repartidores y administradores.",
-    image: portfoliobasic,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    image: dashbite,
+    videoUrl: "https://www.youtube.com/embed/FPDnm7rTNsI",
     demoUrl: "https://dashbite.vercel.app",
     technologies: ["Express.js", "Handlebars", "JavaScript", "Tailwind CSS", "MySQL", "Railway"],
     features: [
@@ -37,7 +46,7 @@ const projects = [
     challenges: "Implementación de un sistema escalable para manejar múltiples tipos de usuarios y sincronización en tiempo real de pedidos.",
     githubUrl: "https://github.com/tu-usuario/dashbite",
     category: "Web Application",
-    screenshots: [portfoliobasic, agrogestor, stockify, autogleam],
+    screenshots: [dashbite, agrogestor, stockify, autogleam,dashbite],
     architecture: {
       layers: [
         {
@@ -262,7 +271,7 @@ const projects = [
     challenges: "Crear una experiencia visual impactante usando solo tecnologías vanilla con animaciones fluidas.",
     githubUrl: "https://github.com/tu-usuario/jtag-events",
     category: "Website",
-    screenshots: [jtag, enrollmentsystem, autogleam, professionalcv],
+    screenshots: [jtag, aboutjtagevents, carcjtagevents, catajtagevents,espjtagevents,galjtagevents,pantajtagevents,productjtagevents],
     architecture: {
       layers: [
         {
@@ -681,7 +690,7 @@ const ProjectModal = ({ project, isOpen, onClose, projects, onNavigate }) => {
         <div className="flex items-center gap-3 mb-4 sm:mb-6">
           <div className="w-2 h-8 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full"></div>
           <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
-            Capturas de Pantalla
+            Imagenes
           </h3>
         </div>
         
