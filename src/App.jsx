@@ -11,15 +11,9 @@ import Contact from './pages/contact/contact';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
 
-// Importa el selector de idioma
-import LanguageSwitcher from "./components/LanguageSwitcher";
-
 function App() {
   return (
     <Router>
-      {/* Language switcher flotante */}
-      <LanguageSwitcher />
-
       <div className="h-screen overflow-hidden">
         <RetroGrid className="absolute inset-0 z-0 retro-grid-background" />
 

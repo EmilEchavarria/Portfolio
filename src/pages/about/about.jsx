@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import Header from "../../components/layout/header/header";
 import photo from "../../assets/images/description/photo.png";
 import js from "../../assets/images/about/js.png";
@@ -19,6 +20,7 @@ import vs from "../../assets/images/about/vs.png";
 import vsc from "../../assets/images/about/vsc.png";
 import docker from "../../assets/images/about/docker.png";
 import nodejs from "../../assets/images/about/nodejs.png";
+
 // Tech stack data organized by category
 const techStackData = {
   frontend: [
@@ -195,6 +197,7 @@ TechCard.propTypes = {
 };
 
 export function About() {
+  const { t } = useTranslation();
   const { visibleElements, setElementRef } = useIntersectionObserver();
 
   // Function to get animation classes for main elements
@@ -230,12 +233,12 @@ export function About() {
         className="text-center py-6 sm:py-8 md:py-10 px-4 relative mb-2"
       >
         <h1 className="gradient-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 animate-fade-in">
-          Sobre Mí
+          {t('about.title')}
         </h1>
         <p 
           className="text-gray-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto opacity-0 animate-[fade-in-up_1.2s_ease-out_0.3s_forwards]"
         >
-          Desarrollador apasionado creando experiencias digitales
+          {t('about.subtitle')}
         </p>
       </section>
 
@@ -253,39 +256,17 @@ export function About() {
           >
             <div className="text-center lg:text-left mb-6">
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
-                Emil Echavarría
+                {t('about.fullName')}
               </h1>
               <h2 className="text-lg sm:text-xl lg:text-2xl text-blue-400 font-medium">
-                Desarrollador de Software
+                {t('about.jobTitle')}
               </h2>
             </div>
 
             <div className="space-y-4 text-sm sm:text-base md:text-lg leading-relaxed">
-              <p className="text-gray-300">
-                💻 Soy <span className="text-blue-500 font-medium">Emil Echavarría</span>, tengo 19
-                años y soy un{" "}
-                <span className="text-blue-500 font-medium">desarrollador de software junior</span>.
-                Aunque mi enfoque abarca varias áreas de la programación, mi verdadera pasión
-                está en el desarrollo front-end, donde disfruto creando experiencias
-                interactivas y visualmente atractivas.
-              </p>
-              
-              <p className="text-gray-300">
-                <span className="text-blue-500 font-medium">
-                  Me encanta explorar nuevas tecnologías
-                </span>{" "}
-                y aprender constantemente, lo que me permite mejorar mis habilidades y
-                abordar los proyectos con una perspectiva más integral sobre el proceso
-                de desarrollo de software.
-              </p>
-              
-              <p className="text-gray-300">
-                Siempre estoy buscando{" "}
-                <span className="text-blue-500 font-medium">nuevos desafíos</span> que me permitan
-                crecer profesionalmente, colaborar en proyectos que tengan un impacto positivo
-                en la tecnología y mantenerme a la vanguardia de las tendencias que están
-                dando forma al futuro del desarrollo. 🚀
-              </p>
+              <p className="text-gray-300" dangerouslySetInnerHTML={{ __html: t('about.description1') }} />
+              <p className="text-gray-300" dangerouslySetInnerHTML={{ __html: t('about.description2') }} />
+              <p className="text-gray-300" dangerouslySetInnerHTML={{ __html: t('about.description3') }} />
             </div>
 
             {/* Stats with animated counters */}
@@ -301,7 +282,7 @@ export function About() {
                     duration={1500} 
                     isVisible={visibleElements.has('stats')} 
                   />
-                  <p className="text-xs sm:text-sm text-gray-400 mt-1 uppercase tracking-wide">Años</p>
+                  <p className="text-xs sm:text-sm text-gray-400 mt-1 uppercase tracking-wide">{t('about.stats.years')}</p>
                 </div>
                 <div className="text-center">
                   <div className="flex items-center justify-center">
@@ -312,7 +293,7 @@ export function About() {
                     />
                     <span className="text-xl sm:text-2xl font-bold text-blue-500 ml-1">+</span>
                   </div>
-                  <p className="text-xs sm:text-sm text-gray-400 mt-1 uppercase tracking-wide">Tecnologías</p>
+                  <p className="text-xs sm:text-sm text-gray-400 mt-1 uppercase tracking-wide">{t('about.stats.technologies')}</p>
                 </div>
                 <div className="text-center">
                   <div className="flex items-center justify-center">
@@ -323,7 +304,7 @@ export function About() {
                     />
                     <span className="text-xl sm:text-2xl font-bold text-blue-500 ml-1">+</span>
                   </div>
-                  <p className="text-xs sm:text-sm text-gray-400 mt-1 uppercase tracking-wide">Proyectos</p>
+                  <p className="text-xs sm:text-sm text-gray-400 mt-1 uppercase tracking-wide">{t('about.stats.projects')}</p>
                 </div>
               </div>
             </div>
@@ -338,7 +319,7 @@ export function About() {
             <div className="relative group">
               <img
                 src={photo}
-                alt="Emil Echavarría"
+                alt={t('about.profileImageAlt')}
                 id="profile-photo"
                 className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 object-cover rounded-full border-2 border-gray-600 transition-all duration-300 group-hover:border-blue-400"
               />
@@ -348,91 +329,175 @@ export function About() {
         </div>
       </section>
 
-{/* Experience section - Responsive Timeline Design */}
-<section id="experience-section" className="py-12 sm:py-16 px-4 sm:px-6">
-  <div className="container mx-auto max-w-6xl">
-    {/* Section header */}
-    <div 
-      ref={(el) => setElementRef('experience-header', el)}
-      data-id="experience-header"
-      className={`text-center mb-12 sm:mb-16 ${getMainAnimationClasses('experience-header', 'scale')}`}
-    >
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8">
-        Mi Experiencia
-      </h2>
-    </div>
+      {/* Experience section - Responsive Timeline Design */}
+      <section id="experience-section" className="py-12 sm:py-16 px-4 sm:px-6">
+        <div className="container mx-auto max-w-6xl">
+          {/* Section header */}
+          <div 
+            ref={(el) => setElementRef('experience-header', el)}
+            data-id="experience-header"
+            className={`text-center mb-12 sm:mb-16 ${getMainAnimationClasses('experience-header', 'scale')}`}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8">
+              {t('about.experience.title')}
+            </h2>
+          </div>
 
-    {/* Desktop Timeline */}
-    <div className="hidden lg:block">
-      <div 
-        ref={(el) => setElementRef('experience-card', el)}
-        data-id="experience-card"
-        className={`relative ${getMainAnimationClasses('experience-card', 'fade-up')}`}
-      >
-        {/* Main vertical timeline line */}
-        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-300 transform -translate-x-1/2"></div>
-        
-        {/* Timeline item */}
-        <div className="relative flex items-center justify-center mb-12">
-          
-          {/* Timeline dot with SVG icon */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full border-4 border-blue-500 shadow-lg shadow-blue-500/50 flex items-center justify-center z-10 group hover:scale-110 transition-transform duration-300">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-              <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h2zm4-3a1 1 0 00-1 1v1h2V4a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
+          {/* Desktop Timeline */}
+          <div className="hidden lg:block">
+            <div 
+              ref={(el) => setElementRef('experience-card', el)}
+              data-id="experience-card"
+              className={`relative ${getMainAnimationClasses('experience-card', 'fade-up')}`}
+            >
+              {/* Main vertical timeline line */}
+              <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-300 transform -translate-x-1/2"></div>
+              
+              {/* Timeline item */}
+              <div className="relative flex items-center justify-center mb-12">
+                {/* Timeline dot with SVG icon */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full border-4 border-blue-500 shadow-lg shadow-blue-500/50 flex items-center justify-center z-10 group hover:scale-110 transition-transform duration-300">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h2zm4-3a1 1 0 00-1 1v1h2V4a1 1 0 00-1-1z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Content layout */}
+                <div className="flex items-start w-full max-w-5xl">
+                  {/* Left side - Job details */}
+                  <div className="flex-1 pr-8 sm:pr-12 text-center">
+                    <div className="bg-gray-800/30 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:-translate-x-2">
+                      {/* Header */}
+                      <div className="mb-4">
+                        <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3">
+                          {t('about.experience.jobTitle')}
+                        </h3>
+                        <p className="text-blue-400 font-semibold mb-2 text-base sm:text-lg">
+                          {t('about.experience.company')}
+                        </p>
+                        <p className="text-gray-400 text-sm mb-3 flex items-center justify-center gap-2">
+                          <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                          </svg>
+                          {t('about.experience.location')}
+                        </p>
+                      </div>
+                      
+                      {/* Job responsibilities */}
+                      <div className="space-y-3 mb-4">
+                        <p className="text-gray-300 text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.experience.responsibility1') }} />
+                        <p className="text-gray-300 text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.experience.responsibility2') }} />
+                        <p className="text-gray-300 text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.experience.responsibility3') }} />
+                        <p className="text-gray-300 text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.experience.responsibility4') }} />
+                      </div>
+
+                      {/* Skills */}
+                      <div className="flex flex-wrap gap-2 justify-center">
+                        {t('about.experience.skills', { returnObjects: true }).map((skill, index) => (
+                          <span 
+                            key={index}
+                            className="text-xs px-3 py-1 text-blue-300 bg-blue-500/20 border border-blue-500/30 rounded-full hover:bg-blue-500/30 transition-colors duration-300"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right side - Date */}
+                  <div className="flex-1 pl-8 sm:pl-12 text-left flex items-center">
+                    <div className="bg-gradient-to-r from-blue-500/10 to-transparent p-4 rounded-lg">
+                      <span className="text-white font-bold text-xl sm:text-2xl bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent block mb-1">
+                        {t('about.experience.date')}
+                      </span>
+                      <span className="text-gray-400 text-sm">
+                        {t('about.experience.dateLabel')}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Future timeline extension */}
+              <div className="relative flex items-center justify-center">
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gray-700/30 rounded-full border-2 border-gray-600/50 flex items-center justify-center z-10 opacity-50">
+                  <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                
+                <div className="flex items-center w-full max-w-5xl">
+                  <div className="flex-1 pr-8 sm:pr-12 text-right">
+                    <div className="opacity-30">
+                      <p className="text-gray-500 text-sm">{t('about.experience.future')}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex-1 pl-8 sm:pl-12 text-left">
+                    <div className="opacity-30">
+                      <span className="text-gray-500 text-sm">{t('about.experience.futureLabel')}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Content layout */}
-          <div className="flex items-start w-full max-w-5xl">
-            
-            {/* Left side - Job details */}
-            <div className="flex-1 pr-8 sm:pr-12 text-center">
-              <div className="bg-gray-800/30 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:-translate-x-2">
-                
-                {/* Header */}
-                <div className="mb-4">
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3">
-                    Desarrollador Web Freelance
-                  </h3>
-                  <p className="text-blue-400 font-semibold mb-2 text-base sm:text-lg">
-                    Wix Studio - Contrato Mensual
-                  </p>
-                  <p className="text-gray-400 text-sm mb-3 flex items-center justify-center gap-2">
-                    <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+          {/* Mobile/Tablet Timeline */}
+          <div className="block lg:hidden">
+            <div 
+              ref={(el) => setElementRef('experience-mobile', el)}
+              data-id="experience-mobile"
+              className={`${getMainAnimationClasses('experience-mobile', 'fade-up')}`}
+            >
+              <div className="bg-gray-800/30 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-700/50 mx-2 sm:mx-0">
+                {/* Header section */}
+                <div className="flex flex-col xs:flex-row xs:items-center gap-3 xs:gap-4 mb-4 sm:mb-6">
+                  <div className="w-10 h-10 xs:w-12 xs:h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mx-auto xs:mx-0">
+                    <svg className="w-4 h-4 xs:w-5 xs:h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h2zm4-3a1 1 0 00-1 1v1h2V4a1 1 0 00-1-1z" clipRule="evenodd" />
                     </svg>
-                    Distrito Nacional, República Dominicana
+                  </div>
+                  <div className="text-center xs:text-left flex-1 min-w-0">
+                    <h3 className="text-lg xs:text-xl sm:text-2xl font-bold text-white leading-tight mb-1">
+                      {t('about.experience.jobTitle')}
+                    </h3>
+                    <p className="text-blue-400 font-semibold text-xs xs:text-sm">
+                      {t('about.experience.date')}
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Company info */}
+                <div className="mb-3 sm:mb-4 text-center xs:text-left">
+                  <p className="text-blue-400 font-semibold mb-2 text-sm sm:text-base">
+                    {t('about.experience.company')}
+                  </p>
+                  <p className="text-gray-400 text-xs sm:text-sm flex items-center justify-center xs:justify-start gap-2">
+                    <svg className="w-3 h-3 xs:w-4 xs:h-4 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.05 4.05a7BOOSTED 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="break-words">{t('about.experience.location')}</span>
                   </p>
                 </div>
                 
-                {/* Job responsibilities - mejor organizadas */}
-                <div className="space-y-3 mb-4">
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    <span className="font-medium text-blue-200 block mb-1">• Gestión integral del sitio web del cliente</span>
-                    Asegurando funcionalidad, seguridad y una experiencia de usuario profesional.
-                  </p>
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    <span className="font-medium text-blue-200 block mb-1">• Diseño e implementación de nuevas secciones y contenidos</span>
-                    Alineados con los objetivos estratégicos del cliente.
-                  </p>
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    <span className="font-medium text-blue-200 block mb-1">• Optimización continua de rendimiento y velocidad</span>
-                    Garantizando estabilidad y presentación visual atractiva.
-                  </p>
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    <span className="font-medium text-blue-200 block mb-1">• Trabajo autónomo y responsable</span>
-                    Cumpliendo entregas mensuales con organización y altos estándares de calidad.
-                  </p>
+                {/* Responsibilities */}
+                <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+                  <div className="text-gray-300 text-xs sm:text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.experience.responsibility1') }} />
+                  <div className="text-gray-300 text-xs sm:text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.experience.responsibility2') }} />
+                  <div className="text-gray-300 text-xs sm:text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.experience.responsibility3') }} />
+                  <div className="text-gray-300 text-xs sm:text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.experience.responsibility4') }} />
                 </div>
-
+                
                 {/* Skills */}
-                <div className="flex flex-wrap gap-2 justify-center">
-                  {['Wix Studio', 'Web Development', 'UX/UI Design', 'Performance Optimization', 'Content Management'].map((skill, index) => (
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 justify-center">
+                  {t('about.experience.skills', { returnObjects: true }).map((skill, index) => (
                     <span 
-                      key={index}
-                      className="text-xs px-3 py-1 text-blue-300 bg-blue-500/20 border border-blue-500/30 rounded-full hover:bg-blue-500/30 transition-colors duration-300"
+                      key={index} 
+                      className="text-xs px-2 py-1 sm:px-3 sm:py-1.5 text-blue-300 bg-blue-500/20 border border-blue-500/30 rounded-full whitespace-nowrap hover:bg-blue-500/30 transition-colors duration-300"
                     >
                       {skill}
                     </span>
@@ -440,121 +505,9 @@ export function About() {
                 </div>
               </div>
             </div>
-
-            {/* Right side - Date */}
-            <div className="flex-1 pl-8 sm:pl-12 text-left flex items-center">
-              <div className="bg-gradient-to-r from-blue-500/10 to-transparent p-4 rounded-lg">
-                <span className="text-white font-bold text-xl sm:text-2xl bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent block mb-1">
-                  2025-Present
-                </span>
-                <span className="text-gray-400 text-sm">
-                  Actualidad
-                </span>
-              </div>
-            </div>
           </div>
         </div>
-
-        {/* Future timeline extension */}
-        <div className="relative flex items-center justify-center">
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gray-700/30 rounded-full border-2 border-gray-600/50 flex items-center justify-center z-10 opacity-50">
-            <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
-            </svg>
-          </div>
-          
-          <div className="flex items-center w-full max-w-5xl">
-            <div className="flex-1 pr-8 sm:pr-12 text-right">
-              <div className="opacity-30">
-                <p className="text-gray-500 text-sm">Próximas experiencias...</p>
-              </div>
-            </div>
-            
-            <div className="flex-1 pl-8 sm:pl-12 text-left">
-              <div className="opacity-30">
-                <span className="text-gray-500 text-sm">Futuro</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {/* Mobile/Tablet Timeline */}
-    <div className="block lg:hidden">
-      <div 
-        ref={(el) => setElementRef('experience-mobile', el)}
-        data-id="experience-mobile"
-        className={`${getMainAnimationClasses('experience-mobile', 'fade-up')}`}
-      >
-        <div className="bg-gray-800/30 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-700/50 mx-2 sm:mx-0">
-          {/* Header section - más responsive */}
-          <div className="flex flex-col xs:flex-row xs:items-center gap-3 xs:gap-4 mb-4 sm:mb-6">
-            <div className="w-10 h-10 xs:w-12 xs:h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mx-auto xs:mx-0">
-              <svg className="w-4 h-4 xs:w-5 xs:h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h2zm4-3a1 1 0 00-1 1v1h2V4a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
-            </div>
-            <div className="text-center xs:text-left flex-1 min-w-0">
-              <h3 className="text-lg xs:text-xl sm:text-2xl font-bold text-white leading-tight mb-1">
-                Desarrollador Web Freelance
-              </h3>
-              <p className="text-blue-400 font-semibold text-xs xs:text-sm">
-                2025-Present
-              </p>
-            </div>
-          </div>
-          
-          {/* Company info */}
-          <div className="mb-3 sm:mb-4 text-center xs:text-left">
-            <p className="text-blue-400 font-semibold mb-2 text-sm sm:text-base">
-              Wix Studio - Contrato Mensual
-            </p>
-            <p className="text-gray-400 text-xs sm:text-sm flex items-center justify-center xs:justify-start gap-2">
-              <svg className="w-3 h-3 xs:w-4 xs:h-4 text-blue-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-              </svg>
-              <span className="break-words">Distrito Nacional, República Dominicana</span>
-            </p>
-          </div>
-          
-          {/* Responsibilities - más legible en móvil */}
-          <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
-            <div className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-              <span className="font-medium text-blue-200 block xs:inline">• Gestión integral del sitio web del cliente,</span>
-              <span className="block xs:inline"> asegurando funcionalidad, seguridad y experiencia profesional</span>
-            </div>
-            <div className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-              <span className="font-medium text-blue-200 block xs:inline">• Diseño e implementación de nuevas secciones</span>
-              <span className="block xs:inline"> alineadas con objetivos estratégicos</span>
-            </div>
-            <div className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-              <span className="font-medium text-blue-200 block xs:inline">• Optimización continua de rendimiento,</span>
-              <span className="block xs:inline"> velocidad y presentación visual</span>
-            </div>
-            <div className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-              <span className="font-medium text-blue-200 block xs:inline">• Trabajo autónomo con entregas mensuales</span>
-              <span className="block xs:inline"> y altos estándares de calidad</span>
-            </div>
-          </div>
-          
-          {/* Skills - más responsive */}
-          <div className="flex flex-wrap gap-1.5 sm:gap-2 justify-center">
-            {['Wix Studio', 'Web Development', 'UX/UI Design', 'Performance Optimization', 'Content Management'].map((skill, index) => (
-              <span 
-                key={index} 
-                className="text-xs px-2 py-1 sm:px-3 sm:py-1.5 text-blue-300 bg-blue-500/20 border border-blue-500/30 rounded-full whitespace-nowrap hover:bg-blue-500/30 transition-colors duration-300"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+      </section>
 
       {/* Tech stack section */}
       <section id="tech-stack-section" className="py-12 sm:py-16 px-4 sm:px-6">
@@ -566,10 +519,10 @@ export function About() {
             className={`text-center mb-10 sm:mb-16 ${getMainAnimationClasses('tech-header', 'scale')}`}
           >
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Mi Stack Tecnológico
+              {t('about.techStack.title')}
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-xl sm:max-w-2xl mx-auto">
-              Tecnologías con las que trabajo
+              {t('about.techStack.subtitle')}
             </p>
           </div>
 
@@ -581,7 +534,7 @@ export function About() {
               className={`mb-6 sm:mb-8 ${getMainAnimationClasses('frontend-title', 'fade-up')}`}
             >
               <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center lg:text-left">
-                Frontend
+                {t('about.techStack.frontend')}
               </h3>
             </div>
             
@@ -610,7 +563,7 @@ export function About() {
               className={`mb-6 sm:mb-8 ${getMainAnimationClasses('backend-title', 'fade-up')}`}
             >
               <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center lg:text-left">
-                Backend
+                {t('about.techStack.backend')}
               </h3>
             </div>
             
@@ -639,7 +592,7 @@ export function About() {
               className={`mb-6 sm:mb-8 ${getMainAnimationClasses('tools-title', 'fade-up')}`}
             >
               <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center lg:text-left">
-                Herramientas de Desarrollo
+                {t('about.techStack.tools')}
               </h3>
             </div>
             

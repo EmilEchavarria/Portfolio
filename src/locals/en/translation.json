@@ -5,5 +5,392 @@
   "githubAlt": "Visit Emil's GitHub profile",
   "linkedinAlt": "Visit Emil's LinkedIn profile",
   "instagramAlt": "Visit Emil's Instagram profile",
-  "cvAlt": "Download Emil's resume"
+  "cvAlt": "Download Emil's resume",
+  "about": {
+    "title": "About Me",
+    "subtitle": "Passionate developer creating digital experiences",
+    "fullName": "Emil Echavarría",
+    "jobTitle": "Software Developer",
+    "description1": "💻 I am <span class='text-blue-500 font-medium'>Emil Echavarría</span>, 19 years old, and a <span class='text-blue-500 font-medium'>junior software developer</span>. While my focus spans various programming areas, my true passion lies in front-end development, where I enjoy creating interactive and visually appealing experiences.",
+    "description2": "<span class='text-blue-500 font-medium'>I love exploring new technologies</span> and learning continuously, which allows me to enhance my skills and approach projects with a more comprehensive perspective on the software development process.",
+    "description3": "I am always seeking <span class='text-blue-500 font-medium'>new challenges</span> that allow me to grow professionally, collaborate on projects that have a positive impact on technology, and stay at the forefront of trends shaping the future of development. 🚀",
+    "profileImageAlt": "Emil Echavarría",
+    "stats": {
+      "years": "Years",
+      "technologies": "Technologies",
+      "projects": "Projects"
+    },
+    "experience": {
+      "title": "My Experience",
+      "jobTitle": "Freelance Web Developer",
+      "company": "Wix Studio - Monthly Contract",
+      "location": "Distrito Nacional, Dominican Republic",
+      "date": "2025-Present",
+      "dateLabel": "Present",
+      "responsibility1": "<span class='font-medium text-blue-200 block mb-1'>• Comprehensive website management</span> Ensuring functionality, security, and a professional user experience.",
+      "responsibility2": "<span class='font-medium text-blue-200 block mb-1'>• Design and implementation of new sections and content</span> Aligned with the client's strategic goals.",
+      "responsibility3": "<span class='font-medium text-blue-200 block mb-1'>• Continuous performance and speed optimization</span> Ensuring stability and attractive visual presentation.",
+      "responsibility4": "<span class='font-medium text-blue-200 block mb-1'>• Autonomous and responsible work</span> Meeting monthly deliverables with organization and high quality standards.",
+      "skills": ["Wix Studio", "Web Development", "UX/UI Design", "Performance Optimization", "Content Management"],
+      "future": "Upcoming experiences...",
+      "futureLabel": "Future"
+    },
+    "techStack": {
+      "title": "My Tech Stack",
+      "subtitle": "Technologies I work with",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Development Tools"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Explore my collection of projects that demonstrate my skills in web and software development",
+    "seeMore": "See More",
+    "demo": "Demo",
+    "status": {
+      "completed": "Completed",
+      "inProgress": "In Progress",
+      "paused": "Paused"
+    },
+    "modal": {
+      "overview": "Overview",
+      "demo": "Demo",
+      "technical": "Technical",
+      "demoTitle": "Project Demo",
+      "images": "Images",
+      "description": "Detailed Description",
+      "features": "Main Features",
+      "challenges": "Technical Challenges",
+      "techStack": "Tech Stack",
+      "architecture": "Project Architecture",
+      "liveDemo": "View Live Demo",
+      "sourceCode": "View Source Code",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "gallery": {
+      "screenshotAlt": "{{title}} screenshot {{index}}",
+      "of": "of"
+    },
+    "dashbite": {
+      "title": "DashBite",
+      "date": "Aug 2025",
+      "status": "Completed",
+      "description": "DashBite is a fullstack platform designed to optimize online orders and operations management for clients, businesses, delivery personnel, and administrators. It integrates complete modules including login and registration, profile management, product catalogs, orders, addresses, favorites, and administrative panels with detailed reports. The platform is designed to improve workflow efficiency, offering a smooth and accessible user experience, with a focus on optimizing operational processes.",
+      "shortDescription": "Fullstack platform for online orders and management, integrating modules for clients, businesses, delivery personnel, and administrators.",
+      "technologies": ["Express.js", "Handlebars", "JavaScript", "Tailwind CSS", "MySQL", "Railway"],
+      "features": [
+        "Comprehensive online order management",
+        "Administrative panels with real-time reports",
+        "Authentication system and profile management",
+        "Interactive catalogs and personalized favorites",
+        "Optimized interface for multiple user types"
+      ],
+      "challenges": "Implementation of a scalable system to handle multiple user types and real-time order synchronization.",
+      "githubUrl": "Private (request access)",
+      "category": "Web Application",
+      "architecture": {
+        "layers": {
+          "frontend-handlebars-tailwindcss": {
+            "description": "Dynamic interface rendered with Handlebars and styled with Tailwind CSS for a responsive and modern design."
+          },
+          "backend-express-js": {
+            "description": "RESTful API with Express.js for managing orders, users, and reports, with optimized routes and secure authentication."
+          },
+          "database-mysql": {
+            "description": "Relational database with optimized schemas for quick queries and handling large volumes of data."
+          },
+          "deployment-railway": {
+            "description": "Continuous deployment infrastructure with Railway, automatic optimization, and scalability for high traffic."
+          }
+        }
+      }
+    },
+    "agrogestor": {
+      "title": "AgroGestor",
+      "date": "Jun 2025",
+      "status": "In Progress",
+      "description": "AgroGestor is a complete digital platform designed to revolutionize modern agricultural management. This web application allows farmers and agro-industrial companies to optimize their production processes through real-time control of crops, resources, and critical data. The platform will integrate IoT technologies for continuous monitoring of environmental conditions, soil moisture levels, temperature, and other vital parameters. With an intuitive dashboard and predictive analysis tools, AgroGestor facilitates informed decision-making, improves resource efficiency, and maximizes crop yields. Additionally, it allows exporting crops to a CSV file according to the filters applied within the application. It offers scalable membership plans and real-time notifications, with a focus on security, accessibility, and an intuitive user experience.",
+      "shortDescription": "Fullstack application for agricultural management with a central panel that automates tasks, sales, and reports.",
+      "technologies": ["Express.js", "Next.js", "Tailwind CSS", "MySQL", "Railway", "React", "Node.js", "MongoDB", "Socket.io"],
+      "features": [
+        "Real-time interactive dashboard",
+        "Comprehensive crop management",
+        "Agricultural resource monitoring with IoT",
+        "Automated data reports and analysis",
+        "Automatic alert system and real-time notifications"
+      ],
+      "challenges": "Integration of IoT sensors for real-time agricultural monitoring and resource management optimization.",
+      "githubUrl": "https://github.com/tu-usuario/agrogestor",
+      "category": "Web Application",
+      "architecture": {
+        "layers": {
+          "frontend-react-next-js": {
+            "description": "Interactive dashboard built with React and Next.js, real-time charts using Chart.js, and reusable components for agricultural data visualization."
+          },
+          "backend-api-rest": {
+            "description": "RESTful API with Node.js and Express to handle IoT sensor data, alert processing, and automatic report generation."
+          },
+          "database-mongodb-mysql": {
+            "description": "MongoDB for real-time sensor data with temporal indexes and MySQL for optimized relational data."
+          },
+          "iot-integration": {
+            "description": "Communication system with agricultural sensors using Socket.io for real-time data and MQTT protocols for IoT devices."
+          },
+          "deployment-railway": {
+            "description": "Continuous deployment with Railway, automatic optimization, and scalability for high traffic."
+          }
+        }
+      }
+    },
+    "stockify": {
+      "title": "Stockify",
+      "date": "May 2025",
+      "status": "Completed",
+      "description": "Stockify is a desktop application developed in C# with Windows Forms for inventory and sales management, designed for small and medium-sized businesses. Using MySQL as the database, it allows organized and efficient management of clients, products, and sales. The application offers an intuitive interface that facilitates navigation and information handling, helping to optimize internal processes and maintain clear control over daily operations. Stockify is structured with layered programming, ensuring a clean and modular design, facilitating maintenance and scalability.",
+      "shortDescription": "Desktop application in C# and Windows Forms for inventory and sales management, with MySQL database and layered programming.",
+      "technologies": ["C#", ".NET Framework", "Windows Forms", "MySQL", "Entity Framework"],
+      "features": [
+        "Management of clients, products, and sales",
+        "Intuitive and easy-to-use interface",
+        "Layered programming for modular design",
+        "Data validations and error handling",
+        "Organized information management"
+      ],
+      "challenges": "Maintaining a modular layered design and optimizing interaction between the interface, business logic, and database.",
+      "githubUrl": "https://github.com/EmilEchavarria/Stockify",
+      "category": "Desktop Application",
+      "architecture": {
+        "layers": {
+          "presentation-windowsforms": {
+            "description": "Native user interface with Windows Forms, custom controls, and event handling for a smooth desktop experience."
+          },
+          "businesslogic-csharp-classes": {
+            "description": "Business logic layer with C# classes for inventory management, sales, and business validations."
+          },
+          "dataaccess-entityframework": {
+            "description": "Object-relational mapping with Entity Framework for efficient data handling and transactions."
+          },
+          "database-mysql": {
+            "description": "Relational database with MySQL, optimized for frequent queries and business information storage."
+          }
+        }
+      }
+    },
+    "personal-portfolio": {
+      "title": "Personal Portfolio",
+      "date": "Sep 2025",
+      "status": "Completed",
+      "description": "My personal portfolio is a web application that reflects my experience and skills as a developer. Designed with a modern and responsive approach, it allows exploring my projects, academic experience, certifications, and contact in a clear and interactive way. Each section is carefully organized to provide an intuitive user experience, showcasing my competencies in frontend, UI/UX design, and comprehensive web development.",
+      "shortDescription": "Personal web portfolio to showcase projects, experience, and development skills. Modern and responsive design, focused on user experience.",
+      "technologies": ["React", "Next.js", "Tailwind CSS", "JavaScript", "Framer Motion"],
+      "features": [
+        "Interactive exploration of projects and experience",
+        "Sections for education, certifications, and contact",
+        "Responsive and modern design",
+        "Smooth animations and transitions",
+        "Optimized for user experience and performance"
+      ],
+      "challenges": "Designing a modular and scalable architecture that allows easy addition of new projects and sections, maintaining a clean and consistent design.",
+      "githubUrl": "https://github.com/EmilEchavarria/Portafolio",
+      "category": "Web Application",
+      "architecture": {
+        "layers": {
+          "frontend-react-next-js": {
+            "description": "Modern interface with reusable components, smooth navigation, and optimized state management for performance."
+          },
+          "ui-ux-design-animations": {
+            "description": "User experience-focused design, with smooth animations and visually appealing sections."
+          }
+        }
+      }
+    },
+    "electronic-organizer": {
+      "title": "Electronic Organizer",
+      "date": "Mar 2025",
+      "status": "Completed",
+      "description": "Electronic Organizer is a desktop application developed in C# .NET Framework with Windows Forms. Its four-layer architecture allows organized and modular information handling, while MySQL ensures secure and efficient data storage.",
+      "shortDescription": "Desktop application in C# for organizing personal information, with full CRUD and 4-layer architecture using MySQL.",
+      "technologies": ["C#", ".NET Framework", "Windows Forms", "MySQL", "MySQL Connector/NET", "4-Layer Architecture"],
+      "features": [
+        "Full CRUD: Insert, modify, search, and delete records",
+        "Intuitive interface with Windows Forms",
+        "Secure and efficient MySQL database",
+        "4-layer architecture: Presentation, Business, Data, Entity",
+        "Optimized MySQL connections"
+      ],
+      "challenges": "Implementing a modular architecture in C# while maintaining efficiency in database communication.",
+      "githubUrl": "https://github.com/EmilEchavarria/Electronic-Organizer",
+      "category": "Desktop Application",
+      "architecture": {
+        "layers": {
+          "presentation-windowsforms": {
+            "description": "Native user interface with Windows Forms controls and event handling."
+          },
+          "businesslayer-csharp-classes": {
+            "description": "Business logic layer that manages CRUD operations and business rules."
+          },
+          "datalayer-mysql": {
+            "description": "Data access layer using MySQL Connector/NET, executing optimized queries."
+          },
+          "entitylayer": {
+            "description": "Definition of entities that represent agenda information and facilitate data manipulation."
+          }
+        }
+      }
+    },
+    "auto-gleam": {
+      "title": "Auto Gleam",
+      "date": "Sep 2024",
+      "status": "Completed",
+      "description": "Auto Gleam is a SPA (Single Page Application) web application developed in Angular, designed to facilitate car wash service management. The platform focuses on user experience, offering intuitive and responsive interfaces. Clients can explore available services, schedule appointments, and consult relevant information. The application is completely frontend, with a modular design that allows organized visual information management.",
+      "shortDescription": "SPA web application in Angular focused on user experience for car wash service management. Completely frontend application.",
+      "technologies": ["Angular", "TypeScript", "Material Design", "RxJS"],
+      "features": [
+        "Intuitive and responsive interface",
+        "Exploration of car wash services",
+        "Visual appointment scheduling",
+        "Modular design and reusable components",
+        "Optimized for user experience"
+      ],
+      "challenges": "Designing a completely frontend SPA application, maintaining visual consistency and a smooth user experience.",
+      "githubUrl": "https://github.com/EmilEchavarria/AutoGleam",
+      "category": "SPA Application",
+      "architecture": {
+        "layers": {
+          "frontend-angular-spa": {
+            "description": "Single-page application with modular components, advanced routing, and reactive state management using RxJS. All logic and data simulation is handled in frontend."
+          },
+          "authentication-roles-simulation": {
+            "description": "User and role management through frontend logic, simulating administrative and client functionalities."
+          }
+        }
+      }
+    },
+    "j-tag-events": {
+      "title": "J Tag Events",
+      "date": "Dec 2024",
+      "status": "Completed",
+      "description": "J Tag Events is an elegant and functional corporate website developed specifically for a leading event organization company. This project represents a complete web solution built with fundamental technologies such as HTML5, CSS3, and vanilla JavaScript, demonstrating that it is possible to create impactful digital experiences without relying on complex frameworks. The website features an interactive and visually appealing catalog of all services offered by the company, from corporate events to private celebrations. Each section of the site has been carefully designed to highlight the company's professionalism and creativity, including a dynamic gallery that displays completed events with smooth transition effects and a category filtering system. The platform also incorporates a fully functional contact form with real-time validation, automatic quoting system, and social media integration. The responsive design ensures an optimal experience on all devices, while the carefully implemented animations and visual effects create fluid and engaging navigation.",
+      "shortDescription": "Website developed with HTML, CSS, and JavaScript for an event company. Includes service catalog, informative sections, and responsive design.",
+      "technologies": ["HTML5", "CSS3", "JavaScript", "Bootstrap", "AOS"],
+      "features": [
+        "Interactive service catalog",
+        "Gallery of completed events",
+        "Functional contact form",
+        "Optimized responsive design",
+        "Animations and visual effects"
+      ],
+      "challenges": "Creating an impactful visual experience using only vanilla technologies with fluid animations.",
+      "githubUrl": "https://github.com/EmilEchavarria/J_Tag_Events",
+      "category": "Website",
+      "architecture": {
+        "layers": {
+          "frontend-html5-css3": {
+            "description": "Semantic structure with HTML5 and advanced styles using CSS3, including flexbox, grid, and pure CSS animations."
+          },
+          "interactivity-javascript-vanilla": {
+            "description": "Dynamic functionalities implemented with pure JavaScript, including form validation and scroll effects."
+          },
+          "ui-framework-bootstrap": {
+            "description": "Responsive component system with Bootstrap to ensure cross-browser compatibility and mobile-first design."
+          }
+        }
+      }
+    }
+  },
+  "education": {
+    "title": "Education",
+    "subtitle": "Academic Background & Professional Development",
+    "items": {
+      "softwareDevelopmentTechnologist": {
+        "graduation": "Graduation: 2026",
+        "status": "In Progress",
+        "title": "Software Development Technologist",
+        "provider": "ITLA (Instituto Tecnológico de las Américas)",
+        "description": "Comprehensive training in all stages of software development, with a strong practical approach to technical tasks. Proficient in applying modern knowledge, techniques, skills, and tools of the discipline for technological engineering activities."
+      },
+      "metaFrontendDeveloper": {
+        "completion": "Completion: 2026",
+        "status": "In Progress",
+        "title": "Meta Front-End Developer Professional Certificate",
+        "provider": "Meta (Facebook)",
+        "description": "Comprehensive training in front-end development, covering HTML, CSS, JavaScript, React.js, and responsive design. Developed practical skills through hands-on projects, culminating in a capstone project that showcases proficiency in building dynamic and responsive web applications."
+      },
+      "englishCourse": {
+        "date": "2022 - 2024",
+        "status": "Completed",
+        "title": "Extracurricular English Course",
+        "provider": "UASD (Universidad Autónoma de Santo Domingo)",
+        "description": "An extracurricular English course designed to improve English language skills, including listening comprehension, reading, writing, and speaking. Structured in progressive levels over 2 years, providing advanced command of the language for professional and academic contexts."
+      }
+    },
+    "certifications": {
+      "title": "Professional Certifications",
+      "subtitle": "Industry-recognized certifications that validate my technical expertise",
+      "completed": "Completed in {{year}}",
+      "items": {
+        "introductionFrontend": {
+          "title": "Introduction to Front-End Development"
+        },
+        "cssInDepth": {
+          "title": "HTML and CSS in Depth"
+        },
+        "programmingJavaScript": {
+          "title": "Programming with JavaScript"
+        },
+        "versionControlGit": {
+          "title": "Version Control with Git"
+        },
+        "frontendAngular": {
+          "title": "Front-End Development with Angular"
+        },
+        "backendCsharp": {
+          "title": "Backend Development with C# .Net"
+        },
+        "frontendReact": {
+          "title": "Front-End Development with React"
+        },
+        "uxuiDesign": {
+          "title": "UX/UI Design"
+        }
+      }
+    },
+    "certificateGallery": {
+      "title": "Certificate Gallery",
+      "subtitle": "Visual showcase of my achievements",
+      "items": {
+        "introductionFrontend": {
+          "title": "Introduction to Front-End Development",
+          "alt": "Certificate for Introduction to Front-End Development"
+        },
+        "cssInDepth": {
+          "title": "HTML and CSS in Depth",
+          "alt": "Certificate for HTML and CSS in Depth"
+        },
+        "programmingJavaScript": {
+          "title": "Programming with JavaScript",
+          "alt": "Certificate for Programming with JavaScript"
+        },
+        "versionControlGit": {
+          "title": "Version Control",
+          "alt": "Certificate for Version Control"
+        },
+        "frontendAngular": {
+          "title": "Front-End Development with Angular",
+          "alt": "Certificate for Front-End Development with Angular"
+        },
+        "frontendReact": {
+          "title": "Front-End Development with React",
+          "alt": "Certificate for Front-End Development with React"
+        },
+        "backendCsharp": {
+          "title": "Backend Development with C# .Net",
+          "alt": "Certificate for Backend Development with C# .Net"
+        }
+      }
+    },
+    "cta": "Explore My Projects"
+  }
 }

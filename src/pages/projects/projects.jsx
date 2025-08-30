@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import Header from "../../components/layout/header/header";
 import { MagicCard } from "../../components/ui/magic-card";
 import { Meteors } from "../../components/ui/meteors";
@@ -31,8 +32,6 @@ import cultivosag from "../../assets/images/projects/agrogestor/cultivos.png";
 import funcionalidadesag from "../../assets/images/projects/agrogestor/funcionalidades.png";
 import userdashboardag from "../../assets/images/projects/agrogestor/userdashboard.png";
 
-
-
 // Stockify IMAGES
 import stockify from "../../assets/images/projects/stockify/stockify.png";
 import activest from "../../assets/images/projects/stockify/active.png";
@@ -43,8 +42,6 @@ import modifyst from "../../assets/images/projects/stockify/modify.png";
 import ordersst from "../../assets/images/projects/stockify/orders.png";
 import productsst from "../../assets/images/projects/stockify/products.png";
 import reportst from "../../assets/images/projects/stockify/report.png";
-
-
 
 // AUTOGLEAM IMAGES
 import homeag from "../../assets/images/projects/autogleam/home.png";
@@ -57,8 +54,6 @@ import selectsag from "../../assets/images/projects/autogleam/selects.png";
 import serviciosag from "../../assets/images/projects/autogleam/servicios.png";
 import soporteag from "../../assets/images/projects/autogleam/soporte.png";
 
-
-
 // J TAG EVENTS IMAGES 
 import aboutjtagevents from "../../assets/images/projects/jtagevents/about.png";
 import carcjtagevents from "../../assets/images/projects/jtagevents/caracteristicas.png";
@@ -68,7 +63,6 @@ import galjtagevents from "../../assets/images/projects/jtagevents/gallery.png";
 import pantajtagevents from "../../assets/images/projects/jtagevents/pantallas.png";
 import productjtagevents from "../../assets/images/projects/jtagevents/productos.png";
 
-
 // electronicorganizer
 import inserteo from "../../assets/images/projects/electronicorganizer/insert.png";
 import activateeo from "../../assets/images/projects/electronicorganizer/activate.png";
@@ -76,50 +70,31 @@ import deleteeo from "../../assets/images/projects/electronicorganizer/delete.pn
 import searcheo from "../../assets/images/projects/electronicorganizer/search.png";
 import updateeo from "../../assets/images/projects/electronicorganizer/update.png";
 
-
-const projects = [
+const baseProjects = [
   {
     id: 1,
-    title: "DashBite",
-    date: "Ago 2025",
-    status: "Completado",
-    description: "DashBite es una plataforma fullstack diseñada para optimizar pedidos en línea y la gestión de operaciones para clientes, negocios, repartidores y administradores. Integra módulos completos que incluyen inicio de sesión y registro, gestión de perfiles, catálogos de productos, pedidos, direcciones, favoritos y paneles administrativos con reportes detallados. La plataforma está diseñada para mejorar la eficiencia del flujo de trabajo, ofreciendo una experiencia de usuario fluida y accesible, con un enfoque en la optimización de procesos operativos.",
-    shortDescription: "Plataforma fullstack para pedidos en línea y gestión, integrando módulos para clientes, negocios, repartidores y administradores.",
+    slug: "dashbite",
     image: dashbite,
     videoUrl: "https://www.youtube.com/embed/FPDnm7rTNsI",
     demoUrl: "https://dashbite.up.railway.app/auth/login",
-    technologies: ["Express.js", "Handlebars", "JavaScript", "Tailwind CSS", "MySQL", "Railway"],
-    features: [
-      "Gestión integral de pedidos en línea",
-      "Paneles administrativos con reportes en tiempo real",
-      "Sistema de autenticación y gestión de perfiles",
-      "Catálogos interactivos y favoritos personalizados",
-      "Interfaz optimizada para múltiples tipos de usuarios"
-    ],
-    challenges: "Implementación de un sistema escalable para manejar múltiples tipos de usuarios y sincronización en tiempo real de pedidos.",
     githubUrl: "Privado (solicitar acceso)",
-    category: "Web Application",
     screenshots: [logindb, homedb, profiledb, favoritesdb, productlistdb, productlistbdb, cartdb, pedidosdb, orderdb, addressesdb, commercedb, dashbite],
     architecture: {
       layers: [
         {
           name: "Frontend - Handlebars & Tailwind CSS",
-          description: "Interfaz dinámica renderizada con Handlebars y estilizada con Tailwind CSS para un diseño responsive y moderno.",
           technologies: ["Handlebars", "Tailwind CSS", "JavaScript"]
         },
         {
           name: "Backend - Express.js",
-          description: "API RESTful con Express.js para la gestión de pedidos, usuarios y reportes, con rutas optimizadas y autenticación segura.",
           technologies: ["Express.js", "Node.js", "JWT"]
         },
         {
           name: "Base de Datos - MySQL",
-          description: "Base de datos relacional con esquemas optimizados para consultas rápidas y manejo de grandes volúmenes de datos.",
           technologies: ["MySQL", "Sequelize", "Indexes"]
         },
         {
           name: "Despliegue - Railway",
-          description: "Infraestructura de despliegue continuo con Railway, optimización automática y escalabilidad para alto tráfico.",
           technologies: ["Railway", "CI/CD"]
         }
       ]
@@ -127,271 +102,162 @@ const projects = [
   },
   {
     id: 2,
-    title: "AgroGestor",
-    date: "jun 2025",
-    status: "En Proceso",
-    description: "AgroGestor es una plataforma digital completa diseñada para revolucionar la gestión agrícola moderna. Esta aplicación web permite a los agricultores y empresas del sector agroindustrial optimizar sus procesos productivos mediante el control en tiempo real de cultivos, recursos y datos críticos. La plataforma integrará tecnologías IoT para el monitoreo continuo de condiciones ambientales, niveles de humedad del suelo, temperatura y otros parámetros vitales. Con un dashboard intuitivo y herramientas de análisis predictivo, AgroGestor facilita la toma de decisiones informadas, mejora la eficiencia de los recursos y maximiza los rendimientos de los cultivos. Además, permite exportar los cultivos en un archivo CSV según los filtros aplicados dentro de la aplicación. Ofrece planes de membresía escalables y notificaciones en tiempo real, con un enfoque en seguridad, accesibilidad y una experiencia de usuario intuitiva.",
-    shortDescription: "Aplicación fullstack para la gestión agrícola con un panel central que automatiza tareas, ventas y reportes.",
+    slug: "agrogestor",
     image: agrogestor,
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ23",
     demoUrl: "https://agrogestor.vercel.app",
-    technologies: ["Express.js", "Next.js", "Tailwind CSS", "MySQL", "Railway", "React", "Node.js", "MongoDB", "Socket.io"],
-    features: [
-      "Dashboard interactivo en tiempo real",
-      "Gestión integral de cultivos",
-      "Monitoreo de recursos agrícolas con IoT",
-      "Reportes y análisis de datos automatizados",
-      "Sistema de alertas automáticas y notificaciones en tiempo real"
-    ],
-    challenges: "Integración de sensores IoT para monitoreo agrícola en tiempo real y optimización de la gestión de recursos.",
     githubUrl: "https://github.com/tu-usuario/agrogestor",
-    category: "Web Application",
     screenshots: [agrogestor, aboutag, funcionalidadesag, userdashboardag, cultivosag, addcag, csvag],
     architecture: {
       layers: [
         {
           name: "Frontend - React & Next.js",
-          description: "Dashboard interactivo construido con React y Next.js, gráficos en tiempo real usando Chart.js y componentes reutilizables para visualización de datos agrícolas.",
           technologies: ["React", "Next.js", "Chart.js", "Tailwind CSS"]
         },
         {
           name: "Backend - API REST",
-          description: "API RESTful con Node.js y Express para manejar datos de sensores IoT, procesamiento de alertas y generación de reportes automáticos.",
           technologies: ["Node.js", "Express", "JWT"]
         },
         {
           name: "Base de Datos - MongoDB & MySQL",
-          description: "MongoDB para datos de sensores en tiempo real con índices temporales y MySQL para datos relacionales optimizados.",
           technologies: ["MongoDB", "Mongoose", "MySQL", "Sequelize"]
         },
         {
           name: "IoT Integration",
-          description: "Sistema de comunicación con sensores agrícolas usando Socket.io para datos en tiempo real y protocolos MQTT para dispositivos IoT.",
           technologies: ["Socket.io", "MQTT", "Arduino"]
         },
         {
           name: "Despliegue - Railway",
-          description: "Despliegue continuo con Railway, optimización automática y escalabilidad para alto tráfico.",
           technologies: ["Railway", "CI/CD"]
         }
       ]
     }
   },
- {
-  id: 3,
-  title: "Stockify",
-  date: "May 2025",
-  status: "Completado",
-  description: "Stockify es una aplicación de escritorio desarrollada en C# con Windows Forms para la gestión de inventario y ventas, diseñada pensando en pequeñas y medianas empresas. Utilizando MySQL como base de datos, permite administrar clientes, productos y ventas de manera organizada y eficiente. La aplicación ofrece una interfaz intuitiva que facilita la navegación y el manejo de la información, ayudando a optimizar los procesos internos y a mantener un control claro sobre las operaciones diarias. Stockify está estructurada con programación en capas, lo que asegura un diseño limpio y modular, facilitando el mantenimiento y la escalabilidad.",
-  shortDescription: "Aplicación de escritorio en C# y Windows Forms para gestión de inventario y ventas, con base de datos MySQL y programación en capas.",
-  image: stockify,
-  videoUrl: "https://www.youtube.com/embed/WXJS0o0uN-4",
-  demoUrl: "https://github.com/EmilEchavarria/Stockify",
-  technologies: ["C#", ".NET Framework", "Windows Forms", "MySQL", "Entity Framework"],
-  features: [
-    "Administración de clientes, productos y ventas",
-    "Interfaz intuitiva y fácil de usar",
-    "Programación en capas para un diseño modular",
-    "Validaciones de datos y manejo de errores",
-    "Gestión de información de manera organizada"
-  ],
-  challenges: "Mantener un diseño modular en capas y optimizar la interacción entre la interfaz, la lógica de negocio y la base de datos.",
-  githubUrl: "https://github.com/EmilEchavarria/Stockify",
-  category: "Desktop Application",
-  screenshots: [stockify, activest, clientesst, deletest, invoicest, modifyst, ordersst, productsst, reportst],
-  architecture: {
-    layers: [
-      {
-        name: "Presentación - Windows Forms",
-        description: "Interfaz de usuario nativa con Windows Forms, controles personalizados y manejo de eventos para una experiencia desktop fluida.",
-        technologies: ["Windows Forms", "C# UI", "Custom Controls"]
-      },
-      {
-        name: "Lógica de Negocio - C# Classes",
-        description: "Capa de lógica empresarial con clases C# para manejo de inventario, ventas y validaciones de negocio.",
-        technologies: ["C#", "Business Logic", "Data Validation"]
-      },
-      {
-        name: "Acceso a Datos - Entity Framework",
-        description: "Mapeo objeto-relacional con Entity Framework para manejo eficiente de datos y transacciones.",
-        technologies: ["Entity Framework", "LINQ", "Code First"]
-      },
-      {
-        name: "Base de Datos - MySQL",
-        description: "Base de datos relacional con MySQL, optimizada para consultas frecuentes y almacenamiento de información empresarial.",
-        technologies: ["MySQL", "Indexes", "Stored Procedures"]
-      }
-    ]
-  }
-},
-
-
   {
-  id: 4,
-  title: "Portafolio Personal",
-  date: "Sep 2025",
-  status: "Completado",
-  description: "Mi portafolio personal es una aplicación web que refleja mi experiencia y habilidades como desarrollador. Diseñado con un enfoque moderno y responsivo, permite explorar mis proyectos, experiencia académica, certificaciones y contacto de manera clara e interactiva. Cada sección está cuidadosamente organizada para brindar una experiencia de usuario intuitiva, mostrando mis competencias en frontend, diseño UI/UX y desarrollo web integral.",
-  shortDescription: "Portafolio web personal para mostrar proyectos, experiencia y habilidades de desarrollo. Diseño moderno y responsivo, centrado en la experiencia del usuario.",
-  image: jtag, // reemplaza con la variable de tu imagen principal
-  videoUrl: "https://www.youtube.com/embed/tuVideo", // opcional si tienes un video demo
-  demoUrl: "https://tu-portafolio.vercel.app",
-  technologies: ["React", "Next.js", "Tailwind CSS", "JavaScript", "Framer Motion"],
-  features: [
-    "Exploración interactiva de proyectos y experiencia",
-    "Secciones de educación, certificaciones y contacto",
-    "Diseño responsive y moderno",
-    "Animaciones y transiciones suaves",
-    "Optimizado para experiencia de usuario y rendimiento"
-  ],
-  challenges: "Diseñar una arquitectura modular y escalable que permita agregar nuevos proyectos y secciones fácilmente, manteniendo un diseño limpio y coherente.",
-  githubUrl: "https://github.com/EmilEchavarria/Portafolio",
-  category: "Web Application",
-  screenshots: [jtag, jtag, jtag, jtag], // reemplaza con tus imágenes
-  architecture: {
-    layers: [
-      {
-        name: "Frontend - React & Next.js",
-        description: "Interfaz moderna con componentes reutilizables, navegación fluida y manejo de estados optimizado para rendimiento.",
-        technologies: ["React", "Next.js", "JavaScript", "Tailwind CSS", "Framer Motion"]
-      },
-      {
-        name: "UI/UX - Diseño y Animaciones",
-        description: "Diseño centrado en la experiencia de usuario, con animaciones suaves y secciones visualmente atractivas.",
-        technologies: ["Tailwind CSS", "Framer Motion", "Responsive Design"]
-      }
-    ]
-  }
-},
-
-{
-  id: 5,
-  title: "Electronic Organizer",
-  date: "mar 2025",
-  status: "Completado",
-  description: "Electronic Organizer es una aplicación de escritorio desarrollada en C# .NET Framework con Windows Forms. Su arquitectura de cuatro capas permite un manejo organizado y modular de la información, mientras que MySQL asegura almacenamiento seguro y eficiente de los datos.",
-  shortDescription: "Aplicación de escritorio en C# para organizar información personal, con CRUD completo y arquitectura de 4 capas usando MySQL.",
-  image: inserteo, // reemplaza con tu variable de imagen
-  videoUrl: "https://www.youtube.com/embed/U5-bJuLRD1A", // opcional si no hay demo
-  demoUrl: "https://github.com/EmilEchavarria/Electronic-Organizer", // opcional si no hay demo online
-  technologies: ["C#", ".NET Framework", "Windows Forms", "MySQL", "MySQL Connector/NET", "4-Layer Architecture"],
-  features: [
-    "CRUD completo: Insertar, modificar, buscar y eliminar registros",
-    "Interfaz intuitiva con Windows Forms",
-    "Base de datos MySQL segura y eficiente",
-    "Arquitectura en 4 capas: Presentation, Business, Data, Entity",
-    "Optimización de conexiones a MySQL"
-  ],
-  challenges: "Implementar una arquitectura modular en C# manteniendo eficiencia en la comunicación con la base de datos.",
-  githubUrl: "https://github.com/EmilEchavarria/Electronic-Organizer",
-  category: "Desktop Application",
-  screenshots: [inserteo, activateeo, deleteeo, searcheo, updateeo], // reemplaza con tus imágenes
-  architecture: {
-    layers: [
-      {
-        name: "Presentation Layer - Windows Forms",
-        description: "Interfaz de usuario nativa con controles de Windows Forms y manejo de eventos.",
-        technologies: ["Windows Forms", "C# UI", "Custom Controls"]
-      },
-      {
-        name: "Business Layer - C# Classes",
-        description: "Capa de lógica de negocio que gestiona las operaciones CRUD y reglas de negocio.",
-        technologies: ["C#", "Business Logic", "Data Validation"]
-      },
-      {
-        name: "Data Layer - MySQL",
-        description: "Capa de acceso a datos mediante MySQL Connector/NET, ejecutando consultas optimizadas.",
-        technologies: ["MySQL", "ADO.NET", "Stored Procedures"]
-      },
-      {
-        name: "Entity Layer",
-        description: "Definición de entidades que representan la información de la agenda y facilitan la manipulación de datos.",
-        technologies: ["C# Classes", "Entities"]
-      }
-    ]
-  }
-}
-,{
-  id: 6,
-  title: "Auto Gleam",
-  date: "Sep 2024",
-  status: "Completado",
-  description: "Auto Gleam es una aplicación web tipo SPA (Single Page Application) desarrollada en Angular, diseñada para facilitar la gestión de servicios de lavado de autos. La plataforma se enfoca en la experiencia del usuario, ofreciendo interfaces intuitivas y responsive. Los clientes pueden explorar los servicios disponibles, programar citas y consultar información relevante. La aplicación es completamente frontend, con un diseño modular que permite una administración visual organizada de la información.",
-  shortDescription: "Aplicación web SPA en Angular enfocada en la experiencia de usuario para gestión de servicios de lavado de autos. Aplicación completamente frontend.",
-  image: autogleam,
-  videoUrl: "https://www.youtube.com/embed/3S0wD9UPabc",
-  demoUrl: "https://autogleam.vercel.app",
-  technologies: ["Angular", "TypeScript", "Material Design", "RxJS"],
-  features: [
-    "Interfaz intuitiva y responsive",
-    "Exploración de servicios de lavado",
-    "Programación visual de citas",
-    "Diseño modular y componentes reutilizables",
-    "Optimizado para experiencia de usuario"
-  ],
-  challenges: "Diseñar una aplicación SPA completamente frontend, manteniendo consistencia visual y una experiencia de usuario fluida.",
-  githubUrl: "https://github.com/EmilEchavarria/AutoGleam",
-  category: "SPA Application",
-  screenshots: [loginag, homeag, home2ag, mapag, carritoag, perfilag, selectsag, serviciosag, soporteag],
-  architecture: {
-    layers: [
-      {
-        name: "Frontend - Angular SPA",
-        description: "Aplicación de una sola página con componentes modulares, routing avanzado y manejo reactivo de estados usando RxJS. Toda la lógica y simulación de datos se maneja en frontend.",
-        technologies: ["Angular", "TypeScript", "RxJS", "Material Design"]
-      },
-      {
-        name: "Simulación de autenticación y roles",
-        description: "Gestión de usuarios y roles mediante lógica frontend, simulando funcionalidades administrativas y de cliente.",
-        technologies: ["Angular Guards", "Services", "Local Storage"]
-      }
-    ]
-  }
-}
-,
+    id: 3,
+    slug: "stockify",
+    image: stockify,
+    videoUrl: "https://www.youtube.com/embed/WXJS0o0uN-4",
+    demoUrl: "https://github.com/EmilEchavarria/Stockify",
+    githubUrl: "https://github.com/EmilEchavarria/Stockify",
+    screenshots: [stockify, activest, clientesst, deletest, invoicest, modifyst, ordersst, productsst, reportst],
+    architecture: {
+      layers: [
+        {
+          name: "Presentación - Windows Forms",
+          technologies: ["Windows Forms", "C# UI", "Custom Controls"]
+        },
+        {
+          name: "Lógica de Negocio - C# Classes",
+          technologies: ["C#", "Business Logic", "Data Validation"]
+        },
+        {
+          name: "Acceso a Datos - Entity Framework",
+          technologies: ["Entity Framework", "LINQ", "Code First"]
+        },
+        {
+          name: "Base de Datos - MySQL",
+          technologies: ["MySQL", "Indexes", "Stored Procedures"]
+        }
+      ]
+    }
+  },
+  {
+    id: 4,
+    slug: "personal-portfolio",
+    image: jtag, // Assuming this is the image for portfolio
+    videoUrl: "https://www.youtube.com/embed/tuVideo",
+    demoUrl: "https://tu-portafolio.vercel.app",
+    githubUrl: "https://github.com/EmilEchavarria/Portafolio",
+    screenshots: [jtag, jtag, jtag, jtag],
+    architecture: {
+      layers: [
+        {
+          name: "Frontend - React & Next.js",
+          technologies: ["React", "Next.js", "JavaScript", "Tailwind CSS", "Framer Motion"]
+        },
+        {
+          name: "UI/UX - Diseño y Animaciones",
+          technologies: ["Tailwind CSS", "Framer Motion", "Responsive Design"]
+        }
+      ]
+    }
+  },
+  {
+    id: 5,
+    slug: "electronic-organizer",
+    image: inserteo,
+    videoUrl: "https://www.youtube.com/embed/U5-bJuLRD1A",
+    demoUrl: "https://github.com/EmilEchavarria/Electronic-Organizer",
+    githubUrl: "https://github.com/EmilEchavarria/Electronic-Organizer",
+    screenshots: [inserteo, activateeo, deleteeo, searcheo, updateeo],
+    architecture: {
+      layers: [
+        {
+          name: "Presentation Layer - Windows Forms",
+          technologies: ["Windows Forms", "C# UI", "Custom Controls"]
+        },
+        {
+          name: "Business Layer - C# Classes",
+          technologies: ["C#", "Business Logic", "Data Validation"]
+        },
+        {
+          name: "Data Layer - MySQL",
+          technologies: ["MySQL", "ADO.NET", "Stored Procedures"]
+        },
+        {
+          name: "Entity Layer",
+          technologies: ["C# Classes", "Entities"]
+        }
+      ]
+    }
+  },
+  {
+    id: 6,
+    slug: "auto-gleam",
+    image: autogleam,
+    videoUrl: "https://www.youtube.com/embed/3S0wD9UPabc",
+    demoUrl: "https://autogleam.vercel.app",
+    githubUrl: "https://github.com/EmilEchavarria/AutoGleam",
+    screenshots: [loginag, homeag, home2ag, mapag, carritoag, perfilag, selectsag, serviciosag, soporteag],
+    architecture: {
+      layers: [
+        {
+          name: "Frontend - Angular SPA",
+          technologies: ["Angular", "TypeScript", "RxJS", "Material Design"]
+        },
+        {
+          name: "Simulación de autenticación y roles",
+          technologies: ["Angular Guards", "Services", "Local Storage"]
+        }
+      ]
+    }
+  },
   {
     id: 7,
-    title: "J Tag Events",
-    date: "Dic 2024",
-    status: "Completado",
-    description: "J Tag Events es un sitio web corporativo elegante y funcional desarrollado específicamente para una empresa líder en organización de eventos. Este proyecto representa una solución web completa construida con tecnologías fundamentales como HTML5, CSS3 y JavaScript vanilla, demostrando que es posible crear experiencias digitales impactantes sin depender de frameworks complejos. El sitio web presenta un catálogo interactivo y visualmente atractivo de todos los servicios ofrecidos por la empresa, desde eventos corporativos hasta celebraciones privadas. Cada sección del sitio ha sido cuidadosamente diseñada para destacar la profesionalidad y creatividad de la empresa, incluyendo una galería dinámica que muestra eventos realizados con efectos de transición suaves y un sistema de filtrado por categorías. La plataforma también incorpora un formulario de contacto completamente funcional con validación en tiempo real, sistema de cotizaciones Automáticas e integración con redes sociales. El diseño responsive garantiza una experiencia óptima en todos los dispositivos, mientras que las animaciones y efectos visuales cuidadosamente implementados crean una navegación fluida y engaging.",
-    shortDescription: "Sitio web desarrollado con HTML, CSS y JavaScript para una empresa de eventos. Incluye catálogo de servicios, secciones informativas y diseño responsive.",
+    slug: "j-tag-events",
     image: jtag,
     videoUrl: "https://www.youtube.com/embed/b60qi57gUHU",
     demoUrl: "https://j-tag-events.vercel.app/",
-    technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "AOS"],
-    features: [
-      "Catálogo interactivo de servicios",
-      "Galería de eventos realizados",
-      "Formulario de contacto funcional",
-      "Diseño responsive optimizado",
-      "Animaciones y efectos visuales"
-    ],
-    challenges: "Crear una experiencia visual impactante usando solo tecnologías vanilla con animaciones fluidas.",
     githubUrl: "https://github.com/EmilEchavarria/J_Tag_Events",
-    category: "Website",
     screenshots: [jtag, aboutjtagevents, carcjtagevents, catajtagevents, espjtagevents, galjtagevents, pantajtagevents, productjtagevents],
     architecture: {
       layers: [
         {
           name: "Frontend - HTML5 & CSS3",
-          description: "Estructura semántica con HTML5 y estilos avanzados usando CSS3, incluyendo flexbox, grid y animaciones CSS puras.",
           technologies: ["HTML5", "CSS3", "Flexbox", "Grid"]
         },
         {
           name: "Interactividad - JavaScript Vanilla",
-          description: "Funcionalidades dinámicas implementadas con JavaScript puro, incluyendo validación de formularios y efectos de scroll.",
           technologies: ["JavaScript", "DOM API", "Events"]
         },
         {
           name: "UI Framework - Bootstrap",
-          description: "Sistema de componentes responsive con Bootstrap para garantizar compatibilidad cross-browser y diseño móvil-first.",
           technologies: ["Bootstrap", "Responsive Design", "Mobile-First"]
         }
       ]
     }
   }
-
 ];
 
 // Hook personalizado para detectar elementos en viewport
@@ -439,6 +305,7 @@ const useIntersectionObserver = (options = {}) => {
 
 // Componente para la galería de imágenes
 const ImageGallery = ({ images, title }) => {
+  const { t } = useTranslation();
   const [currentImage, setCurrentImage] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
@@ -459,80 +326,80 @@ const ImageGallery = ({ images, title }) => {
     setIsFullscreen(false);
   };
 
-return (
-  <>
-    <div className="grid grid-cols-2 gap-4">
-      {images.map((image, index) => (
-        <div key={index} className="aspect-video rounded-lg overflow-hidden bg-gray-700 cursor-pointer hover:opacity-80 transition-opacity">
-          <img 
-            src={image} 
-            alt={`${title} screenshot ${index + 1}`}
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-            onClick={() => openFullscreen(index)}
-          />
-        </div>
-      ))}
-    </div>
-    
-    {/* Fullscreen Modal */}
-    {isFullscreen && (
-      <div className="fixed inset-0 z-[100] bg-black bg-opacity-90 flex items-center justify-center">
-        <div className="relative max-w-7xl max-h-[95vh] w-full h-full flex flex-col items-center justify-center p-1 sm:p-2">
-          
-          {/* Close Button - Always above image, never overlapping */}
-          <button
-            onClick={closeFullscreen}
-            className="absolute top-0 right-2 sm:top-2 sm:right-4 z-20 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center sm:transition-all sm:duration-200 sm:hover:scale-125 mb-2"
-          >
-            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-          
-          {/* Previous Button - No mobile hover */}
-          {images.length > 1 && (
-            <button
-              onClick={prevImage}
-              className="absolute left-2 top-1/2 -translate-y-1/2 sm:left-4 z-20 text-white bg-black/70 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-lg sm:transition-all sm:duration-200 sm:hover:text-gray-300 sm:hover:bg-black/90 sm:hover:scale-110"
-            >
-              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-          )}
-          
-          {/* Image Container - Positioned below close button */}
-          <div className="relative flex items-center justify-center max-w-full max-h-full px-2 sm:px-8 mt-2 sm:mt-4">
+  return (
+    <>
+      <div className="grid grid-cols-2 gap-4">
+        {images.map((image, index) => (
+          <div key={index} className="aspect-video rounded-lg overflow-hidden bg-gray-700 cursor-pointer hover:opacity-80 transition-opacity">
             <img 
-              src={images[currentImage]} 
-              alt={`${title} screenshot ${currentImage + 1}`}
-              className="max-w-full max-h-[85vh] sm:max-h-[80vh] w-auto h-auto object-contain rounded-lg shadow-2xl"
+              src={image} 
+              alt={t('projects.gallery.screenshotAlt', { title, index: index + 1 })}
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              onClick={() => openFullscreen(index)}
             />
           </div>
-          
-          {/* Next Button - No mobile hover */}
-          {images.length > 1 && (
+        ))}
+      </div>
+      
+      {/* Fullscreen Modal */}
+      {isFullscreen && (
+        <div className="fixed inset-0 z-[100] bg-black bg-opacity-90 flex items-center justify-center">
+          <div className="relative max-w-7xl max-h-[95vh] w-full h-full flex flex-col items-center justify-center p-1 sm:p-2">
+            
+            {/* Close Button - Always above image, never overlapping */}
             <button
-              onClick={nextImage}
-              className="absolute right-2 top-1/2 -translate-y-1/2 sm:right-4 z-20 text-white bg-black/70 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-lg sm:transition-all sm:duration-200 sm:hover:text-gray-300 sm:hover:bg-black/90 sm:hover:scale-110"
+              onClick={closeFullscreen}
+              className="absolute top-0 right-2 sm:top-2 sm:right-4 z-20 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center sm:transition-all sm:duration-200 sm:hover:scale-125 mb-2"
             >
               <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-          )}
-          
-          {/* Image Counter - Adjusted for larger image */}
-          {images.length > 1 && (
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 sm:bottom-4 z-20 bg-black/80 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium backdrop-blur-sm border border-white/20 shadow-lg">
-              {currentImage + 1} de {images.length}
+            
+            {/* Previous Button - No mobile hover */}
+            {images.length > 1 && (
+              <button
+                onClick={prevImage}
+                className="absolute left-2 top-1/2 -translate-y-1/2 sm:left-4 z-20 text-white bg-black/70 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-lg sm:transition-all sm:duration-200 sm:hover:text-gray-300 sm:hover:bg-black/90 sm:hover:scale-110"
+              >
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+            )}
+            
+            {/* Image Container - Positioned below close button */}
+            <div className="relative flex items-center justify-center max-w-full max-h-full px-2 sm:px-8 mt-2 sm:mt-4">
+              <img 
+                src={images[currentImage]} 
+                alt={t('projects.gallery.screenshotAlt', { title, index: currentImage + 1 })}
+                className="max-w-full max-h-[85vh] sm:max-h-[80vh] w-auto h-auto object-contain rounded-lg shadow-2xl"
+              />
             </div>
-          )}
+            
+            {/* Next Button - No mobile hover */}
+            {images.length > 1 && (
+              <button
+                onClick={nextImage}
+                className="absolute right-2 top-1/2 -translate-y-1/2 sm:right-4 z-20 text-white bg-black/70 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-lg sm:transition-all sm:duration-200 sm:hover:text-gray-300 sm:hover:bg-black/90 sm:hover:scale-110"
+              >
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            )}
+            
+            {/* Image Counter - Adjusted for larger image */}
+            {images.length > 1 && (
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 sm:bottom-4 z-20 bg-black/80 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium backdrop-blur-sm border border-white/20 shadow-lg">
+                {currentImage + 1} {t('projects.gallery.of')} {images.length}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
-    )}
-  </>
-);
+      )}
+    </>
+  );
 };
 
 // PropTypes para ImageGallery
@@ -543,6 +410,7 @@ ImageGallery.propTypes = {
 
 // Componente Modal mejorado
 const ProjectModal = ({ project, isOpen, onClose, projects, onNavigate }) => {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeTab, setActiveTab] = useState('overview');
 
@@ -590,376 +458,373 @@ const ProjectModal = ({ project, isOpen, onClose, projects, onNavigate }) => {
         onClick={onClose}
       />
       
-    {/* Modal */}
-<div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl max-w-6xl w-full max-h-[97vh] sm:max-h-[97vh] overflow-hidden border border-gray-600 shadow-2xl shadow-blue-500/20">
-  {/* Header */}
-<div className="sticky top-0 z-50 bg-gradient-to-r from-gray-900 to-gray-800 backdrop-blur-xl border-b border-gray-700/50 shadow-sm overflow-hidden">
-  <div className="px-3 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 mx-auto max-w-7xl">
-    <div className="grid items-center gap-2 sm:gap-4 mb-2 sm:mb-3" style={{gridTemplateColumns: 'minmax(0, 1fr) auto auto'}}>
-      {/* Title - Left */}
-      <div className="flex justify-start min-w-0">
-        <h2 className="text-sm sm:text-xl lg:text-2xl font-semibold text-white truncate">
-          {project.title}
-        </h2>
-      </div>
+      {/* Modal */}
+      <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl max-w-6xl w-full max-h-[97vh] sm:max-h-[97vh] overflow-hidden border border-gray-600 shadow-2xl shadow-blue-500/20">
+        {/* Header */}
+        <div className="sticky top-0 z-50 bg-gradient-to-r from-gray-900 to-gray-800 backdrop-blur-xl border-b border-gray-700/50 shadow-sm overflow-hidden">
+          <div className="px-3 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 mx-auto max-w-7xl">
+            <div className="grid items-center gap-2 sm:gap-4 mb-2 sm:mb-3" style={{gridTemplateColumns: 'minmax(0, 1fr) auto auto'}}>
+              {/* Title - Left */}
+              <div className="flex justify-start min-w-0">
+                <h2 className="text-sm sm:text-xl lg:text-2xl font-semibold text-white truncate">
+                  {project.title}
+                </h2>
+              </div>
 
-      {/* Category - Center on desktop, right on mobile */}
-      <div className="flex justify-center flex-shrink-0 sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2">
-        <span className="inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 bg-gray-700/50 text-gray-200 text-xs sm:text-sm font-medium rounded-full border border-gray-600/30 whitespace-nowrap">
-          {project.category}
-        </span>
-      </div>
+              {/* Category - Center on desktop, right on mobile */}
+              <div className="flex justify-center flex-shrink-0 sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2">
+                <span className="inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 bg-gray-700/50 text-gray-200 text-xs sm:text-sm font-medium rounded-full border border-gray-600/30 whitespace-nowrap">
+                  {project.category}
+                </span>
+              </div>
 
-      {/* Close Button - Right */}
-      <div className="flex justify-end flex-shrink-0">
-        <svg 
-          onClick={onClose}
-          className="w-5 h-5 sm:w-7 sm:h-7 text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer"
-          fill="none" 
-          stroke="currentColor" 
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </div>
-    </div>
+              {/* Close Button - Right */}
+              <div className="flex justify-end flex-shrink-0">
+                <svg 
+                  onClick={onClose}
+                  className="w-5 h-5 sm:w-7 sm:h-7 text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer"
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </div>
+            </div>
 
-    {/* Tab Navigation - Botones del mismo ancho */}
-    <div className="flex gap-1 sm:gap-2 overflow-hidden">
-      {[
-        { id: 'overview', label: 'Overview' },
-        { id: 'demo', label: 'Demo' },
-        { id: 'technical', label: 'Technical' }
-      ].map((tab) => (
-        <button
-          key={tab.id}
-          onClick={() => setActiveTab(tab.id)}
-          className={`relative flex-1 px-3 py-1 sm:px-6 sm:py-2 text-xs sm:text-base font-medium rounded-md transition-all duration-200 whitespace-nowrap text-center ${
-            activeTab === tab.id
-              ? 'bg-gray-700 text-white border-gray-600'
-              : 'text-gray-400 hover:text-white hover:bg-gray-700/30 border-transparent hover:border-gray-600/30'
-          } border`}
-        >
-          {tab.label}
-          {activeTab === tab.id && (
-            <div className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500"></div>
-          )}
-        </button>
-      ))}
-    </div>
-  </div>
-
-    {/* Progress Bar */}
-    <div className="h-0.5 bg-gray-800 overflow-hidden">
-      <div 
-        className="h-full bg-blue-500 transition-all duration-300 ease-out will-change-transform"
-        style={{
-          width: `${((['overview', 'demo', 'technical'].indexOf(activeTab) + 1) / 3) * 100}%`,
-          transform: 'translateZ(0)'
-        }}
-      ></div>
-    </div>
-  </div>
-
-  {/* Content */}
-  <div className="overflow-y-auto max-h-[calc(100vh-180px)] sm:max-h-[calc(95vh-200px)] scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-transparent">
-    <div className="p-3 sm:p-4 lg:p-6">
-      {/* Overview Tab */}
-      {activeTab === 'overview' && (
-        <div className="space-y-4 sm:space-y-6 lg:space-y-8">
-          {/* Project Image */}
-          <div className="w-full h-48 sm:h-56 md:h-64 lg:h-80 rounded-xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-2xl">
-            <img 
-              src={project.image} 
-              alt={project.title}
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-            />
-          </div>
-
-          {/* Description */}
-          <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Descripción Detallada</h3>
-            <p className="text-slate-300 leading-relaxed text-sm sm:text-base">{project.description}</p>
-          </div>
-
-          {/* Features */}
-          <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Características Principales</h3>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 sm:gap-3">
-              {project.features.map((feature, index) => (
-                <div key={index} className="flex items-start p-3 sm:p-4 bg-slate-700/40 rounded-lg border border-slate-600/40 hover:border-blue-400/50 hover:bg-slate-700/60 transition-all duration-300 group">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300">
-                    <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <span className="text-slate-300 font-medium text-xs sm:text-sm group-hover:text-white transition-colors duration-300">{feature}</span>
-                </div>
+            {/* Tab Navigation - Botones del mismo ancho */}
+            <div className="flex gap-1 sm:gap-2 overflow-hidden">
+              {[
+                { id: 'overview', label: t('projects.modal.overview') },
+                { id: 'demo', label: t('projects.modal.demo') },
+                { id: 'technical', label: t('projects.modal.technical') }
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`relative flex-1 px-3 py-1 sm:px-6 sm:py-2 text-xs sm:text-base font-medium rounded-md transition-all duration-200 whitespace-nowrap text-center ${
+                    activeTab === tab.id
+                      ? 'bg-gray-700 text-white border-gray-600'
+                      : 'text-gray-400 hover:text-white hover:bg-gray-700/30 border-transparent hover:border-gray-600/30'
+                  } border`}
+                >
+                  {tab.label}
+                  {activeTab === tab.id && (
+                    <div className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500"></div>
+                  )}
+                </button>
               ))}
             </div>
           </div>
 
-          {/* Challenges */}
-          <div className="bg-gradient-to-br from-amber-900/30 to-orange-900/30 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-amber-500/40 shadow-xl">
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Desafíos Técnicos</h3>
-            <div className="bg-gradient-to-r from-slate-800/60 to-slate-700/60 backdrop-blur-sm p-4 sm:p-5 rounded-lg border-l-4 border-amber-400">
-              <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
-                {project.challenges}
-              </p>
-            </div>
+          {/* Progress Bar */}
+          <div className="h-0.5 bg-gray-800 overflow-hidden">
+            <div 
+              className="h-full bg-blue-500 transition-all duration-300 ease-out will-change-transform"
+              style={{
+                width: `${((['overview', 'demo', 'technical'].indexOf(activeTab) + 1) / 3) * 100}%`,
+                transform: 'translateZ(0)'
+              }}
+            ></div>
           </div>
         </div>
-      )}
-{/* Demo Tab */}
-{activeTab === 'demo' && typeof activeTab === 'string' && (
-  <div className="space-y-6 sm:space-y-8 lg:space-y-10">
-    {/* Video Demo */}
-    <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90 backdrop-blur-xl rounded-2xl p-1 border border-slate-700/50 shadow-2xl overflow-hidden">
-      {/* Decorative gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-transparent to-cyan-600/5 pointer-events-none"></div>
-      
-      <div className="relative bg-slate-900/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8">
-        <div className="flex items-center gap-3 mb-4 sm:mb-6">
-          <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-cyan-500 rounded-full"></div>
-          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
-            Demo del Proyecto
-          </h3>
-        </div>
-        
-        <div className="aspect-video rounded-xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-2xl ring-1 ring-slate-700/50 hover:ring-blue-500/30 transition-all duration-500">
-          <iframe
-            width="100%"
-            height="100%"
-            src={project.videoUrl}
-            title={`${project.title} Demo`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="w-full h-full"
-          ></iframe>
-        </div>
-      </div>
-    </div>
 
-    {/* Screenshots Gallery */}
-    <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90 backdrop-blur-xl rounded-2xl p-1 border border-slate-700/50 shadow-2xl overflow-hidden">
-      {/* Decorative gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 via-transparent to-pink-600/5 pointer-events-none"></div>
-      
-      <div className="relative bg-slate-900/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8">
-        <div className="flex items-center gap-3 mb-4 sm:mb-6">
-          <div className="w-2 h-8 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full"></div>
-          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
-            Imagenes
-          </h3>
-        </div>
-        
-        <div className="rounded-xl overflow-hidden">
-          <ImageGallery images={project.screenshots} title={project.title} />
-        </div>
-      </div>
-    </div>
+        {/* Content */}
+        <div className="overflow-y-auto max-h-[calc(100vh-180px)] sm:max-h-[calc(95vh-200px)] scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-transparent">
+          <div className="p-3 sm:p-4 lg:p-6">
+            {/* Overview Tab */}
+            {activeTab === 'overview' && (
+              <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+                {/* Project Image */}
+                <div className="w-full h-48 sm:h-56 md:h-64 lg:h-80 rounded-xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-2xl">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
 
-    {/* Live Demo Button */}
-    <div className="text-center">
-      <div className="inline-block relative">
-        {/* Glow effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl blur-xl opacity-20 scale-110"></div>
-        
-        <a
-          href={project.demoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="relative inline-flex items-center px-8 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 hover:from-blue-500 hover:via-blue-600 hover:to-cyan-500 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30 transform hover:scale-105 hover:-translate-y-1 text-base sm:text-lg border border-blue-500/30 backdrop-blur-sm"
-        >
-          <svg className="w-6 h-6 sm:w-7 sm:h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
-          <span className="relative">Ver Demo en Vivo</span>
-          
-          {/* Shimmer effect */}
-          <div className="absolute inset-0 -top-px overflow-hidden rounded-xl">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 -translate-x-full group-hover:animate-shimmer"></div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-)}
-{/* Technical Tab */}
-      {activeTab === 'technical' && (
-        <div className="space-y-6 sm:space-y-8 lg:space-y-10">
-          {/* Technologies */}
-          <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90 backdrop-blur-xl rounded-2xl p-1 border border-slate-700/50 shadow-2xl overflow-hidden">
-            {/* Decorative gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/5 via-transparent to-teal-600/5 pointer-events-none"></div>
-            
-            <div className="relative bg-slate-900/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8">
-              <div className="flex items-center gap-3 mb-4 sm:mb-6">
-                <div className="w-2 h-8 bg-gradient-to-b from-emerald-500 to-teal-500 rounded-full"></div>
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
-                  Stack Tecnológico
-                </h3>
-              </div>
-              
-              <div className="flex flex-wrap gap-3 sm:gap-4">
-                {project.technologies.map((tech, index) => (
-                  <div 
-                    key={index}
-                    className="group relative overflow-hidden"
-                  >
-                    {/* Tech badge glow */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/20 to-teal-600/20 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    
-                    <span className="relative inline-block px-4 py-2.5 bg-gradient-to-r from-slate-800/90 to-slate-700/90 backdrop-blur-sm text-slate-200 rounded-xl text-sm sm:text-base font-semibold border border-slate-600/60 hover:border-emerald-400/60 hover:text-white transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-emerald-500/10">
-                      {tech}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+                {/* Description */}
+                <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">{t('projects.modal.description')}</h3>
+                  <p className="text-slate-300 leading-relaxed text-sm sm:text-base" dangerouslySetInnerHTML={{ __html: project.description }} />
+                </div>
 
-          {/* Architecture */}
-          <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90 backdrop-blur-xl rounded-2xl p-1 border border-slate-700/50 shadow-2xl overflow-hidden">
-            {/* Decorative gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-transparent to-cyan-600/5 pointer-events-none"></div>
-            
-            <div className="relative bg-slate-900/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8">
-              <div className="flex items-center gap-3 mb-4 sm:mb-6">
-                <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-cyan-500 rounded-full"></div>
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
-                  Arquitectura del Proyecto
-                </h3>
-              </div>
-              
-              <div className="space-y-4 sm:space-y-6">
-                {project.architecture.layers.map((layer, index) => (
-                  <div 
-                    key={index} 
-                    className="group relative bg-gradient-to-r from-slate-800/60 via-slate-700/50 to-slate-800/60 backdrop-blur-sm rounded-xl p-5 sm:p-6 border border-slate-600/50 hover:border-blue-500/40 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/5 overflow-hidden"
-                  >
-                    {/* Layer card glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:from-blue-600/5 group-hover:via-blue-600/3 group-hover:to-blue-600/5 transition-all duration-300"></div>
-                    
-                    <div className="relative flex flex-col lg:flex-row lg:items-start gap-4 sm:gap-6">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-1.5 h-6 bg-gradient-to-b from-blue-400 to-cyan-400 rounded-full"></div>
-                          <h4 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                            {layer.name}
-                          </h4>
+                {/* Features */}
+                <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-slate-600/40 shadow-xl">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">{t('projects.modal.features')}</h3>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 sm:gap-3">
+                    {project.features.map((feature, index) => (
+                      <div key={index} className="flex items-start p-3 sm:p-4 bg-slate-700/40 rounded-lg border border-slate-600/40 hover:border-blue-400/50 hover:bg-slate-700/60 transition-all duration-300 group">
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300">
+                          <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
                         </div>
-                        <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                          {layer.description}
-                        </p>
+                        <span className="text-slate-300 font-medium text-xs sm:text-sm group-hover:text-white transition-colors duration-300">{feature}</span>
                       </div>
-                      
-                      <div className="flex flex-wrap gap-2 sm:gap-3 lg:max-w-xs">
-                        {layer.technologies.map((tech, techIndex) => (
-                          <span 
-                            key={techIndex}
-                            className="inline-block px-3 py-1.5 bg-gradient-to-r from-blue-600/30 to-cyan-600/30 backdrop-blur-sm text-blue-200 text-xs sm:text-sm font-medium rounded-lg border border-blue-500/40 hover:border-blue-400/60 hover:bg-gradient-to-r hover:from-blue-600/40 hover:to-cyan-600/40 hover:text-blue-100 transition-all duration-300 transform hover:scale-105"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Challenges */}
+                <div className="bg-gradient-to-br from-amber-900/30 to-orange-900/30 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-amber-500/40 shadow-xl">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">{t('projects.modal.challenges')}</h3>
+                  <div className="bg-gradient-to-r from-slate-800/60 to-slate-700/60 backdrop-blur-sm p-4 sm:p-5 rounded-lg border-l-4 border-amber-400">
+                    <p className="text-slate-300 leading-relaxed text-sm sm:text-base" dangerouslySetInnerHTML={{ __html: project.challenges }} />
+                  </div>
+                </div>
+              </div>
+            )}
+            {/* Demo Tab */}
+            {activeTab === 'demo' && typeof activeTab === 'string' && (
+              <div className="space-y-6 sm:space-y-8 lg:space-y-10">
+                {/* Video Demo */}
+                <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90 backdrop-blur-xl rounded-2xl p-1 border border-slate-700/50 shadow-2xl overflow-hidden">
+                  {/* Decorative gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-transparent to-cyan-600/5 pointer-events-none"></div>
+                  
+                  <div className="relative bg-slate-900/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8">
+                    <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                      <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-cyan-500 rounded-full"></div>
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+                        {t('projects.modal.demoTitle')}
+                      </h3>
+                    </div>
+                    
+                    <div className="aspect-video rounded-xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-2xl ring-1 ring-slate-700/50 hover:ring-blue-500/30 transition-all duration-500">
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src={project.videoUrl}
+                        title={`${project.title} Demo`}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className="w-full h-full"
+                      ></iframe>
                     </div>
                   </div>
-                ))}
+                </div>
+
+                {/* Screenshots Gallery */}
+                <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90 backdrop-blur-xl rounded-2xl p-1 border border-slate-700/50 shadow-2xl overflow-hidden">
+                  {/* Decorative gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 via-transparent to-pink-600/5 pointer-events-none"></div>
+                  
+                  <div className="relative bg-slate-900/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8">
+                    <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                      <div className="w-2 h-8 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full"></div>
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+                        {t('projects.modal.images')}
+                      </h3>
+                    </div>
+                    
+                    <div className="rounded-xl overflow-hidden">
+                      <ImageGallery images={project.screenshots} title={project.title} />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Live Demo Button */}
+                <div className="text-center">
+                  <div className="inline-block relative">
+                    {/* Glow effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl blur-xl opacity-20 scale-110"></div>
+                    
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative inline-flex items-center px-8 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 hover:from-blue-500 hover:via-blue-600 hover:to-cyan-500 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30 transform hover:scale-105 hover:-translate-y-1 text-base sm:text-lg border border-blue-500/30 backdrop-blur-sm"
+                    >
+                      <svg className="w-6 h-6 sm:w-7 sm:h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                      <span className="relative">{t('projects.modal.liveDemo')}</span>
+                      
+                      {/* Shimmer effect */}
+                      <div className="absolute inset-0 -top-px overflow-hidden rounded-xl">
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 -translate-x-full group-hover:animate-shimmer"></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )}
+            {/* Technical Tab */}
+            {activeTab === 'technical' && (
+              <div className="space-y-6 sm:space-y-8 lg:space-y-10">
+                {/* Technologies */}
+                <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90 backdrop-blur-xl rounded-2xl p-1 border border-slate-700/50 shadow-2xl overflow-hidden">
+                  {/* Decorative gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/5 via-transparent to-teal-600/5 pointer-events-none"></div>
+                  
+                  <div className="relative bg-slate-900/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8">
+                    <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                      <div className="w-2 h-8 bg-gradient-to-b from-emerald-500 to-teal-500 rounded-full"></div>
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+                        {t('projects.modal.techStack')}
+                      </h3>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-3 sm:gap-4">
+                      {project.technologies.map((tech, index) => (
+                        <div 
+                          key={index}
+                          className="group relative overflow-hidden"
+                        >
+                          {/* Tech badge glow */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/20 to-teal-600/20 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          
+                          <span className="relative inline-block px-4 py-2.5 bg-gradient-to-r from-slate-800/90 to-slate-700/90 backdrop-blur-sm text-slate-200 rounded-xl text-sm sm:text-base font-semibold border border-slate-600/60 hover:border-emerald-400/60 hover:text-white transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-emerald-500/10">
+                            {tech}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Architecture */}
+                <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90 backdrop-blur-xl rounded-2xl p-1 border border-slate-700/50 shadow-2xl overflow-hidden">
+                  {/* Decorative gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-transparent to-cyan-600/5 pointer-events-none"></div>
+                  
+                  <div className="relative bg-slate-900/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 lg:p-8">
+                    <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                      <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-cyan-500 rounded-full"></div>
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+                        {t('projects.modal.architecture')}
+                      </h3>
+                    </div>
+                    
+                    <div className="space-y-4 sm:space-y-6">
+                      {project.architecture.layers.map((layer, index) => (
+                        <div 
+                          key={index} 
+                          className="group relative bg-gradient-to-r from-slate-800/60 via-slate-700/50 to-slate-800/60 backdrop-blur-sm rounded-xl p-5 sm:p-6 border border-slate-600/50 hover:border-blue-500/40 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/5 overflow-hidden"
+                        >
+                          {/* Layer card glow effect */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:from-blue-600/5 group-hover:via-blue-600/3 group-hover:to-blue-600/5 transition-all duration-300"></div>
+                          
+                          <div className="relative flex flex-col lg:flex-row lg:items-start gap-4 sm:gap-6">
+                            <div className="flex-1">
+                              <div className="flex items-center gap-3 mb-3">
+                                <div className="w-1.5 h-6 bg-gradient-to-b from-blue-400 to-cyan-400 rounded-full"></div>
+                                <h4 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                                  {layer.name}
+                                </h4>
+                              </div>
+                              <p className="text-slate-300 text-sm sm:text-base leading-relaxed" dangerouslySetInnerHTML={{ __html: layer.description }} />
+                            </div>
+                            
+                            <div className="flex flex-wrap gap-2 sm:gap-3 lg:max-w-xs">
+                              {layer.technologies.map((tech, techIndex) => (
+                                <span 
+                                  key={techIndex}
+                                  className="inline-block px-3 py-1.5 bg-gradient-to-r from-blue-600/30 to-cyan-600/30 backdrop-blur-sm text-blue-200 text-xs sm:text-sm font-medium rounded-lg border border-blue-500/40 hover:border-blue-400/60 hover:bg-gradient-to-r hover:from-blue-600/40 hover:to-cyan-600/40 hover:text-blue-100 transition-all duration-300 transform hover:scale-105"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* GitHub Link */}
+                <div className="text-center">
+                  <div className="inline-block relative">
+                    {/* GitHub button glow effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-600 to-slate-500 rounded-xl blur-xl opacity-20 scale-110"></div>
+                    
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative inline-flex items-center px-8 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 hover:from-slate-700 hover:via-slate-600 hover:to-slate-700 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-slate-500/30 border border-slate-600/60 hover:border-slate-500/80 transform hover:scale-105 hover:-translate-y-1 text-base sm:text-lg backdrop-blur-sm group overflow-hidden"
+                    >
+                      {/* Button shimmer effect */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                      
+                      <svg className="w-5 h-5 sm:w-6 sm:h-6 mr-3 transition-transform duration-300 group-hover:rotate-12" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                      </svg>
+                      
+                      <span className="relative">{t('projects.modal.sourceCode')}</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Navigation */}
+        <div className="sticky bottom-0 bg-gradient-to-r from-slate-950/98 via-slate-900/98 to-slate-950/98 backdrop-blur-2xl border-t border-slate-700/60 shadow-2xl shadow-black/20">
+          <div className="relative overflow-hidden">
+            {/* Decorative gradient line */}
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+            
+            <div className="px-4 py-4 sm:px-6 sm:py-5 lg:py-6">
+              <div className="flex justify-between items-center mx-auto max-w-7xl">
+                
+                {/* Previous Button */}
+                <button
+                  onClick={() => navigateProject('prev')}
+                  className="group relative flex items-center justify-center text-slate-400 hover:text-white transition-all duration-300 px-4 py-3 sm:px-6 sm:py-4 min-w-[70px] sm:min-w-[140px] rounded-xl bg-slate-800/50 hover:bg-slate-700/60 border border-slate-700/50 hover:border-blue-500/40 backdrop-blur-sm overflow-hidden"
+                >
+                  {/* Button glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:from-blue-600/10 group-hover:via-blue-600/5 group-hover:to-blue-600/10 transition-all duration-300"></div>
+                  
+                  <div className="relative flex items-center gap-2 sm:gap-3">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:-translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                    <span className="hidden sm:inline text-sm sm:text-base font-semibold">{t('projects.modal.previous')}</span>
+                  </div>
+                </button>
+
+                {/* Center Dots Indicator */}
+                <div className="flex items-center gap-2 sm:gap-3 mx-4 sm:mx-8 px-4 py-2 bg-slate-800/40 backdrop-blur-sm rounded-full border border-slate-700/40">
+                  {projects.map((_, index) => (
+                    <div
+                      key={index}
+                      className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-colors duration-300 ${
+                        index === currentIndex ? 'bg-blue-500' : 'bg-slate-600'
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                {/* Next Button */}
+                <button
+                  onClick={() => navigateProject('next')}
+                  className="group relative flex items-center justify-center text-slate-400 hover:text-white transition-all duration-300 px-4 py-3 sm:px-6 sm:py-4 min-w-[70px] sm:min-w-[140px] rounded-xl bg-slate-800/50 hover:bg-slate-700/60 border border-slate-700/50 hover:border-blue-500/40 backdrop-blur-sm overflow-hidden"
+                >
+                  {/* Button glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:from-blue-600/10 group-hover:via-blue-600/5 group-hover:to-blue-600/10 transition-all duration-300"></div>
+                  
+                  <div className="relative flex items-center gap-2 sm:gap-3">
+                    <span className="hidden sm:inline text-sm sm:text-base font-semibold">{t('projects.modal.next')}</span>
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </button>
+
               </div>
             </div>
-          </div>
 
-          {/* GitHub Link */}
-          <div className="text-center">
-            <div className="inline-block relative">
-              {/* GitHub button glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-600 to-slate-500 rounded-xl blur-xl opacity-20 scale-110"></div>
-              
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative inline-flex items-center px-8 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 hover:from-slate-700 hover:via-slate-600 hover:to-slate-700 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-slate-500/30 border border-slate-600/60 hover:border-slate-500/80 transform hover:scale-105 hover:-translate-y-1 text-base sm:text-lg backdrop-blur-sm group overflow-hidden"
-              >
-                {/* Button shimmer effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                
-                <svg className="w-5 h-5 sm:w-6 sm:h-6 mr-3 transition-transform duration-300 group-hover:rotate-12" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                
-                <span className="relative">Ver Código Fuente</span>
-              </a>
-            </div>
+            {/* Bottom decorative element */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gradient-to-r from-transparent via-slate-600 to-transparent rounded-full"></div>
           </div>
         </div>
-      )}
-    </div>
-  </div>
-
- <div className="sticky bottom-0 bg-gradient-to-r from-slate-950/98 via-slate-900/98 to-slate-950/98 backdrop-blur-2xl border-t border-slate-700/60 shadow-2xl shadow-black/20">
-  <div className="relative overflow-hidden">
-    {/* Decorative gradient line */}
-    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
-    
-    <div className="px-4 py-4 sm:px-6 sm:py-5 lg:py-6">
-      <div className="flex justify-between items-center mx-auto max-w-7xl">
-        
-        {/* Previous Button */}
-        <button
-          onClick={() => navigateProject('prev')}
-          className="group relative flex items-center justify-center text-slate-400 hover:text-white transition-all duration-300 px-4 py-3 sm:px-6 sm:py-4 min-w-[70px] sm:min-w-[140px] rounded-xl bg-slate-800/50 hover:bg-slate-700/60 border border-slate-700/50 hover:border-blue-500/40 backdrop-blur-sm overflow-hidden"
-        >
-          {/* Button glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:from-blue-600/10 group-hover:via-blue-600/5 group-hover:to-blue-600/10 transition-all duration-300"></div>
-          
-          <div className="relative flex items-center gap-2 sm:gap-3">
-            <svg className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:-translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            <span className="hidden sm:inline text-sm sm:text-base font-semibold">Previous</span>
-          </div>
-        </button>
-
-        {/* Center Dots Indicator */}
-        <div className="flex items-center gap-2 sm:gap-3 mx-4 sm:mx-8 px-4 py-2 bg-slate-800/40 backdrop-blur-sm rounded-full border border-slate-700/40">
-          {projects.map((_, index) => (
-            <div
-              key={index}
-              className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-colors duration-300 ${
-                index === currentIndex ? 'bg-blue-500' : 'bg-slate-600'
-              }`}
-            />
-          ))}
-        </div>
-
-        {/* Next Button */}
-        <button
-          onClick={() => navigateProject('next')}
-          className="group relative flex items-center justify-center text-slate-400 hover:text-white transition-all duration-300 px-4 py-3 sm:px-6 sm:py-4 min-w-[70px] sm:min-w-[140px] rounded-xl bg-slate-800/50 hover:bg-slate-700/60 border border-slate-700/50 hover:border-blue-500/40 backdrop-blur-sm overflow-hidden"
-        >
-          {/* Button glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:from-blue-600/10 group-hover:via-blue-600/5 group-hover:to-blue-600/10 transition-all duration-300"></div>
-          
-          <div className="relative flex items-center gap-2 sm:gap-3">
-            <span className="hidden sm:inline text-sm sm:text-base font-semibold">Next</span>
-            <svg className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </div>
-        </button>
-
       </div>
-    </div>
-
-    {/* Bottom decorative element */}
-    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gradient-to-r from-transparent via-slate-600 to-transparent rounded-full"></div>
-  </div>
-</div>
-</div>
     </div>
   );
 };
@@ -968,6 +833,7 @@ const ProjectModal = ({ project, isOpen, onClose, projects, onNavigate }) => {
 ProjectModal.propTypes = {
   project: PropTypes.shape({
     id: PropTypes.number.isRequired,
+    slug: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     shortDescription: PropTypes.string.isRequired,
@@ -976,6 +842,8 @@ ProjectModal.propTypes = {
     demoUrl: PropTypes.string.isRequired,
     githubUrl: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
     technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
     features: PropTypes.arrayOf(PropTypes.string).isRequired,
     challenges: PropTypes.string.isRequired,
@@ -995,6 +863,7 @@ ProjectModal.propTypes = {
 };
 
 export function Projects() {
+  const { t } = useTranslation();
   const { visibleElements, setElementRef } = useIntersectionObserver();
   const [scrollY, setScrollY] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
@@ -1006,6 +875,27 @@ export function Projects() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const projects = baseProjects.map(base => ({
+    ...base,
+    title: t(`projects.${base.slug}.title`),
+    date: t(`projects.${base.slug}.date`),
+    status: t(`projects.${base.slug}.status`),
+    description: t(`projects.${base.slug}.description`),
+    shortDescription: t(`projects.${base.slug}.shortDescription`),
+    technologies: t(`projects.${base.slug}.technologies`, { returnObjects: true }),
+    features: t(`projects.${base.slug}.features`, { returnObjects: true }),
+    challenges: t(`projects.${base.slug}.challenges`),
+    githubUrl: t(`projects.${base.slug}.githubUrl`),
+    category: t(`projects.${base.slug}.category`),
+    architecture: {
+      ...base.architecture,
+      layers: base.architecture.layers.map(layer => ({
+        ...layer,
+        description: t(`projects.${base.slug}.architecture.layers.${layer.name.replace(/\s/g, '').toLowerCase()}.description`)
+      }))
+    }
+  }));
 
   const handleSeeMore = (project) => {
     setSelectedProject(project);
@@ -1046,7 +936,7 @@ export function Projects() {
     }
   };
 
-return (
+  return (
     <main className="min-h-screen overflow-x-hidden">
       {/* Conditionally render Header based on isModalOpen */}
       {!isModalOpen && <Header />}
@@ -1059,13 +949,13 @@ return (
         }}
       >
         <h1 className="gradient-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 animate-fade-in">
-          Projects
+          {t('projects.title')}
         </h1>
         <p 
           className="text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto opacity-0 animate-fade-in-up mb-0"
           style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}
         >
-          Explora mi colección de proyectos que demuestran mis habilidades en desarrollo web y de software
+          {t('projects.subtitle')}
         </p>
       </section>
 
@@ -1088,8 +978,6 @@ return (
                 <div className="absolute inset-0 overflow-hidden">
                   <Meteors />
                 </div>
-
-
 
                 {/* Card Content */}
                 <div className="relative z-10 p-6 h-full flex flex-col">
@@ -1125,9 +1013,9 @@ return (
                         <span className="capitalize">{project.category}</span>
                         <span className="text-gray-500">•</span>
                         <span className={`px-2 py-1 rounded text-xs font-medium ${
-                          project.status === 'Completado' ? 'bg-green-500/20 text-green-300' :
-                          project.status === 'En Proceso' ? 'bg-yellow-500/20 text-yellow-300' :
-                          project.status === 'Pausado' ? 'bg-orange-500/20 text-orange-300' :
+                          project.status === t('projects.status.completed') ? 'bg-green-500/20 text-green-300' :
+                          project.status === t('projects.status.inProgress') ? 'bg-yellow-500/20 text-yellow-300' :
+                          project.status === t('projects.status.paused') ? 'bg-orange-500/20 text-orange-300' :
                           'bg-gray-500/20 text-gray-300'
                         }`}>
                           {project.status}
@@ -1141,7 +1029,7 @@ return (
                         onClick={() => handleSeeMore(project)}
                         className="flex-1 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 transform hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98]"
                       >
-                        Ver Más
+                        {t('projects.seeMore')}
                       </button>
                       
                       <a
@@ -1150,7 +1038,7 @@ return (
                         rel="noopener noreferrer"
                         className="flex-1 px-4 py-2.5 bg-transparent border-2 border-blue-500 hover:bg-blue-500 text-blue-300 hover:text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 transform hover:scale-[1.02] hover:-translate-y-0.5 text-center active:scale-[0.98]"
                       >
-                        Demo
+                        {t('projects.demo')}
                       </a>
                     </div>
                   </div>

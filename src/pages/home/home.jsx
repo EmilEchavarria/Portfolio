@@ -1,9 +1,9 @@
-// src/pages/home/Home.jsx
 import { useEffect, useState } from 'react';
 import Header from '../../components/layout/header/header';
 import './home.css';
 import photo from '../../assets/images/description/photo.avif';
 import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "../../components/LanguageSwitcher"; // 👈 SOLO aquí
 
 export function Home() {
   const { t } = useTranslation(); // Hook para traducciones
@@ -63,7 +63,10 @@ export function Home() {
   return (
     <main id="home-container">
       <Header />
-      
+
+      {/* Botón de idioma SOLO en Home */}
+      <LanguageSwitcher />
+
       <section id="description-container">
         <div id="img-container">
           <img 

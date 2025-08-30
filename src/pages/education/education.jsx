@@ -2,10 +2,11 @@ import "./education.css";
 import Header from '../../components/layout/header/header';
 import { Marquee } from "../../components/ui/marquee";
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-//CERTIFICATES IMAGES
+// CERTIFICATES IMAGES
 import intofront from "../../assets/images/certificates/intofront.png";
 import angularitla from "../../assets/images/certificates/angularitla.png";
 import cssdepth from "../../assets/images/certificates/cssdepth.png";
@@ -15,6 +16,8 @@ import reactmeta from "../../assets/images/certificates/reactmeta.png";
 import csharpbasicitla from "../../assets/images/certificates/csharpbasicitla.png";
 
 export function Education() {
+    const { t } = useTranslation();
+
     useEffect(() => {
         AOS.init({
             duration: 800,
@@ -36,14 +39,14 @@ export function Education() {
               data-aos="fade-up"
               data-aos-delay="100"
             >
-              Education
+              {t('education.title')}
             </h1>
             <h2 
               className="text-xl sm:text-2xl text-gray-300 font-light"
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              Academic Background & Professional Development
+              {t('education.subtitle')}
             </h2>
           </div>
         </section>
@@ -87,18 +90,18 @@ export function Education() {
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-3">
                             <span className="px-3 py-1 text-xs font-semibold text-blue-400 bg-blue-400/10 rounded-full border border-blue-400/20">
-                              Graduation: 2026
+                              {t('education.items.softwareDevelopmentTechnologist.graduation')}
                             </span>
                             <div className="flex items-center gap-1">
                               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                              <span className="text-xs text-green-400 font-medium">In Progress</span>
+                              <span className="text-xs text-green-400 font-medium">{t('education.items.softwareDevelopmentTechnologist.status')}</span>
                             </div>
                           </div>
                           <h3 className="text-2xl font-bold text-white mb-2 leading-tight">
-                            Software Development Technologist
+                            {t('education.items.softwareDevelopmentTechnologist.title')}
                           </h3>
                           <p className="text-blue-400 font-semibold mb-4">
-                            ITLA (Instituto Tecnológico de las Américas)
+                            {t('education.items.softwareDevelopmentTechnologist.provider')}
                           </p>
                         </div>
                         <div className="flex-shrink-0">
@@ -109,9 +112,7 @@ export function Education() {
                           </div>
                         </div>
                       </div>
-                      <p className="text-gray-300 leading-relaxed">
-                        Comprehensive training in all stages of software development, with a strong practical approach to technical tasks. Proficient in applying modern knowledge, techniques, skills, and tools of the discipline for technological engineering activities.
-                      </p>
+                      <p className="text-gray-300 leading-relaxed" dangerouslySetInnerHTML={{ __html: t('education.items.softwareDevelopmentTechnologist.description') }} />
                     </div>
                   </div>
                 </div>
@@ -143,18 +144,18 @@ export function Education() {
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-3">
                             <span className="px-3 py-1 text-xs font-semibold text-purple-400 bg-purple-400/10 rounded-full border border-purple-400/20">
-                              Completion: 2026
+                              {t('education.items.metaFrontendDeveloper.completion')}
                             </span>
                             <div className="flex items-center gap-1">
                               <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                              <span className="text-xs text-yellow-400 font-medium">In Progress</span>
+                              <span className="text-xs text-yellow-400 font-medium">{t('education.items.metaFrontendDeveloper.status')}</span>
                             </div>
                           </div>
                           <h3 className="text-2xl font-bold text-white mb-2 leading-tight">
-                            Meta Front-End Developer Professional Certificate
+                            {t('education.items.metaFrontendDeveloper.title')}
                           </h3>
                           <p className="text-purple-400 font-semibold mb-4">
-                            Meta (Facebook)
+                            {t('education.items.metaFrontendDeveloper.provider')}
                           </p>
                         </div>
                         <div className="flex-shrink-0">
@@ -165,9 +166,7 @@ export function Education() {
                           </div>
                         </div>
                       </div>
-                      <p className="text-gray-300 leading-relaxed">
-                        Comprehensive training in front-end development, covering HTML, CSS, JavaScript, React.js, and responsive design. Developed practical skills through hands-on projects, culminating in a capstone project that showcases proficiency in building dynamic and responsive web applications.
-                      </p>
+                      <p className="text-gray-300 leading-relaxed" dangerouslySetInnerHTML={{ __html: t('education.items.metaFrontendDeveloper.description') }} />
                     </div>
                   </div>
                 </div>
@@ -198,18 +197,18 @@ export function Education() {
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-3">
                             <span className="px-3 py-1 text-xs font-semibold text-pink-400 bg-pink-400/10 rounded-full border border-pink-400/20">
-                              2022 - 2024
+                              {t('education.items.englishCourse.date')}
                             </span>
                             <div className="flex items-center gap-1">
                               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                              <span className="text-xs text-green-400 font-medium">Completed</span>
+                              <span className="text-xs text-green-400 font-medium">{t('education.items.englishCourse.status')}</span>
                             </div>
                           </div>
                           <h3 className="text-2xl font-bold text-white mb-2 leading-tight">
-                            Extracurricular English Course
+                            {t('education.items.englishCourse.title')}
                           </h3>
                           <p className="text-pink-400 font-semibold mb-4">
-                            UASD (Universidad Autónoma de Santo Domingo)
+                            {t('education.items.englishCourse.provider')}
                           </p>
                         </div>
                         <div className="flex-shrink-0">
@@ -220,9 +219,7 @@ export function Education() {
                           </div>
                         </div>
                       </div>
-                      <p className="text-gray-300 leading-relaxed">
-                        An extracurricular English course designed to improve English language skills, including listening comprehension, reading, writing, and speaking. Structured in progressive levels over 2 years, providing advanced command of the language for professional and academic contexts.
-                      </p>
+                      <p className="text-gray-300 leading-relaxed" dangerouslySetInnerHTML={{ __html: t('education.items.englishCourse.description') }} />
                     </div>
                   </div>
                 </div>
@@ -240,21 +237,21 @@ export function Education() {
                 data-aos="fade-up"
                 data-aos-delay="100"
               >
-                Professional Certifications
+                {t('education.certifications.title')}
               </h2>
               <p 
                 className="text-xl text-gray-400 max-w-2xl mx-auto"
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
-                Industry-recognized certifications that validate my technical expertise
+                {t('education.certifications.subtitle')}
               </p>
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {[
                 { 
-                  title: "Introduction to Front-End Development", 
+                  titleKey: "introductionFrontend", 
                   provider: "Meta", 
                   year: "2024", 
                   icon: (
@@ -265,7 +262,7 @@ export function Education() {
                   color: "from-blue-500 to-cyan-500" 
                 },
                 { 
-                  title: "CSS in Depth", 
+                  titleKey: "cssInDepth", 
                   provider: "Meta", 
                   year: "2024", 
                   icon: (
@@ -276,7 +273,7 @@ export function Education() {
                   color: "from-purple-500 to-pink-500" 
                 },
                 { 
-                  title: "Programming with JavaScript", 
+                  titleKey: "programmingJavaScript", 
                   provider: "Meta", 
                   year: "2024", 
                   icon: (
@@ -287,7 +284,7 @@ export function Education() {
                   color: "from-yellow-500 to-orange-500" 
                 },
                 { 
-                  title: "Version Control with Git", 
+                  titleKey: "versionControlGit", 
                   provider: "Meta", 
                   year: "2024", 
                   icon: (
@@ -299,7 +296,7 @@ export function Education() {
                   color: "from-green-500 to-teal-500" 
                 },
                 { 
-                  title: "Front-End Development with Angular", 
+                  titleKey: "frontendAngular", 
                   provider: "ITLA", 
                   year: "2024", 
                   icon: (
@@ -311,7 +308,7 @@ export function Education() {
                   color: "from-red-500 to-pink-500" 
                 },
                 { 
-                  title: "Backend Development with C# .Net", 
+                  titleKey: "backendCsharp", 
                   provider: "ITLA", 
                   year: "2025", 
                   icon: (
@@ -322,7 +319,7 @@ export function Education() {
                   color: "from-indigo-500 to-purple-500" 
                 },
                 { 
-                  title: "Front-End Development with React", 
+                  titleKey: "frontendReact", 
                   provider: "Meta", 
                   year: "2025", 
                   icon: (
@@ -333,7 +330,7 @@ export function Education() {
                   color: "from-cyan-500 to-blue-500" 
                 },
                 { 
-                  title: "UX/UI Design", 
+                  titleKey: "uxuiDesign", 
                   provider: "ITLA", 
                   year: "2025", 
                   icon: (
@@ -366,13 +363,13 @@ export function Education() {
                     
                     {/* Certificate Title */}
                     <h3 className="text-lg font-bold text-white mb-3 leading-tight group-hover:text-gray-100 transition-colors">
-                      {cert.title}
+                      {t(`education.certifications.items.${cert.titleKey}.title`)}
                     </h3>
                     
                     {/* Completion Year */}
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-gray-400">
-                        Completed in {cert.year}
+                        {t('education.certifications.completed', { year: cert.year })}
                       </span>
                       <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                     </div>
@@ -390,14 +387,14 @@ export function Education() {
               className="text-3xl sm:text-4xl font-bold text-white mb-4"
               data-aos="fade-up"
             >
-              Certificate Gallery
+              {t('education.certificateGallery.title')}
             </h2>
             <p 
               className="text-xl text-gray-400"
               data-aos="fade-up"
               data-aos-delay="100"
             >
-              Visual showcase of my achievements
+              {t('education.certificateGallery.subtitle')}
             </p>
           </div>
           
@@ -410,13 +407,13 @@ export function Education() {
                 style={{ "--duration": "25s" }}
               >
               {[
-                { img: intofront, title: "Introduction to Front-End Development" },
-                { img: cssdepth, title: "HTML and CSS in Depth" },
-                { img: javascript, title: "Programming with JavaScript" },
-                { img: versioncontrol, title: "Version Control" },
-                { img: angularitla, title: "Front-End Development with Angular" },
-                { img: reactmeta, title: "Front-End Development with React" },
-                { img: csharpbasicitla, title: "Backend Development with C# .Net" }
+                { img: intofront, titleKey: "introductionFrontend" },
+                { img: cssdepth, titleKey: "cssInDepth" },
+                { img: javascript, titleKey: "programmingJavaScript" },
+                { img: versioncontrol, titleKey: "versionControlGit" },
+                { img: angularitla, titleKey: "frontendAngular" },
+                { img: reactmeta, titleKey: "frontendReact" },
+                { img: csharpbasicitla, titleKey: "backendCsharp" }
               ].map((cert, index) => (
                 <div 
                   key={index}
@@ -425,13 +422,13 @@ export function Education() {
                   <div className="relative h-full">
                     <img
                       src={cert.img}
-                      alt={cert.title}
+                      alt={t(`education.certificateGallery.items.${cert.titleKey}.alt`)}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                       <h3 className="text-white font-semibold text-sm leading-tight opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        {cert.title}
+                        {t(`education.certificateGallery.items.${cert.titleKey}.title`)}
                       </h3>
                     </div>
                   </div>
@@ -452,7 +449,7 @@ export function Education() {
               data-aos-delay="300"
             >
               <span className="relative z-10 flex items-center space-x-2">
-                <span>View All Certificates</span>
+                <span>{t('education.cta')}</span>
                 <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
