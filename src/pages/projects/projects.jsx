@@ -7,12 +7,6 @@ import { Meteors } from "../../components/ui/meteors";
 
 import jtag from "../../assets/images/projects/jtag.png";
 import autogleam from "../../assets/images/projects/autogleam.png";
-import portfoliobasic from "../../assets/images/projects/portfoliobasic.png";
-import stockify from "../../assets/images/projects/stockify.png";
-import electronic from "../../assets/images/projects/electronic.png";
-import enrollmentsystem from "../../assets/images/projects/enrollmentsystem.png";
-import professionalcv from "../../assets/images/projects/professionalcv.png";
-import agrogestor from "../../assets/images/projects/agrogestor.png";
 
 // DASHBITE IMAGES 
 import dashbite from "../../assets/images/projects/dashbite/dashbite.png";
@@ -28,6 +22,41 @@ import commercedb from "../../assets/images/projects/dashbite/commerce.png";
 import cartdb from "../../assets/images/projects/dashbite/cart.png";
 import addressesdb from "../../assets/images/projects/dashbite/addresses.png";
 
+// AGROGESTOR IMAGES 
+import agrogestor from "../../assets/images/projects/agrogestor/agrogestor.png";
+import aboutag from "../../assets/images/projects/agrogestor/about.png";
+import addcag from "../../assets/images/projects/agrogestor/addc.png";
+import csvag from "../../assets/images/projects/agrogestor/csv.png";
+import cultivosag from "../../assets/images/projects/agrogestor/cultivos.png";
+import funcionalidadesag from "../../assets/images/projects/agrogestor/funcionalidades.png";
+import userdashboardag from "../../assets/images/projects/agrogestor/userdashboard.png";
+
+
+
+// Stockify IMAGES
+import stockify from "../../assets/images/projects/stockify/stockify.png";
+import activest from "../../assets/images/projects/stockify/active.png";
+import clientesst from "../../assets/images/projects/stockify/clientes.png";
+import deletest from "../../assets/images/projects/stockify/delete.png";
+import invoicest from "../../assets/images/projects/stockify/invoice.png";
+import modifyst from "../../assets/images/projects/stockify/modify.png";
+import ordersst from "../../assets/images/projects/stockify/orders.png";
+import productsst from "../../assets/images/projects/stockify/products.png";
+import reportst from "../../assets/images/projects/stockify/report.png";
+
+
+
+// AUTOGLEAM IMAGES
+import homeag from "../../assets/images/projects/autogleam/home.png";
+import home2ag from "../../assets/images/projects/autogleam/home2.png";
+import carritoag from "../../assets/images/projects/autogleam/carrito.png";
+import loginag from "../../assets/images/projects/autogleam/login.png";
+import mapag from "../../assets/images/projects/autogleam/map.png";
+import perfilag from "../../assets/images/projects/autogleam/perfil.png";
+import selectsag from "../../assets/images/projects/autogleam/selects.png";
+import serviciosag from "../../assets/images/projects/autogleam/servicios.png";
+import soporteag from "../../assets/images/projects/autogleam/soporte.png";
+
 
 
 // J TAG EVENTS IMAGES 
@@ -39,10 +68,21 @@ import galjtagevents from "../../assets/images/projects/jtagevents/gallery.png";
 import pantajtagevents from "../../assets/images/projects/jtagevents/pantallas.png";
 import productjtagevents from "../../assets/images/projects/jtagevents/productos.png";
 
+
+// electronicorganizer
+import inserteo from "../../assets/images/projects/electronicorganizer/insert.png";
+import activateeo from "../../assets/images/projects/electronicorganizer/activate.png";
+import deleteeo from "../../assets/images/projects/electronicorganizer/delete.png";
+import searcheo from "../../assets/images/projects/electronicorganizer/search.png";
+import updateeo from "../../assets/images/projects/electronicorganizer/update.png";
+
+
 const projects = [
   {
     id: 1,
     title: "DashBite",
+    date: "Ago 2025",
+    status: "Completado",
     description: "DashBite es una plataforma fullstack diseñada para optimizar pedidos en línea y la gestión de operaciones para clientes, negocios, repartidores y administradores. Integra módulos completos que incluyen inicio de sesión y registro, gestión de perfiles, catálogos de productos, pedidos, direcciones, favoritos y paneles administrativos con reportes detallados. La plataforma está diseñada para mejorar la eficiencia del flujo de trabajo, ofreciendo una experiencia de usuario fluida y accesible, con un enfoque en la optimización de procesos operativos.",
     shortDescription: "Plataforma fullstack para pedidos en línea y gestión, integrando módulos para clientes, negocios, repartidores y administradores.",
     image: dashbite,
@@ -57,9 +97,9 @@ const projects = [
       "Interfaz optimizada para múltiples tipos de usuarios"
     ],
     challenges: "Implementación de un sistema escalable para manejar múltiples tipos de usuarios y sincronización en tiempo real de pedidos.",
-    githubUrl: "https://github.com/EmilEchavarria/DashBite",
+    githubUrl: "Privado (solicitar acceso)",
     category: "Web Application",
-    screenshots: [logindb,homedb,profiledb,favoritesdb,productlistdb,productlistbdb,cartdb,pedidosdb,orderdb,addressesdb,commercedb,dashbite,],
+    screenshots: [logindb, homedb, profiledb, favoritesdb, productlistdb, productlistbdb, cartdb, pedidosdb, orderdb, addressesdb, commercedb, dashbite],
     architecture: {
       layers: [
         {
@@ -80,7 +120,7 @@ const projects = [
         {
           name: "Despliegue - Railway",
           description: "Infraestructura de despliegue continuo con Railway, optimización automática y escalabilidad para alto tráfico.",
-          technologies: ["Railway", "CI/CD", "Docker"]
+          technologies: ["Railway", "CI/CD"]
         }
       ]
     }
@@ -88,10 +128,12 @@ const projects = [
   {
     id: 2,
     title: "AgroGestor",
-    description: "AgroGestor es una plataforma digital completa diseñada para revolucionar la gestión agrícola moderna. Esta aplicación web permite a los agricultores y empresas del sector agroindustrial optimizar sus procesos productivos mediante el control en tiempo real de cultivos, recursos y datos críticos. La plataforma integra tecnologías IoT para el monitoreo continuo de condiciones ambientales, niveles de humedad del suelo, temperatura y otros parámetros vitales. Con un dashboard intuitivo y herramientas de análisis predictivo, AgroGestor facilita la toma de decisiones informadas, mejora la eficiencia de los recursos y maximiza los rendimientos de los cultivos. Ofrece planes de membresía escalables y notificaciones en tiempo real, con un enfoque en seguridad, accesibilidad y una experiencia de usuario intuitiva.",
+    date: "jun 2025",
+    status: "En Proceso",
+    description: "AgroGestor es una plataforma digital completa diseñada para revolucionar la gestión agrícola moderna. Esta aplicación web permite a los agricultores y empresas del sector agroindustrial optimizar sus procesos productivos mediante el control en tiempo real de cultivos, recursos y datos críticos. La plataforma integrará tecnologías IoT para el monitoreo continuo de condiciones ambientales, niveles de humedad del suelo, temperatura y otros parámetros vitales. Con un dashboard intuitivo y herramientas de análisis predictivo, AgroGestor facilita la toma de decisiones informadas, mejora la eficiencia de los recursos y maximiza los rendimientos de los cultivos. Además, permite exportar los cultivos en un archivo CSV según los filtros aplicados dentro de la aplicación. Ofrece planes de membresía escalables y notificaciones en tiempo real, con un enfoque en seguridad, accesibilidad y una experiencia de usuario intuitiva.",
     shortDescription: "Aplicación fullstack para la gestión agrícola con un panel central que automatiza tareas, ventas y reportes.",
     image: agrogestor,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ23",
     demoUrl: "https://agrogestor.vercel.app",
     technologies: ["Express.js", "Next.js", "Tailwind CSS", "MySQL", "Railway", "React", "Node.js", "MongoDB", "Socket.io"],
     features: [
@@ -104,7 +146,7 @@ const projects = [
     challenges: "Integración de sensores IoT para monitoreo agrícola en tiempo real y optimización de la gestión de recursos.",
     githubUrl: "https://github.com/tu-usuario/agrogestor",
     category: "Web Application",
-    screenshots: [agrogestor, autogleam, jtag, enrollmentsystem],
+    screenshots: [agrogestor, aboutag, funcionalidadesag, userdashboardag, cultivosag, addcag, csvag],
     architecture: {
       layers: [
         {
@@ -119,7 +161,7 @@ const projects = [
         },
         {
           name: "Base de Datos - MongoDB & MySQL",
-          description: "MongoDB para datos de sensores en tiempo real con índices temporales y MySQL for datos relacionales optimizados.",
+          description: "MongoDB para datos de sensores en tiempo real con índices temporales y MySQL para datos relacionales optimizados.",
           technologies: ["MongoDB", "Mongoose", "MySQL", "Sequelize"]
         },
         {
@@ -130,145 +172,189 @@ const projects = [
         {
           name: "Despliegue - Railway",
           description: "Despliegue continuo con Railway, optimización automática y escalabilidad para alto tráfico.",
-          technologies: ["Railway", "CI/CD", "Docker"]
+          technologies: ["Railway", "CI/CD"]
         }
       ]
     }
   },
+ {
+  id: 3,
+  title: "Stockify",
+  date: "May 2025",
+  status: "Completado",
+  description: "Stockify es una aplicación de escritorio desarrollada en C# con Windows Forms para la gestión de inventario y ventas, diseñada pensando en pequeñas y medianas empresas. Utilizando MySQL como base de datos, permite administrar clientes, productos y ventas de manera organizada y eficiente. La aplicación ofrece una interfaz intuitiva que facilita la navegación y el manejo de la información, ayudando a optimizar los procesos internos y a mantener un control claro sobre las operaciones diarias. Stockify está estructurada con programación en capas, lo que asegura un diseño limpio y modular, facilitando el mantenimiento y la escalabilidad.",
+  shortDescription: "Aplicación de escritorio en C# y Windows Forms para gestión de inventario y ventas, con base de datos MySQL y programación en capas.",
+  image: stockify,
+  videoUrl: "https://www.youtube.com/embed/WXJS0o0uN-4",
+  demoUrl: "https://github.com/EmilEchavarria/Stockify",
+  technologies: ["C#", ".NET Framework", "Windows Forms", "MySQL", "Entity Framework"],
+  features: [
+    "Administración de clientes, productos y ventas",
+    "Interfaz intuitiva y fácil de usar",
+    "Programación en capas para un diseño modular",
+    "Validaciones de datos y manejo de errores",
+    "Gestión de información de manera organizada"
+  ],
+  challenges: "Mantener un diseño modular en capas y optimizar la interacción entre la interfaz, la lógica de negocio y la base de datos.",
+  githubUrl: "https://github.com/EmilEchavarria/Stockify",
+  category: "Desktop Application",
+  screenshots: [stockify, activest, clientesst, deletest, invoicest, modifyst, ordersst, productsst, reportst],
+  architecture: {
+    layers: [
+      {
+        name: "Presentación - Windows Forms",
+        description: "Interfaz de usuario nativa con Windows Forms, controles personalizados y manejo de eventos para una experiencia desktop fluida.",
+        technologies: ["Windows Forms", "C# UI", "Custom Controls"]
+      },
+      {
+        name: "Lógica de Negocio - C# Classes",
+        description: "Capa de lógica empresarial con clases C# para manejo de inventario, ventas y validaciones de negocio.",
+        technologies: ["C#", "Business Logic", "Data Validation"]
+      },
+      {
+        name: "Acceso a Datos - Entity Framework",
+        description: "Mapeo objeto-relacional con Entity Framework para manejo eficiente de datos y transacciones.",
+        technologies: ["Entity Framework", "LINQ", "Code First"]
+      },
+      {
+        name: "Base de Datos - MySQL",
+        description: "Base de datos relacional con MySQL, optimizada para consultas frecuentes y almacenamiento de información empresarial.",
+        technologies: ["MySQL", "Indexes", "Stored Procedures"]
+      }
+    ]
+  }
+},
+
+
   {
-    id: 3,
-    title: "Stockify",
-    description: "Stockify es una potente aplicación de escritorio desarrollada en C# con Windows Forms que revoluciona la gestión empresarial a través de un sistema integral de inventario, ventas y facturación. Esta solución empresarial robusta ha sido diseñada para satisfacer las necesidades de pequeñas y medianas empresas que requieren un control preciso y eficiente de sus operaciones comerciales. La aplicación utiliza MySQL como motor de base de datos, garantizando la integridad y seguridad de los datos empresariales críticos. Stockify ofrece un módulo completo de gestión de inventario que permite el seguimiento en tiempo real de productos, control de stock mínimo con alertas automáticas, gestión de proveedores y categorización avanzada de productos. El sistema de ventas integrado facilita la creación rápida de facturas, aplicación de descuentos, cálculo automático de impuestos y generación de reportes de ventas detallados en PDF.",
-    shortDescription: "Aplicación de escritorio en C# y Windows Forms para gestión de inventario, ventas y facturación. Usa MySQL y genera reportes en PDF.",
-    image: stockify,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    demoUrl: "https://github.com/EmilEchavarria/Stockify",
-    technologies: ["C#", ".NET Framework", "Windows Forms", "MySQL", "Entity Framework", "Crystal Reports"],
-    features: [
-      "Gestión completa de inventario",
-      "Sistema de ventas y facturación",
-      "Reportes detallados en PDF",
-      "Control de usuarios y permisos",
-      "Backup automático de datos"
-    ],
-    challenges: "Optimización de consultas de base de datos para manejar grandes volúmenes de productos y transacciones.",
-    githubUrl: "https://github.com/EmilEchavarria/Stockify",
-    category: "Desktop Application",
-    screenshots: [stockify, electronic, portfoliobasic, agrogestor],
-    architecture: {
-      layers: [
-        {
-          name: "Presentación - Windows Forms",
-          description: "Interfaz de usuario nativa con Windows Forms, controles personalizados y manejo de eventos para una experiencia desktop fluida.",
-          technologies: ["Windows Forms", "C# UI", "Custom Controls"]
-        },
-        {
-          name: "Lógica de Negocio - C# Classes",
-          description: "Capa de lógica empresarial con clases C# para manejo de inventario, cálculos de ventas y validaciones de negocio.",
-          technologies: ["C#", "Business Logic", "Data Validation"]
-        },
-        {
-          name: "Acceso a Datos - Entity Framework",
-          description: "Mapeo objeto-relacional con Entity Framework para operaciones CRUD optimizadas y manejo de transacciones.",
-          technologies: ["Entity Framework", "LINQ", "Code First"]
-        },
-        {
-          name: "Base de Datos - MySQL",
-          description: "Base de datos relacional con MySQL, procedimientos almacenados y índices optimizados para consultas empresariales.",
-          technologies: ["MySQL", "Stored Procedures", "Indexes"]
-        }
-      ]
-    }
-  },
+  id: 4,
+  title: "Portafolio Personal",
+  date: "Sep 2025",
+  status: "Completado",
+  description: "Mi portafolio personal es una aplicación web que refleja mi experiencia y habilidades como desarrollador. Diseñado con un enfoque moderno y responsivo, permite explorar mis proyectos, experiencia académica, certificaciones y contacto de manera clara e interactiva. Cada sección está cuidadosamente organizada para brindar una experiencia de usuario intuitiva, mostrando mis competencias en frontend, diseño UI/UX y desarrollo web integral.",
+  shortDescription: "Portafolio web personal para mostrar proyectos, experiencia y habilidades de desarrollo. Diseño moderno y responsivo, centrado en la experiencia del usuario.",
+  image: jtag, // reemplaza con la variable de tu imagen principal
+  videoUrl: "https://www.youtube.com/embed/tuVideo", // opcional si tienes un video demo
+  demoUrl: "https://tu-portafolio.vercel.app",
+  technologies: ["React", "Next.js", "Tailwind CSS", "JavaScript", "Framer Motion"],
+  features: [
+    "Exploración interactiva de proyectos y experiencia",
+    "Secciones de educación, certificaciones y contacto",
+    "Diseño responsive y moderno",
+    "Animaciones y transiciones suaves",
+    "Optimizado para experiencia de usuario y rendimiento"
+  ],
+  challenges: "Diseñar una arquitectura modular y escalable que permita agregar nuevos proyectos y secciones fácilmente, manteniendo un diseño limpio y coherente.",
+  githubUrl: "https://github.com/EmilEchavarria/Portafolio",
+  category: "Web Application",
+  screenshots: [jtag, jtag, jtag, jtag], // reemplaza con tus imágenes
+  architecture: {
+    layers: [
+      {
+        name: "Frontend - React & Next.js",
+        description: "Interfaz moderna con componentes reutilizables, navegación fluida y manejo de estados optimizado para rendimiento.",
+        technologies: ["React", "Next.js", "JavaScript", "Tailwind CSS", "Framer Motion"]
+      },
+      {
+        name: "UI/UX - Diseño y Animaciones",
+        description: "Diseño centrado en la experiencia de usuario, con animaciones suaves y secciones visualmente atractivas.",
+        technologies: ["Tailwind CSS", "Framer Motion", "Responsive Design"]
+      }
+    ]
+  }
+},
+
+{
+  id: 5,
+  title: "Electronic Organizer",
+  date: "mar 2025",
+  status: "Completado",
+  description: "Electronic Organizer es una aplicación de escritorio desarrollada en C# .NET Framework con Windows Forms. Su arquitectura de cuatro capas permite un manejo organizado y modular de la información, mientras que MySQL asegura almacenamiento seguro y eficiente de los datos.",
+  shortDescription: "Aplicación de escritorio en C# para organizar información personal, con CRUD completo y arquitectura de 4 capas usando MySQL.",
+  image: inserteo, // reemplaza con tu variable de imagen
+  videoUrl: "https://www.youtube.com/embed/U5-bJuLRD1A", // opcional si no hay demo
+  demoUrl: "https://github.com/EmilEchavarria/Electronic-Organizer", // opcional si no hay demo online
+  technologies: ["C#", ".NET Framework", "Windows Forms", "MySQL", "MySQL Connector/NET", "4-Layer Architecture"],
+  features: [
+    "CRUD completo: Insertar, modificar, buscar y eliminar registros",
+    "Interfaz intuitiva con Windows Forms",
+    "Base de datos MySQL segura y eficiente",
+    "Arquitectura en 4 capas: Presentation, Business, Data, Entity",
+    "Optimización de conexiones a MySQL"
+  ],
+  challenges: "Implementar una arquitectura modular en C# manteniendo eficiencia en la comunicación con la base de datos.",
+  githubUrl: "https://github.com/EmilEchavarria/Electronic-Organizer",
+  category: "Desktop Application",
+  screenshots: [inserteo, activateeo, deleteeo, searcheo, updateeo], // reemplaza con tus imágenes
+  architecture: {
+    layers: [
+      {
+        name: "Presentation Layer - Windows Forms",
+        description: "Interfaz de usuario nativa con controles de Windows Forms y manejo de eventos.",
+        technologies: ["Windows Forms", "C# UI", "Custom Controls"]
+      },
+      {
+        name: "Business Layer - C# Classes",
+        description: "Capa de lógica de negocio que gestiona las operaciones CRUD y reglas de negocio.",
+        technologies: ["C#", "Business Logic", "Data Validation"]
+      },
+      {
+        name: "Data Layer - MySQL",
+        description: "Capa de acceso a datos mediante MySQL Connector/NET, ejecutando consultas optimizadas.",
+        technologies: ["MySQL", "ADO.NET", "Stored Procedures"]
+      },
+      {
+        name: "Entity Layer",
+        description: "Definición de entidades que representan la información de la agenda y facilitan la manipulación de datos.",
+        technologies: ["C# Classes", "Entities"]
+      }
+    ]
+  }
+}
+,{
+  id: 6,
+  title: "Auto Gleam",
+  date: "Sep 2024",
+  status: "Completado",
+  description: "Auto Gleam es una aplicación web tipo SPA (Single Page Application) desarrollada en Angular, diseñada para facilitar la gestión de servicios de lavado de autos. La plataforma se enfoca en la experiencia del usuario, ofreciendo interfaces intuitivas y responsive. Los clientes pueden explorar los servicios disponibles, programar citas y consultar información relevante. La aplicación es completamente frontend, con un diseño modular que permite una administración visual organizada de la información.",
+  shortDescription: "Aplicación web SPA en Angular enfocada en la experiencia de usuario para gestión de servicios de lavado de autos. Aplicación completamente frontend.",
+  image: autogleam,
+  videoUrl: "https://www.youtube.com/embed/gLVkWuUVvzQ",
+  demoUrl: "https://autogleam.vercel.app",
+  technologies: ["Angular", "TypeScript", "Material Design", "RxJS"],
+  features: [
+    "Interfaz intuitiva y responsive",
+    "Exploración de servicios de lavado",
+    "Programación visual de citas",
+    "Diseño modular y componentes reutilizables",
+    "Optimizado para experiencia de usuario"
+  ],
+  challenges: "Diseñar una aplicación SPA completamente frontend, manteniendo consistencia visual y una experiencia de usuario fluida.",
+  githubUrl: "https://github.com/EmilEchavarria/AutoGleam",
+  category: "SPA Application",
+  screenshots: [loginag, homeag, home2ag, mapag, carritoag, perfilag, selectsag, serviciosag, soporteag],
+  architecture: {
+    layers: [
+      {
+        name: "Frontend - Angular SPA",
+        description: "Aplicación de una sola página con componentes modulares, routing avanzado y manejo reactivo de estados usando RxJS. Toda la lógica y simulación de datos se maneja en frontend.",
+        technologies: ["Angular", "TypeScript", "RxJS", "Material Design"]
+      },
+      {
+        name: "Simulación de autenticación y roles",
+        description: "Gestión de usuarios y roles mediante lógica frontend, simulando funcionalidades administrativas y de cliente.",
+        technologies: ["Angular Guards", "Services", "Local Storage"]
+      }
+    ]
+  }
+}
+,
   {
-    id: 4,
-    title: "Auto Gleam",
-    description: "Auto Gleam es una aplicación web tipo SPA (Single Page Application) desarrollada en Angular que transforma completamente la experiencia de gestión de servicios de lavado de autos. Esta plataforma moderna ofrece un sistema integral que combina tecnología avanzada con diseño centrado en el usuario para proporcionar una solución completa tanto para clientes como para administradores. La aplicación cuenta con un robusto sistema de autenticación basado en roles que garantiza la seguridad y personalización de la experiencia según el tipo de usuario. Los clientes pueden programar citas de manera intuitiva, seleccionar servicios específicos y realizar seguimiento en tiempo real del estado de sus vehículos. Los administradores tienen acceso a un dashboard completo con métricas detalladas, gestión de empleados, control de inventario y herramientas de análisis de rendimiento. El sistema también incluye funcionalidades avanzadas como notificaciones push, integración con sistemas de pago, generación automática de facturas y reportes personalizables que facilitan la toma de decisiones estratégicas.",
-    shortDescription: "Aplicación web tipo SPA desarrollada en Angular para gestión de servicios de lavado de autos. Incluye autenticación por roles, citas, reportes y diseño centrado en la experiencia del usuario.",
-    image: autogleam,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    demoUrl: "https://autogleam.vercel.app",
-    technologies: ["Angular", "TypeScript", "Firebase", "Material Design", "RxJS"],
-    features: [
-      "Sistema de autenticación por roles",
-      "Gestión de citas en tiempo real",
-      "Dashboard administrativo",
-      "Generación de reportes PDF",
-      "Interfaz responsive y moderna"
-    ],
-    challenges: "Implementación de sistema de reservas en tiempo real con sincronización automática y manejo de estados complejos.",
-    githubUrl: "https://github.com/tu-usuario/autogleam",
-    category: "SPA Application",
-    screenshots: [autogleam, jtag, stockify, enrollmentsystem],
-    architecture: {
-      layers: [
-        {
-          name: "Frontend - Angular SPA",
-          description: "Aplicación de una sola página con componentes modulares, routing avanzado y manejo reactivo de estados usando RxJS.",
-          technologies: ["Angular", "TypeScript", "RxJS"]
-        },
-        {
-          name: "Autenticación - Firebase Auth",
-          description: "Sistema de autenticación robusto con roles de usuario, recuperación de contraseñas y autenticación social integrada.",
-          technologies: ["Firebase Auth", "JWT", "Guards"]
-        },
-        {
-          name: "Base de Datos - Firestore",
-          description: "Base de datos en tiempo real con sincronización automática, consultas optimizadas y reglas de seguridad granulares.",
-          technologies: ["Firestore", "Firebase Rules", "Indexes"]
-        }
-      ]
-    }
-  },
-  {
-    id: 5,
-    title: "Enrollment System",
-    description: "El Sistema de Inscripción Estudiantil es una aplicación web innovadora desarrollada con tecnologías front-end fundamentales que digitaliza y optimiza completamente el proceso de matrícula académica. Este sistema inteligente permite a los estudiantes gestionar su inscripción de manera autónoma y eficiente, eliminando las largas filas y procesos burocráticos tradicionales. La plataforma cuenta con un formulario de registro exhaustivo que captura todos los datos personales y académicos necesarios, implementando validaciones en tiempo real para garantizar la integridad de la información. Una de sus características más destacadas es el sistema inteligente de selección de materias que incluye verificación automática de prerrequisitos, detección de conflictos de horarios y sugerencias de horarios alternativos. El sistema utiliza algoritmos sofisticados para validar la disponibilidad de cupos y prevenir solapamientos de horarios, proporcionando retroalimentación inmediata al estudiante. Al finalizar el proceso de inscripción, la aplicación genera automáticamente un resumen completo en formato PDF que incluye toda la información del estudiante, las materias seleccionadas, horarios detallados y costos asociados. La interfaz incluye también un sistema de ayuda interactivo con tutoriales paso a paso y preguntas frecuentes.",
-    shortDescription: "Sistema de inscripción web en HTML, CSS y JavaScript. Permite registrar datos personales, seleccionar materias con horarios y generar un resumen exportable en PDF. Incluye sección de ayuda interactiva.",
-    image: enrollmentsystem,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    demoUrl: "https://student-enrollment-system-six.vercel.app",
-    technologies: ["HTML5", "CSS3", "JavaScript", "jsPDF", "LocalStorage"],
-    features: [
-      "Registro de datos estudiantiles",
-      "Selección de materias con horarios",
-      "Validación de conflictos horarios",
-      "Generación de PDF automática",
-      "Sistema de ayuda interactivo"
-    ],
-    challenges: "Implementar lógica compleja de validación de horarios y conflictos usando solo JavaScript vanilla.",
-    githubUrl: "https://github.com/tu-usuario/enrollment-system",
-    category: "Web Application",
-    screenshots: [enrollmentsystem, professionalcv, jtag, stockify],
-    architecture: {
-      layers: [
-        {
-          name: "Frontend - HTML5 Semántico",
-          description: "Estructura de formularios multi-paso con HTML5 semántico, validación nativa y accessibility features integradas.",
-          technologies: ["HTML5", "Semantic HTML", "Form Validation"]
-        },
-        {
-          name: "Lógica de Validación - JavaScript",
-          description: "Algoritmos de validación de horarios, detección de conflictos y cálculo de prerrequisitos implementados en JavaScript puro.",
-          technologies: ["JavaScript", "Algorithms", "DOM Manipulation"]
-        },
-        {
-          name: "Generación de PDF - jsPDF",
-          description: "Sistema de generación de documentos PDF con jsPDF, incluyendo formateo automático y diseño profesional de reportes.",
-          technologies: ["jsPDF", "PDF Generation", "Document Design"]
-        },
-        {
-          name: "Almacenamiento - LocalStorage",
-          description: "Persistencia de datos del formulario usando LocalStorage para mantener el progreso del usuario entre sesiones.",
-          technologies: ["LocalStorage", "Data Persistence", "Session Management"]
-        }
-      ]
-    }
-  },
-  {
-    id: 6,
+    id: 7,
     title: "J Tag Events",
-    description: "J Tag Events es un sitio web corporativo elegante y funcional desarrollado específicamente para una empresa líder en organización de eventos. Este proyecto representa una solución web completa construida con tecnologías fundamentales como HTML5, CSS3 y JavaScript vanilla, demostrando que es posible crear experiencias digitales impactantes sin depender de frameworks complejos. El sitio web presenta un catálogo interactivo y visualmente atractivo de todos los servicios ofrecidos por la empresa, desde eventos corporativos hasta celebraciones privadas. Cada sección del sitio ha sido cuidadosamente diseñada para destacar la profesionalidad y creatividad de la empresa, incluyendo una galería dinámica que muestra eventos realizados con efectos de transición suaves y un sistema de filtrado por categorías. La plataforma también incorpora un formulario de contacto completamente funcional con validación en tiempo real, sistema de cotizaciones automáticas y integración con redes sociales. El diseño responsive garantiza una experiencia óptima en todos los dispositivos, mientras que las animaciones y efectos visuales cuidadosamente implementados crean una navegación fluida y engaging.",
+    date: "Dic 2024",
+    status: "Completado",
+    description: "J Tag Events es un sitio web corporativo elegante y funcional desarrollado específicamente para una empresa líder en organización de eventos. Este proyecto representa una solución web completa construida con tecnologías fundamentales como HTML5, CSS3 y JavaScript vanilla, demostrando que es posible crear experiencias digitales impactantes sin depender de frameworks complejos. El sitio web presenta un catálogo interactivo y visualmente atractivo de todos los servicios ofrecidos por la empresa, desde eventos corporativos hasta celebraciones privadas. Cada sección del sitio ha sido cuidadosamente diseñada para destacar la profesionalidad y creatividad de la empresa, incluyendo una galería dinámica que muestra eventos realizados con efectos de transición suaves y un sistema de filtrado por categorías. La plataforma también incorpora un formulario de contacto completamente funcional con validación en tiempo real, sistema de cotizaciones Automáticas e integración con redes sociales. El diseño responsive garantiza una experiencia óptima en todos los dispositivos, mientras que las animaciones y efectos visuales cuidadosamente implementados crean una navegación fluida y engaging.",
     shortDescription: "Sitio web desarrollado con HTML, CSS y JavaScript para una empresa de eventos. Incluye catálogo de servicios, secciones informativas y diseño responsive.",
     image: jtag,
     videoUrl: "https://www.youtube.com/embed/b60qi57gUHU",
@@ -282,9 +368,9 @@ const projects = [
       "Animaciones y efectos visuales"
     ],
     challenges: "Crear una experiencia visual impactante usando solo tecnologías vanilla con animaciones fluidas.",
-    githubUrl: "https://github.com/tu-usuario/jtag-events",
+    githubUrl: "https://github.com/EmilEchavarria/J_Tag_Events",
     category: "Website",
-    screenshots: [jtag, aboutjtagevents, carcjtagevents, catajtagevents,espjtagevents,galjtagevents,pantajtagevents,productjtagevents],
+    screenshots: [jtag, aboutjtagevents, carcjtagevents, catajtagevents, espjtagevents, galjtagevents, pantajtagevents, productjtagevents],
     architecture: {
       layers: [
         {
@@ -304,47 +390,8 @@ const projects = [
         }
       ]
     }
-  },
-  {
-    id: 7,
-    title: "Professional CV",
-    description: "El Generador de CV Profesional es una herramienta web innovadora que democratiza la creación de currículums de alta calidad, eliminando las barreras técnicas y de diseño que tradicionalmente limitaban a los usuarios. Esta aplicación sofisticada, desarrollada completamente con tecnologías web fundamentales, permite a cualquier persona crear currículums visualmente impactantes y profesionalmente estructurados sin necesidad de conocimientos de diseño gráfico. La plataforma ofrece una biblioteca diversa de plantillas profesionales, cada una cuidadosamente diseñada para diferentes industrias y niveles de experiencia, desde recién graduados hasta ejecutivos senior. El sistema inteligente de generación de contenido guía a los usuarios a través de un proceso paso a paso, proporcionando sugerencias contextuales, ejemplos de contenido y mejores prácticas para cada sección del currículum. La función de previsualización en tiempo real permite a los usuarios ver instantáneamente cómo se verá su currículum mientras ingresan la información, facilitando ajustes y mejoras continuas. Una vez completado, el sistema utiliza tecnologías avanzadas de renderizado para generar archivos PDF de calidad editorial que mantienen el formato perfecto en cualquier dispositivo o plataforma de impresión.",
-    shortDescription: "Generador de CV interactivo en HTML, CSS y JavaScript. El usuario ingresa sus datos y obtiene un currículum dinámico renderizado en la misma página.",
-    image: professionalcv,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    demoUrl: "https://student-enrollment-system-six.vercel.app",
-    technologies: ["HTML5", "CSS3", "JavaScript", "jsPDF", "Canvas API"],
-    features: [
-      "Generación dinámica de CV",
-      "Múltiples plantillas disponibles",
-      "Previsualización en tiempo real",
-      "Exportación a PDF de alta calidad",
-      "Interfaz intuitiva y moderna"
-    ],
-    challenges: "Crear un sistema de plantillas flexible que genere PDFs de calidad profesional.",
-    githubUrl: "https://github.com/tu-usuario/professional-cv",
-    category: "Web Tool",
-    screenshots: [professionalcv, stockify, jtag, enrollmentsystem],
-    architecture: {
-      layers: [
-        {
-          name: "Template Engine - JavaScript",
-          description: "Motor de plantillas dinámico que renderiza CVs en tiempo real usando JavaScript y manipulación del DOM.",
-          technologies: ["JavaScript", "Template Literals", "DOM API"]
-        },
-        {
-          name: "PDF Generation - jsPDF & Canvas",
-          description: "Generación de PDFs vectoriales usando jsPDF combinado con Canvas API para renderizado preciso de elementos visuales.",
-          technologies: ["jsPDF", "Canvas API", "Vector Graphics"]
-        },
-        {
-          name: "Layout System - CSS Grid",
-          description: "Sistema de layout flexible con CSS Grid y Flexbox para crear diseños profesionales responsive y print-ready.",
-          technologies: ["CSS Grid", "Flexbox", "Print Styles"]
-        }
-      ]
-    }
   }
+
 ];
 
 // Hook personalizado para detectar elementos en viewport
@@ -999,7 +1046,7 @@ export function Projects() {
     }
   };
 
-  return (
+return (
     <main className="min-h-screen overflow-x-hidden">
       {/* Conditionally render Header based on isModalOpen */}
       {!isModalOpen && <Header />}
@@ -1042,6 +1089,8 @@ export function Projects() {
                   <Meteors />
                 </div>
 
+
+
                 {/* Card Content */}
                 <div className="relative z-10 p-6 h-full flex flex-col">
                   {/* Project Image */}
@@ -1060,9 +1109,31 @@ export function Projects() {
                       {project.title}
                     </h2>
                     
-                    <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 flex-grow line-clamp-4 group-hover:text-gray-200 transition-colors duration-300">
+                    <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-4 flex-grow line-clamp-3 group-hover:text-gray-200 transition-colors duration-300">
                       {project.shortDescription}
                     </p>
+
+                    {/* Project Meta Info */}
+                    <div className="flex items-center justify-between mb-4 text-xs text-gray-400">
+                      <span className="flex items-center">
+                        <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                        </svg>
+                        {project.date}
+                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="capitalize">{project.category}</span>
+                        <span className="text-gray-500">•</span>
+                        <span className={`px-2 py-1 rounded text-xs font-medium ${
+                          project.status === 'Completado' ? 'bg-green-500/20 text-green-300' :
+                          project.status === 'En Proceso' ? 'bg-yellow-500/20 text-yellow-300' :
+                          project.status === 'Pausado' ? 'bg-orange-500/20 text-orange-300' :
+                          'bg-gray-500/20 text-gray-300'
+                        }`}>
+                          {project.status}
+                        </span>
+                      </div>
+                    </div>
 
                     {/* Buttons */}
                     <div className="flex flex-col sm:flex-row gap-3 mt-auto">
@@ -1070,7 +1141,7 @@ export function Projects() {
                         onClick={() => handleSeeMore(project)}
                         className="flex-1 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 transform hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98]"
                       >
-                        See More
+                        Ver Más
                       </button>
                       
                       <a
@@ -1133,6 +1204,13 @@ export function Projects() {
 
         .animate-fade-in-up {
           animation: fade-in-up 1s ease-out forwards;
+        }
+
+        .line-clamp-3 {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
         }
 
         .line-clamp-4 {
