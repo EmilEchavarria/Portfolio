@@ -392,5 +392,33 @@
       }
     },
     "cta": "Explore My Projects"
-  }
+  },
+  "contact": {
+      "title": "Contact Me",
+      "subtitle": "Feel free to reach out to me using the form below",
+      "form": {
+        "firstName": "First Name",
+        "firstNamePlaceholder": "Your First Name",
+        "lastName": "Last Name",
+        "lastNamePlaceholder": "Your Last Name",
+        "email": "Your Email",
+        "emailPlaceholder": "Your Email Address",
+        "phone": "Phone",
+        "phonePlaceholder": "Your Phone Number",
+        "message": "Your Message",
+        "messagePlaceholder": "Write your message here...",
+        "submitButton": "Send Message"
+      },
+      "alerts": {
+        "success": {
+          "title": "Message Sent",
+          "text": "Thank you for contacting me. I'll get back to you soon."
+        },
+        "error": {
+          "title": "Error",
+          "text": "Something went wrong. Please try again."
+        },
+        "confirmButton": "OK"
+      }
+    }
 }

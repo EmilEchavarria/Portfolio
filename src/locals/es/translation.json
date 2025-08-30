@@ -392,5 +392,33 @@
       }
     },
     "cta": "Explora Mis Proyectos"
+  },
+  "contact": {
+      "title": "Contáctame",
+      "subtitle": "No dudes en contactarme usando el formulario a continuación",
+      "form": {
+        "firstName": "Nombre",
+        "firstNamePlaceholder": "Tu Nombre",
+        "lastName": "Apellido",
+        "lastNamePlaceholder": "Tu Apellido",
+        "email": "Tu Email",
+        "emailPlaceholder": "Tu Dirección de Email",
+        "phone": "Teléfono",
+        "phonePlaceholder": "Tu Número de Teléfono",
+        "message": "Tu Mensaje",
+        "messagePlaceholder": "Escribe tu mensaje aquí...",
+        "submitButton": "Enviar Mensaje"
+      },
+      "alerts": {
+        "success": {
+          "title": "Mensaje Enviado",
+          "text": "Gracias por contactarme. Te responderé pronto."
+        },
+        "error": {
+          "title": "Error",
+          "text": "Algo salió mal. Por favor intenta de nuevo."
+        },
+        "confirmButton": "Aceptar"
+    }
   }
 }
