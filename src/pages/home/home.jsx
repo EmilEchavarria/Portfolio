@@ -3,9 +3,42 @@ import Header from '../../components/layout/header/header';
 import './home.css';
 import photo from '../../assets/images/description/photo.avif';
 
+// Objeto de traducciones
+const translations = {
+  es: {
+    role: 'Desarrollador de Software',
+    description: '👨‍💻 Soy Desarrollador Full Stack Junior con experiencia en proyectos académicos, personales y freelance, creando soluciones completas desde UX/UI y frontend hasta backend y bases de datos. Destaco por mi proactividad y aprendizaje continuo. 🚀',
+    githubLabel: 'Visita el perfil de GitHub de Emil',
+    linkedinLabel: 'Visita el perfil de LinkedIn de Emil',
+    instagramLabel: 'Visita el perfil de Instagram de Emil',
+    resumeLabel: 'Descarga el currículum de Emil',
+    photoAlt: 'Emil Echavarría - Desarrollador de Software',
+    translateBtn: 'English'
+  },
+  en: {
+    role: 'Software Developer',
+    description: '👨‍💻 I am a Junior Full Stack Developer with experience in academic, personal and freelance projects, creating complete solutions from UX/UI and frontend to backend and databases. I stand out for my proactivity and continuous learning. 🚀',
+    githubLabel: 'Visit Emil\'s GitHub profile',
+    linkedinLabel: 'Visit Emil\'s LinkedIn profile',
+    instagramLabel: 'Visit Emil\'s Instagram profile',
+    resumeLabel: 'Download Emil\'s resume',
+    photoAlt: 'Emil Echavarría - Software Developer',
+    translateBtn: 'Español'
+  }
+};
+
 export function Home() {
   const [displayedText, setDisplayedText] = useState('');
+  const [language, setLanguage] = useState('es'); // Estado para el idioma
   const fullName = 'Emil Echavarría';
+
+  // Función para cambiar idioma
+  const toggleLanguage = () => {
+    setLanguage(prevLang => prevLang === 'es' ? 'en' : 'es');
+  };
+
+  // Obtener traducciones actuales
+  const t = translations[language];
 
   useEffect(() => {
     // Add class to container and control overflow
@@ -29,6 +62,8 @@ export function Home() {
   useEffect(() => {
     // Typewriter animation
     let currentIndex = 0;
+    setDisplayedText(''); // Reset text when language changes
+    
     const typewriterInterval = setInterval(() => {
       if (currentIndex < fullName.length) {
         setDisplayedText(fullName.slice(0, currentIndex + 1));
@@ -41,7 +76,7 @@ export function Home() {
     return () => {
       clearInterval(typewriterInterval);
     };
-  }, []);
+  }, [language]); // Re-run animation when language changes
 
   // SVG Components
   const GitHubIcon = () => (
@@ -92,15 +127,37 @@ export function Home() {
     </svg>
   );
 
+  const TranslateIcon = () => (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="md:w-4 md:h-4"
+    >
+      <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
+    </svg>
+  );
+
   return (
     <main id="home-container">
       <Header />
+      
+      {/* Botón de traducción */}
+      <button 
+        className="fixed top-5 right-5 z-50 flex items-center gap-2 px-4 py-2.5 bg-white/10 backdrop-blur-lg border border-white/20 rounded-full text-white text-sm font-medium cursor-pointer transition-all duration-300 shadow-lg hover:bg-white/20 hover:border-white/30 hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0 md:top-4 md:right-4 md:px-3 md:py-2 md:text-xs"
+        onClick={toggleLanguage}
+        aria-label={`Change language to ${language === 'es' ? 'English' : 'Español'}`}
+      >
+        <TranslateIcon />
+        <span>{t.translateBtn}</span>
+      </button>
       
       <section id="description-container">
         <div id="img-container">
           <img 
             src={photo} 
-            alt="Emil Echavarría - Desarrollador de Software" 
+            alt={t.photoAlt}
             loading="eager"
           />
         </div>
@@ -114,19 +171,15 @@ export function Home() {
             </h1>
           </div>
  
-          <h2>Desarrollador de Software</h2>
-          <p>
-          👨‍💻 Soy Desarrollador Full Stack Junior con experiencia en proyectos académicos, personales y freelance, c
-          reando soluciones completas desde UX/UI y frontend hasta backend y bases de datos. 
-          Destaco por mi proactividad y aprendizaje continuo. 🚀
-          </p>
+          <h2>{t.role}</h2>
+          <p>{t.description}</p>
           
           <div className="social-icons">
             <a 
               href="https://github.com/EmilEchavarria" 
               target="_blank" 
               rel="noopener noreferrer"
-              aria-label="Visita el perfil de GitHub de Emil"
+              aria-label={t.githubLabel}
             >
               <GitHubIcon />
             </a>
@@ -134,7 +187,7 @@ export function Home() {
               href="https://www.linkedin.com/in/emil-echavarria/" 
               target="_blank" 
               rel="noopener noreferrer"
-              aria-label="Visita el perfil de LinkedIn de Emil"
+              aria-label={t.linkedinLabel}
             >
               <LinkedInIcon />
             </a>
@@ -142,7 +195,7 @@ export function Home() {
               href="https://www.instagram.com/emilechavarria.c/" 
               target="_blank" 
               rel="noopener noreferrer"
-              aria-label="Visita el perfil de Instagram de Emil"
+              aria-label={t.instagramLabel}
             >
               <InstagramIcon />
             </a>
@@ -150,7 +203,7 @@ export function Home() {
               href="https://drive.google.com/file/d/1PpY9Z5nwEbdY3ZHszZQEnXIa3OF75xTS/view?usp=drive_link"  
               target="_blank" 
               rel="noopener noreferrer"
-              aria-label="Descarga el currículum de Emil"
+              aria-label={t.resumeLabel}
             >
               <ResumeIcon />
             </a>

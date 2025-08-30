@@ -319,7 +319,7 @@ const projects = [
   description: "Auto Gleam es una aplicación web tipo SPA (Single Page Application) desarrollada en Angular, diseñada para facilitar la gestión de servicios de lavado de autos. La plataforma se enfoca en la experiencia del usuario, ofreciendo interfaces intuitivas y responsive. Los clientes pueden explorar los servicios disponibles, programar citas y consultar información relevante. La aplicación es completamente frontend, con un diseño modular que permite una administración visual organizada de la información.",
   shortDescription: "Aplicación web SPA en Angular enfocada en la experiencia de usuario para gestión de servicios de lavado de autos. Aplicación completamente frontend.",
   image: autogleam,
-  videoUrl: "https://www.youtube.com/embed/gLVkWuUVvzQ",
+  videoUrl: "https://www.youtube.com/embed/3S0wD9UPabc",
   demoUrl: "https://autogleam.vercel.app",
   technologies: ["Angular", "TypeScript", "Material Design", "RxJS"],
   features: [
